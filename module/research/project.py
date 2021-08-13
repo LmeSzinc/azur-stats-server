@@ -380,17 +380,55 @@ class ResearchProject:
         parts = name.split('-')
         if len(parts) == 3:
             prefix, number, suffix = parts
-            number = number.replace('D', '0').replace('O', '0').replace('S', '5')
+
             prefix = prefix.strip('I1')
+            # U-063-DC => D-063-DC
+            if prefix == 'U':
+                prefix = 'D'
+            # LT-249-MI => T-249-MI
+            prefix = prefix.replace('LT', 'T')
+            # G-185-MI, D-T85-MI => C-185-MI
+            if (prefix == 'G' and number == '185') or (prefix == 'D' and number == 'T85'):
+                prefix, number = 'C', '185'
+
+            number = number.replace('D', '0').replace('O', '0').replace('S', '5')
+            # ID-675-U => ID-075-U
+            if number in ['675', '672', '663']:
+                number = f'0{number[1:]}'
+
             # S3 D-022-MI (S3-Drake-0.5) detected as 'D-022-ML', because of Drake's white cloth.
-            suffix = suffix.replace('ML', 'MI').replace('MIL', 'MI')
+            suffix = suffix.replace('ML', 'MI').replace('M1', 'MI').replace('MIL', 'MI')
+            # D-075-UL1 => D-075-UL1
+            if len(suffix) >= 2:
+                suffix = suffix.rstrip('0123456789')
             # S4 D-063-UL (S4-hakuryu-0.5) detected as 'D-063-0C'
-            suffix = suffix.replace('0C', 'UL').replace('UC', 'UL')
+            suffix = suffix.replace('0C', 'UL').replace('UC', 'UL').replace('DC', 'UL')
+            # ID-675-U => ID-675-UL
+            if suffix == 'U':
+                suffix = 'UL'
+
             return '-'.join([prefix, number, suffix])
         elif len(parts) == 2:
-            # Trying to insert '-', for results like H339-MI
+            # D-0632D => D-063-UL
+            if parts[1] == '0632D':
+                return self.check_name(f'{parts[0]}-063-UL')
+            # ID-672B => D-075-UL
+            if parts[1] == '672B':
+                return self.check_name(f'{parts[0]}-075-UL')
+            # 316-MI => 315-MI
+            if name == '316-MI':
+                name = '315-MI'
+            # 315-MI => E-315-MI
+            if name in ['315-MI', '157-MI']:
+                return self.check_name(f'E-{name}')
+            # Trying to insert '-', H339-MI => H-339-MI
             if name[0].isalpha() and name[1].isdigit():
                 return self.check_name(f'{name[0]}-{name[1:]}')
+            # Trying to insert '-', ID-063UC => ID-063-UC
+            if len(name) > 3:
+                for index in range(len(name) - 1, 0, -1):
+                    if name[index].isalpha() and name[index - 1].isdigit():
+                        return self.check_name(f'{name[:index]}-{name[index:]}')
         return name
 
     def get_data(self, name, series):
