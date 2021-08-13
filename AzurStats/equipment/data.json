@@ -1,0 +1,5259 @@
+{
+  "Quadruple_130mm_Mle_1932_Secondary_Gun_Mount_T0": {
+    "name": "Quadruple_130mm_Mle_1932_Secondary_Gun_Mount_T0",
+    "cn": "四联装130mm副炮Mle1932T0",
+    "en": "Quadruple 130mm Mle 1932 Secondary Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/82/7320.png"
+  },
+  "Single_100mm_Type_88_Naval_Gun_Mount_T0": {
+    "name": "Single_100mm_Type_88_Naval_Gun_Mount_T0",
+    "cn": "100mm88式火炮T0",
+    "en": "Single 100mm Type 88 Naval Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/07/31060.png"
+  },
+  "Single_102mm_Secondary_Gun_Mount_T1": {
+    "name": "Single_102mm_Secondary_Gun_Mount_T1",
+    "cn": "单装102mm副炮T1",
+    "en": "Single 102mm Secondary Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9e/21000.png/128px-21000.png"
+  },
+  "Single_102mm_Secondary_Gun_Mount_T2": {
+    "name": "Single_102mm_Secondary_Gun_Mount_T2",
+    "cn": "单装102mm副炮T2",
+    "en": "Single 102mm Secondary Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9e/21000.png/128px-21000.png"
+  },
+  "Single_102mm_Secondary_Gun_Mount_T3": {
+    "name": "Single_102mm_Secondary_Gun_Mount_T3",
+    "cn": "单装102mm副炮T3",
+    "en": "Single 102mm Secondary Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9e/21000.png/128px-21000.png"
+  },
+  "Single_120mm_High_Angle_Gun_Mount_T0": {
+    "name": "Single_120mm_High_Angle_Gun_Mount_T0",
+    "cn": "120mm单装高角炮T0",
+    "en": "Single 120mm High-Angle Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/4/47/31180.png"
+  },
+  "Single_120mm_11th_Year_Type_Naval_Gun_Mount_T0": {
+    "name": "Single_120mm_11th_Year_Type_Naval_Gun_Mount_T0",
+    "cn": "十一年式120mm单装炮T0",
+    "en": "Single 120mm 11th Year Type Naval Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e2/31160.png"
+  },
+  "Single_120mm_QF_Mark_IX_Naval_Gun_T1": {
+    "name": "Single_120mm_QF_Mark_IX_Naval_Gun_T1",
+    "cn": "120mm单装炮(皇家)T1",
+    "en": "Single 120mm QF Mark IX Naval Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3f/21300.png/128px-21300.png"
+  },
+  "Single_120mm_QF_Mark_IX_Naval_Gun_T2": {
+    "name": "Single_120mm_QF_Mark_IX_Naval_Gun_T2",
+    "cn": "120mm单装炮(皇家)T2",
+    "en": "Single 120mm QF Mark IX Naval Gun T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3f/21300.png/128px-21300.png"
+  },
+  "Single_120mm_QF_Mark_IX_Naval_Gun_T3": {
+    "name": "Single_120mm_QF_Mark_IX_Naval_Gun_T3",
+    "cn": "120mm单装炮(皇家)T3",
+    "en": "Single 120mm QF Mark IX Naval Gun T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3f/21300.png/128px-21300.png"
+  },
+  "Single_120mm_Type_3_Naval_Gun_T1": {
+    "name": "Single_120mm_Type_3_Naval_Gun_T1",
+    "cn": "120mm单装炮(重樱)T2",
+    "en": "Single 120mm Type 3 Naval Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/53/31100.png/128px-31100.png"
+  },
+  "Single_120mm_Type_3_Naval_Gun_T2": {
+    "name": "Single_120mm_Type_3_Naval_Gun_T2",
+    "cn": "120mm单装炮(重樱)T2",
+    "en": "Single 120mm Type 3 Naval Gun T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/53/31100.png/128px-31100.png"
+  },
+  "Single_120mm_Type_3_Naval_Gun_T3": {
+    "name": "Single_120mm_Type_3_Naval_Gun_T3",
+    "cn": "120mm单装炮(重樱)T3",
+    "en": "Single 120mm Type 3 Naval Gun T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/53/31100.png/128px-31100.png"
+  },
+  "Early_Model_Single_127mm_Gun_T0": {
+    "name": "Early_Model_Single_127mm_Gun_T0",
+    "cn": "127mm单装炮早期型T0",
+    "en": "Early Model Single 127mm Gun T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/7/7f/11060.png"
+  },
+  "Single_127mm_Main_Gun_Iron_T1": {
+    "name": "Single_127mm_Main_Gun_Iron_T1",
+    "cn": "127mm单装炮(铁血)T1",
+    "en": "Single 127mm Main Gun (Iron) T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/33/41000.png/128px-41000.png"
+  },
+  "Single_127mm_Main_Gun_Iron_T2": {
+    "name": "Single_127mm_Main_Gun_Iron_T2",
+    "cn": "127mm单装炮(铁血)T2",
+    "en": "Single 127mm Main Gun (Iron) T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/33/41000.png/128px-41000.png"
+  },
+  "Single_127mm_Main_Gun_Iron_T3": {
+    "name": "Single_127mm_Main_Gun_Iron_T3",
+    "cn": "127mm单装炮(铁血)T3",
+    "en": "Single 127mm Main Gun (Iron) T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/33/41000.png/128px-41000.png"
+  },
+  "Single_127mm_Main_Gun_Eagle_T1": {
+    "name": "Single_127mm_Main_Gun_Eagle_T1",
+    "cn": "127mm单装炮(白鹰)T1",
+    "en": "Single 127mm Main Gun (Eagle) T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/cd/11100.png/128px-11100.png"
+  },
+  "Single_127mm_Main_Gun_Eagle_T2": {
+    "name": "Single_127mm_Main_Gun_Eagle_T2",
+    "cn": "127mm单装炮(白鹰)T2",
+    "en": "Single 127mm Main Gun (Eagle) T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/cd/11100.png/128px-11100.png"
+  },
+  "Single_127mm_Main_Gun_Eagle_T3": {
+    "name": "Single_127mm_Main_Gun_Eagle_T3",
+    "cn": "127mm单装炮(白鹰)T3",
+    "en": "Single 127mm Main Gun (Eagle) T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/cd/11100.png/128px-11100.png"
+  },
+  "Single_127mm_Dual_Purpose_Gun_T0": {
+    "name": "Single_127mm_Dual_Purpose_Gun_T0",
+    "cn": "127mm单装两用炮T0",
+    "en": "Single 127mm Dual-Purpose Gun T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0e/31260.png"
+  },
+  "Single_130mm_Naval_Gun_T1": {
+    "name": "Single_130mm_Naval_Gun_T1",
+    "cn": "130mm单装炮T1",
+    "en": "Single 130mm Naval Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/1/1a/7200.png"
+  },
+  "Single_130mm_Naval_Gun_T2": {
+    "name": "Single_130mm_Naval_Gun_T2",
+    "cn": "130mm单装炮T2",
+    "en": "Single 130mm Naval Gun T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/1/1a/7200.png"
+  },
+  "Single_130mm_Naval_Gun_T3": {
+    "name": "Single_130mm_Naval_Gun_T3",
+    "cn": "130mm单装炮T3",
+    "en": "Single 130mm Naval Gun T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/1/1a/7200.png"
+  },
+  "Single_130mm_Mle_1924_Naval_Gun_T1": {
+    "name": "Single_130mm_Mle_1924_Naval_Gun_T1",
+    "cn": "130mm单装炮Mle1924T1",
+    "en": "Single 130mm Mle 1924 Naval Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/7/79/50000.png"
+  },
+  "Single_130mm_Mle_1924_Naval_Gun_T3": {
+    "name": "Single_130mm_Mle_1924_Naval_Gun_T3",
+    "cn": "130mm单装炮Mle1924T3",
+    "en": "Single 130mm Mle 1924 Naval Gun T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/7/79/50000.png"
+  },
+  "Single_138_6mm_Mle_1927_Naval_Gun_T1": {
+    "name": "Single_138_6mm_Mle_1927_Naval_Gun_T1",
+    "cn": "138.6mm单装炮Mle1927T1",
+    "en": "Single 138.6mm Mle 1927 Naval Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b8/50700.png"
+  },
+  "Single_138_6mm_Mle_1927_Naval_Gun_T2": {
+    "name": "Single_138_6mm_Mle_1927_Naval_Gun_T2",
+    "cn": "138.6mm单装炮Mle1927T2",
+    "en": "Single 138.6mm Mle 1927 Naval Gun T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b8/50700.png"
+  },
+  "Single_138_6mm_Mle_1927_Naval_Gun_T3": {
+    "name": "Single_138_6mm_Mle_1927_Naval_Gun_T3",
+    "cn": "138.6mm单装炮Mle1927T3",
+    "en": "Single 138.6mm Mle 1927 Naval Gun T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b8/50700.png"
+  },
+  "Single_138_6mm_Mle_1929_Naval_Gun_T1": {
+    "name": "Single_138_6mm_Mle_1929_Naval_Gun_T1",
+    "cn": "138.6mm单装炮Mle1929T1",
+    "en": "Single 138.6mm Mle 1929 Naval Gun T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bc/50100.png"
+  },
+  "Single_138_6mm_Mle_1929_Naval_Gun_T2": {
+    "name": "Single_138_6mm_Mle_1929_Naval_Gun_T2",
+    "cn": "138.6mm单装炮Mle1929T2",
+    "en": "Single 138.6mm Mle 1929 Naval Gun T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bc/50100.png"
+  },
+  "Single_138_6mm_Mle_1929_Naval_Gun_T3": {
+    "name": "Single_138_6mm_Mle_1929_Naval_Gun_T3",
+    "cn": "138.6mm单装炮Mle1929T3",
+    "en": "Single 138.6mm Mle 1929 Naval Gun T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bc/50100.png"
+  },
+  "76mm_Gun_T1": {
+    "name": "76mm_Gun_T1",
+    "cn": "76mm火炮T1",
+    "en": "76mm Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/eb/11000.png/128px-11000.png"
+  },
+  "76mm_Gun_T2": {
+    "name": "76mm_Gun_T2",
+    "cn": "76mm火炮T2",
+    "en": "76mm Gun T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/eb/11000.png/128px-11000.png"
+  },
+  "76mm_Gun_T3": {
+    "name": "76mm_Gun_T3",
+    "cn": "76mm火炮T3",
+    "en": "76mm Gun T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/eb/11000.png/128px-11000.png"
+  },
+  "76mm_AA_Gun_T1": {
+    "name": "76mm_AA_Gun_T1",
+    "cn": "76mm高射炮(白鹰)T1",
+    "en": "76mm AA Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9b/26300.png/128px-26300.png"
+  },
+  "76mm_AA_Gun_T2": {
+    "name": "76mm_AA_Gun_T2",
+    "cn": "76mm高射炮(白鹰)T2",
+    "en": "76mm AA Gun T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9b/26300.png/128px-26300.png"
+  },
+  "76mm_AA_Gun_T3": {
+    "name": "76mm_AA_Gun_T3",
+    "cn": "76mm高射炮(白鹰)T3",
+    "en": "76mm AA Gun T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9b/26300.png/128px-26300.png"
+  },
+  "Triple_102mm_Secondary_Gun_Mount_T1": {
+    "name": "Triple_102mm_Secondary_Gun_Mount_T1",
+    "cn": "三联装102mm副炮T1",
+    "en": "Triple 102mm Secondary Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/21200.png/128px-21200.png"
+  },
+  "Triple_102mm_Secondary_Gun_Mount_T2": {
+    "name": "Triple_102mm_Secondary_Gun_Mount_T2",
+    "cn": "三联装102mm副炮T2",
+    "en": "Triple 102mm Secondary Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/21200.png/128px-21200.png"
+  },
+  "Triple_102mm_Secondary_Gun_Mount_T3": {
+    "name": "Triple_102mm_Secondary_Gun_Mount_T3",
+    "cn": "三联装102mm副炮T3",
+    "en": "Triple 102mm Secondary Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/21200.png/128px-21200.png"
+  },
+  "Twin_100mm_Type_98_High_Angle_Gun_T1": {
+    "name": "Twin_100mm_Type_98_High_Angle_Gun_T1",
+    "cn": "双联100mm98式高射炮T1",
+    "en": "Twin 100mm Type 98 High-Angle Gun T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/3/3d/31000.png"
+  },
+  "Twin_100mm_Type_98_High_Angle_Gun_T2": {
+    "name": "Twin_100mm_Type_98_High_Angle_Gun_T2",
+    "cn": "双联100mm98式高射炮T2",
+    "en": "Twin 100mm Type 98 High-Angle Gun T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/3/3d/31000.png"
+  },
+  "Twin_100mm_Type_98_High_Angle_Gun_T3": {
+    "name": "Twin_100mm_Type_98_High_Angle_Gun_T3",
+    "cn": "双联100mm98式高射炮T3",
+    "en": "Twin 100mm Type 98 High-Angle Gun T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/3/3d/31000.png"
+  },
+  "Twin_102mm_Secondary_Gun_Mount_T1": {
+    "name": "Twin_102mm_Secondary_Gun_Mount_T1",
+    "cn": "双联装102mm副炮T1",
+    "en": "Twin 102mm Secondary Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/39/21100.png/128px-21100.png"
+  },
+  "Twin_102mm_Secondary_Gun_Mount_T2": {
+    "name": "Twin_102mm_Secondary_Gun_Mount_T2",
+    "cn": "双联装102mm副炮T2",
+    "en": "Twin 102mm Secondary Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/39/21100.png/128px-21100.png"
+  },
+  "Twin_102mm_Secondary_Gun_Mount_T3": {
+    "name": "Twin_102mm_Secondary_Gun_Mount_T3",
+    "cn": "双联装102mm副炮T3",
+    "en": "Twin 102mm Secondary Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/39/21100.png/128px-21100.png"
+  },
+  "Twin_102mm_Mk_XVI_Secondary_Gun_Mount_T3": {
+    "name": "Twin_102mm_Mk_XVI_Secondary_Gun_Mount_T3",
+    "cn": "双联装102mm副炮Mark XVIT3",
+    "en": "Twin 102mm Mk XVI Secondary Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/7/7d/21160.png"
+  },
+  "Twin_114mm_Mk_IV_Dual_Purpose_Gun_Mount_T0": {
+    "name": "Twin_114mm_Mk_IV_Dual_Purpose_Gun_Mount_T0",
+    "cn": "双联装114mm高平两用炮Mark IVT0",
+    "en": "Twin 114mm Mk IV Dual-Purpose Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/5d/21600.png"
+  },
+  "Twin_120mm_Main_Gun_Mount_T1": {
+    "name": "Twin_120mm_Main_Gun_Mount_T1",
+    "cn": "双联装120mm主炮T1",
+    "en": "Twin 120mm Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/40/21400.png/128px-21400.png"
+  },
+  "Twin_120mm_M1933_Main_Gun_Mount_T0": {
+    "name": "Twin_120mm_M1933_Main_Gun_Mount_T0",
+    "cn": "双联装120mm炮Model1933T0",
+    "en": "Twin 120mm M1933 Main Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e4/55460.png"
+  },
+  "Twin_120mm_M1936_Main_Gun_Mount_T1": {
+    "name": "Twin_120mm_M1936_Main_Gun_Mount_T1",
+    "cn": "双联装120mm炮Model1936T1",
+    "en": "Twin 120mm M1936 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/3/30/55400.png"
+  },
+  "Twin_120mm_M1936_Main_Gun_Mount_T2": {
+    "name": "Twin_120mm_M1936_Main_Gun_Mount_T2",
+    "cn": "双联装120mm炮Model1936T2",
+    "en": "Twin 120mm M1936 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/3/30/55400.png"
+  },
+  "Twin_120mm_M1936_Main_Gun_Mount_T3": {
+    "name": "Twin_120mm_M1936_Main_Gun_Mount_T3",
+    "cn": "双联装120mm炮Model1936T3",
+    "en": "Twin 120mm M1936 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/3/30/55400.png"
+  },
+  "Twin_120mm_Mk_XI_Dual_Purpose_Gun_Mount_T0": {
+    "name": "Twin_120mm_Mk_XI_Dual_Purpose_Gun_Mount_T0",
+    "cn": "双联装120mm高平两用炮Mark XIT0",
+    "en": "Twin 120mm Mk XI Dual-Purpose Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/c/ca/21460.png"
+  },
+  "Twin_120mm_Main_Gun_Mount_T2": {
+    "name": "Twin_120mm_Main_Gun_Mount_T2",
+    "cn": "双联装120mm主炮T2",
+    "en": "Twin 120mm Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/40/21400.png/128px-21400.png"
+  },
+  "Twin_120mm_Main_Gun_Mount_T3": {
+    "name": "Twin_120mm_Main_Gun_Mount_T3",
+    "cn": "双联装120mm主炮T3",
+    "en": "Twin 120mm Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/40/21400.png/128px-21400.png"
+  },
+  "Twin_127mm_Secondary_Gun_Mount_T0": {
+    "name": "Twin_127mm_Secondary_Gun_Mount_T0",
+    "cn": "双联装127mm副炮T0",
+    "en": "Twin 127mm Secondary Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f8/11160.png"
+  },
+  "Twin_127mm_Mk_12_Dual_Purpose_Gun_Mount_T1": {
+    "name": "Twin_127mm_Mk_12_Dual_Purpose_Gun_Mount_T1",
+    "cn": "双联装127mm高平两用炮Mk12T1",
+    "en": "Twin 127mm Mk 12 Dual-Purpose Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/90/11200.png/128px-11200.png"
+  },
+  "Twin_127mm_Mk_12_Dual_Purpose_Gun_Mount_T2": {
+    "name": "Twin_127mm_Mk_12_Dual_Purpose_Gun_Mount_T2",
+    "cn": "双联装127mm高平两用炮Mk12T2",
+    "en": "Twin 127mm Mk 12 Dual-Purpose Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/90/11200.png/128px-11200.png"
+  },
+  "Twin_127mm_Mk_12_Dual_Purpose_Gun_Mount_T3": {
+    "name": "Twin_127mm_Mk_12_Dual_Purpose_Gun_Mount_T3",
+    "cn": "双联装127mm高平两用炮Mk12T3",
+    "en": "Twin 127mm Mk 12 Dual-Purpose Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/90/11200.png/128px-11200.png"
+  },
+  "Twin_127mm_KM40_Main_Gun_Mount_T0": {
+    "name": "Twin_127mm_KM40_Main_Gun_Mount_T0",
+    "cn": "双联装127mmKM40主炮T0",
+    "en": "Twin 127mm KM40 Main Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d8/41060.png"
+  },
+  "Twin_127mm_Type_3_Kai_Naval_Gun_Mount_T0": {
+    "name": "Twin_127mm_Type_3_Kai_Naval_Gun_Mount_T0",
+    "cn": "127mm连装炮改T0",
+    "en": "Twin 127mm Type 3 Kai Naval Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/3/3b/31280.png"
+  },
+  "Twin_127mm_Naval_Gun_Mount_T1": {
+    "name": "Twin_127mm_Naval_Gun_Mount_T1",
+    "cn": "127mm连装炮T1",
+    "en": "Twin 127mm Naval Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a7/31200.png/128px-31200.png"
+  },
+  "Twin_127mm_Naval_Gun_Mount_T2": {
+    "name": "Twin_127mm_Naval_Gun_Mount_T2",
+    "cn": "127mm连装炮T2",
+    "en": "Twin 127mm Naval Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a7/31200.png/128px-31200.png"
+  },
+  "Twin_127mm_Naval_Gun_Mount_T3": {
+    "name": "Twin_127mm_Naval_Gun_Mount_T3",
+    "cn": "127mm连装炮T3",
+    "en": "Twin 127mm Naval Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a7/31200.png/128px-31200.png"
+  },
+  "Twin_128mm_SK_C_41_Dual_Purpose_Gun_Mount_T1": {
+    "name": "Twin_128mm_SK_C_41_Dual_Purpose_Gun_Mount_T1",
+    "cn": "双联装128mmSKC41高平两用炮T1",
+    "en": "Twin 128mm SK C/41 Dual-Purpose Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a1/41100.png"
+  },
+  "Twin_128mm_SK_C_41_Dual_Purpose_Gun_Mount_T2": {
+    "name": "Twin_128mm_SK_C_41_Dual_Purpose_Gun_Mount_T2",
+    "cn": "双联装128mmSKC41高平两用炮T2",
+    "en": "Twin 128mm SK C/41 Dual-Purpose Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a1/41100.png"
+  },
+  "Twin_128mm_SK_C_41_Dual_Purpose_Gun_Mount_T3": {
+    "name": "Twin_128mm_SK_C_41_Dual_Purpose_Gun_Mount_T3",
+    "cn": "双联装128mmSKC41高平两用炮T3",
+    "en": "Twin 128mm SK C/41 Dual-Purpose Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a1/41100.png"
+  },
+  "Twin_128mm_45_SK_C_41_Dual_Purpose_Gun_Mount_T0": {
+    "name": "Twin_128mm_45_SK_C_41_Dual_Purpose_Gun_Mount_T0",
+    "cn": "双联装128mmSKC41高平两用炮改T0",
+    "en": "Twin 128mm/45 SK C/41 Dual-Purpose Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f4/41160.png"
+  },
+  "Twin_130mm_B_2LM_Main_Gun_Mount_T1": {
+    "name": "Twin_130mm_B_2LM_Main_Gun_Mount_T1",
+    "cn": "B-13 双联装130mm主炮B-2LMT1",
+    "en": "Twin 130mm B-2LM Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/a/ae/85000.png"
+  },
+  "Twin_130mm_B_2LM_Main_Gun_Mount_T3": {
+    "name": "Twin_130mm_B_2LM_Main_Gun_Mount_T3",
+    "cn": "B-13 双联装130mm主炮B-2LMT3",
+    "en": "Twin 130mm B-2LM Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/a/ae/85000.png"
+  },
+  "Twin_130mm_Mle_1935_Main_Gun_Mount_T1": {
+    "name": "Twin_130mm_Mle_1935_Main_Gun_Mount_T1",
+    "cn": "双联装130mm主炮Mle1935T1",
+    "en": "Twin 130mm Mle 1935 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/5/50/50500.png"
+  },
+  "Twin_134mm_High_Angle_Gun_Mount_T1": {
+    "name": "Twin_134mm_High_Angle_Gun_Mount_T1",
+    "cn": "双联装134mm高炮T1",
+    "en": "Twin 134mm High-Angle Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/bf/21500.png/128px-21500.png"
+  },
+  "Twin_134mm_High_Angle_Gun_Mount_T2": {
+    "name": "Twin_134mm_High_Angle_Gun_Mount_T2",
+    "cn": "双联装134mm高炮T2",
+    "en": "Twin 134mm High-Angle Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/bf/21500.png/128px-21500.png"
+  },
+  "Twin_134mm_High_Angle_Gun_Mount_T3": {
+    "name": "Twin_134mm_High_Angle_Gun_Mount_T3",
+    "cn": "双联装134mm高炮T3",
+    "en": "Twin 134mm High-Angle Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/bf/21500.png/128px-21500.png"
+  },
+  "Single_140mm_Naval_Gun_T1": {
+    "name": "Single_140mm_Naval_Gun_T1",
+    "cn": "140mm单装炮T1",
+    "en": "Single 140mm Naval Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/63/32000.png/128px-32000.png"
+  },
+  "Single_140mm_Naval_Gun_T2": {
+    "name": "Single_140mm_Naval_Gun_T2",
+    "cn": "140mm单装炮T2",
+    "en": "Single 140mm Naval Gun T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/63/32000.png/128px-32000.png"
+  },
+  "Single_140mm_Naval_Gun_T3": {
+    "name": "Single_140mm_Naval_Gun_T3",
+    "cn": "140mm单装炮T3",
+    "en": "Single 140mm Naval Gun T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/63/32000.png/128px-32000.png"
+  },
+  "Single_150mm_SK_C_28_Main_Gun_Mount_T1": {
+    "name": "Single_150mm_SK_C_28_Main_Gun_Mount_T1",
+    "cn": "单装SKC28式150mm主炮T1",
+    "en": "Single 150mm SK C/28 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/86/42000.png/128px-42000.png"
+  },
+  "Single_150mm_SK_C_28_Main_Gun_Mount_T2": {
+    "name": "Single_150mm_SK_C_28_Main_Gun_Mount_T2",
+    "cn": "单装SKC28式150mm主炮T2",
+    "en": "Single 150mm SK C/28 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/86/42000.png/128px-42000.png"
+  },
+  "Single_150mm_SK_C_28_Main_Gun_Mount_T3": {
+    "name": "Single_150mm_SK_C_28_Main_Gun_Mount_T3",
+    "cn": "单装SKC28式150mm主炮T3",
+    "en": "Single 150mm SK C/28 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/86/42000.png/128px-42000.png"
+  },
+  "Single_150mm_Main_Gun_Mount_T1": {
+    "name": "Single_150mm_Main_Gun_Mount_T1",
+    "cn": "单装150mm主炮T1",
+    "en": "Single 150mm Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bd/7100.png"
+  },
+  "Single_150mm_TbtsK_C_36_Main_Gun_Mount_T1": {
+    "name": "Single_150mm_TbtsK_C_36_Main_Gun_Mount_T1",
+    "cn": "单装TbtsKC36式150mm主炮T1",
+    "en": "Single 150mm TbtsK C/36 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/c/c7/42300.png"
+  },
+  "Single_150mm_TbtsK_C_36_Main_Gun_Mount_T3": {
+    "name": "Single_150mm_TbtsK_C_36_Main_Gun_Mount_T3",
+    "cn": "单装TbtsKC36式150mm主炮T3",
+    "en": "Single 150mm TbtsK C/36 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/c/c7/42300.png"
+  },
+  "Single_152mm_Pattern_1892_Naval_Gun_Mount_T3": {
+    "name": "Single_152mm_Pattern_1892_Naval_Gun_Mount_T3",
+    "cn": "152mm单装炮T3",
+    "en": "Single 152mm Pattern 1892 Naval Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/e/ea/32060.png"
+  },
+  "Single_152mm_Mk_XII_Main_Gun_Mount_T1": {
+    "name": "Single_152mm_Mk_XII_Main_Gun_Mount_T1",
+    "cn": "单装152mm主炮T1",
+    "en": "Single 152mm Mk XII Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c0/7000.png/128px-7000.png"
+  },
+  "Single_152mm_Mk_XII_Main_Gun_Mount_T3": {
+    "name": "Single_152mm_Mk_XII_Main_Gun_Mount_T3",
+    "cn": "单装152mm主炮T3",
+    "en": "Single 152mm Mk XII Main Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c0/7000.png/128px-7000.png"
+  },
+  "Single_152mm_Secondary_Gun_Mount_T1": {
+    "name": "Single_152mm_Secondary_Gun_Mount_T1",
+    "cn": "单装152mm副炮T1",
+    "en": "Single 152mm Secondary Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/72/22000.png/128px-22000.png"
+  },
+  "Single_152mm_Secondary_Gun_Mount_T2": {
+    "name": "Single_152mm_Secondary_Gun_Mount_T2",
+    "cn": "单装152mm副炮T2",
+    "en": "Single 152mm Secondary Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/72/22000.png/128px-22000.png"
+  },
+  "Single_152mm_Secondary_Gun_Mount_T3": {
+    "name": "Single_152mm_Secondary_Gun_Mount_T3",
+    "cn": "单装152mm副炮T3",
+    "en": "Single 152mm Secondary Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/72/22000.png/128px-22000.png"
+  },
+  "Single_155mm_Mle_1920_Secondary_Gun_Mount_T0": {
+    "name": "Single_155mm_Mle_1920_Secondary_Gun_Mount_T0",
+    "cn": "单装155mm副炮Mle1920T0",
+    "en": "Single 155mm Mle 1920 Secondary Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d7/50800.png"
+  },
+  "Triple_150mm_SK_C_25_Main_Gun_Mount_T1": {
+    "name": "Triple_150mm_SK_C_25_Main_Gun_Mount_T1",
+    "cn": "三联装SKC25式150mm主炮T1",
+    "en": "Triple 150mm SK C/25 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9f/42100.png/128px-42100.png"
+  },
+  "Triple_150mm_SK_C_25_Main_Gun_Mount_T2": {
+    "name": "Triple_150mm_SK_C_25_Main_Gun_Mount_T2",
+    "cn": "三联装SKC25式150mm主炮T2",
+    "en": "Triple 150mm SK C/25 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9f/42100.png/128px-42100.png"
+  },
+  "Triple_150mm_SK_C_25_Main_Gun_Mount_T3": {
+    "name": "Triple_150mm_SK_C_25_Main_Gun_Mount_T3",
+    "cn": "三联装SKC25式150mm主炮T3",
+    "en": "Triple 150mm SK C/25 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9f/42100.png/128px-42100.png"
+  },
+  "Triple_152mm_Main_Gun_Royal_T1": {
+    "name": "Triple_152mm_Main_Gun_Royal_T1",
+    "cn": "三联装152mm主炮(皇家)T1",
+    "en": "Triple 152mm Main Gun (Royal) T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/e6/22200.png/128px-22200.png"
+  },
+  "Triple_152mm_Main_Gun_T3": {
+    "name": "Triple_152mm_Main_Gun_Royal_T3",
+    "cn": "三联装152mm主炮(皇家)T3",
+    "en": "Triple 152mm Main Gun (Royal) T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/e6/22200.png/128px-22200.png"
+  },
+  "Triple_152mm_Main_Gun_Eagle_T1": {
+    "name": "Triple_152mm_Main_Gun_Eagle_T1",
+    "cn": "三联装152mm主炮(白鹰)T1",
+    "en": "Triple 152mm Main Gun (Eagle) T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c0/12100.png/128px-12100.png"
+  },
+  "Triple_152mm_Main_Gun_Eagle_T2": {
+    "name": "Triple_152mm_Main_Gun_Eagle_T2",
+    "cn": "三联装152mm主炮(白鹰)T2",
+    "en": "Triple 152mm Main Gun (Eagle) T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c0/12100.png/128px-12100.png"
+  },
+  "Triple_152mm_Main_Gun_Eagle_T3": {
+    "name": "Triple_152mm_Main_Gun_Eagle_T3",
+    "cn": "三联装152mm主炮(白鹰)T3",
+    "en": "Triple 152mm Main Gun (Eagle) T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c0/12100.png/128px-12100.png"
+  },
+  "Triple_152mm_Mk_16_Main_Gun_Mount_T0": {
+    "name": "Triple_152mm_Mk_16_Main_Gun_Mount_T0",
+    "cn": "三联装152mm主炮Mk16T0",
+    "en": "Triple 152mm Mk 16 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/9/91/12160.png"
+  },
+  "Prototype_Triple_152mm_DP_Mk_17_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_152mm_DP_Mk_17_Main_Gun_Mount_T0",
+    "cn": "试作型三联装152mm高平两用炮Mk17T0",
+    "en": "Prototype Triple 152mm DP Mk 17 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b3/12200.png"
+  },
+  "Prototype_Triple_152mm_Mk_XXV_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_152mm_Mk_XXV_Main_Gun_Mount_T0",
+    "cn": "试作型三联装152mm主炮T0",
+    "en": "Prototype Triple 152mm Mk XXV Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/5e/22260.png"
+  },
+  "Triple_152mm_B_38_MK_5_Main_Gun_Mount_T1": {
+    "name": "Triple_152mm_B_38_MK_5_Main_Gun_Mount_T1",
+    "cn": "B-38 三联装152mm主炮Mk5T1",
+    "en": "Triple 152mm B-38 MK 5 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/8/85/85120.png"
+  },
+  "Triple_152mm_B_38_MK_5_Main_Gun_Mount_T2": {
+    "name": "Triple_152mm_B_38_MK_5_Main_Gun_Mount_T2",
+    "cn": "B-38 三联装152mm主炮Mk5T2",
+    "en": "Triple 152mm B-38 MK 5 Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/8/85/85120.png"
+  },
+  "Triple_152mm_B_38_MK_5_Main_Gun_Mount_T3": {
+    "name": "Triple_152mm_B_38_MK_5_Main_Gun_Mount_T3",
+    "cn": "B-38 三联装152mm主炮Mk5T3",
+    "en": "Triple 152mm B-38 MK 5 Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/8/85/85120.png"
+  },
+  "Triple_152mm_Mle_1930_Main_Gun_Mount_T1": {
+    "name": "Triple_152mm_Mle_1930_Main_Gun_Mount_T1",
+    "cn": "三联装152mm主炮Mle1930T1",
+    "en": "Triple 152mm Mle 1930 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/8/83/50200.png"
+  },
+  "Triple_152mm_Mle_1930_Main_Gun_Mount_T3": {
+    "name": "Triple_152mm_Mle_1930_Main_Gun_Mount_T3",
+    "cn": "三联装152mm主炮Mle1930T3",
+    "en": "Triple 152mm Mle 1930 Main Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/8/83/50200.png"
+  },
+  "Triple_152mm_Model_1934_Main_Gun_Mount_T1": {
+    "name": "Triple_152mm_Model_1934_Main_Gun_Mount_T1",
+    "cn": "三联装152mm主炮Model1934T1",
+    "en": "Triple 152mm Model 1934 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/d/db/55600.png"
+  },
+  "Triple_152mm_Model_1934_Main_Gun_Mount_T3": {
+    "name": "Triple_152mm_Model_1934_Main_Gun_Mount_T3",
+    "cn": "三联装152mm主炮Model1934T3",
+    "en": "Triple 152mm Model 1934 Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/d/db/55600.png"
+  },
+  "Triple_155mm_Main_Gun_Mount_T1": {
+    "name": "Triple_155mm_Main_Gun_Mount_T1",
+    "cn": "155mm三连装炮T1",
+    "en": "Triple 155mm Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/04/32200.png/128px-32200.png"
+  },
+  "Triple_155mm_Main_Gun_Mount_T2": {
+    "name": "Triple_155mm_Main_Gun_Mount_T2",
+    "cn": "155mm三连装炮T2",
+    "en": "Triple 155mm Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/04/32200.png/128px-32200.png"
+  },
+  "Triple_155mm_Main_Gun_Mount_T3": {
+    "name": "Triple_155mm_Main_Gun_Mount_T3",
+    "cn": "155mm三连装炮T3",
+    "en": "Triple 155mm Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/04/32200.png/128px-32200.png"
+  },
+  "Triple_180mm_B_1_P_Pattern_1932_Main_Gun_Mount_T1": {
+    "name": "Triple_180mm_B_1_P_Pattern_1932_Main_Gun_Mount_T1",
+    "cn": "B-1-P 三联装180mm主炮Model1932T1",
+    "en": "Triple 180mm B-1-P Pattern 1932 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a7/85460.png/128px-85460.png"
+  },
+  "Twin_140mm_Naval_Gun_Mount_T1": {
+    "name": "Twin_140mm_Naval_Gun_Mount_T1",
+    "cn": "140mm连装炮T1",
+    "en": "Twin 140mm Naval Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/86/32100.png/128px-32100.png"
+  },
+  "Twin_140mm_Naval_Gun_Mount_T2": {
+    "name": "Twin_140mm_Naval_Gun_Mount_T2",
+    "cn": "140mm连装炮T2",
+    "en": "Twin 140mm Naval Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/86/32100.png/128px-32100.png"
+  },
+  "Twin_140mm_Naval_Gun_Mount_T3": {
+    "name": "Twin_140mm_Naval_Gun_Mount_T3",
+    "cn": "140mm连装炮T3",
+    "en": "Twin 140mm Naval Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/86/32100.png/128px-32100.png"
+  },
+  "Twin_150mm_SK_C_28_Secondary_Gun_Mount_T0": {
+    "name": "Twin_150mm_SK_C_28_Secondary_Gun_Mount_T0",
+    "cn": "双联装SKC28式150mm副炮T0",
+    "en": "Twin 150mm SK C/28 Secondary Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/c/c8/42060.png"
+  },
+  "Twin_150mm_TbtsK_C_36_Main_Gun_Mount_T1": {
+    "name": "Twin_150mm_TbtsK_C_36_Main_Gun_Mount_T1",
+    "cn": "双联装TbtsKC36式150mm主炮T1",
+    "en": "Twin 150mm TbtsK C/36 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/48/42200.png/128px-42200.png"
+  },
+  "Twin_150mm_TbtsK_C_36_Main_Gun_Mount_T2": {
+    "name": "Twin_150mm_TbtsK_C_36_Main_Gun_Mount_T2",
+    "cn": "双联装TbtsKC36式150mm主炮T2",
+    "en": "Twin 150mm TbtsK C/36 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/48/42200.png/128px-42200.png"
+  },
+  "Twin_150mm_TbtsK_C_36_Main_Gun_Mount_T3": {
+    "name": "Twin_150mm_TbtsK_C_36_Main_Gun_Mount_T3",
+    "cn": "双联装TbtsKC36式150mm主炮T3",
+    "en": "Twin 150mm TbtsK C/36 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/48/42200.png/128px-42200.png"
+  },
+  "Twin_152mm_Naval_Gun_Mount_T1": {
+    "name": "Twin_152mm_Naval_Gun_Mount_T1",
+    "cn": "152mm连装炮T1",
+    "en": "Twin 152mm Naval Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/37/32300.png/128px-32300.png"
+  },
+  "Twin_152mm_Naval_Gun_Mount_T2": {
+    "name": "Twin_152mm_Naval_Gun_Mount_T2",
+    "cn": "152mm连装炮T2",
+    "en": "Twin 152mm Naval Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/37/32300.png/128px-32300.png"
+  },
+  "Twin_152mm_Naval_Gun_Mount_T3": {
+    "name": "Twin_152mm_Naval_Gun_Mount_T3",
+    "cn": "152mm连装炮T3",
+    "en": "Twin 152mm Naval Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/37/32300.png/128px-32300.png"
+  },
+  "Twin_152mm_Mk_15_Main_Gun_Mount_T0": {
+    "name": "Twin_152mm_Mk_15_Main_Gun_Mount_T0",
+    "cn": "双联152mm主炮Mk15T0",
+    "en": "Twin 152mm Mk 15 Main Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/7/77/12060.png"
+  },
+  "Twin_152mm_Main_Gun_Royal_T1": {
+    "name": "Twin_152mm_Main_Gun_Royal_T1",
+    "cn": "双联装152mm主炮(皇家)T1",
+    "en": "Twin 152mm Main Gun Royal T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a7/22100.png/128px-22100.png"
+  },
+  "Twin_152mm_Main_Royal_Gun_T2": {
+    "name": "Twin_152mm_Main_Royal_Gun_T2",
+    "cn": "双联装152mm主炮(皇家)T2",
+    "en": "Twin 152mm Main Gun Royal T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a7/22100.png/128px-22100.png"
+  },
+  "Twin_152mm_Main_Gun_Royal_T3": {
+    "name": "Twin_152mm_Main_Gun_Royal_T3",
+    "cn": "双联装152mm主炮(皇家)T3",
+    "en": "Twin 152mm Main Gun Royal T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a7/22100.png/128px-22100.png"
+  },
+  "Twin_152mm_Main_Gun_Eagle_T1": {
+    "name": "Twin_152mm_Main_Gun_Eagle_T1",
+    "cn": "双联装152mm主炮(白鹰)T1",
+    "en": "Twin 152mm Main Gun Eagle T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d5/12000.png/128px-12000.png"
+  },
+  "Twin_152mm_Main_Gun_Eagle_T2": {
+    "name": "Twin_152mm_Main_Gun_Eagle_T2",
+    "cn": "双联装152mm主炮(白鹰)T2",
+    "en": "Twin 152mm Main Gun Eagle T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d5/12000.png/128px-12000.png"
+  },
+  "Twin_152mm_Main_Gun_Eagle_T3": {
+    "name": "Twin_152mm_Main_Gun_Eagle_T3",
+    "cn": "双联装152mm主炮(白鹰)T3",
+    "en": "Twin 152mm Main Gun Eagle T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d5/12000.png/128px-12000.png"
+  },
+
+  "Twin_152mm_Secondary_Gun_Mount_T0": {
+    "name": "Twin_152mm_Secondary_Gun_Mount_T0",
+    "cn": "双联装152mm副炮T0",
+    "en": "Twin 152mm Secondary Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/1/15/22060.png"
+  },
+  "Twin_152mm_Pattern_1892_Main_Gun_Mount_T3": {
+    "name": "Twin_152mm_Pattern_1892_Main_Gun_Mount_T3",
+    "cn": "双联装152mm主炮Model1892T3",
+    "en": "Twin 152mm Pattern 1892 Main Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/5/54/85440.png"
+  },
+  "Twin_155mm_Mle_1920_Main_Gun_Mount_T0": {
+    "name": "Twin_155mm_Mle_1920_Main_Gun_Mount_T0",
+    "cn": "双联装155mm主炮Mle1920T0",
+    "en": "Twin 155mm Mle 1920 Main Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/de/50780.png"
+  },
+  "Triple_203mm_Mk_13_Main_Gun_Mount_T0": {
+    "name": "Triple_203mm_Mk_13_Main_Gun_Mount_T0",
+    "cn": "三联装203mm主炮Mk13T0",
+    "en": "Triple 203mm Mk 13 Main Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e8/13060.png"
+  },
+  "Triple_203mm_Mk_15_Main_Gun_Mount_T0": {
+    "name": "Triple_203mm_Mk_15_Main_Gun_Mount_T0",
+    "cn": "三联装203mm主炮Mk15T0",
+    "en": "Triple 203mm Mk 15 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/5a/13160.png"
+  },
+  "Triple_203mm_Improved_Main_Gun_Mount_T1": {
+    "name": "Triple_203mm_Improved_Main_Gun_Mount_T1",
+    "cn": "三联装203mm主炮改进型T1",
+    "en": "Triple 203mm Improved Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d9/13100.png/128px-13100.png"
+  },
+  "Triple_203mm_Improved_Main_Gun_Mount_T2": {
+    "name": "Triple_203mm_Improved_Main_Gun_Mount_T2",
+    "cn": "三联装203mm主炮改进型T2",
+    "en": "Triple 203mm Improved Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d9/13100.png/128px-13100.png"
+  },
+  "Triple_203mm_Improved_Main_Gun_Mount_T3": {
+    "name": "Triple_203mm_Improved_Main_Gun_Mount_T3",
+    "cn": "三联装203mm主炮改进型T3",
+    "en": "Triple 203mm Improved Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d9/13100.png/128px-13100.png"
+  },
+  "Triple_203mm_Main_Gun_Mount_Improved_T1": {
+    "name": "Triple_203mm_Main_Gun_Mount_Improved_T1",
+    "cn": "三联装203mm主炮T1",
+    "en": "Triple 203mm Main Gun Mount (Improved) T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/04/13000.png/128px-13000.png"
+  },
+  "Triple_203mm_Main_Gun_Mount_Improved_T2": {
+    "name": "Triple_203mm_Main_Gun_Mount_Improved_T2",
+    "cn": "三联装203mm主炮T2",
+    "en": "Triple 203mm Main Gun Mount (Improved) T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/04/13000.png/128px-13000.png"
+  },
+  "Triple_203mm_Main_Gun_Mount_Improved_T3": {
+    "name": "Triple_203mm_Main_Gun_Mount_Improved_T3",
+    "cn": "三联装203mm主炮T3",
+    "en": "Triple 203mm Main Gun Mount (Improved) T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/04/13000.png/128px-13000.png"
+  },
+  "Prototype_Triple_203mm_Mk_IX_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_203mm_Mk_IX_Main_Gun_Mount_T0",
+    "cn": "试作型三联装203mm主炮Mark IXT0",
+    "en": "Prototype Triple 203mm Mk IX Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/9/92/23200.png"
+  },
+  "Prototype_Triple_203mm_AA_Gun_T0": {
+    "name": "Prototype_Triple_203mm_AA_Gun_T0",
+    "cn": "试作型三联装203mm舰炮T0",
+    "en": "Prototype Triple 203mm AA Gun T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/9/94/7300.png"
+  },
+  "Prototype_Triple_203mm_SK_C_34_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_203mm_SK_C_34_Main_Gun_Mount_T0",
+    "cn": "试作型三联装203mmSKC主炮T0",
+    "en": "Prototype Triple 203mm SK C/34 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/83/43060.png"
+  },
+  "Prototype_Triple_234mm_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_234mm_Main_Gun_Mount_T0",
+    "cn": "试作型三联装234mm主炮T0",
+    "en": "Prototype Triple 234mm Main Gun Mount T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8f/23120.png"
+  },
+  "Triple_283mm_SK_C_28_Main_Gun_Mount_T1": {
+    "name": "Triple_283mm_SK_C_28_Main_Gun_Mount_T1",
+    "cn": "三联283mmSKC28主炮T1",
+    "en": "Triple 283mm SK C/28 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/9/99/43100.png"
+  },
+  "Triple_283mm_SK_C_28_Main_Gun_Mount_T2": {
+    "name": "Triple_283mm_SK_C_28_Main_Gun_Mount_T2",
+    "cn": "三联283mmSKC28主炮T2",
+    "en": "Triple 283mm SK C/28 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/9/99/43100.png"
+  },
+  "Triple_283mm_SK_C_28_Main_Gun_Mount_T3": {
+    "name": "Triple_283mm_SK_C_28_Main_Gun_Mount_T3",
+    "cn": "三联283mmSKC28主炮T3",
+    "en": "Triple 283mm SK C/28 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/9/99/43100.png"
+  },
+  "Prototype_Triple_305mm_SK_C_39_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_305mm_SK_C_39_Main_Gun_Mount_T0",
+    "cn": "试作型三联装305mmSKC39主炮T0",
+    "en": "Prototype Triple 305mm SK C/39 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a7/44300.png"
+  },
+  "Prototype_Triple_305mm_SK_C_39_Main_Gun_Mount_CB_T0": {
+    "name": "Prototype_Triple_305mm_SK_C_39_Main_Gun_Mount_CB_T0",
+    "cn": "试作型三联装305mmSKC39主炮(超巡用)T0",
+    "en": "Prototype Triple 305mm SK C/39 Main Gun Mount CB T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/dd/44400.png"
+  },
+  "Prototype_Triple_310mm_Type_0_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_310mm_Type_0_Main_Gun_Mount_T0",
+    "cn": "试作型三联装310mm主炮T0",
+    "en": "Prototype Triple 310mm Type 0 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/6/62/33100.png"
+  },
+  "Twin_203mm_No_2_Naval_Gun_Mount_T3": {
+    "name": "Twin_203mm_No_2_Naval_Gun_Mount_T3",
+    "cn": "203mm连装炮改T3",
+    "en": "Twin 203mm No. 2 Naval Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/c/c4/33080.png"
+  },
+  "Prototype_203mm_No_3_Naval_Gun_Mount_T0": {
+    "name": "Prototype_203mm_No_3_Naval_Gun_Mount_T0",
+    "cn": "试作型203mm(3号)连装炮T0",
+    "en": "Prototype 203mm No. 3 Naval Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/01/33060.png"
+  },
+  "Twin_203mm_Naval_Gun_Mount_T1": {
+    "name": "Twin_203mm_Naval_Gun_Mount_T1",
+    "cn": "203mm连装炮T1",
+    "en": "Twin 203mm Naval Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d0/33000.png/128px-33000.png"
+  },
+  "Twin_203mm_Naval_Gun_Mount_T2": {
+    "name": "Twin_203mm_Naval_Gun_Mount_T2",
+    "cn": "203mm连装炮T2",
+    "en": "Twin 203mm Naval Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d0/33000.png/128px-33000.png"
+  },
+  "Twin_203mm_Naval_Gun_Mount_T3": {
+    "name": "Twin_203mm_Naval_Gun_Mount_T3",
+    "cn": "203mm连装炮T3",
+    "en": "Twin 203mm Naval Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d0/33000.png/128px-33000.png"
+  },
+  "Twin_203mm_Mk_VIII_Main_Gun_Mount_T1": {
+    "name": "Twin_203mm_Mk_VIII_Main_Gun_Mount_T1",
+    "cn": "双联装203mm主炮T1",
+    "en": "Twin 203mm Mk VIII Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/58/23000.png/128px-23000.png"
+  },
+  "Twin_203mm_Mk_VIII_Main_Gun_Mount_T2": {
+    "name": "Twin_203mm_Mk_VIII_Main_Gun_Mount_T2",
+    "cn": "双联装203mm主炮T2",
+    "en": "Twin 203mm Mk VIII Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/58/23000.png/128px-23000.png"
+  },
+  "Twin_203mm_Mk_VIII_Main_Gun_Mount_T3": {
+    "name": "Twin_203mm_Mk_VIII_Main_Gun_Mount_T3",
+    "cn": "双联装203mm主炮T3",
+    "en": "Twin 203mm Mk VIII Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/58/23000.png/128px-23000.png"
+  },
+  "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T0": {
+    "name": "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T0",
+    "cn": "双联装203mm主炮Mle1924(潜艇用)T0",
+    "en": "Twin 203mm Mle 1924 Submarine Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/dc/7340.png"
+  },
+  "Twin_203mm_Mle_1924_Main_Gun_Mount_T1": {
+    "name": "Twin_203mm_Mle_1924_Main_Gun_Mount_T1",
+    "cn": "双联装203mm主炮Mle1924T1",
+    "en": "Twin 203mm Mle 1924 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/1/10/50860.png"
+  },
+  "Twin_203mm_Mle_1924_Main_Gun_Mount_T2": {
+    "name": "Twin_203mm_Mle_1924_Main_Gun_Mount_T2",
+    "cn": "双联装203mm主炮Mle1924T2",
+    "en": "Twin 203mm Mle 1924 Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/1/10/50860.png"
+  },
+  "Twin_203mm_Mle_1924_Main_Gun_Mount_T3": {
+    "name": "Twin_203mm_Mle_1924_Main_Gun_Mount_T3",
+    "cn": "双联装203mm主炮Mle1924T3",
+    "en": "Twin 203mm Mle 1924 Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/1/10/50860.png"
+  },
+  "Twin_203mm_Model_1924_Main_Gun_Mount_T1": {
+    "name": "Twin_203mm_Model_1924_Main_Gun_Mount_T1",
+    "cn": "双联203mm主炮Model1924T1",
+    "en": "Twin 203mm Model 1924 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/1/1e/55300.png"
+  },
+  "Twin_203mm_Model_1927_Main_Gun_Mount_T1": {
+    "name": "Twin_203mm_Model_1927_Main_Gun_Mount_T1",
+    "cn": "双联203mm主炮Model1927T1",
+    "en": "Twin 203mm Model 1927 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bc/55200.png"
+  },
+  "Twin_203mm_Model_1927_Main_Gun_Mount_T2": {
+    "name": "Twin_203mm_Model_1927_Main_Gun_Mount_T2",
+    "cn": "双联203mm主炮Model1927T2",
+    "en": "Twin 203mm Model 1927 Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bc/55200.png"
+  },
+  "Twin_203mm_Model_1927_Main_Gun_Mount_T3": {
+    "name": "Twin_203mm_Model_1927_Main_Gun_Mount_T3",
+    "cn": "双联203mm主炮Model1927T3",
+    "en": "Twin 203mm Model 1927 Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bc/55200.png"
+  },
+  "Twin_203mm_SK_C_34_T1": {
+    "name": "Twin_203mm_SK_C_34_T1",
+    "cn": "双联装203mmSKC主炮T1",
+    "en": "Twin 203mm (SK C/34) T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2f/43000.png/128px-43000.png"
+  },
+  "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T2": {
+    "name": "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T2",
+    "cn": "双联装203mmSKC主炮T2",
+    "en": "Twin 203mm Mle 1924 Submarine Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2f/43000.png/128px-43000.png"
+  },
+  "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T3": {
+    "name": "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T3",
+    "cn": "双联装203mmSKC主炮T3",
+    "en": "Twin 203mm Mle 1924 Submarine Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2f/43000.png/128px-43000.png"
+  },
+  "Prototype_Twin_234mm_Main_Gun_Mount_T0": {
+    "name": "Prototype_Twin_234mm_Main_Gun_Mount_T0",
+    "cn": "试作型双联装234mm主炮T0",
+    "en": "Prototype Twin 234mm Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a5/23100.png"
+  },
+  "Quadruple_330mm_Mle_1931_Main_Gun_Mount_T1": {
+    "name": "Quadruple_330mm_Mle_1931_Main_Gun_Mount_T1",
+    "cn": "四联装330mm主炮Mle1931T1",
+    "en": "Quadruple 330mm Mle 1931 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/d/df/50300.png"
+  },
+  "Quadruple_330mm_Mle_1931_Main_Gun_Mount_T2": {
+    "name": "Quadruple_330mm_Mle_1931_Main_Gun_Mount_T2",
+    "cn": "四联装330mm主炮Mle1931T2",
+    "en": "Quadruple 330mm Mle 1931 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/d/df/50300.png"
+  },
+  "Quadruple_330mm_Mle_1931_Main_Gun_Mount_T3": {
+    "name": "Quadruple_330mm_Mle_1931_Main_Gun_Mount_T3",
+    "cn": "四联装330mm主炮Mle1931T3",
+    "en": "Quadruple 330mm Mle 1931 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/d/df/50300.png"
+  },
+  "Quadruple_356mm_Main_Gun_Mount_T1": {
+    "name": "Quadruple_356mm_Main_Gun_Mount_T1",
+    "cn": "四联装356mm主炮T1",
+    "en": "Quadruple 356mm Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2d/24000.png/128px-24000.png"
+  },
+  "Quadruple_356mm_Main_Gun_Mount_T2": {
+    "name": "Quadruple_356mm_Main_Gun_Mount_T2",
+    "cn": "四联装356mm主炮T2",
+    "en": "Quadruple 356mm Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2d/24000.png/128px-24000.png"
+  },
+  "Quadruple_356mm_Main_Gun_Mount_T3": {
+    "name": "Quadruple_356mm_Main_Gun_Mount_T3",
+    "cn": "四联装356mm主炮T3",
+    "en": "Quadruple 356mm Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2d/24000.png/128px-24000.png"
+  },
+  "Prototype_Quadruple_356mm_Mk_B_Main_Gun_Mount_T0": {
+    "name": "Prototype_Quadruple_356mm_Mk_B_Main_Gun_Mount_T0",
+    "cn": "试作型四联装356mm主炮MkBT0",
+    "en": "Prototype Quadruple 356mm Mk B Main Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/02/14160.png"
+  },
+  "Quadruple_380mm_Mle_1935_Main_Gun_Mount_T1": {
+    "name": "Quadruple_380mm_Mle_1935_Main_Gun_Mount_T1",
+    "cn": "四联装380mm主炮Mle1935T1",
+    "en": "Quadruple 380mm Mle 1935 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bf/50400.png"
+  },
+  "Quadruple_380mm_Mle_1935_Main_Gun_Mount_T2": {
+    "name": "Quadruple_380mm_Mle_1935_Main_Gun_Mount_T2",
+    "cn": "四联装380mm主炮Mle1935T2",
+    "en": "Quadruple 380mm Mle 1935 Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bf/50400.png"
+  },
+  "Quadruple_380mm_Mle_1935_Main_Gun_Mount_T3": {
+    "name": "Quadruple_380mm_Mle_1935_Main_Gun_Mount_T3",
+    "cn": "四联装380mm主炮Mle1935T3",
+    "en": "Quadruple 380mm Mle 1935 Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bf/50400.png"
+  },
+  "Triple_283mm_SK_C_34_Main_Gun_Mount_T1": {
+    "name": "Triple_283mm_SK_C_34_Main_Gun_Mount_T1",
+    "cn": "三联283mmSKC34主炮T1",
+    "en": "Triple 283mm SK C/34 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/9/99/43100.png"
+  },
+  "Triple_283mm_SK_C_34_Main_Gun_Mount_T2": {
+    "name": "Triple_283mm_SK_C_34_Main_Gun_Mount_T2",
+    "cn": "三联283mmSKC34主炮T2",
+    "en": "Triple 283mm SK C/34 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/9/99/43100.png"
+  },
+  "Triple_283mm_SK_C_34_Main_Gun_Mount_T3": {
+    "name": "Triple_283mm_SK_C_34_Main_Gun_Mount_T3",
+    "cn": "三联283mmSKC34主炮T3",
+    "en": "Triple 283mm SK C/34 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/9/99/43100.png"
+  },
+  "Triple_305mm_M1907_Main_Gun_Mount_T3": {
+    "name": "Triple_305mm_M1907_Main_Gun_Mount_T3",
+    "cn": "三联装305mm主炮Model1907T3",
+    "en": "Triple 305mm M1907 Main Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/2/29/85420.png"
+  },
+  "Triple_320mm_M1934_Main_Gun_Mount_T0": {
+    "name": "Triple_320mm_M1934_Main_Gun_Mount_T0",
+    "cn": "三联装320mm主炮Model1934T0",
+    "en": "Triple 320mm M1934 Main Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/5b/55480.png"
+  },
+  "Triple_356mm_Main_Gun_Mount_T1": {
+    "name": "Triple_356mm_Main_Gun_Mount_T1",
+    "cn": "三联装356mm主炮T1",
+    "en": "Triple 356mm Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c9/14100.png/128px-14100.png"
+  },
+  "Triple_356mm_Main_Gun_Mount_T2": {
+    "name": "Triple_356mm_Main_Gun_Mount_T2",
+    "cn": "三联装356mm主炮T2",
+    "en": "Triple 356mm Main Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c9/14100.png/128px-14100.png"
+  },
+  "Triple_356mm_Main_Gun_Mount_T3": {
+    "name": "Triple_356mm_Main_Gun_Mount_T3",
+    "cn": "三联装356mm主炮T3",
+    "en": "Triple 356mm Main Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c9/14100.png/128px-14100.png"
+  },
+  "Prototype_Triple_381mm_AA_Gun_T0": {
+    "name": "Prototype_Triple_381mm_AA_Gun_T0",
+    "cn": "试作型三联装381mm主炮T0",
+    "en": "Prototype Triple 381mm AA Gun T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/7/78/24160.png"
+  },
+  "Triple_381mm_M1934_Main_Gun_Mount_T1": {
+    "name": "Triple_381mm_M1934_Main_Gun_Mount_T1",
+    "cn": "三联装381mm主炮Model1934T1",
+    "en": "Triple 381mm M1934 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/6/6d/55000.png"
+  },
+  "Triple_381mm_M1934_Main_Gun_Mount_T2": {
+    "name": "Triple_381mm_M1934_Main_Gun_Mount_T2",
+    "cn": "三联装381mm主炮Model1934T2",
+    "en": "Triple 381mm M1934 Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/6/6d/55000.png"
+  },
+  "Triple_381mm_M1934_Main_Gun_Mount_T3": {
+    "name": "Triple_381mm_M1934_Main_Gun_Mount_T3",
+    "cn": "三联装381mm主炮Model1934T3",
+    "en": "Triple 381mm M1934 Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/6/6d/55000.png"
+  },
+  "Triple_406mm_Mk_6_Main_Gun_Mount_T1": {
+    "name": "Triple_406mm_Mk_6_Main_Gun_Mount_T1",
+    "cn": "三联装406mm主炮Mk6T1",
+    "en": "Triple 406mm Mk 6 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9b/14300.png/128px-14300.png"
+  },
+  "Triple_406mm_Mk_6_Main_Gun_Mount_T2": {
+    "name": "Triple_406mm_Mk_6_Main_Gun_Mount_T2",
+    "cn": "三联装406mm主炮Mk6T2",
+    "en": "Triple 406mm Mk 6 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9b/14300.png/128px-14300.png"
+  },
+  "Triple_406mm_Mk_6_Main_Gun_Mount_T3": {
+    "name": "Triple_406mm_Mk_6_Main_Gun_Mount_T3",
+    "cn": "三联装406mm主炮Mk6T3",
+    "en": "Triple 406mm Mk 6 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9b/14300.png/128px-14300.png"
+  },
+  "Prototype_406mm_Mk_D_Main_Gun_Mount_T0": {
+    "name": "Prototype_406mm_Mk_D_Main_Gun_Mount_T0",
+    "cn": "试作型三联装406mm主炮MkDT0",
+    "en": "Prototype 406mm Mk D Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/3/31/14360.png"
+  },
+  "Triple_406mm_Mk_2_Main_Gun_Mount_T0": {
+    "name": "Triple_406mm_Mk_2_Main_Gun_Mount_T0",
+    "cn": "三联装406mm主炮Mk2T0",
+    "en": "Triple 406mm Mk 2 Main Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a5/14380.png"
+  },
+  "Triple_406mm_MK7_Main_Gun_T0": {
+    "name": "Triple_406mm_MK7_Main_Gun_T0",
+    "cn": "三联装406mm主炮MK7T0",
+    "en": "Triple 406mm MK7 Main Gun T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/e8/14400.png/128px-14400.png"
+  },
+  "Triple_406mm_Main_Gun_T1": {
+    "name": "Triple_406mm_Main_Gun_T1",
+    "cn": "三联装406mm主炮T1",
+    "en": "Triple 406mm Main Gun T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/f/fc/24200.png/128px-24200.png"
+  },
+  "Triple_406mm_Main_Gun_T2": {
+    "name": "Triple_406mm_Main_Gun_T2",
+    "cn": "三联装406mm主炮T2",
+    "en": "Triple 406mm Main Gun T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/f/fc/24200.png/128px-24200.png"
+  },
+  "Triple_406mm_Main_Gun_T3": {
+    "name": "Triple_406mm_Main_Gun_T3",
+    "cn": "三联装406mm主炮T3",
+    "en": "Triple 406mm Main Gun T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/f/fc/24200.png/128px-24200.png"
+  },
+  "Triple_406mm_MK_1_Main_Gun_Mount_T1": {
+    "name": "Triple_406mm_MK_1_Main_Gun_Mount_T1",
+    "cn": "B-37 三联装406mm主炮Mk-1T1",
+    "en": "Triple 406mm MK-1 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/3/34/85300.png"
+  },
+  "Triple_406mm_MK_1_Main_Gun_Mount_T2": {
+    "name": "Triple_406mm_MK_1_Main_Gun_Mount_T2",
+    "cn": "B-37 三联装406mm主炮Mk-1T2",
+    "en": "Triple 406mm MK-1 Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/3/34/85300.png"
+  },
+  "Prototype_Triple_406mm_50_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_406mm_50_Main_Gun_Mount_T0",
+    "cn": "试作型三联装406mm50主炮T0",
+    "en": "Prototype Triple 406mm /50 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/2a/51000.png"
+  },
+  "Prototype_Triple_406mm_Model_1940_Main_Gun_T0": {
+    "name": "Prototype_Triple_406mm_Model_1940_Main_Gun_T0",
+    "cn": "试作型三联装406mm主炮Model1940T0",
+    "en": "Prototype Triple 406mm Model 1940 Main Gun T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/1/15/55900.png"
+  },
+  "Prototype_Triple_410mm_Main_Gun_Mount_T0": {
+    "name": "Prototype_Triple_410mm_Main_Gun_Mount_T0",
+    "cn": "试作型410mm三连装炮T0",
+    "en": "Prototype Triple 410mm Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/83/34180.png"
+  },
+  "Twin_356mm_41st_Year_Type_Naval_Gun_Mount_T0": {
+    "name": "Twin_356mm_41st_Year_Type_Naval_Gun_Mount_T0",
+    "cn": "356mm毘式连装炮T0",
+    "en": "Twin 356mm 41st Year Type Naval Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a9/34060.png"
+  },
+  "Twin_356mm_Naval_Gun_Mount_T1": {
+    "name": "Twin_356mm_Naval_Gun_Mount_T1",
+    "cn": "356mm连装炮T1",
+    "en": "Twin 356mm Naval Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/cf/34000.png/128px-34000.png"
+  },
+  "Twin_356mm_Naval_Gun_Mount_T2": {
+    "name": "Twin_356mm_Naval_Gun_Mount_T2",
+    "cn": "356mm连装炮T2",
+    "en": "Twin 356mm Naval Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/cf/34000.png/128px-34000.png"
+  },
+  "Twin_356mm_Naval_Gun_Mount_T3": {
+    "name": "Twin_356mm_Naval_Gun_Mount_T3",
+    "cn": "356mm连装炮T3",
+    "en": "Twin 356mm Naval Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/cf/34000.png/128px-34000.png"
+  },
+  "Twin_356mm_Mk_VII_Main_Gun_Mount_T0": {
+    "name": "Twin_356mm_Mk_VII_Main_Gun_Mount_T0",
+    "cn": "双联装356mm主炮T0",
+    "en": "Twin 356mm Mk VII Main Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/09/24060.png"
+  },
+  "Twin_380mm_SK_C_34_Main_Gun_Mount_T1": {
+    "name": "Twin_380mm_SK_C_34_Main_Gun_Mount_T1",
+    "cn": "双联380mmSKC主炮T1",
+    "en": "Twin 380mm SK C/34 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c2/44100.png/128px-44100.png"
+  },
+  "Twin_380mm_SK_C_34_Main_Gun_Mount_T2": {
+    "name": "Twin_380mm_SK_C_34_Main_Gun_Mount_T2",
+    "cn": "双联380mmSKC主炮T2",
+    "en": "Twin 380mm SK C/34 Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c2/44100.png/128px-44100.png"
+  },
+  "Twin_380mm_SK_C_34_Main_Gun_Mount_T3": {
+    "name": "Twin_380mm_SK_C_34_Main_Gun_Mount_T3",
+    "cn": "双联380mmSKC主炮T3",
+    "en": "Twin 380mm SK C/34 Main Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c2/44100.png/128px-44100.png"
+  },
+  "Twin_381mm_Main_Gun_Mount_T1": {
+    "name": "Twin_381mm_Main_Gun_Mount_T1",
+    "cn": "双联装381mm主炮T1",
+    "en": "Twin 381mm Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3d/24100.png/128px-24100.png"
+  },
+  "Twin_381mm_Main_Gun_Mount_T2": {
+    "name": "Twin_381mm_Main_Gun_Mount_T2",
+    "cn": "双联装381mm主炮T2",
+    "en": "Twin 381mm Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3d/24100.png/128px-24100.png"
+  },
+  "Twin_381mm_Main_Gun_Mount_T3": {
+    "name": "Twin_381mm_Main_Gun_Mount_T3",
+    "cn": "双联装381mm主炮T3",
+    "en": "Twin 381mm Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3d/24100.png/128px-24100.png"
+  },
+  "Twin_381mm_Advanced_Main_Gun_Mount_T0": {
+    "name": "Twin_381mm_Advanced_Main_Gun_Mount_T0",
+    "cn": "双联装381mm主炮改T0",
+    "en": "Twin 381mm Advanced Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b7/24300.png"
+  },
+  "Twin_406mm_Mk_1_Main_Gun_Mount_T0": {
+    "name": "Twin_406mm_Mk_1_Main_Gun_Mount_T0",
+    "cn": "双联装406mm主炮Mk1T0",
+    "en": "Twin 406mm Mk 1 Main Gun Mount T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/3/35/14180.png"
+  },
+  "Twin_406mm_Mk_5_Main_Gun_Mount_T1": {
+    "name": "Twin_406mm_Mk_5_Main_Gun_Mount_T1",
+    "cn": "双联装406mm主炮Mk5T1",
+    "en": "Twin 406mm Mk 5 Main Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c6/14200.png/128px-14200.png"
+  },
+  "Twin_406mm_Mk_5_Main_Gun_Mount_T2": {
+    "name": "Twin_406mm_Mk_5_Main_Gun_Mount_T2",
+    "cn": "双联装406mm主炮Mk5T2",
+    "en": "Twin 406mm Mk 5 Main Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c6/14200.png/128px-14200.png"
+  },
+  "Twin_406mm_Mk_5_Main_Gun_Mount_T3": {
+    "name": "Twin_406mm_Mk_5_Main_Gun_Mount_T3",
+    "cn": "双联装406mm主炮Mk5T3",
+    "en": "Twin 406mm Mk 5 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c6/14200.png/128px-14200.png"
+  },
+  "Twin_406mm_Mk_8_Main_Gun_Mount_T0": {
+    "name": "Twin_406mm_Mk_8_Main_Gun_Mount_T0",
+    "cn": "双联装406mm主炮Mk8T0",
+    "en": "Twin 406mm Mk 8 Main Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/87/14260.png"
+  },
+  "Twin_410mm_Naval_Gun_Mount_T1": {
+    "name": "Twin_410mm_Naval_Gun_Mount_T1",
+    "cn": "410mm连装炮T1",
+    "en": "Twin 410mm Naval Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d8/34100.png/128px-34100.png"
+  },
+  "Twin_410mm_Naval_Gun_Mount_T2": {
+    "name": "Twin_410mm_Naval_Gun_Mount_T2",
+    "cn": "410mm连装炮T2",
+    "en": "Twin 410mm Naval Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d8/34100.png/128px-34100.png"
+  },
+  "Twin_410mm_Naval_Gun_Mount_T3": {
+    "name": "Twin_410mm_Naval_Gun_Mount_T3",
+    "cn": "410mm连装炮T3",
+    "en": "Twin 410mm Naval Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d8/34100.png/128px-34100.png"
+  },
+  "Twin_410mm_Kai_Naval_Gun_Mount_T0": {
+    "name": "Twin_410mm_Kai_Naval_Gun_Mount_T0",
+    "cn": "410mm连装炮改T0",
+    "en": "Twin 410mm Kai Naval Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a3/34300.png"
+  },
+  "Prototype_406mm_SK_C_34_Main_Gun_Mount_T0": {
+    "name": "Prototype_406mm_SK_C_34_Main_Gun_Mount_T0",
+    "cn": "试作型双联装406mmSKC主炮T0",
+    "en": "Prototype 406mm SK C/34 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8a/44200.png"
+  },
+  "Twin_410mm_Type_3_Shell_Naval_Gun_Mount_T0": {
+    "name": "Twin_410mm_Type_3_Shell_Naval_Gun_Mount_T0",
+    "cn": "410mm连装炮(三式弹)T0",
+    "en": "Twin 410mm (Type 3 Shell) Naval Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d8/34100.png/128px-34100.png"
+  },
+  "Prototype_Twin_457mm_Mk_A_Main_Gun_Mount_T0": {
+    "name": "Prototype_Twin_457mm_Mk_A_Main_Gun_Mount_T0",
+    "cn": "试作型双联装457mm主炮MkAT0",
+    "en": "Prototype Twin 457mm Mk A Main Gun Mount T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/3/3a/14500.png"
+  },
+  "533mm_Quadruple_Magnetic_Torpedo_Mount_T1": {
+    "name": "533mm_Quadruple_Magnetic_Torpedo_Mount_T1",
+    "cn": "四联装533mm磁性鱼雷T1",
+    "en": "533mm Quadruple Magnetic Torpedo Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/5/51/45100.png"
+  },
+  "533mm_Quadruple_Magnetic_Torpedo_Mount_T2": {
+    "name": "533mm_Quadruple_Magnetic_Torpedo_Mount_T2",
+    "cn": "四联装533mm磁性鱼雷T2",
+    "en": "533mm Quadruple Magnetic Torpedo Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/5/51/45100.png"
+  },
+  "533mm_Quadruple_Magnetic_Torpedo_Mount_T3": {
+    "name": "533mm_Quadruple_Magnetic_Torpedo_Mount_T3",
+    "cn": "四联装533mm磁性鱼雷T3",
+    "en": "533mm Quadruple Magnetic Torpedo Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/5/51/45100.png"
+  },
+  "533mm_Quadruple_Torpedo_Mount_T1": {
+    "name": "533mm_Quadruple_Torpedo_Mount_T1",
+    "cn": "四联装533mm鱼雷T1",
+    "en": "533mm Quadruple Torpedo Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5a/5100.png/128px-5100.png"
+  },
+  "533mm_Quadruple_Torpedo_Mount_T2": {
+    "name": "533mm_Quadruple_Torpedo_Mount_T2",
+    "cn": "四联装533mm鱼雷T2",
+    "en": "533mm Quadruple Torpedo Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5a/5100.png/128px-5100.png"
+  },
+  "533mm_Quadruple_Torpedo_Mount_T3": {
+    "name": "533mm_Quadruple_Torpedo_Mount_T3",
+    "cn": "四联装533mm鱼雷T3",
+    "en": "533mm Quadruple Torpedo Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5a/5100.png/128px-5100.png"
+  },
+  "533mm_Quadruple_Torpedo_Mount_Mk_17_T0": {
+    "name": "533mm_Quadruple_Torpedo_Mount_Mk_17_T0",
+    "cn": "四联装533mm鱼雷Mk17T0",
+    "en": "533mm Quadruple Torpedo Mount Mk 17 T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/c/cb/15220.png"
+  },
+  "533mm_Quadruple_Torpedo_Mount_Mk_IX_T0": {
+    "name": "533mm_Quadruple_Torpedo_Mount_Mk_IX_T0",
+    "cn": "四联装533mm鱼雷Mark IXT0",
+    "en": "533mm Quadruple Torpedo Mount Mk IX T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/6/62/25020.png"
+  },
+  "533mm_Quintuple_Magnetic_Torpedo_Mount_T1": {
+    "name": "533mm_Quintuple_Magnetic_Torpedo_Mount_T1",
+    "cn": "五联装533mm磁性鱼雷T1",
+    "en": "533mm Quintuple Magnetic Torpedo Mount T1",
+    "rarity": "Elite",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/7/7b/45200.png"
+  },
+  "533mm_Quintuple_Magnetic_Torpedo_Mount_T2": {
+    "name": "533mm_Quintuple_Magnetic_Torpedo_Mount_T2",
+    "cn": "五联装533mm磁性鱼雷T2",
+    "en": "533mm Quintuple Magnetic Torpedo Mount T2",
+    "rarity": "Superrare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/7/7b/45200.png"
+  },
+  "533mm_Quintuple_Magnetic_Torpedo_Mount_T3": {
+    "name": "533mm_Quintuple_Magnetic_Torpedo_Mount_T3",
+    "cn": "五联装533mm磁性鱼雷T3",
+    "en": "533mm Quintuple Magnetic Torpedo Mount T3",
+    "rarity": "Ultrarare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/7/7b/45200.png"
+  },
+  "533mm_Quintuple_Torpedo_Mount_T1": {
+    "name": "533mm_Quintuple_Torpedo_Mount_T1",
+    "cn": "五联装533mm鱼雷T1",
+    "en": "533mm Quintuple Torpedo Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b3/5200.png/128px-5200.png"
+  },
+  "533mm_Quintuple_Torpedo_Mount_T2": {
+    "name": "533mm_Quintuple_Torpedo_Mount_T2",
+    "cn": "五联装533mm鱼雷T2",
+    "en": "533mm Quintuple Torpedo Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b3/5200.png/128px-5200.png"
+  },
+  "533mm_Quintuple_Torpedo_Mount_T3": {
+    "name": "533mm_Quintuple_Torpedo_Mount_T3",
+    "cn": "五联装533mm鱼雷T3",
+    "en": "533mm Quintuple Torpedo Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b3/5200.png/128px-5200.png"
+  },
+  "533mm_Quintuple_Torpedo_Mount_Mk_17_T0": {
+    "name": "533mm_Quintuple_Torpedo_Mount_Mk_17_T0",
+    "cn": "五联装533mm鱼雷Mk17T0",
+    "en": "533mm Quintuple Torpedo Mount Mk 17 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bf/15240.png"
+  },
+  "533mm_Quintuple_Torpedo_Mount_Mk_IX_T0": {
+    "name": "533mm_Quintuple_Torpedo_Mount_Mk_IX_T0",
+    "cn": "五联装533mm鱼雷Mark IXT0",
+    "en": "533mm Quintuple Torpedo Mount Mk IX T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d3/25040.png"
+  },
+  "533mm_Triple_Magnetic_Torpedo_Mount_T1": {
+    "name": "533mm_Triple_Magnetic_Torpedo_Mount_T1",
+    "cn": "三联装533mm磁性鱼雷T1",
+    "en": "533mm Triple Magnetic Torpedo Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/1/1e/45000.png"
+  },
+  "533mm_Triple_Magnetic_Torpedo_Mount_T2": {
+    "name": "533mm_Triple_Magnetic_Torpedo_Mount_T2",
+    "cn": "三联装533mm磁性鱼雷T2",
+    "en": "533mm Triple Magnetic Torpedo Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/1/1e/45000.png"
+  },
+  "533mm_Triple_Magnetic_Torpedo_Mount_T3": {
+    "name": "533mm_Triple_Magnetic_Torpedo_Mount_T3",
+    "cn": "三联装533mm磁性鱼雷T3",
+    "en": "533mm Triple Magnetic Torpedo Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/1/1e/45000.png"
+  },
+  "533mm_Triple_Torpedo_Mount_T1": {
+    "name": "533mm_Triple_Torpedo_Mount_T1",
+    "cn": "三联装533mm鱼雷T1",
+    "en": "533mm Triple Torpedo Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/7c/5000.png/128px-5000.png"
+  },
+  "533mm_Triple_Torpedo_Mount_T2": {
+    "name": "533mm_Triple_Torpedo_Mount_T2",
+    "cn": "三联装533mm鱼雷T2",
+    "en": "533mm Triple Torpedo Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/7c/5000.png/128px-5000.png"
+  },
+  "533mm_Triple_Torpedo_Mount_T3": {
+    "name": "533mm_Triple_Torpedo_Mount_T3",
+    "cn": "三联装533mm鱼雷T3",
+    "en": "533mm Triple Torpedo Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/7c/5000.png/128px-5000.png"
+  },
+  "533mm_Triple_Torpedo_Mount_Mk_17_T0": {
+    "name": "533mm_Triple_Torpedo_Mount_Mk_17_T0",
+    "cn": "三联装533mm鱼雷Mk17T0",
+    "en": "533mm Triple Torpedo Mount Mk 17 T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0c/15200.png"
+  },
+  "533mm_Triple_Torpedo_Mount_Mk_IX_T0": {
+    "name": "533mm_Triple_Torpedo_Mount_Mk_IX_T0",
+    "cn": "三联装533mm鱼雷Mark IXT0",
+    "en": "533mm Triple Torpedo Mount Mk IX T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/ae/25000.png"
+  },
+  "550mm_Triple_Torpedo_Launcher_T1": {
+    "name": "550mm_Triple_Torpedo_Launcher_T1",
+    "cn": "三联装550mm鱼雷T1",
+    "en": "550mm Triple Torpedo Launcher T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/9/98/5400.png"
+  },
+  "550mm_Triple_Torpedo_Launcher_T3": {
+    "name": "550mm_Triple_Torpedo_Launcher_T3",
+    "cn": "三联装550mm鱼雷T3",
+    "en": "550mm Triple Torpedo Launcher T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/9/98/5400.png"
+  },
+  "550mm_Twin_Torpedo_Launcher_T1": {
+    "name": "550mm_Twin_Torpedo_Launcher_T1",
+    "cn": "双联装550mm鱼雷T1",
+    "en": "550mm Twin Torpedo Launcher T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a2/5300.png"
+  },
+  "550mm_Twin_Torpedo_Launcher_T3": {
+    "name": "550mm_Twin_Torpedo_Launcher_T3",
+    "cn": "双联装550mm鱼雷T3",
+    "en": "550mm Twin Torpedo Launcher T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a2/5300.png"
+  },
+  "610mm_Quadruple_Torpedo_Mount_T1": {
+    "name": "610mm_Quadruple_Torpedo_Mount_T1",
+    "cn": "四联装610mm鱼雷T1",
+    "en": "610mm Quadruple Torpedo Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/14/35200.png/128px-35200.png"
+  },
+  "610mm_Quadruple_Torpedo_Mount_T2": {
+    "name": "610mm_Quadruple_Torpedo_Mount_T2",
+    "cn": "四联装610mm鱼雷T2",
+    "en": "610mm Quadruple Torpedo Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/14/35200.png/128px-35200.png"
+  },
+  "610mm_Quadruple_Torpedo_Mount_T3": {
+    "name": "610mm_Quadruple_Torpedo_Mount_T3",
+    "cn": "四联装610mm鱼雷T3",
+    "en": "610mm Quadruple Torpedo Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/14/35200.png/128px-35200.png"
+  },
+  "610mm_Triple_Torpedo_Mount_T1": {
+    "name": "610mm_Triple_Torpedo_Mount_T1",
+    "cn": "三联装610mm鱼雷T1",
+    "en": "610mm Triple Torpedo Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/bd/35100.png/128px-35100.png"
+  },
+  "610mm_Triple_Torpedo_Mount_T2": {
+    "name": "610mm_Triple_Torpedo_Mount_T2",
+    "cn": "三联装610mm鱼雷T2",
+    "en": "610mm Triple Torpedo Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/bd/35100.png/128px-35100.png"
+  },
+  "610mm_Triple_Torpedo_Mount_T3": {
+    "name": "610mm_Triple_Torpedo_Mount_T3",
+    "cn": "三联装610mm鱼雷T3",
+    "en": "610mm Triple Torpedo Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/bd/35100.png/128px-35100.png"
+  },
+  "610mm_Quadruple_Torpedo_Mount_Kai_T0": {
+    "name": "610mm_Quadruple_Torpedo_Mount_Kai_T0",
+    "cn": "四联装610mm鱼雷改T0",
+    "en": "610mm Quadruple Torpedo Mount Kai T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/ea/35260.png"
+  },
+  "610mm_Triple_Torpedo_Mount_Kai_T3": {
+    "name": "610mm_Triple_Torpedo_Mount_Kai_T3",
+    "cn": "三联装610mm鱼雷改T3",
+    "en": "610mm Triple Torpedo Mount Kai T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/2/25/35160.png"
+  },
+  "610mm_Twin_Torpedo_Mount_T1": {
+    "name": "610mm_Twin_Torpedo_Mount_T1",
+    "cn": "双联装610mm鱼雷T1",
+    "en": "610mm Twin Torpedo Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/82/35000.png/128px-35000.png"
+  },
+  "610mm_Twin_Torpedo_Mount_T2": {
+    "name": "610mm_Twin_Torpedo_Mount_T2",
+    "cn": "双联装610mm鱼雷T2",
+    "en": "610mm Twin Torpedo Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/82/35000.png/128px-35000.png"
+  },
+  "610mm_Twin_Torpedo_Mount_T3": {
+    "name": "610mm_Twin_Torpedo_Mount_T3",
+    "cn": "双联装610mm鱼雷T3",
+    "en": "610mm Twin Torpedo Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/82/35000.png/128px-35000.png"
+  },
+  "550mm_24V_Submarine_Torpedo_T1": {
+    "name": "550mm_24V_Submarine_Torpedo_T1",
+    "cn": "潜艇用550mm24V鱼雷T1",
+    "en": "550mm 24V Submarine Torpedo T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/e/ec/5500.png"
+  },
+  "550mm_24V_Submarine_Torpedo_T2": {
+    "name": "550mm_24V_Submarine_Torpedo_T2",
+    "cn": "潜艇用550mm24V鱼雷T2",
+    "en": "550mm 24V Submarine Torpedo T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/e/ec/5500.png"
+  },
+  "550mm_24V_Submarine_Torpedo_T3": {
+    "name": "550mm_24V_Submarine_Torpedo_T3",
+    "cn": "潜艇用550mm24V鱼雷T3",
+    "en": "550mm 24V Submarine Torpedo T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/e/ec/5500.png"
+  },
+  "G7a_Submarine_Torpedo_T1": {
+    "name": "G7a_Submarine_Torpedo_T1",
+    "cn": "潜艇用G7a鱼雷T1",
+    "en": "G7a Submarine Torpedo T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/c/cc/45300.png"
+  },
+  "G7a_Submarine_Torpedo_T2": {
+    "name": "G7a_Submarine_Torpedo_T2",
+    "cn": "潜艇用G7a鱼雷T2",
+    "en": "G7a Submarine Torpedo T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/c/cc/45300.png"
+  },
+  "G7a_Submarine_Torpedo_T3": {
+    "name": "G7a_Submarine_Torpedo_T3",
+    "cn": "潜艇用G7a鱼雷T3",
+    "en": "G7a Submarine Torpedo T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/c/cc/45300.png"
+  },
+  "G7e_Acoustic_Homing_Submarine_Torpedo_T1": {
+    "name": "G7e_Acoustic_Homing_Submarine_Torpedo_T1",
+    "cn": "潜艇用G7e声导鱼雷T1",
+    "en": "G7e Acoustic Homing Submarine Torpedo T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/6/6b/45400.png"
+  },
+  "G7e_Acoustic_Homing_Submarine_Torpedo_T2": {
+    "name": "G7e_Acoustic_Homing_Submarine_Torpedo_T2",
+    "cn": "潜艇用G7e声导鱼雷T2",
+    "en": "G7e Acoustic Homing Submarine Torpedo T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/6/6b/45400.png"
+  },
+  "G7e_Acoustic_Homing_Submarine_Torpedo_T3": {
+    "name": "G7e_Acoustic_Homing_Submarine_Torpedo_T3",
+    "cn": "潜艇用G7e声导鱼雷T3",
+    "en": "G7e Acoustic Homing Submarine Torpedo T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/6/6b/45400.png"
+  },
+  "Mark_12_Ferry_Submarine_Torpedo_T0": {
+    "name": "Mark_12_Ferry_Submarine_Torpedo_T0",
+    "cn": "潜艇用Mark 12鱼雷-菲里T0",
+    "en": "Mark 12 \"Ferry\" Submarine Torpedo T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/df/25200.png"
+  },
+  "Mark_14_Submarine_Torpedo_T1": {
+    "name": "Mark_14_Submarine_Torpedo_T1",
+    "cn": "潜艇用Mark 14鱼雷T1",
+    "en": "Mark 14 Submarine Torpedo T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e7/15000.png"
+  },
+  "Mark_14_Submarine_Torpedo_T2": {
+    "name": "Mark_14_Submarine_Torpedo_T2",
+    "cn": "潜艇用Mark 14鱼雷T2",
+    "en": "Mark 14 Submarine Torpedo T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e7/15000.png"
+  },
+  "Mark_14_Submarine_Torpedo_T3": {
+    "name": "Mark_14_Submarine_Torpedo_T3",
+    "cn": "潜艇用Mark 14鱼雷T3",
+    "en": "Mark 14 Submarine Torpedo T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e7/15000.png"
+  },
+  "Mark_16_Submarine_Torpedo_T1": {
+    "name": "Mark_16_Submarine_Torpedo_T1",
+    "cn": "潜艇用Mark 16鱼雷T1",
+    "en": "Mark 16 Submarine Torpedo T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bd/15100.png"
+  },
+  "Mark_16_Submarine_Torpedo_T2": {
+    "name": "Mark_16_Submarine_Torpedo_T2",
+    "cn": "潜艇用Mark 16鱼雷T2",
+    "en": "Mark 16 Submarine Torpedo T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bd/15100.png"
+  },
+  "Mark_16_Submarine_Torpedo_T3": {
+    "name": "Mark_16_Submarine_Torpedo_T3",
+    "cn": "潜艇用Mark 16鱼雷T3",
+    "en": "Mark 16 Submarine Torpedo T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bd/15100.png"
+  },
+  "Mark_20_Bidder_Submarine_Torpedo_T0": {
+    "name": "Mark_20_Bidder_Submarine_Torpedo_T0",
+    "cn": "潜艇用Mark 20 S鱼雷-彼得T0",
+    "en": "Mark 20 \"Bidder\" Submarine Torpedo T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/ab/25300.png"
+  },
+  "Mark_28_Submarine_Torpedo_T0": {
+    "name": "Mark_28_Submarine_Torpedo_T0",
+    "cn": "潜艇用Mark 28鱼雷T0",
+    "en": "Mark 28 Submarine Torpedo T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/29/15160.png"
+  },
+  "Mark_18_Submarine_Torpedo_T0": {
+    "name": "Mark_18_Submarine_Torpedo_T0",
+    "cn": "潜艇用Mark 18鱼雷T0",
+    "en": "Mark 18 Submarine Torpedo T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a4/15060.png"
+  },
+  "Mark_VIII_Submarine_Torpedo_T3": {
+    "name": "Mark_VIII_Submarine_Torpedo_T3",
+    "cn": "潜艇用Mark VIII鱼雷T3",
+    "en": "Mark VIII Submarine Torpedo T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/1/13/25100.png"
+  },
+  "533mm_Si_270_Submarine_Torpedo_T1": {
+    "name": "533mm_Si_270_Submarine_Torpedo_T1",
+    "cn": "潜艇用533mm鱼雷Si 270T1",
+    "en": "533mm Si 270 Submarine Torpedo T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/3/32/55700.png"
+  },
+  "Type_92_Electric_Submarine_Torpedo_T1": {
+    "name": "Type_92_Electric_Submarine_Torpedo_T1",
+    "cn": "潜艇用92式潜射鱼雷T1",
+    "en": "Type 92 Electric Submarine Torpedo T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/c/ce/35400.png"
+  },
+  "Type_92_Electric_Submarine_Torpedo_T2": {
+    "name": "Type_92_Electric_Submarine_Torpedo_T2",
+    "cn": "潜艇用92式潜射鱼雷T2",
+    "en": "Type 92 Electric Submarine Torpedo T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/c/ce/35400.png"
+  },
+  "Type_92_Electric_Submarine_Torpedo_T3": {
+    "name": "Type_92_Electric_Submarine_Torpedo_T3",
+    "cn": "潜艇用92式潜射鱼雷T3",
+    "en": "Type 92 Electric Submarine Torpedo T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/c/ce/35400.png"
+  },
+  "Type_92_Kai_Electric_Submarine_Torpedo_T0": {
+    "name": "Type_92_Kai_Electric_Submarine_Torpedo_T0",
+    "cn": "潜艇用92式潜射鱼雷改T0",
+    "en": "Type 92 Kai Electric Submarine Torpedo T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/88/35460.png"
+  },
+  "Type_95_Submarine_Torpedo_T1": {
+    "name": "Type_95_Submarine_Torpedo_T1",
+    "cn": "潜艇用95式纯氧鱼雷T1",
+    "en": "Type 95 Submarine Torpedo T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/7/70/35500.png"
+  },
+  "Type_95_Submarine_Torpedo_T2": {
+    "name": "Type_95_Submarine_Torpedo_T2",
+    "cn": "潜艇用95式纯氧鱼雷T2",
+    "en": "Type 95 Submarine Torpedo T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/7/70/35500.png"
+  },
+  "Type_95_Submarine_Torpedo_T3": {
+    "name": "Type_95_Submarine_Torpedo_T3",
+    "cn": "潜艇用95式纯氧鱼雷T3",
+    "en": "Type 95 Submarine Torpedo T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/7/70/35500.png"
+  },
+  "Type_96_Submarine_Torpedo_T3": {
+    "name": "Type_96_Submarine_Torpedo_T3",
+    "cn": "潜艇用96式纯氧鱼雷T3",
+    "en": "Type 96 Submarine Torpedo T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e8/35560.png"
+  },
+  "Ar_197_T0": {
+    "name": "Ar_197_T0",
+    "cn": "Ar-197舰载战斗机T0",
+    "en": "Ar 197 T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/52/47060.png"
+  },
+  "F2A_Buffalo_T1": {
+    "name": "F2A_Buffalo_T1",
+    "cn": "F2A水牛T1",
+    "en": "F2A Buffalo T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6e/17000.png/128px-17000.png"
+  },
+  "F2A_Buffalo_T2": {
+    "name": "F2A_Buffalo_T2",
+    "cn": "F2A水牛T2",
+    "en": "F2A Buffalo T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6e/17000.png/128px-17000.png"
+  },
+  "F2A_Buffalo_T3": {
+    "name": "F2A_Buffalo_T3",
+    "cn": "F2A水牛T3",
+    "en": "F2A Buffalo T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6e/17000.png/128px-17000.png"
+  },
+  "F2A_Buffalo_Thach_Squadron_T0": {
+    "name": "F2A_Buffalo_Thach_Squadron_T0",
+    "cn": "F2A水牛(萨奇队)T0",
+    "en": "F2A Buffalo (Thach Squadron) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/08/17060.png/128px-17060.png"
+  },
+  "Prototype_XF2A_4_Buffalo_T3": {
+    "name": "Prototype_XF2A_4_Buffalo_T3",
+    "cn": "试作型XF2A-4水牛T3",
+    "en": "Prototype XF2A-4 Buffalo T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e4/17080.png"
+  },
+  "Sea_Hornet_T0": {
+    "name": "Sea_Hornet_T0",
+    "cn": "海大黄蜂T0",
+    "en": "Sea Hornet T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/1/1f/27320.png"
+  },
+  "G_50_Freccia_Fighter_T1": {
+    "name": "G_50_Freccia_Fighter_T1",
+    "cn": "G.50箭式战斗机T1",
+    "en": "G.50 Freccia Fighter T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/5/50/55720.png"
+  },
+  "G_50_Freccia_Fighter_T2": {
+    "name": "G_50_Freccia_Fighter_T2",
+    "cn": "G.50箭式战斗机T2",
+    "en": "G.50 Freccia Fighter T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/5/50/55720.png"
+  },
+  "G_50_Freccia_Fighter_T3": {
+    "name": "G_50_Freccia_Fighter_T3",
+    "cn": "G.50箭式战斗机T3",
+    "en": "G.50 Freccia Fighter T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/5/50/55720.png"
+  },
+  "Prototype_Fw_190_A_5_Carrier_based_T0": {
+    "name": "Prototype_Fw_190_A_5_Carrier_based_T0",
+    "cn": "试作型舰载FW-190 A-5T0",
+    "en": "Prototype Fw 190 A-5 (Carrier-based) T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/5e/47080.png"
+  },
+  "Sea_Gladiator_T1": {
+    "name": "Sea_Gladiator_T1",
+    "cn": "海斗士T1",
+    "en": "Sea Gladiator T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/9/97/27200.png"
+  },
+  "Sea_Gladiator_T2": {
+    "name": "Sea_Gladiator_T2",
+    "cn": "海斗士T2",
+    "en": "Sea Gladiator T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/9/97/27200.png"
+  },
+  "Sea_Gladiator_T3": {
+    "name": "Sea_Gladiator_T3",
+    "cn": "海斗士T3",
+    "en": "Sea Gladiator T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/9/97/27200.png"
+  },
+  "Gourdou_Leseurre_GL_2_Fighter_T0": {
+    "name": "Gourdou_Leseurre_GL_2_Fighter_T0",
+    "cn": "GL.2舰载战斗机T0",
+    "en": "Gourdou-Leseurre GL.2 Fighter T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bb/50820.png"
+  },
+  "F4F_Wildcat_T1": {
+    "name": "F4F_Wildcat_T1",
+    "cn": "F4F野猫T1",
+    "en": "F4F Wildcat T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/62/17100.png/128px-17100.png"
+  },
+  "F4F_Wildcat_T2": {
+    "name": "F4F_Wildcat_T2",
+    "cn": "F4F野猫T2",
+    "en": "F4F Wildcat T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/62/17100.png/128px-17100.png"
+  },
+  "F4F_Wildcat_T3": {
+    "name": "F4F_Wildcat_T3",
+    "cn": "F4F野猫T3",
+    "en": "F4F Wildcat T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/62/17100.png/128px-17100.png"
+  },
+  "F6F_Hellcat_T1": {
+    "name": "F6F_Hellcat_T1",
+    "cn": "F6F地狱猫T1",
+    "en": "F6F Hellcat T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/0d/17300.png/128px-17300.png"
+  },
+  "F6F_Hellcat_T2": {
+    "name": "F6F_Hellcat_T2",
+    "cn": "F6F地狱猫T2",
+    "en": "F6F Hellcat T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/0d/17300.png/128px-17300.png"
+  },
+  "F6F_Hellcat_T3": {
+    "name": "F6F_Hellcat_T3",
+    "cn": "F6F地狱猫T3",
+    "en": "F6F Hellcat T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/0d/17300.png/128px-17300.png"
+  },
+  "F7F_Tigercat_T0": {
+    "name": "F7F_Tigercat_T0",
+    "cn": "F7F虎猫T0",
+    "en": "F7F Tigercat T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/4/47/17360.png"
+  },
+  "Sea_Fury_T0": {
+    "name": "Sea_Fury_T0",
+    "cn": "海怒T0",
+    "en": "Sea Fury T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/da/27300.png"
+  },
+  "F8F_Bearcat_T0": {
+    "name": "F8F_Bearcat_T0",
+    "cn": "F8F熊猫T0",
+    "en": "F8F Bearcat T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e7/17380.png"
+  },
+  "XF5F_Skyrocket_T0": {
+    "name": "XF5F_Skyrocket_T0",
+    "cn": "XF5F天箭T0",
+    "en": "XF5F Skyrocket T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c3/17400.png/128px-17400.png"
+  },
+  "Prototype_BF_109G_T0": {
+    "name": "Prototype_BF_109G_T0",
+    "cn": "试作舰载型BF-109GT0",
+    "en": "Prototype BF-109G T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/ee/47160.png"
+  },
+  "Kawanishi_N1K3_A_Shiden_Kai_2_T0": {
+    "name": "Kawanishi_N1K3_A_Shiden_Kai_2_T0",
+    "cn": "紫电改二T0",
+    "en": "Kawanishi N1K3-A Shiden Kai 2 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/52/37400.png"
+  },
+  "Sea_Hurricane_T3": {
+    "name": "Sea_Hurricane_T3",
+    "cn": "海飓风T3",
+    "en": "Sea Hurricane T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b6/27260.png"
+  },
+  "BF_109T_Fighter_T1": {
+    "name": "BF_109T_Fighter_T1",
+    "cn": "BF-109T舰载战斗机T1",
+    "en": "BF-109T Fighter T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f9/47000.png"
+  },
+  "BF_109T_Fighter_T2": {
+    "name": "BF_109T_Fighter_T2",
+    "cn": "BF-109T舰载战斗机T2",
+    "en": "BF-109T Fighter T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f9/47000.png"
+  },
+  "BF_109T_Fighter_T3": {
+    "name": "BF_109T_Fighter_T3",
+    "cn": "BF-109T舰载战斗机T3",
+    "en": "BF-109T Fighter T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f9/47000.png"
+  },
+  "Messerschmitt_Me_155A_T1": {
+    "name": "Messerschmitt_Me_155A_T1",
+    "cn": "Me-155A舰载战斗机T1",
+    "en": "Messerschmitt Me-155A T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f9/47100.png"
+  },
+  "Messerschmitt_Me_155A_T2": {
+    "name": "Messerschmitt_Me_155A_T2",
+    "cn": "Me-155A舰载战斗机T2",
+    "en": "Messerschmitt Me-155A T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f9/47100.png"
+  },
+  "Messerschmitt_Me_155A_T3": {
+    "name": "Messerschmitt_Me_155A_T3",
+    "cn": "Me-155A舰载战斗机T3",
+    "en": "Messerschmitt Me-155A T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f9/47100.png"
+  },
+  "A5M_Claude_T1": {
+    "name": "A5M_Claude_T1",
+    "cn": "九六式舰战T1",
+    "en": "A5M Claude T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/55/37000.png/128px-37000.png"
+  },
+  "A5M_Claude_T2": {
+    "name": "A5M_Claude_T2",
+    "cn": "九六式舰战T2",
+    "en": "A5M Claude T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/55/37000.png/128px-37000.png"
+  },
+  "A5M_Claude_T3": {
+    "name": "A5M_Claude_T3",
+    "cn": "九六式舰战T3",
+    "en": "A5M Claude T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/55/37000.png/128px-37000.png"
+  },
+  "Type_0_Fighter_Model_21_T1": {
+    "name": "Type_0_Fighter_Model_21_T1",
+    "cn": "零战二一型T1",
+    "en": "Type 0 Fighter Model 21 T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6f/37100.png/128px-37100.png"
+  },
+  "Type_0_Fighter_Model_21_T2": {
+    "name": "Type_0_Fighter_Model_21_T2",
+    "cn": "零战二一型T2",
+    "en": "Type 0 Fighter Model 21 T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6f/37100.png/128px-37100.png"
+  },
+  "Type_0_Fighter_Model_21_T3": {
+    "name": "Type_0_Fighter_Model_21_T3",
+    "cn": "零战二一型T3",
+    "en": "Type 0 Fighter Model 21 T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6f/37100.png/128px-37100.png"
+  },
+  "Type_0_Fighter_Model_32_T0": {
+    "name": "Type_0_Fighter_Model_32_T0",
+    "cn": "零战三二型T0",
+    "en": "Type 0 Fighter Model 32 T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0a/37160.png"
+  },
+  "Type_0_Fighter_Model_52_T1": {
+    "name": "Type_0_Fighter_Model_52_T1",
+    "cn": "零战五二型T1",
+    "en": "Type 0 Fighter Model 52 T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/09/37200.png/128px-37200.png"
+  },
+  "Type_0_Fighter_Model_52_T2": {
+    "name": "Type_0_Fighter_Model_52_T2",
+    "cn": "零战五二型T2",
+    "en": "Type 0 Fighter Model 52 T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/09/37200.png/128px-37200.png"
+  },
+  "Type_0_Fighter_Model_52_T3": {
+    "name": "Type_0_Fighter_Model_52_T3",
+    "cn": "零战五二型T3",
+    "en": "Type 0 Fighter Model 52 T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/09/37200.png/128px-37200.png"
+  },
+  "A7M_Reppuu_T1": {
+    "name": "A7M_Reppuu_T1",
+    "cn": "烈风T1",
+    "en": "A7M Reppuu T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8c/37300.png"
+  },
+  "A7M_Reppuu_T2": {
+    "name": "A7M_Reppuu_T2",
+    "cn": "烈风T2",
+    "en": "A7M Reppuu T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8c/37300.png"
+  },
+  "A7M_Reppuu_T3": {
+    "name": "A7M_Reppuu_T3",
+    "cn": "烈风T3",
+    "en": "A7M Reppuu T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8c/37300.png"
+  },
+  "Re_2001_Ariete_Fighter_T1": {
+    "name": "Re_2001_Ariete_Fighter_T1",
+    "cn": "Re.2001公羊T1",
+    "en": "Re.2001 Ariete Fighter T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/7/71/55800.png"
+  },
+  "Re_2001_Ariete_Fighter_T2": {
+    "name": "Re_2001_Ariete_Fighter_T2",
+    "cn": "Re.2001公羊T2",
+    "en": "Re.2001 Ariete Fighter T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/7/71/55800.png"
+  },
+  "Re_2001_Ariete_Fighter_T3": {
+    "name": "Re_2001_Ariete_Fighter_T3",
+    "cn": "Re.2001公羊T3",
+    "en": "Re.2001 Ariete Fighter T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/7/71/55800.png"
+  },
+  "Seafang_T1": {
+    "name": "Seafang_T1",
+    "cn": "海毒牙T1",
+    "en": "Seafang T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5b/27100.png/128px-27100.png"
+  },
+  "Seafang_T2": {
+    "name": "Seafang_T2",
+    "cn": "海毒牙T2",
+    "en": "Seafang T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5b/27100.png/128px-27100.png"
+  },
+  "Seafang_T3": {
+    "name": "Seafang_T3",
+    "cn": "海毒牙T3",
+    "en": "Seafang T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5b/27100.png/128px-27100.png"
+  },
+  "Spitfire_T1": {
+    "name": "Spitfire_T1",
+    "cn": "海喷火T1",
+    "en": "Spitfire T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/34/27000.png/128px-27000.png"
+  },
+  "Spitfire_T2": {
+    "name": "Spitfire_T2",
+    "cn": "海喷火T2",
+    "en": "Spitfire T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/34/27000.png/128px-27000.png"
+  },
+  "Spitfire_T3": {
+    "name": "Spitfire_T3",
+    "cn": "海喷火T3",
+    "en": "Spitfire T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/34/27000.png/128px-27000.png"
+  },
+  "Seafire_FR_47_T0": {
+    "name": "Seafire_FR_47_T0",
+    "cn": "海喷火FR.47T0",
+    "en": "Seafire FR.47 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/c/c4/27060.png"
+  },
+  "F4U_Corsair_T1": {
+    "name": "F4U_Corsair_T1",
+    "cn": "F4U海盗T1",
+    "en": "F4U Corsair T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5e/17200.png/128px-17200.png"
+  },
+  "F4U_Corsair_T2": {
+    "name": "F4U_Corsair_T2",
+    "cn": "F4U海盗T2",
+    "en": "F4U Corsair T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5e/17200.png/128px-17200.png"
+  },
+  "F4U_Corsair_T3": {
+    "name": "F4U_Corsair_T3",
+    "cn": "F4U海盗T3",
+    "en": "F4U Corsair T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/5e/17200.png/128px-17200.png"
+  },
+  "Type_99_Dive_Bomber_T1": {
+    "name": "Type_99_Dive_Bomber_T1",
+    "cn": "九九式舰爆T1",
+    "en": "Type 99 Dive Bomber T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a2/39000.png/128px-39000.png"
+  },
+  "Type_99_Dive_Bomber_T2": {
+    "name": "Type_99_Dive_Bomber_T2",
+    "cn": "九九式舰爆T2",
+    "en": "Type 99 Dive Bomber T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a2/39000.png/128px-39000.png"
+  },
+  "Type_99_Dive_Bomber_T3": {
+    "name": "Type_99_Dive_Bomber_T3",
+    "cn": "九九式舰爆T3",
+    "en": "Type 99 Dive Bomber T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a2/39000.png/128px-39000.png"
+  },
+  "F4U_VF_17_Pirate_Squad_T0": {
+    "name": "F4U_VF_17_Pirate_Squad_T0",
+    "cn": "F4U（VF-17“海盗”中队）T0",
+    "en": "F4U (VF-17 \"Pirate\" Squad) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/f/f7/17260.png/128px-17260.png"
+  },
+  "Type_99_Dive_Bomber_Kai_T0": {
+    "name": "Type_99_Dive_Bomber_Kai_T0",
+    "cn": "九九式舰爆改T0",
+    "en": "Type 99 Dive Bomber Kai T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f9/39060.png"
+  },
+  "Blackburn_Skua_T1": {
+    "name": "Blackburn_Skua_T1",
+    "cn": "贼鸥T1",
+    "en": "Blackburn Skua T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/be/29000.png/128px-29000.png"
+  },
+  "Blackburn_Skua_T2": {
+    "name": "Blackburn_Skua_T2",
+    "cn": "贼鸥T2",
+    "en": "Blackburn Skua T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/be/29000.png/128px-29000.png"
+  },
+  "Blackburn_Skua_T3": {
+    "name": "Blackburn_Skua_T3",
+    "cn": "贼鸥T3",
+    "en": "Blackburn Skua T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/be/29000.png/128px-29000.png"
+  },
+  "SB2C_Helldiver_T1": {
+    "name": "SB2C_Helldiver_T1",
+    "cn": "SB2C地狱俯冲者T1",
+    "en": "SB2C Helldiver T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/56/19100.png/128px-19100.png"
+  },
+  "SB2C_Helldiver_T2": {
+    "name": "SB2C_Helldiver_T2",
+    "cn": "SB2C地狱俯冲者T2",
+    "en": "SB2C Helldiver T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/56/19100.png/128px-19100.png"
+  },
+  "SB2C_Helldiver_T3": {
+    "name": "SB2C_Helldiver_T3",
+    "cn": "SB2C地狱俯冲者T3",
+    "en": "SB2C Helldiver T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/56/19100.png/128px-19100.png"
+  },
+  "Experimental_XSB3C_1_T0": {
+    "name": "Experimental_XSB3C_1_T0",
+    "cn": "实验型XSB3C-1T0",
+    "en": "Experimental XSB3C-1 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/da/19160.png"
+  },
+  "BTD_1_Destroyer_T1": {
+    "name": "BTD_1_Destroyer_T1",
+    "cn": "BTD-1毁灭者T1",
+    "en": "BTD-1 Destroyer T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/45/19200.png/128px-19200.png"
+  },
+  "BTD_1_Destroyer_T2": {
+    "name": "BTD_1_Destroyer_T2",
+    "cn": "BTD-1毁灭者T2",
+    "en": "BTD-1 Destroyer T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/45/19200.png/128px-19200.png"
+  },
+  "BTD_1_Destroyer_T3": {
+    "name": "BTD_1_Destroyer_T3",
+    "cn": "BTD-1毁灭者T3",
+    "en": "BTD-1 Destroyer T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/45/19200.png/128px-19200.png"
+  },
+  "SBD_Dauntless_T1": {
+    "name": "SBD_Dauntless_T1",
+    "cn": "SBD无畏T1",
+    "en": "SBD Dauntless T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/74/19000.png/128px-19000.png"
+  },
+  "SBD_Dauntless_T2": {
+    "name": "SBD_Dauntless_T2",
+    "cn": "SBD无畏T2",
+    "en": "SBD Dauntless T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/74/19000.png/128px-19000.png"
+  },
+  "SBD_Dauntless_T3": {
+    "name": "SBD_Dauntless_T3",
+    "cn": "SBD无畏T3",
+    "en": "SBD Dauntless T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/74/19000.png/128px-19000.png"
+  },
+  "SBD_Dauntless_McClusky_Division_T0": {
+    "name": "SBD_Dauntless_McClusky_Division_T0",
+    "cn": "SBD无畏(麦克拉斯基队)T0",
+    "en": "SBD Dauntless (McClusky Division) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/18/19060.png/128px-19060.png"
+  },
+  "Firefly_T0": {
+    "name": "Firefly_T0",
+    "cn": "萤火虫T0",
+    "en": "Firefly T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/19/29200.png/128px-29200.png"
+  },
+  "Barracuda_831_Squadron_T0": {
+    "name": "Barracuda_831_Squadron_T0",
+    "cn": "梭鱼(831中队)T0",
+    "en": "Barracuda (831 Squadron) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/4/47/29300.png"
+  },
+  "Fulmar_T1": {
+    "name": "Fulmar_T1",
+    "cn": "海燕T1",
+    "en": "Fulmar T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/1/15/29100.png"
+  },
+  "Fulmar_T2": {
+    "name": "Fulmar_T2",
+    "cn": "海燕T2",
+    "en": "Fulmar T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/1/15/29100.png"
+  },
+  "Fulmar_T3": {
+    "name": "Fulmar_T3",
+    "cn": "海燕T3",
+    "en": "Fulmar T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/1/15/29100.png"
+  },
+  "He_50b_T0": {
+    "name": "He_50b_T0",
+    "cn": "He-50b舰载轰炸机T0",
+    "en": "He-50b T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/58/49060.png"
+  },
+  "Ju_87C_Dive_Bomber_T1": {
+    "name": "Ju_87C_Dive_Bomber_T1",
+    "cn": "Ju-87C俯冲轰炸机T1",
+    "en": "Ju-87C Dive Bomber T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/5/53/49000.png"
+  },
+  "Ju_87C_Dive_Bomber_T2": {
+    "name": "Ju_87C_Dive_Bomber_T2",
+    "cn": "Ju-87C俯冲轰炸机T2",
+    "en": "Ju-87C Dive Bomber T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/5/53/49000.png"
+  },
+  "Ju_87C_Dive_Bomber_T3": {
+    "name": "Ju_87C_Dive_Bomber_T3",
+    "cn": "Ju-87C俯冲轰炸机T3",
+    "en": "Ju-87C Dive Bomber T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/5/53/49000.png"
+  },
+  "Prototype_Tenrai_T0": {
+    "name": "Prototype_Tenrai_T0",
+    "cn": "试作舰载型天雷T0",
+    "en": "Prototype Tenrai T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/7/7b/39340.png"
+  },
+  "Suisei_T1": {
+    "name": "Suisei_T1",
+    "cn": "彗星T1",
+    "en": "Suisei T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/21/39100.png/128px-39100.png"
+  },
+  "Suisei_T2": {
+    "name": "Suisei_T2",
+    "cn": "彗星T2",
+    "en": "Suisei T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/21/39100.png/128px-39100.png"
+  },
+  "Suisei_T3": {
+    "name": "Suisei_T3",
+    "cn": "彗星T3",
+    "en": "Suisei T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/21/39100.png/128px-39100.png"
+  },
+  "Suisei_Model_12A_T0": {
+    "name": "Suisei_Model_12A_T0",
+    "cn": "彗星一二型甲T0",
+    "en": "Suisei Model 12A T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a3/39160.png"
+  },
+  "Aichi_B7A_Ryusei_T1": {
+    "name": "Aichi_B7A_Ryusei_T1",
+    "cn": "流星T1",
+    "en": "Aichi B7A Ryusei T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/3/33/38200.png"
+  },
+  "Aichi_B7A_Ryusei_T2": {
+    "name": "Aichi_B7A_Ryusei_T2",
+    "cn": "流星T2",
+    "en": "Aichi B7A Ryusei T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/3/33/38200.png"
+  },
+  "Aichi_B7A_Ryusei_T3": {
+    "name": "Aichi_B7A_Ryusei_T3",
+    "cn": "流星T3",
+    "en": "Aichi B7A Ryusei T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/3/33/38200.png"
+  },
+  "Ar_195_T0": {
+    "name": "Ar_195_T0",
+    "cn": "Ar-195舰载鱼雷机T0",
+    "en": "Ar 195 T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/06/48000.png"
+  },
+  "Blackburn_Firebrand_T0": {
+    "name": "Blackburn_Firebrand_T0",
+    "cn": "火把T0",
+    "en": "Blackburn Firebrand T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/03/28200.png/128px-28200.png"
+  },
+  "Firecrest_T0": {
+    "name": "Firecrest_T0",
+    "cn": "火冠T0",
+    "en": "Firecrest T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a1/28220.png"
+  },
+  "TBD_Devastator_T1": {
+    "name": "TBD_Devastator_T1",
+    "cn": "TBD蹂躏者T1",
+    "en": "TBD Devastator T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/10/18000.png/128px-18000.png"
+  },
+  "TBD_Devastator_T2": {
+    "name": "TBD_Devastator_T2",
+    "cn": "TBD蹂躏者T2",
+    "en": "TBD Devastator T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/10/18000.png/128px-18000.png"
+  },
+  "TBD_Devastator_T3": {
+    "name": "TBD_Devastator_T3",
+    "cn": "TBD蹂躏者T3",
+    "en": "TBD Devastator T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/10/18000.png/128px-18000.png"
+  },
+  "XTB2D_1_Skypirate_T0": {
+    "name": "XTB2D_1_Skypirate_T0",
+    "cn": "XTB2D-1天空海盗T0",
+    "en": "XTB2D-1 Skypirate T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/3/38/18220.png"
+  },
+  "Albacore_T1": {
+    "name": "Albacore_T1",
+    "cn": "青花鱼T1",
+    "en": "Albacore T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a6/28300.png"
+  },
+  "Albacore_T2": {
+    "name": "Albacore_T2",
+    "cn": "青花鱼T2",
+    "en": "Albacore T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a6/28300.png"
+  },
+  "Albacore_T3": {
+    "name": "Albacore_T3",
+    "cn": "青花鱼T3",
+    "en": "Albacore T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a6/28300.png"
+  },
+  "Barracuda_T1": {
+    "name": "Barracuda_T1",
+    "cn": "梭鱼T1",
+    "en": "Barracuda T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/06/28100.png/128px-28100.png"
+  },
+  "Barracuda_T2": {
+    "name": "Barracuda_T2",
+    "cn": "梭鱼T2",
+    "en": "Barracuda T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/06/28100.png/128px-28100.png"
+  },
+  "Barracuda_T3": {
+    "name": "Barracuda_T3",
+    "cn": "梭鱼T3",
+    "en": "Barracuda T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/0/06/28100.png/128px-28100.png"
+  },
+  "Swordfish_T1": {
+    "name": "Swordfish_T1",
+    "cn": "剑鱼T1",
+    "en": "Swordfish T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/57/28000.png/128px-28000.png"
+  },
+  "Swordfish_T2": {
+    "name": "Swordfish_T2",
+    "cn": "剑鱼T2",
+    "en": "Swordfish T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/57/28000.png/128px-28000.png"
+  },
+  "Swordfish_T3": {
+    "name": "Swordfish_T3",
+    "cn": "剑鱼T3",
+    "en": "Swordfish T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/57/28000.png/128px-28000.png"
+  },
+  "Swordfish_818_Squad_T0": {
+    "name": "Swordfish_818_Squad_T0",
+    "cn": "剑鱼(818中队)T0",
+    "en": "Swordfish (818 Squad) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/7/73/28060.png"
+  },
+  "Fi_167_T0": {
+    "name": "Fi_167_T0",
+    "cn": "Fi-167舰载鱼雷机T0",
+    "en": "Fi 167 T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/88/48020.png"
+  },
+  "TBM_Avenger_VT_18_Squadron_T0": {
+    "name": "TBM_Avenger_VT_18_Squadron_T0",
+    "cn": "TBM复仇者(VT-18中队)T0",
+    "en": "TBM Avenger (VT-18 Squadron) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/9/99/18180.png"
+  },
+  "TBF_Avenger_T1": {
+    "name": "TBF_Avenger_T1",
+    "cn": "TBF复仇者T1",
+    "en": "TBF Avenger T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/f/f6/18100.png/128px-18100.png"
+  },
+  "TBF_Avenger_T2": {
+    "name": "TBF_Avenger_T2",
+    "cn": "TBF复仇者T2",
+    "en": "TBF Avenger T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/f/f6/18100.png/128px-18100.png"
+  },
+  "TBF_Avenger_T3": {
+    "name": "TBF_Avenger_T3",
+    "cn": "TBF复仇者T3",
+    "en": "TBF Avenger T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/f/f6/18100.png/128px-18100.png"
+  },
+  "Ju_87_D_4_T0": {
+    "name": "Ju_87_D_4_T0",
+    "cn": "Ju-87 D-4T0",
+    "en": "Ju-87 D-4 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/22/48040.png"
+  },
+  "Pierre_Levasseur_PL_7_Torpedo_Bomber_T0": {
+    "name": "Pierre_Levasseur_PL_7_Torpedo_Bomber_T0",
+    "cn": "PL.7舰载鱼雷机T0",
+    "en": "Pierre Levasseur PL.7 Torpedo Bomber T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e2/50840.png"
+  },
+  "Type_97_Torpedo_Bomber_T1": {
+    "name": "Type_97_Torpedo_Bomber_T1",
+    "cn": "九七式舰攻T1",
+    "en": "Type 97 Torpedo Bomber T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3e/38000.png/128px-38000.png"
+  },
+  "Type_97_Torpedo_Bomber_T2": {
+    "name": "Type_97_Torpedo_Bomber_T2",
+    "cn": "九七式舰攻T2",
+    "en": "Type 97 Torpedo Bomber T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3e/38000.png/128px-38000.png"
+  },
+  "Type_97_Torpedo_Bomber_T3": {
+    "name": "Type_97_Torpedo_Bomber_T3",
+    "cn": "九七式舰攻T3",
+    "en": "Type 97 Torpedo Bomber T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3e/38000.png/128px-38000.png"
+  },
+  "Tenzan_T1": {
+    "name": "Tenzan_T1",
+    "cn": "天山T1",
+    "en": "Tenzan T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/16/38100.png/128px-38100.png"
+  },
+  "Tenzan_T2": {
+    "name": "Tenzan_T2",
+    "cn": "天山T2",
+    "en": "Tenzan T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/16/38100.png/128px-38100.png"
+  },
+  "Tenzan_T3": {
+    "name": "Tenzan_T3",
+    "cn": "天山T3",
+    "en": "Tenzan T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/16/38100.png/128px-38100.png"
+  },
+  "Type_97_Torpedo_Bomber_Kai_T0": {
+    "name": "Type_97_Torpedo_Bomber_Kai_T0",
+    "cn": "九七式舰攻改T0",
+    "en": "Type 97 Torpedo Bomber Kai T0",
+    "rarity": "Rare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/02/38060.png"
+  },
+  "Tenzan_Kai_T0": {
+    "name": "Tenzan_Kai_T0",
+    "cn": "天山改T0",
+    "en": "Tenzan Kai T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/de/38160.png"
+  },
+  "Prototype_Saiun_Kai_T0": {
+    "name": "Prototype_Saiun_Kai_T0",
+    "cn": "试作型彩云(舰攻型)T0",
+    "en": "Prototype Saiun Kai T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f1/38300.png"
+  },
+  "TBD_Devastator_VT_8_Squadron_T0": {
+    "name": "TBD_Devastator_VT_8_Squadron_T0",
+    "cn": "TBD蹂躏者(VT-8中队)T0",
+    "en": "TBD Devastator (VT-8 Squadron) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/02/18060.png"
+  },
+  "Wyvern_T0": {
+    "name": "Wyvern_T0",
+    "cn": "飞龙T0",
+    "en": "Wyvern T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e9/28400.png"
+  },
+  "Aichi_E16A_Zuiun_T1": {
+    "name": "Aichi_E16A_Zuiun_T1",
+    "cn": "瑞云T1",
+    "en": "Aichi E16A Zuiun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0c/39200.png"
+  },
+  "Aichi_E16A_Zuiun_T2": {
+    "name": "Aichi_E16A_Zuiun_T2",
+    "cn": "瑞云T2",
+    "en": "Aichi E16A Zuiun T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0c/39200.png"
+  },
+  "Aichi_E16A_Zuiun_T3": {
+    "name": "Aichi_E16A_Zuiun_T3",
+    "cn": "瑞云T3",
+    "en": "Aichi E16A Zuiun T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0c/39200.png"
+  },
+  "Seiran_T0": {
+    "name": "Seiran_T0",
+    "cn": "晴岚T0",
+    "en": "Seiran T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/4/4e/39300.png"
+  },
+  "N1K1_Kyoufuu_T0": {
+    "name": "N1K1_Kyoufuu_T0",
+    "cn": "强风T0",
+    "en": "N1K1 Kyoufuu T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/08/37440.png"
+  },
+  "Type_2_Seaplane_Fighter_T0": {
+    "name": "Type_2_Seaplane_Fighter_T0",
+    "cn": "二式水上战斗机T0",
+    "en": "Type 2 Seaplane Fighter T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d4/37420.png"
+  },
+  "Octuple_40mm_Pom_Pom_Gun_Mount_T1": {
+    "name": "Octuple_40mm_Pom_Pom_Gun_Mount_T1",
+    "cn": "八联装40mm“砰砰”炮T1",
+    "en": "Octuple 40mm Pom-Pom Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2c/26200.png/128px-26200.png"
+  },
+  "Octuple_40mm_Pom_Pom_Gun_Mount_T2": {
+    "name": "Octuple_40mm_Pom_Pom_Gun_Mount_T2",
+    "cn": "八联装40mm“砰砰”炮T2",
+    "en": "Octuple 40mm Pom-Pom Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2c/26200.png/128px-26200.png"
+  },
+  "Octuple_40mm_Pom_Pom_Gun_Mount_T3": {
+    "name": "Octuple_40mm_Pom_Pom_Gun_Mount_T3",
+    "cn": "八联装40mm“砰砰”炮T3",
+    "en": "Octuple 40mm Pom-Pom Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2c/26200.png/128px-26200.png"
+  },
+  "Suisei_Model_21_T0": {
+    "name": "Suisei_Model_21_T0",
+    "cn": "彗星二一型T0",
+    "en": "Suisei Model 21 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d0/39320.png"
+  },
+  "Quadruple_20mm_Flakvierling_Machine_Gun_Mount_T1": {
+    "name": "Quadruple_20mm_Flakvierling_Machine_Gun_Mount_T1",
+    "cn": "四联装20mm MG机枪T1",
+    "en": "Quadruple 20mm Flakvierling Machine Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/66/46000.png/128px-46000.png"
+  },
+  "Quadruple_20mm_Flakvierling_Machine_Gun_Mount_T2": {
+    "name": "Quadruple_20mm_Flakvierling_Machine_Gun_Mount_T2",
+    "cn": "四联装20mm MG机枪T2",
+    "en": "Quadruple 20mm Flakvierling Machine Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/66/46000.png/128px-46000.png"
+  },
+  "Quadruple_20mm_Flakvierling_Machine_Gun_Mount_T3": {
+    "name": "Quadruple_20mm_Flakvierling_Machine_Gun_Mount_T3",
+    "cn": "四联装20mm MG机枪T3",
+    "en": "Quadruple 20mm Flakvierling Machine Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/66/46000.png/128px-46000.png"
+  },
+  "Quadruple_20mm_Mk_15_Oerlikon_AA_Gun_Mount_T0": {
+    "name": "Quadruple_20mm_Mk_15_Oerlikon_AA_Gun_Mount_T0",
+    "cn": "四联装20mm厄利孔高射炮Mk15T0",
+    "en": "Quadruple 20mm Mk 15 Oerlikon AA Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/c/c8/16160.png"
+  },
+  "Quadruple_28mm_Chicago_Piano_AA_Gun_Mount_T1": {
+    "name": "Quadruple_28mm_Chicago_Piano_AA_Gun_Mount_T1",
+    "cn": "四联装28mm“芝加哥钢琴”T1",
+    "en": "Quadruple 28mm \"Chicago Piano\" AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/39/16200.png/128px-16200.png"
+  },
+  "Quadruple_28mm_Chicago_Piano_AA_Gun_Mount_T2": {
+    "name": "Quadruple_28mm_Chicago_Piano_AA_Gun_Mount_T2",
+    "cn": "四联装28mm“芝加哥钢琴”T2",
+    "en": "Quadruple 28mm \"Chicago Piano\" AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/39/16200.png/128px-16200.png"
+  },
+  "Quadruple_28mm_Chicago_Piano_AA_Gun_Mount_T3": {
+    "name": "Quadruple_28mm_Chicago_Piano_AA_Gun_Mount_T3",
+    "cn": "四联装28mm“芝加哥钢琴”T3",
+    "en": "Quadruple 28mm \"Chicago Piano\" AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/39/16200.png/128px-16200.png"
+  },
+  "Quadruple_40mm_Bofors_AA_Gun_Mount_T1": {
+    "name": "Quadruple_40mm_Bofors_AA_Gun_Mount_T1",
+    "cn": "四联40mm博福斯对空机炮T1",
+    "en": "Quadruple 40mm Bofors AA Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c1/16400.png/128px-16400.png"
+  },
+  "Quadruple_40mm_Bofors_AA_Gun_Mount_T2": {
+    "name": "Quadruple_40mm_Bofors_AA_Gun_Mount_T2",
+    "cn": "四联40mm博福斯对空机炮T2",
+    "en": "Quadruple 40mm Bofors AA Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c1/16400.png/128px-16400.png"
+  },
+  "Quadruple_40mm_Bofors_AA_Gun_Mount_T3": {
+    "name": "Quadruple_40mm_Bofors_AA_Gun_Mount_T3",
+    "cn": "四联40mm博福斯对空机炮T3",
+    "en": "Quadruple 40mm Bofors AA Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c1/16400.png/128px-16400.png"
+  },
+  "Quadruple_40mm_Pom_Pom_AA_Gun_Mount_T1": {
+    "name": "Quadruple_40mm_Pom_Pom_AA_Gun_Mount_T1",
+    "cn": "四联装40mm“砰砰”炮T1",
+    "en": "Quadruple 40mm Pom-Pom AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6c/26100.png/128px-26100.png"
+  },
+  "Quadruple_40mm_Pom_Pom_AA_Gun_Mount_T2": {
+    "name": "Quadruple_40mm_Pom_Pom_AA_Gun_Mount_T2",
+    "cn": "四联装40mm“砰砰”炮T2",
+    "en": "Quadruple 40mm Pom-Pom AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6c/26100.png/128px-26100.png"
+  },
+  "Quadruple_40mm_Pom_Pom_AA_Gun_Mount_T3": {
+    "name": "Quadruple_40mm_Pom_Pom_AA_Gun_Mount_T3",
+    "cn": "四联装40mm“砰砰”炮T3",
+    "en": "Quadruple 40mm Pom-Pom AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6c/26100.png/128px-26100.png"
+  },
+  "Single_102mm_AA_Gun_Mount_T1": {
+    "name": "Single_102mm_AA_Gun_Mount_T1",
+    "cn": "102mm高射炮T1",
+    "en": "Single 102mm AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9e/21000.png/128px-21000.png"
+  },
+  "Single_102mm_AA_Gun_Mount_T2": {
+    "name": "Single_102mm_AA_Gun_Mount_T2",
+    "cn": "102mm高射炮T2",
+    "en": "Single 102mm AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9e/21000.png/128px-21000.png"
+  },
+  "Single_102mm_AA_Gun_Mount_T3": {
+    "name": "Single_102mm_AA_Gun_Mount_T3",
+    "cn": "102mm高射炮T3",
+    "en": "Single 102mm AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9e/21000.png/128px-21000.png"
+  },
+  "Sextuple_40mm_Bofors_AA_Gun_Mount_T0": {
+    "name": "Sextuple_40mm_Bofors_AA_Gun_Mount_T0",
+    "cn": "六联装40mm博福斯对空机炮T0",
+    "en": "Sextuple 40mm Bofors AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/4/4d/26660.png"
+  },
+  "Single_12_7mm_AA_Gun_Mount_T1": {
+    "name": "Single_12_7mm_AA_Gun_Mount_T1",
+    "cn": "12.7mm防空机枪T1",
+    "en": "Single 12.7mm AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/40/6000.png/128px-6000.png"
+  },
+  "Single_12_7mm_AA_Gun_Mount_T2": {
+    "name": "Single_12_7mm_AA_Gun_Mount_T2",
+    "cn": "12.7mm防空机枪T2",
+    "en": "Single 12.7mm AA Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/40/6000.png/128px-6000.png"
+  },
+  "Single_12_7mm_AA_Gun_Mount_T3": {
+    "name": "Single_12_7mm_AA_Gun_Mount_T3",
+    "cn": "12.7mm防空机枪T3",
+    "en": "Single 12.7mm AA Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/40/6000.png/128px-6000.png"
+  },
+  "120mm_High_Angle_Gun_MkVIII_T0": {
+    "name": "120mm_High_Angle_Gun_MkVIII_T0",
+    "cn": "120mm高射炮Mark VIIIT0",
+    "en": "120mm High-Angle Gun MkVIII T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/e/e5/26460.png"
+  },
+  "Single_20mm_Oerlikon_AA_Gun_Mount_T1": {
+    "name": "Single_20mm_Oerlikon_AA_Gun_Mount_T1",
+    "cn": "20mm厄利孔高射炮T1",
+    "en": "Single 20mm Oerlikon AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6e/16000.png/128px-16000.png"
+  },
+  "Single_20mm_Oerlikon_AA_Gun_Mount_T2": {
+    "name": "Single_20mm_Oerlikon_AA_Gun_Mount_T2",
+    "cn": "20mm厄利孔高射炮T2",
+    "en": "Single 20mm Oerlikon AA Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6e/16000.png/128px-16000.png"
+  },
+  "Single_20mm_Oerlikon_AA_Gun_Mount_T3": {
+    "name": "Single_20mm_Oerlikon_AA_Gun_Mount_T3",
+    "cn": "20mm厄利孔高射炮T3",
+    "en": "Single 20mm Oerlikon AA Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/6e/16000.png/128px-16000.png"
+  },
+  "Single_20mm_Mk_II_Oerlikon_AA_Gun_Mount_T3": {
+    "name": "Single_20mm_Mk_II_Oerlikon_AA_Gun_Mount_T3",
+    "cn": "20mm厄利孔高射炮MkIIT3",
+    "en": "Single 20mm Mk II Oerlikon AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/9/9c/26360.png"
+  },
+  "Single_25mm_AA_Gun_Mount_T1": {
+    "name": "Single_25mm_AA_Gun_Mount_T1",
+    "cn": "25mm高射机枪T1",
+    "en": "Single 25mm AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b8/36100.png/128px-36100.png"
+  },
+  "Single_25mm_AA_Gun_Mount_T2": {
+    "name": "Single_25mm_AA_Gun_Mount_T2",
+    "cn": "25mm高射机枪T2",
+    "en": "Single 25mm AA Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b8/36100.png/128px-36100.png"
+  },
+  "Single_25mm_AA_Gun_Mount_T3": {
+    "name": "Single_25mm_AA_Gun_Mount_T3",
+    "cn": "25mm高射机枪T3",
+    "en": "Single 25mm AA Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b8/36100.png/128px-36100.png"
+  },
+  "Single_37mm_70_K_AA_Gun_Mount_T1": {
+    "name": "Single_37mm_70_K_AA_Gun_Mount_T1",
+    "cn": "37mm防空炮70-KT1",
+    "en": "Single 37mm 70-K AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/d/dc/85180.png"
+  },
+  "Single_37mm_70_K_AA_Gun_Mount_T2": {
+    "name": "Single_37mm_70_K_AA_Gun_Mount_T2",
+    "cn": "37mm防空炮70-KT2",
+    "en": "Single 37mm 70-K AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/d/dc/85180.png"
+  },
+  "Single_37mm_70_K_AA_Gun_Mount_T3": {
+    "name": "Single_37mm_70_K_AA_Gun_Mount_T3",
+    "cn": "37mm防空炮70-KT3",
+    "en": "Single 37mm 70-K AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/d/dc/85180.png"
+  },
+  "Single_37mm_Flak_AA_Gun_Mount_T1": {
+    "name": "Single_37mm_Flak_AA_Gun_Mount_T1",
+    "cn": "37mm机枪T1",
+    "en": "Single 37mm Flak AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b6/46100.png/128px-46100.png"
+  },
+  "Single_37mm_Flak_AA_Gun_Mount_T2": {
+    "name": "Single_37mm_Flak_AA_Gun_Mount_T2",
+    "cn": "37mm机枪T2",
+    "en": "Single 37mm Flak AA Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b6/46100.png/128px-46100.png"
+  },
+  "Single_37mm_Flak_AA_Gun_Mount_T3": {
+    "name": "Single_37mm_Flak_AA_Gun_Mount_T3",
+    "cn": "37mm机枪T3",
+    "en": "Single 37mm Flak AA Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b6/46100.png/128px-46100.png"
+  },
+  "Single_76mm_Mk_26_AA_Gun_Mount_T0": {
+    "name": "Single_76mm_Mk_26_AA_Gun_Mount_T0",
+    "cn": "76mm高射炮改进型T0",
+    "en": "Single 76mm Mk 26 AA Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b8/16060.png"
+  },
+  "Single_80mm_AA_Gun_Mount_T0": {
+    "name": "Single_80mm_AA_Gun_Mount_T0",
+    "cn": "80mm高射炮T0",
+    "en": "Single 80mm AA Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a8/36580.png"
+  },
+  "Single_90mm_Model_1939_AA_Gun_T1": {
+    "name": "Single_90mm_Model_1939_AA_Gun_T1",
+    "cn": "90mm单装高角炮Model1939T1",
+    "en": "Single 90mm Model 1939 AA Gun T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/f/fd/55100.png"
+  },
+  "Single_90mm_Model_1939_AA_Gun_T2": {
+    "name": "Single_90mm_Model_1939_AA_Gun_T2",
+    "cn": "90mm单装高角炮Model1939T2",
+    "en": "Single 90mm Model 1939 AA Gun T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/f/fd/55100.png"
+  },
+  "Single_90mm_Model_1939_AA_Gun_T3": {
+    "name": "Single_90mm_Model_1939_AA_Gun_T3",
+    "cn": "90mm单装高角炮Model1939T3",
+    "en": "Single 90mm Model 1939 AA Gun T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/f/fd/55100.png"
+  },
+  "Triple_25mm_Type_96_AT_AA_Gun_Mount_T0": {
+    "name": "Triple_25mm_Type_96_AT_AA_Gun_Mount_T0",
+    "cn": "九六式25mm三连装暴风避盾机炮T0",
+    "en": "Triple 25mm Type 96 AT/AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/6/63/36360.png"
+  },
+  "Triple_25mm_AA_Gun_Mount_T1": {
+    "name": "Triple_25mm_AA_Gun_Mount_T1",
+    "cn": "25mm三连装高射机枪T1",
+    "en": "Triple 25mm AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/8d/36300.png/128px-36300.png"
+  },
+  "Triple_25mm_AA_Gun_Mount_T2": {
+    "name": "Triple_25mm_AA_Gun_Mount_T2",
+    "cn": "25mm三连装高射机枪T2",
+    "en": "Triple 25mm AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/8d/36300.png/128px-36300.png"
+  },
+  "Triple_25mm_AA_Gun_Mount_T3": {
+    "name": "Triple_25mm_AA_Gun_Mount_T3",
+    "cn": "25mm三连装高射机枪T3",
+    "en": "Triple 25mm AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/8d/36300.png/128px-36300.png"
+  },
+  "Twin_100mm_B_54_AA_Gun_T2": {
+    "name": "Twin_100mm_B_54_AA_Gun_T2",
+    "cn": "B-54 100mm双联装防空炮T2",
+    "en": "Twin 100mm B-54 AA Gun T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/4/46/85240.png"
+  },
+  "Twin_100mm_B_54_AA_Gun_T3": {
+    "name": "Twin_100mm_B_54_AA_Gun_T3",
+    "cn": "B-54 100mm双联装防空炮T3",
+    "en": "Twin 100mm B-54 AA Gun T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/4/46/85240.png"
+  },
+  "Twin_100mm_Mle_1931_AA_Gun_T3": {
+    "name": "Twin_100mm_Mle_1931_AA_Gun_T3",
+    "cn": "双联装100mm高炮T3",
+    "en": "Twin 100mm Mle 1931 AA Gun T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/3/38/6100.png"
+  },
+  "Twin_100mm_B_34_MZ_14_Dual_Purpose_AA_Gun_T1": {
+    "name": "Twin_100mm_B_34_MZ_14_Dual_Purpose_AA_Gun_T1",
+    "cn": "B-34 100mm双联装防空炮MZ-14T1",
+    "en": "Twin 100mm B-34 MZ-14 Dual-Purpose AA Gun T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0c/85360.png"
+  },
+  "Twin_100mm_B_34_MZ_14_Dual_Purpose_AA_Gun_T2": {
+    "name": "Twin_100mm_B_34_MZ_14_Dual_Purpose_AA_Gun_T2",
+    "cn": "B-34 100mm双联装防空炮MZ-14T2",
+    "en": "Twin 100mm B-34 MZ-14 Dual-Purpose AA Gun T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0c/85360.png"
+  },
+  "Twin_100mm_B_34_MZ_14_Dual_Purpose_AA_Gun_T3": {
+    "name": "Twin_100mm_B_34_MZ_14_Dual_Purpose_AA_Gun_T3",
+    "cn": "B-34 100mm双联装防空炮MZ-14T3",
+    "en": "Twin 100mm B-34 MZ-14 Dual-Purpose AA Gun T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0c/85360.png"
+  },
+  "Twin_100mm_Type_98_AA_Gun_Mount_T0": {
+    "name": "Twin_100mm_Type_98_AA_Gun_Mount_T0",
+    "cn": "100mm连装高炮T0",
+    "en": "Twin 100mm Type 98 AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/20/36560.png"
+  },
+  "Twin_100mm_SM_5_1s_AA_Gun_T1": {
+    "name": "Twin_100mm_SM_5_1s_AA_Gun_T1",
+    "cn": "100mm双联装防空炮SM-5-1sT1",
+    "en": "Twin 100mm SM-5-1s AA Gun T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/1/19/85060.png"
+  },
+  "Twin_105mm_SK_C_33_na_AA_Gun_Mount_T0": {
+    "name": "Twin_105mm_SK_C_33_na_AA_Gun_Mount_T0",
+    "cn": "双联105mmSKC高炮改进型T0",
+    "en": "Twin 105mm SK C/33 na AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/3/3d/46360.png"
+  },
+  "Twin_105mm_SK_C_33_AA_Gun_Mount_T1": {
+    "name": "Twin_105mm_SK_C_33_AA_Gun_Mount_T1",
+    "cn": "双联105mmSKC高炮T1",
+    "en": "Twin 105mm SK C/33 AA Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/e6/46300.png/128px-46300.png"
+  },
+  "Twin_105mm_SK_C_33_AA_Gun_Mount_T2": {
+    "name": "Twin_105mm_SK_C_33_AA_Gun_Mount_T2",
+    "cn": "双联105mmSKC高炮T2",
+    "en": "Twin 105mm SK C/33 AA Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/e6/46300.png/128px-46300.png"
+  },
+  "Twin_105mm_SK_C_33_AA_Gun_Mount_T3": {
+    "name": "Twin_105mm_SK_C_33_AA_Gun_Mount_T3",
+    "cn": "双联105mmSKC高炮T3",
+    "en": "Twin 105mm SK C/33 AA Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/e6/46300.png/128px-46300.png"
+  },
+  "Twin_113mm_AA_Gun_Mount_T1": {
+    "name": "Twin_113mm_AA_Gun_Mount_T1",
+    "cn": "双联装113mm高射炮T1",
+    "en": "Twin 113mm AA Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3f/26500.png/128px-26500.png"
+  },
+  "Twin_113mm_AA_Gun_Mount_T2": {
+    "name": "Twin_113mm_AA_Gun_Mount_T2",
+    "cn": "双联装113mm高射炮T2",
+    "en": "Twin 113mm AA Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3f/26500.png/128px-26500.png"
+  },
+  "Twin_113mm_AA_Gun_Mount_T3": {
+    "name": "Twin_113mm_AA_Gun_Mount_T3",
+    "cn": "双联装113mm高射炮T3",
+    "en": "Twin 113mm AA Gun Mount T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/3/3f/26500.png/128px-26500.png"
+  },
+  "Twin_127mm_Type_89_AA_Gun_Mount_T0": {
+    "name": "Twin_127mm_Type_89_AA_Gun_Mount_T0",
+    "cn": "127mm连装高角炮改T0",
+    "en": "Twin 127mm Type 89 AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/06/36660.png"
+  },
+  "Twin_127mm_AA_Gun_Mount_T1": {
+    "name": "Twin_127mm_AA_Gun_Mount_T1",
+    "cn": "127mm连装高射炮T1",
+    "en": "Twin 127mm AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/19/36600.png/128px-36600.png"
+  },
+  "Twin_127mm_AA_Gun_Mount_T2": {
+    "name": "Twin_127mm_AA_Gun_Mount_T2",
+    "cn": "127mm连装高射炮T2",
+    "en": "Twin 127mm AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/19/36600.png/128px-36600.png"
+  },
+  "Twin_127mm_AA_Gun_Mount_T3": {
+    "name": "Twin_127mm_AA_Gun_Mount_T3",
+    "cn": "127mm连装高射炮T3",
+    "en": "Twin 127mm AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/1/19/36600.png/128px-36600.png"
+  },
+  "Twin_134mm_AA_Gun_Mount_T0": {
+    "name": "Twin_134mm_AA_Gun_Mount_T0",
+    "cn": "双联装134mm高炮T0",
+    "en": "Twin 134mm AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/bf/21500.png/128px-21500.png"
+  },
+  "Twin_20mm_AA_Oerlikon_Design_T1": {
+    "name": "Twin_20mm_AA_Oerlikon_Design_T1",
+    "cn": "双管20mm厄利孔高射炮T1",
+    "en": "Twin 20mm AA Oerlikon Design T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/87/16100.png/128px-16100.png"
+  },
+  "Twin_20mm_AA_Oerlikon_Design_T2": {
+    "name": "Twin_20mm_AA_Oerlikon_Design_T2",
+    "cn": "双管20mm厄利孔高射炮T2",
+    "en": "Twin 20mm AA Oerlikon Design T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/87/16100.png/128px-16100.png"
+  },
+  "Twin_20mm_AA_Oerlikon_Design_T3": {
+    "name": "Twin_20mm_AA_Oerlikon_Design_T3",
+    "cn": "双管20mm厄利孔高射炮T3",
+    "en": "Twin 20mm AA Oerlikon Design T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/87/16100.png/128px-16100.png"
+  },
+  "Twin_25mm_AA_Gun_Mount_T1": {
+    "name": "Twin_25mm_AA_Gun_Mount_T1",
+    "cn": "25mm连装高射机枪T1",
+    "en": "Twin 25mm AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/ef/36200.png/128px-36200.png"
+  },
+  "Twin_25mm_AA_Gun_Mount_T2": {
+    "name": "Twin_25mm_AA_Gun_Mount_T2",
+    "cn": "25mm连装高射机枪T2",
+    "en": "Twin 25mm AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/ef/36200.png/128px-36200.png"
+  },
+  "Twin_25mm_AA_Gun_Mount_T3": {
+    "name": "Twin_25mm_AA_Gun_Mount_T3",
+    "cn": "25mm连装高射机枪T3",
+    "en": "Twin 25mm AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/ef/36200.png/128px-36200.png"
+  },
+  "Twin_37mm_Model_1932_AA_Gun_Mount_T1": {
+    "name": "Twin_37mm_Model_1932_AA_Gun_Mount_T1",
+    "cn": "双联37mm机枪Model1932T1",
+    "en": "Twin 37mm Model 1932 AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/8/81/55500.png"
+  },
+  "Twin_37mm_Model_1932_AA_Gun_Mount_T2": {
+    "name": "Twin_37mm_Model_1932_AA_Gun_Mount_T2",
+    "cn": "双联37mm机枪Model1932T2",
+    "en": "Twin 37mm Model 1932 AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/8/81/55500.png"
+  },
+  "Twin_37mm_Model_1932_AA_Gun_Mount_T3": {
+    "name": "Twin_37mm_Model_1932_AA_Gun_Mount_T3",
+    "cn": "双联37mm机枪Model1932T3",
+    "en": "Twin 37mm Model 1932 AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/8/81/55500.png"
+  },
+  "Twin_37mm_AA_70K_T1": {
+    "name": "Twin_37mm_AA_70K_T1",
+    "cn": "双联37mm手拉机枪T1",
+    "en": "Twin 37mm AA 70K T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/4e/46200.png/128px-46200.png"
+  },
+  "Twin_37mm_AA_70K_T2": {
+    "name": "Twin_37mm_AA_70K_T2",
+    "cn": "双联37mm手拉机枪T2",
+    "en": "Twin 37mm AA 70K T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/4e/46200.png/128px-46200.png"
+  },
+  "Twin_37mm_AA_70K_T3": {
+    "name": "Twin_37mm_AA_70K_T3",
+    "cn": "双联37mm手拉机枪T3",
+    "en": "Twin 37mm AA 70K T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/4e/46200.png/128px-46200.png"
+  },
+  "Twin_37mm_Mle_1936_AA_Gun_Mount_T0": {
+    "name": "Twin_37mm_Mle_1936_AA_Gun_Mount_T0",
+    "cn": "双联37mm高射炮Mle1936T0",
+    "en": "Twin 37mm Mle 1936 AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a8/50600.png"
+  },
+  "Twin_37mm_Flak_M43_Machine_Gun_Mount_T0": {
+    "name": "Twin_37mm_Flak_M43_Machine_Gun_Mount_T0",
+    "cn": "双联37mm Flak M43机枪T0",
+    "en": "Twin 37mm Flak M43 Machine Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8e/46260.png"
+  },
+  "Twin_40mm_Bofors_AA_Gun_Mount_T1": {
+    "name": "Twin_40mm_Bofors_AA_Gun_Mount_T1",
+    "cn": "双联40mm博福斯对空机炮T1",
+    "en": "Twin 40mm Bofors AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/2/20/16300.png"
+  },
+  "Twin_40mm_Bofors_AA_Gun_Mount_T2": {
+    "name": "Twin_40mm_Bofors_AA_Gun_Mount_T2",
+    "cn": "双联40mm博福斯对空机炮T2",
+    "en": "Twin 40mm Bofors AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/2/20/16300.png"
+  },
+  "Twin_40mm_Bofors_AA_Gun_Mount_T3": {
+    "name": "Twin_40mm_Bofors_AA_Gun_Mount_T3",
+    "cn": "双联40mm博福斯对空机炮T3",
+    "en": "Twin 40mm Bofors AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/2/20/16300.png"
+  },
+  "Twin_40mm_Bofors_RP_Mark_I_AA_Gun_Mount_T0": {
+    "name": "Twin_40mm_Bofors_RP_Mark_I_AA_Gun_Mount_T0",
+    "cn": "双联装40mm博福斯对空机炮Mark IT0",
+    "en": "Twin 40mm Bofors RP Mark I AA Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/53/26060.png"
+  },
+  "Twin_40mm_Bofors_Type_5_AA_Gun_Mount_T0": {
+    "name": "Twin_40mm_Bofors_Type_5_AA_Gun_Mount_T0",
+    "cn": "试作型五式40mm高射机关炮T0",
+    "en": "Twin 40mm Bofors Type 5 AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/06/36700.png"
+  },
+  "Twin_40mm_Bofors_Hazemeyer_AA_Gun_Mount_T0": {
+    "name": "Twin_40mm_Bofors_Hazemeyer_AA_Gun_Mount_T0",
+    "cn": "双联装40mm博福斯海兹梅耶T0",
+    "en": "Twin 40mm Bofors \"Hazemeyer\" AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/2f/26620.png"
+  },
+  "Twin_40mm_Pom_Pom_AA_Gun_Mount_T1": {
+    "name": "Twin_40mm_Pom_Pom_AA_Gun_Mount_T1",
+    "cn": "双联装40mm“砰砰”炮T1",
+    "en": "Twin 40mm Pom-Pom AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/26000.png/128px-26000.png"
+  },
+  "Twin_40mm_Pom_Pom_AA_Gun_Mount_T2": {
+    "name": "Twin_40mm_Pom_Pom_AA_Gun_Mount_T2",
+    "cn": "双联装40mm“砰砰”炮T2",
+    "en": "Twin 40mm Pom-Pom AA Gun Mount T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/26000.png/128px-26000.png"
+  },
+  "Twin_40mm_Pom_Pom_AA_Gun_Mount_T3": {
+    "name": "Twin_40mm_Pom_Pom_AA_Gun_Mount_T3",
+    "cn": "双联装40mm“砰砰”炮T3",
+    "en": "Twin 40mm Pom-Pom AA Gun Mount T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/26000.png/128px-26000.png"
+  },
+  "Twin_40mm_V_Type_AA_Gun_Mount_T1": {
+    "name": "Twin_40mm_V_Type_AA_Gun_Mount_T1",
+    "cn": "毘式40mm连装机枪T1",
+    "en": "Twin 40mm V-Type AA Gun Mount T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/64/36400.png/128px-36400.png"
+  },
+  "Twin_40mm_V_Type_AA_Gun_Mount_T2": {
+    "name": "Twin_40mm_V_Type_AA_Gun_Mount_T2",
+    "cn": "毘式40mm连装机枪T2",
+    "en": "Twin 40mm V-Type AA Gun Mount T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/64/36400.png/128px-36400.png"
+  },
+  "Twin_40mm_V_Type_AA_Gun_Mount_T3": {
+    "name": "Twin_40mm_V_Type_AA_Gun_Mount_T3",
+    "cn": "毘式40mm连装机枪T3",
+    "en": "Twin 40mm V-Type AA Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/64/36400.png/128px-36400.png"
+  },
+  "Twin_40mm_Bofors_STAAG_T0": {
+    "name": "Twin_40mm_Bofors_STAAG_T0",
+    "cn": "双联装40mm博福斯STAAGT0",
+    "en": "Twin 40mm Bofors STAAG T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/1/18/26600.png"
+  },
+  "Twin_88mm_SK_C_32_AA_Gun_Mount_T0": {
+    "name": "Twin_88mm_SK_C_32_AA_Gun_Mount_T0",
+    "cn": "双联装88mmSKC32高炮T0",
+    "en": "Twin 88mm SK C/32 AA Gun Mount T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8e/46060.png"
+  },
+  "Prototype_Twin_90mm_Model_1939_High_Angle_Gun_T0": {
+    "name": "Prototype_Twin_90mm_Model_1939_High_Angle_Gun_T0",
+    "cn": "试作型双联90mm高角炮Model1939T0",
+    "en": "Prototype Twin 90mm Model 1939 High Angle Gun T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/6/65/55160.png"
+  },
+  "Twin_76mm_Mk_27_RF_AA_Gun_Mount_T0": {
+    "name": "Twin_76mm_Mk_27_RF_AA_Gun_Mount_T0",
+    "cn": "双联装76mmRF火炮Mk27T0",
+    "en": "Twin 76mm Mk 27 RF AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/6/60/16080.png"
+  },
+  "533mm_Magnetic_Torpedo_T1": {
+    "name": "533mm_Magnetic_Torpedo_T1",
+    "cn": "533mm磁性鱼雷（水面舰艇用）T1",
+    "en": "533mm Magnetic Torpedo T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/2700.png/128px-2700.png"
+  },
+  "533mm_Magnetic_Torpedo_T2": {
+    "name": "533mm_Magnetic_Torpedo_T2",
+    "cn": "533mm磁性鱼雷（水面舰艇用）T2",
+    "en": "533mm Magnetic Torpedo T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/2700.png/128px-2700.png"
+  },
+  "533mm_Magnetic_Torpedo_T3": {
+    "name": "533mm_Magnetic_Torpedo_T3",
+    "cn": "533mm磁性鱼雷（水面舰艇用）T3",
+    "en": "533mm Magnetic Torpedo T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/6/67/2700.png/128px-2700.png"
+  },
+  "Action_Report_Operation_AF_T0": {
+    "name": "Action_Report_Operation_AF_T0",
+    "cn": "作战报告：AFT0",
+    "en": "Action Report: Operation AF T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/81/940.png/128px-940.png"
+  },
+  "Ning_Hai_Aichi_E13A_T0": {
+    "name": "Ning_Hai_Aichi_E13A_T0",
+    "cn": "“宁海号”水上侦察机T0",
+    "en": "Ning Hai Aichi E13A T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/09/560.png"
+  },
+  "Air_Radar_T1": {
+    "name": "Air_Radar_T1",
+    "cn": "对空雷达T1",
+    "en": "Air Radar T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b7/1100.png/128px-1100.png"
+  },
+  "Air_Radar_T2": {
+    "name": "Air_Radar_T2",
+    "cn": "对空雷达T2",
+    "en": "Air Radar T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b7/1100.png/128px-1100.png"
+  },
+  "Air_Radar_T3": {
+    "name": "Air_Radar_T3",
+    "cn": "对空雷达T3",
+    "en": "Air Radar T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b7/1100.png/128px-1100.png"
+  },
+  "Ankimo_T0": {
+    "name": "Ankimo_T0",
+    "cn": "鮟鱇肝T0",
+    "en": "Ankimo T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f4/89120.png"
+  },
+  "100_150_Aviation_Fuel_T0": {
+    "name": "100_150_Aviation_Fuel_T0",
+    "cn": "100/150号航空燃油T0",
+    "en": "100/150 Aviation Fuel T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d4/660.png"
+  },
+  "Anti_Torpedo_Bulge_T1": {
+    "name": "Anti_Torpedo_Bulge_T1",
+    "cn": "防鱼雷隔舱T1",
+    "en": "Anti-Torpedo Bulge T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b6/1300.png/128px-1300.png"
+  },
+  "Anti_Torpedo_Bulge_T2": {
+    "name": "Anti_Torpedo_Bulge_T2",
+    "cn": "防鱼雷隔舱T2",
+    "en": "Anti-Torpedo Bulge T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b6/1300.png/128px-1300.png"
+  },
+  "Anti_Torpedo_Bulge_T3": {
+    "name": "Anti_Torpedo_Bulge_T3",
+    "cn": "防鱼雷隔舱T3",
+    "en": "Anti-Torpedo Bulge T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b6/1300.png/128px-1300.png"
+  },
+  "Autoloader_T1": {
+    "name": "Autoloader_T1",
+    "cn": "链式装弹机T1",
+    "en": "Autoloader T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/4e/2200.png/128px-2200.png"
+  },
+  "Autoloader_T2": {
+    "name": "Autoloader_T2",
+    "cn": "链式装弹机T2",
+    "en": "Autoloader T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/4e/2200.png/128px-2200.png"
+  },
+  "Autoloader_T3": {
+    "name": "Autoloader_T3",
+    "cn": "链式装弹机T3",
+    "en": "Autoloader T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/4e/2200.png/128px-2200.png"
+  },
+  "Awakening_Pearl_T0": {
+    "name": "Awakening_Pearl_T0",
+    "cn": "觉醒宝珠T0",
+    "en": "Awakening Pearl T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/2f/89240.png"
+  },
+  "Celestial_Body_T0": {
+    "name": "Celestial_Body_T0",
+    "cn": "星云舞裙T0",
+    "en": "Celestial Body T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8a/89220.png"
+  },
+  "Compressed_Oxygen_Cylinder_T0": {
+    "name": "Compressed_Oxygen_Cylinder_T0",
+    "cn": "高压氧气瓶T0",
+    "en": "Compressed Oxygen Cylinder T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/9/9b/3100.png"
+  },
+  "PBY_5A_Catalina_T0": {
+    "name": "PBY_5A_Catalina_T0",
+    "cn": "PBY-5A卡特琳娜水上机T0",
+    "en": "PBY-5A Catalina T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/db/15500.png"
+  },
+  "Corn_Lantern_T0": {
+    "name": "Corn_Lantern_T0",
+    "cn": "玉米灯笼T0",
+    "en": "Corn Lantern T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/af/89100.png"
+  },
+  "Aviation_Oil_Tank_T1": {
+    "name": "Aviation_Oil_Tank_T1",
+    "cn": "航空副油箱T1",
+    "en": "Aviation Oil Tank T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2b/2100.png/128px-2100.png"
+  },
+  "Aviation_Oil_Tank_T2": {
+    "name": "Aviation_Oil_Tank_T2",
+    "cn": "航空副油箱T2",
+    "en": "Aviation Oil Tank T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2b/2100.png/128px-2100.png"
+  },
+  "Aviation_Oil_Tank_T3": {
+    "name": "Aviation_Oil_Tank_T3",
+    "cn": "航空副油箱T3",
+    "en": "Aviation Oil Tank T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2b/2100.png/128px-2100.png"
+  },
+  "Cosmic_Kicks_T0": {
+    "name": "Cosmic_Kicks_T0",
+    "cn": "引力舞鞋T0",
+    "en": "Cosmic Kicks T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/a/a8/89200.png"
+  },
+  "Eagle_Union_Elite_Damage_Control_T0": {
+    "name": "Eagle_Union_Elite_Damage_Control_T0",
+    "cn": "白鹰精英损管T0",
+    "en": "Eagle Union Elite Damage Control T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/1/15/840.png"
+  },
+  "Fire_Control_Radar_T1": {
+    "name": "Fire_Control_Radar_T1",
+    "cn": "火控雷达T1",
+    "en": "Fire Control Radar T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/22/1200.png/128px-1200.png"
+  },
+  "Fire_Control_Radar_T2": {
+    "name": "Fire_Control_Radar_T2",
+    "cn": "火控雷达T2",
+    "en": "Fire Control Radar T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/22/1200.png/128px-1200.png"
+  },
+  "Fire_Control_Radar_T3": {
+    "name": "Fire_Control_Radar_T3",
+    "cn": "火控雷达T3",
+    "en": "Fire Control Radar T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/22/1200.png/128px-1200.png"
+  },
+  "Fire_Suppressor_T1": {
+    "name": "Fire_Suppressor_T1",
+    "cn": "灭火器T1",
+    "en": "Fire Suppressor T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/ee/2500.png/128px-2500.png"
+  },
+  "Fire_Suppressor_T2": {
+    "name": "Fire_Suppressor_T2",
+    "cn": "灭火器T2",
+    "en": "Fire Suppressor T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/ee/2500.png/128px-2500.png"
+  },
+  "Fire_Suppressor_T3": {
+    "name": "Fire_Suppressor_T3",
+    "cn": "灭火器T3",
+    "en": "Fire Suppressor T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/e/ee/2500.png/128px-2500.png"
+  },
+  "Frontier_Medal_T0": {
+    "name": "Frontier_Medal_T0",
+    "cn": "开拓者奖章T0",
+    "en": "Frontier Medal T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/22/820.png"
+  },
+  "Fuel_Filter_T1": {
+    "name": "Fuel_Filter_T1",
+    "cn": "燃油滤清器T1",
+    "en": "Fuel Filter T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2b/2000.png/128px-2000.png"
+  },
+  "Fuel_Filter_T2": {
+    "name": "Fuel_Filter_T2",
+    "cn": "燃油滤清器T2",
+    "en": "Fuel Filter T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2b/2000.png/128px-2000.png"
+  },
+  "Fuel_Filter_T3": {
+    "name": "Fuel_Filter_T3",
+    "cn": "燃油滤清器T3",
+    "en": "Fuel Filter T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/2b/2000.png/128px-2000.png"
+  },
+  "FuMO_25_T0": {
+    "name": "FuMO_25_T0",
+    "cn": "FuMO 25T0",
+    "en": "FuMO 25 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/0/0f/960.png"
+  },
+  "Gamers_Mark_T0": {
+    "name": "Gamers_Mark_T0",
+    "cn": "Gamers的证明T0",
+    "en": "Gamers Mark T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/db/89080.png"
+  },
+  "Gyroscope_T1": {
+    "name": "Gyroscope_T1",
+    "cn": "陀螺仪T1",
+    "en": "Gyroscope T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b8/2300.png/128px-2300.png"
+  },
+  "Gyroscope_T2": {
+    "name": "Gyroscope_T2",
+    "cn": "陀螺仪T2",
+    "en": "Gyroscope T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b8/2300.png/128px-2300.png"
+  },
+  "Gyroscope_T3": {
+    "name": "Gyroscope_T3",
+    "cn": "陀螺仪T3",
+    "en": "Gyroscope T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/b8/2300.png/128px-2300.png"
+  },
+  "Healing_Cat's_Paw_T0": {
+    "name": "Healing_Cat's_Paw_T0",
+    "cn": "治愈系猫爪T0",
+    "en": "Healing Cat's Paw T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b0/540.png"
+  },
+  "Heart_Key_T0": {
+    "name": "Heart_Key_T0",
+    "cn": "心之钥匙T0",
+    "en": "Heart Key T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/52/89260.png"
+  },
+  "High_Standard_Fire_Control_Radar_T0": {
+    "name": "High_Standard_Fire_Control_Radar_T0",
+    "cn": "高性能火控雷达T0",
+    "en": "High Standard Fire-Control Radar T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/3/3e/1260.png"
+  },
+  "Homing_Beacon_T0": {
+    "name": "Homing_Beacon_T0",
+    "cn": "归航信标T0",
+    "en": "Homing Beacon T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/24/680.png"
+  },
+  "High_Performance_Air_Radar_T0": {
+    "name": "High_Performance_Air_Radar_T0",
+    "cn": "高性能对空雷达T0",
+    "en": "High Performance Air Radar T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/5c/1160.png"
+  },
+  "Hydraulic_Steering_Gear_T1": {
+    "name": "Hydraulic_Steering_Gear_T1",
+    "cn": "液压舵机T1",
+    "en": "Hydraulic Steering Gear T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c1/1700.png/128px-1700.png"
+  },
+  "Hydraulic_Steering_Gear_T2": {
+    "name": "Hydraulic_Steering_Gear_T2",
+    "cn": "液压舵机T2",
+    "en": "Hydraulic Steering Gear T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c1/1700.png/128px-1700.png"
+  },
+  "Hydraulic_Steering_Gear_T3": {
+    "name": "Hydraulic_Steering_Gear_T3",
+    "cn": "液压舵机T3",
+    "en": "Hydraulic Steering Gear T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c1/1700.png/128px-1700.png"
+  },
+  "Advanced_Boiler_T1": {
+    "name": "Advanced_Boiler_T1",
+    "cn": "改良锅炉T1",
+    "en": "Advanced Boiler T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/de/1800.png/128px-1800.png"
+  },
+  "Advanced_Boiler_T2": {
+    "name": "Advanced_Boiler_T2",
+    "cn": "改良锅炉T2",
+    "en": "Advanced Boiler T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/de/1800.png/128px-1800.png"
+  },
+  "Advanced_Boiler_T3": {
+    "name": "Advanced_Boiler_T3",
+    "cn": "改良锅炉T3",
+    "en": "Advanced Boiler T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/de/1800.png/128px-1800.png"
+  },
+  "High_Performance_Hydraulic_Steering_Gear_T0": {
+    "name": "High_Performance_Hydraulic_Steering_Gear_T0",
+    "cn": "高性能舵机T0",
+    "en": "High Performance Hydraulic Steering Gear T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/4/48/1760.png"
+  },
+  "Improved_Snorkel_T0": {
+    "name": "Improved_Snorkel_T0",
+    "cn": "改良型水下进气管T0",
+    "en": "Improved Snorkel T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/4/4f/3120.png"
+  },
+  "Improved_Storage_Battery_T0": {
+    "name": "Improved_Storage_Battery_T0",
+    "cn": "改良蓄电池阵列T0",
+    "en": "Improved Storage Battery T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bc/3140.png"
+  },
+  "Intel_Report_Arctic_Stronghold_T0": {
+    "name": "Intel_Report_Arctic_Stronghold_T0",
+    "cn": "机密文件·极地海峡T0",
+    "en": "Intel Report - Arctic Stronghold T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/6/6e/780.png"
+  },
+  "Intelligence_Chip_T0": {
+    "name": "Intelligence_Chip_T0",
+    "cn": "智慧模块T0",
+    "en": "Intelligence Chip T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/a5/89040.png/128px-89040.png"
+  },
+  "Beaver_Squad_Tag_T0": {
+    "name": "Beaver_Squad_Tag_T0",
+    "cn": "小海狸中队队徽T0",
+    "en": "Beaver Squad Tag T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/b/be/500.png/128px-500.png"
+  },
+  "Naval_Camouflage_T1": {
+    "name": "Naval_Camouflage_T1",
+    "cn": "海军迷彩T1",
+    "en": "Naval Camouflage T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/ac/1900.png/128px-1900.png"
+  },
+  "Naval_Camouflage_T2": {
+    "name": "Naval_Camouflage_T2",
+    "cn": "海军迷彩T2",
+    "en": "Naval Camouflage T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/ac/1900.png/128px-1900.png"
+  },
+  "Naval_Camouflage_T3": {
+    "name": "Naval_Camouflage_T3",
+    "cn": "海军迷彩T3",
+    "en": "Naval Camouflage T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/a/ac/1900.png/128px-1900.png"
+  },
+  "Nelson's_Pennant_of_Victory_T0": {
+    "name": "Nelson's_Pennant_of_Victory_T0",
+    "cn": "纳尔逊的旗语T0",
+    "en": "Nelson's Pennant of Victory T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/7/76/880.png"
+  },
+  "NY_City_Coast_Recon_Report_T0": {
+    "name": "NY_City_Coast_Recon_Report_T0",
+    "cn": "侦察报告·纽约近海T0",
+    "en": "NY City Coast Recon Report T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d1/760.png/128px-760.png"
+  },
+  "Ocean_Soul_Camouflage_T0": {
+    "name": "Ocean_Soul_Camouflage_T0",
+    "cn": "海魂迷彩T0",
+    "en": "Ocean Soul Camouflage T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/85/1960.png"
+  },
+  "Pearl's_Tears_T0": {
+    "name": "Pearl's_Tears_T0",
+    "cn": "珍珠之泪T0",
+    "en": "Pearl's Tears T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/7/78/520.png/128px-520.png"
+  },
+  "Pressure_Resistant_Hull_Design_T2": {
+    "name": "Pressure_Resistant_Hull_Design_T2",
+    "cn": "艇壳改良设计案T2",
+    "en": "Pressure-Resistant Hull Design T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/c/cf/800.png"
+  },
+  "Pyoko_Pyoko_T0": {
+    "name": "Pyoko_Pyoko_T0",
+    "cn": "晃悠悠T0",
+    "en": "Pyoko-Pyoko T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/84/89020.png/128px-89020.png"
+  },
+  "Rammer_T1": {
+    "name": "Rammer_T1",
+    "cn": "电动扬弹机T1",
+    "en": "Rammer T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/df/1600.png/128px-1600.png"
+  },
+  "Rammer_T2": {
+    "name": "Rammer_T2",
+    "cn": "电动扬弹机T2",
+    "en": "Rammer T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/df/1600.png/128px-1600.png"
+  },
+  "Rammer_T3": {
+    "name": "Rammer_T3",
+    "cn": "电动扬弹机T3",
+    "en": "Rammer T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/df/1600.png/128px-1600.png"
+  },
+  "Random_Word_Generator_T0": {
+    "name": "Random_Word_Generator_T0",
+    "cn": "随机单词生成器T0",
+    "en": "Random Word Generator T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/2/29/89000.png/128px-89000.png"
+  },
+  "Repair_Toolkit_T1": {
+    "name": "Repair_Toolkit_T1",
+    "cn": "维修工具T1",
+    "en": "Repair Toolkit T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d5/2400.png/128px-2400.png"
+  },
+  "Repair_Toolkit_T2": {
+    "name": "Repair_Toolkit_T2",
+    "cn": "维修工具T2",
+    "en": "Repair Toolkit T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d5/2400.png/128px-2400.png"
+  },
+  "Repair_Toolkit_T3": {
+    "name": "Repair_Toolkit_T3",
+    "cn": "维修工具T3",
+    "en": "Repair Toolkit T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/d/d5/2400.png/128px-2400.png"
+  },
+  "Resplendent_Astrum_T0": {
+    "name": "Resplendent_Astrum_T0",
+    "cn": "闪耀之歌T0",
+    "en": "Resplendent Astrum T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/2/22/89180.png"
+  },
+  "Sacred_Lumière_T0": {
+    "name": "Sacred_Lumière_T0",
+    "cn": "活力之歌T0",
+    "en": "Sacred Lumière T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/6/67/89160.png"
+  },
+  "Seal_of_the_Four_Gods_T0": {
+    "name": "Seal_of_the_Four_Gods_T0",
+    "cn": "四神之印T0",
+    "en": "Seal of the Four Gods T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/c/c9/3300.png"
+  },
+  "SG_Radar_T1": {
+    "name": "SG_Radar_T1",
+    "cn": "SG雷达T1",
+    "en": "SG Radar T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9f/1500.png/128px-1500.png"
+  },
+  "SG_Radar_T2": {
+    "name": "SG_Radar_T2",
+    "cn": "SG雷达T2",
+    "en": "SG Radar T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9f/1500.png/128px-1500.png"
+  },
+  "SG_Radar_T3": {
+    "name": "SG_Radar_T3",
+    "cn": "SG雷达T3",
+    "en": "SG Radar T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/9f/1500.png/128px-1500.png"
+  },
+  "Ship_Maintenance_Facility_T1": {
+    "name": "Ship_Maintenance_Facility_T1",
+    "cn": "舰艇维修设备T1",
+    "en": "Ship Maintenance Facility T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/46/1000.png/128px-1000.png"
+  },
+  "Ship_Maintenance_Facility_T2": {
+    "name": "Ship_Maintenance_Facility_T2",
+    "cn": "舰艇维修设备T2",
+    "en": "Ship Maintenance Facility T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/46/1000.png/128px-1000.png"
+  },
+  "Ship_Maintenance_Facility_T3": {
+    "name": "Ship_Maintenance_Facility_T3",
+    "cn": "舰艇维修设备T3",
+    "en": "Ship Maintenance Facility T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/4/46/1000.png/128px-1000.png"
+  },
+  "Steam_Catapult_T1": {
+    "name": "Steam_Catapult_T1",
+    "cn": "液压弹射装置T1",
+    "en": "Steam Catapult T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/96/1400.png/128px-1400.png"
+  },
+  "Steam_Catapult_T2": {
+    "name": "Steam_Catapult_T2",
+    "cn": "液压弹射装置T2",
+    "en": "Steam Catapult T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/96/1400.png/128px-1400.png"
+  },
+  "Steam_Catapult_T3": {
+    "name": "Steam_Catapult_T3",
+    "cn": "液压弹射装置T3",
+    "en": "Steam Catapult T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/9/96/1400.png/128px-1400.png"
+  },
+  "Super_Heavy_Shell_T0": {
+    "name": "Super_Heavy_Shell_T0",
+    "cn": "超重弹T0",
+    "en": "Super Heavy Shell T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/8/8a/620.png/128px-620.png"
+  },
+  "Team_Emblem_T0": {
+    "name": "Team_Emblem_T0",
+    "cn": "组徽T0",
+    "en": "Team Emblem T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/55/89060.png"
+  },
+  "Type_91_AP_Shell_T0": {
+    "name": "Type_91_AP_Shell_T0",
+    "cn": "九一式穿甲弹T0",
+    "en": "Type 91 AP Shell T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/6/61/580.png"
+  },
+  "Type_93_Pure_Oxygen_Torpedo_T1": {
+    "name": "Type_93_Pure_Oxygen_Torpedo_T1",
+    "cn": "九三式纯氧鱼雷T1",
+    "en": "Type 93 Pure Oxygen Torpedo T1",
+    "rarity": "Elite",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/59/2600.png/128px-2600.png"
+  },
+  "Type_93_Pure_Oxygen_Torpedo_T2": {
+    "name": "Type_93_Pure_Oxygen_Torpedo_T2",
+    "cn": "九三式纯氧鱼雷T2",
+    "en": "Type 93 Pure Oxygen Torpedo T2",
+    "rarity": "Superrare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/59/2600.png/128px-2600.png"
+  },
+  "Type_93_Pure_Oxygen_Torpedo_T3": {
+    "name": "Type_93_Pure_Oxygen_Torpedo_T3",
+    "cn": "九三式纯氧鱼雷T3",
+    "en": "Type 93 Pure Oxygen Torpedo T3",
+    "rarity": "Ultrarare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/5/59/2600.png/128px-2600.png"
+  },
+  "Type_1_AP_Shell_T0": {
+    "name": "Type_1_AP_Shell_T0",
+    "cn": "一式穿甲弹T0",
+    "en": "Type 1 AP Shell T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/4/43/600.png"
+  },
+  "Type_94_Anti_Air_Fire_Control_System_T0": {
+    "name": "Type_94_Anti_Air_Fire_Control_System_T0",
+    "cn": "94式高射装置T0",
+    "en": "Type 94 Anti-Air Fire Control System T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8d/2800.png"
+  },
+  "Type_98_Delayed_Firing_Device_T0": {
+    "name": "Type_98_Delayed_Firing_Device_T0",
+    "cn": "九八式射击延迟装置T0",
+    "en": "Type 98 Delayed Firing Device T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/bc/700.png"
+  },
+  "Certificate_of_Sponsorship_T0": {
+    "name": "Certificate_of_Sponsorship_T0",
+    "cn": "约定的证明T0",
+    "en": "Certificate of Sponsorship T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/8/8c/720.png"
+  },
+  "VC_Armor_Plating_T0": {
+    "name": "VC_Armor_Plating_T0",
+    "cn": "VC装甲钢板T0",
+    "en": "VC Armor Plating T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/9/95/3220.png"
+  },
+  "VH_Armor_Plating_T0": {
+    "name": "VH_Armor_Plating_T0",
+    "cn": "VH装甲钢板T0",
+    "en": "VH Armor Plating T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/7/73/3200.png"
+  },
+  "Washington_Naval_Treaty_T0": {
+    "name": "Washington_Naval_Treaty_T0",
+    "cn": "华盛顿海军条约T0",
+    "en": "Washington Naval Treaty T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/5/53/860.png"
+  },
+  "40cm_Type_94_Naval_Gun_Parts_Cargo_T0": {
+    "name": "40cm_Type_94_Naval_Gun_Parts_Cargo_T0",
+    "cn": "“九四式40厘米炮”部件T0",
+    "en": "40cm Type 94 Naval Gun Parts (Cargo) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d1/3400.png"
+  },
+  "Aviation_Materials_Cargo_T0": {
+    "name": "Aviation_Materials_Cargo_T0",
+    "cn": "兵装补给（航空）T0",
+    "en": "Aviation Materials (Cargo) T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/7/70/3500.png"
+  },
+  "Torpedo_Materials_Cargo_T0": {
+    "name": "Torpedo_Materials_Cargo_T0",
+    "cn": "兵装补给（鱼雷）T0",
+    "en": "Torpedo Materials (Cargo) T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f5/3540.png"
+  },
+  "Small_Caliber_Naval_Gun_Parts_Cargo_T0": {
+    "name": "Small_Caliber_Naval_Gun_Parts_Cargo_T0",
+    "cn": "兵装补给（中小口径武器）T0",
+    "en": "Small-Caliber Naval Gun Parts (Cargo) T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/b/b7/3520.png"
+  },
+  "Basic_Depth_Charge_Projector_T1": {
+    "name": "Basic_Depth_Charge_Projector_T1",
+    "cn": "基础深弹投射器T1",
+    "en": "Basic Depth Charge Projector T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/0/08/4000.png"
+  },
+  "Basic_Depth_Charge_Projector_T2": {
+    "name": "Basic_Depth_Charge_Projector_T2",
+    "cn": "基础深弹投射器T2",
+    "en": "Basic Depth Charge Projector T2",
+    "rarity": "Normal",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/0/08/4000.png"
+  },
+  "Basic_Depth_Charge_Projector_T3": {
+    "name": "Basic_Depth_Charge_Projector_T3",
+    "cn": "基础深弹投射器T3",
+    "en": "Basic Depth Charge Projector T3",
+    "rarity": "Rare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/0/08/4000.png"
+  },
+  "Basic_Sonar_T1": {
+    "name": "Basic_Sonar_T1",
+    "cn": "基础声呐T1",
+    "en": "Basic Sonar T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/5/52/2900.png"
+  },
+  "Basic_Sonar_T2": {
+    "name": "Basic_Sonar_T2",
+    "cn": "基础声呐T2",
+    "en": "Basic Sonar T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/5/52/2900.png"
+  },
+  "Basic_Sonar_T3": {
+    "name": "Basic_Sonar_T3",
+    "cn": "基础声呐T3",
+    "en": "Basic Sonar T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/5/52/2900.png"
+  },
+  "Swordfish_Mk_II_ASV_ASW_T1": {
+    "name": "Swordfish_Mk_II_ASV_ASW_T1",
+    "cn": "剑鱼Mark II-ASV(反潜)T1",
+    "en": "Swordfish Mk II-ASV (ASW) T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/4/4e/4200.png"
+  },
+  "Swordfish_Mk_II_ASV_ASW_T2": {
+    "name": "Swordfish_Mk_II_ASV_ASW_T2",
+    "cn": "剑鱼Mark II-ASV(反潜)T2",
+    "en": "Swordfish Mk II-ASV (ASW) T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/4/4e/4200.png"
+  },
+  "Swordfish_Mk_II_ASV_ASW_T3": {
+    "name": "Swordfish_Mk_II_ASV_ASW_T3",
+    "cn": "剑鱼Mark II-ASV(反潜)T3",
+    "en": "Swordfish Mk II-ASV (ASW) T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/4/4e/4200.png"
+  },
+  "Fl_282_Kolibri_T0": {
+    "name": "Fl_282_Kolibri_T0",
+    "cn": "Fl-282直升机T0",
+    "en": "Fl 282 Kolibri T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.koumakan.jp/w/images/thumb/c/c7/740.png/128px-740.png"
+  },
+  "TBM_3_Avenger_ASW_T1": {
+    "name": "TBM_3_Avenger_ASW_T1",
+    "cn": "TBM-3复仇者(反潜)T1",
+    "en": "TBM-3 Avenger (ASW) T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d8/4300.png"
+  },
+  "TBM_3_Avenger_ASW_T2": {
+    "name": "TBM_3_Avenger_ASW_T2",
+    "cn": "TBM-3复仇者(反潜)T2",
+    "en": "TBM-3 Avenger (ASW) T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d8/4300.png"
+  },
+  "TBM_3_Avenger_ASW_T3": {
+    "name": "TBM_3_Avenger_ASW_T3",
+    "cn": "TBM-3复仇者(反潜)T3",
+    "en": "TBM-3 Avenger (ASW) T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/d/d8/4300.png"
+  },
+  "Hedgehog_Anti_Submarine_Mortar_T3": {
+    "name": "Hedgehog_Anti_Submarine_Mortar_T3",
+    "cn": "刺猬弹T3",
+    "en": "\"Hedgehog\" Anti-Submarine Mortar T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/4/42/25800.png"
+  },
+  "Improved_Depth_Charge_Projector_T1": {
+    "name": "Improved_Depth_Charge_Projector_T1",
+    "cn": "改良深弹投射器T1",
+    "en": "Improved Depth Charge Projector T1",
+    "rarity": "Normal",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/a/aa/4100.png"
+  },
+  "Improved_Depth_Charge_Projector_T2": {
+    "name": "Improved_Depth_Charge_Projector_T2",
+    "cn": "改良深弹投射器T2",
+    "en": "Improved Depth Charge Projector T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/a/aa/4100.png"
+  },
+  "Improved_Depth_Charge_Projector_T3": {
+    "name": "Improved_Depth_Charge_Projector_T3",
+    "cn": "改良深弹投射器T3",
+    "en": "Improved Depth Charge Projector T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/a/aa/4100.png"
+  },
+  "Advanced_Sonar_T1": {
+    "name": "Advanced_Sonar_T1",
+    "cn": "改良声呐T1",
+    "en": "Advanced Sonar T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f6/3000.png"
+  },
+  "Advanced_Sonar_T2": {
+    "name": "Advanced_Sonar_T2",
+    "cn": "改良声呐T2",
+    "en": "Advanced Sonar T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f6/3000.png"
+  },
+  "Advanced_Sonar_T3": {
+    "name": "Advanced_Sonar_T3",
+    "cn": "改良声呐T3",
+    "en": "Advanced Sonar T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.koumakan.jp/w/images/f/f6/3000.png"
+  }
+}
