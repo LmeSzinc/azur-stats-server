@@ -248,6 +248,7 @@ def get_data():
 
     by_genre_and_duration = dic_prepare(by_genre_and_duration, 'project')
     by_all = dic_prepare(by_all, 'group')
+    by_series = list(by_series.values())
 
     return {
         'data': {
