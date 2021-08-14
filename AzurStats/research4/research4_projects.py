@@ -1,6 +1,7 @@
 import pymysql
 
 from AzurStats.classification.image_classification import ImageClassification
+from AzurStats.research4.utils import *
 from AzurStats.utils.utils import *
 from module.research.project import *
 
@@ -59,25 +60,8 @@ class Research4Projects(ImageClassification):
         return [data_in[0], data_in[2], 0, 0, None, None, 0, error]
 
 
-def human_project(project):
-    """
-    Args:
-        project (ResearchProject):
-
-    Returns:
-        str: Such as 'H-5', 'Anchorage-5'
-    """
-    if project.ship == '':
-        return f'{project.genre.upper()}-{project.duration}'
-    else:
-        return f'{project.ship.capitalize()}-{project.duration}'
-
-
 GENRE_I18N = {
     'zh-CN': {
-        'ResearchS4': '四期科研',
-        'ResearchS3': '三期科研',
-        'ResearchS2': '二期科研',
         'B': '数据收集',
         'C': '基础研究',
         'D': '定向研发',
@@ -90,9 +74,6 @@ GENRE_I18N = {
         'PRY': '金船定向',
     },
     'en-US': {
-        'ResearchS4': 'Research S4',
-        'ResearchS3': 'Research S3',
-        'ResearchS2': 'Research S2',
         'B': 'Data Collection',
         'C': 'Basic Research',
         'D': 'Face Research',
@@ -105,32 +86,18 @@ GENRE_I18N = {
         'PRY': 'PRY Face',
     }
 }
-
-
-def name_to_i18n_project(name, lang):
-    """
-    Args:
-        name (str): Project name, such as `DR-2.5`
-        lang:
-        lang_short:
-
-    Returns:
-        Such as: `彩船定向2.5h (DR-2.5)` and `DR Face 2.5h (DR-2.5)`
-    """
-    count = name.count('-')
-    if count == 0:
-        if name.replace('.', '', 1).isdigit():
-            return f'{name}h'
-        else:
-            genre = GENRE_I18N[lang][name]
-            return f'{genre}'
-
-    elif count == 1:
-        genre, duration = name.split('-')
-        genre = GENRE_I18N[lang][genre]
-        return f'{genre} {duration}h'
-    else:
-        return name
+DATA_GROUP = {
+    "ResearchGroup": [
+        {
+            "name": "ByGenreduration",
+            "image": "/ResearchGroup/ByGenreduration.png"
+        },
+        {
+            "name": "ByProject",
+            "image": "/ResearchGroup/ByProject.png"
+        }
+    ]
+}
 
 
 def get_data():
@@ -194,11 +161,18 @@ def get_data():
         'en-US': {}
     }
 
+    for lang in GENRE_I18N.keys():
+        for group_name, group_data in DATA_GROUP.items():
+            i18n[lang][group_name] = DEFAULT_I18N[lang].get(group_name, group_name)
+            for group in group_data:
+                name = group['name']
+                i18n[lang][name] = DEFAULT_I18N[lang].get(name, name)
+
     seasons_total = sum([row[1] for row in seasons])
     for series, amount in seasons:
         name = f'ResearchS{series}'
         for lang in GENRE_I18N.keys():
-            i18n[lang][name] = name_to_i18n_project(name, lang)
+            i18n[lang][name] = DEFAULT_I18N[lang].get(name, name)
         by_series[name] = {
             'series': name,
             'samples': amount,
@@ -256,18 +230,7 @@ def get_data():
             'ByGenreduration': by_genre_and_duration,
             'ByProject': by_all,
         },
-        'data_group': {
-            "ResearchGroup": [
-                {
-                    "name": "ByGenreduration",
-                    "image": "/ResearchGroup/ByGenreduration.png"
-                },
-                {
-                    "name": "ByProject",
-                    "image": "/ResearchGroup/ByProject.png"
-                }
-            ]
-        },
+        'data_group': DATA_GROUP,
         'i18n': i18n,
     }
 

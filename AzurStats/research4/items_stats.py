@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import pymysql
 
-from AzurStats.research4.research4_projects import name_to_i18n_project
+from AzurStats.research4.utils import *
 from AzurStats.utils.utils import *
 from module.research.project import *
 
@@ -16,40 +16,6 @@ def format_number(n):
         else:
             return float(f'{n:.3g}')
     return n
-
-
-with open('./AzurStats/equipment/data.json', 'r', encoding='utf-8') as f:
-    EQUIPMENT_DATA = json.load(f)
-
-with open('./AzurStats/research4/i18n.json', 'r', encoding='utf-8') as f:
-    DEFAULT_I18N = json.load(f)
-
-GENRE_I18N = {
-    'zh-CN': {
-        'B': '数据收集',
-        'C': '基础研究',
-        'D': '定向研发',
-        'E': '实验品招募',
-        'G': '资金募集',
-        'H': '魔方解析',
-        'Q': '舰装解析',
-        'T': '科研委托',
-        'DR': '彩船定向',
-        'PRY': '金船定向',
-    },
-    'en-US': {
-        'B': 'Data Collection',
-        'C': 'Basic Research',
-        'D': 'Face Research',
-        'E': 'Gear Collection',
-        'G': 'Grant Donation',
-        'H': 'Cube Analysis',
-        'Q': 'Rigging Analysis',
-        'T': 'Commission',
-        'DR': 'DR Face',
-        'PRY': 'PRY Face',
-    }
-}
 
 
 class ItemGroup:
