@@ -2,6 +2,7 @@ from decimal import Decimal
 
 import pymysql
 
+from AzurStats.research4.research4_projects import name_to_i18n_project
 from AzurStats.utils.utils import *
 from module.research.project import *
 
@@ -144,33 +145,9 @@ class ItemGroup:
         self.i18n['zh-CN'][name] = self._name_to_i18n(name, lang='zh-CN', lang_short='cn')
         self.i18n['en-US'][name] = self._name_to_i18n(name, lang='en-US', lang_short='en')
 
-    def _name_to_i18n_project(self, name, lang, lang_short):
-        """
-        Args:
-            name (str): Project name, such as `DR-2.5`
-            lang:
-            lang_short:
-
-        Returns:
-            Such as: `彩船定向2.5h (DR-2.5)` and `DR Face 2.5h (DR-2.5)`
-        """
-        count = name.count('-')
-        if count == 0:
-            if name.isalpha():
-                genre = GENRE_I18N[lang][name]
-                return f'{genre}'
-            else:
-                return f'{name}h'
-        elif count == 1:
-            genre, duration = name.split('-')
-            genre = GENRE_I18N[lang][genre]
-            return f'{genre} {duration}h'
-        else:
-            return name
-
     def add_i18n_project(self, name):
-        self.i18n['zh-CN'][name] = self._name_to_i18n_project(name, lang='zh-CN', lang_short='cn')
-        self.i18n['en-US'][name] = self._name_to_i18n_project(name, lang='en-US', lang_short='en')
+        self.i18n['zh-CN'][name] = name_to_i18n_project(name, lang='zh-CN')
+        self.i18n['en-US'][name] = name_to_i18n_project(name, lang='en-US')
 
     def _name_to_image(self, name):
         group2 = self.item_to_group2.get(name, 'Default')
