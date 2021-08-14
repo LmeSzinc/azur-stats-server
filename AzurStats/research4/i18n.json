@@ -38,7 +38,8 @@
     "ByProject": "展开全部",
     "ResearchS4": "四期科研",
     "ResearchS3": "三期科研",
-    "ResearchS2": "二期科研"
+    "ResearchS2": "二期科研",
+    "ResearchS1": "一期科研"
   },
   "en-US": {
     "Currency": "Currency",
@@ -77,8 +78,9 @@
     "ByGenre": "By Genre",
     "ByDuration": "By Duration",
     "ByProject": "Show All",
-    "ResearchS4": "Research S4",
-    "ResearchS3": "Research S3",
-    "ResearchS2": "Research S2"
+    "ResearchS4": "PR4",
+    "ResearchS3": "PR3",
+    "ResearchS2": "PR2",
+    "ResearchS1": "PR1"
   }
 }
