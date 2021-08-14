@@ -250,9 +250,23 @@ def get_data():
     by_all = dic_prepare(by_all, 'group')
 
     return {
-        'by_series': by_series,
-        'by_genre_and_duration': by_genre_and_duration,
-        'by_all': by_all,
+        'data': {
+            'BySeries': by_series,
+            'ByGenreduration': by_genre_and_duration,
+            'ByProject': by_all,
+        },
+        'data_group': {
+            "ResearchGroup": [
+                {
+                    "name": "ByGenreduration",
+                    "image": "/ResearchGroup/ByGenreduration.png"
+                },
+                {
+                    "name": "ByProject",
+                    "image": "/ResearchGroup/ByProject.png"
+                }
+            ]
+        },
         'i18n': i18n,
     }
 
