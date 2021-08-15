@@ -58,6 +58,20 @@ RESEARCH_CHECK = MultiServerButton(
     button={'cn': (118, 15, 170, 39), 'en': (119, 14, 259, 36), 'jp': (117, 14, 171, 40), 'tw': (118, 15, 170, 39)},
     file={'cn': './assets/cn/ui/RESEARCH_CHECK.png', 'en': './assets/en/ui/RESEARCH_CHECK.png',
           'jp': './assets/jp/ui/RESEARCH_CHECK.png', 'tw': './assets/tw/ui/RESEARCH_CHECK.png'})
+COMMISSION_DONE = MultiServerButton(
+    area={'cn': (189, 100, 318, 155), 'en': (352, 103, 444, 144), 'jp': (190, 96, 319, 150), 'tw': (190, 96, 319, 150)},
+    color={'cn': (180, 177, 152), 'en': (191, 182, 149), 'jp': (187, 182, 151), 'tw': (187, 182, 151)},
+    button={'cn': (189, 100, 318, 155), 'en': (352, 103, 444, 144), 'jp': (190, 96, 319, 150),
+            'tw': (190, 96, 319, 150)},
+    file={'cn': './assets/cn/statistics/COMMISSION_DONE.png', 'en': './assets/en/statistics/COMMISSION_DONE.png',
+          'jp': './assets/jp/statistics/COMMISSION_DONE.png', 'tw': './assets/tw/statistics/COMMISSION_DONE.png'})
+COMMISSION_PERFECT = MultiServerButton(
+    area={'cn': (189, 101, 300, 155), 'en': (251, 97, 430, 144), 'jp': (190, 97, 302, 150), 'tw': (190, 97, 302, 150)},
+    color={'cn': (193, 185, 150), 'en': (171, 170, 151), 'jp': (204, 194, 151), 'tw': (204, 194, 151)},
+    button={'cn': (189, 101, 300, 155), 'en': (251, 97, 430, 144), 'jp': (190, 97, 302, 150),
+            'tw': (190, 97, 302, 150)},
+    file={'cn': './assets/cn/statistics/COMMISSION_PERFECT.png', 'en': './assets/en/statistics/COMMISSION_PERFECT.png',
+          'jp': './assets/jp/statistics/COMMISSION_PERFECT.png', 'tw': './assets/tw/statistics/COMMISSION_PERFECT.png'})
 
 
 class ImageClassification:
@@ -95,12 +109,23 @@ class ImageClassification:
         Returns:
             List of output data
         """
-        server = RESEARCH_CHECK.match(images[0], offset=(20, 20))
-        if server == 'jp':
-            raise ImageError('JP research screenshots are not supported')
-        valid = int(server is not None)
-        stats = "research4" if valid else ""
-        return [[valid, stats, server], ]
+        # Research
+        image = images[0]
+        server = RESEARCH_CHECK.match(image, offset=(20, 20))
+        if server is not None:
+            if server == 'jp':
+                raise ImageError('JP research screenshots are not supported')
+            return [[1, "research4", server], ]
+
+        # Commission
+        server = COMMISSION_DONE.match(image, offset=(20, 20))
+        if server is None:
+            server = COMMISSION_PERFECT.match(image, offset=(20, 20))
+        if server is not None:
+            return [[1, "commission", server], ]
+
+        # No matches
+        return [[0, "", None], ]
 
     def merge_data(self, data_in, data_out):
         """
