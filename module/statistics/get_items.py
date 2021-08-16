@@ -78,7 +78,6 @@ class GetItemsStatistics:
         Args:
             folder (str): Template folder.
         """
-        print(id(self.item_group))
         self.item_group.load_template_folder(folder)
 
     def extract_template(self, image, folder):

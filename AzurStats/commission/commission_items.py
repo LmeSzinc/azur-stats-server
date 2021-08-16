@@ -9,7 +9,6 @@ from module.statistics.get_items import GetItemsStatistics, ITEM_GRIDS_1_EVEN, I
     ITEM_GRIDS_2, ITEM_GRIDS_3, INFO_BAR_1
 
 ASSETS_FOLDER = r'./AzurStats/commission/assets'
-OCR_MODEL['azur_lane'].prediction_threshold = 0.9
 
 
 class NameOcr(Ocr):
@@ -178,6 +177,7 @@ class CommissionItems(ImageClassification, GetItemsStatistics):
         # self.delete_temp_rows(valid=3)
 
         logger.info('Extract item template')
+        OCR_MODEL['azur_lane'].prediction_threshold = 0.9
         self.for_extraction = True
         super().run()
         logger.info('delete_temp_rows')
@@ -186,6 +186,7 @@ class CommissionItems(ImageClassification, GetItemsStatistics):
         logger.info('Extract drop data')
         self.for_extraction = False
         super().run()
+        OCR_MODEL['azur_lane'].prediction_threshold = 0.5
 
 
 def run():
