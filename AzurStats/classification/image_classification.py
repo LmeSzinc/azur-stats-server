@@ -205,3 +205,27 @@ class ImageClassification:
                     connection.commit()
         finally:
             connection.close()
+
+    def delete_temp_rows(self, table, valid):
+        """
+        Args:
+            table (str):
+            valid (int): Valid column in database.
+                2 for Temp rows for template extraction
+                3 for Unclassified items (in auto increased numbers)
+        """
+        connection = pymysql.connect(**CONFIG['database'])
+        try:
+            with connection.cursor() as cursor:
+                sql = f"""
+                DELETE
+                FROM {table} 
+                WHERE imgid IN (
+                    SELECT DISTINCT imgid 
+                    FROM (SELECT * FROM {table}) AS a
+                    WHERE valid = {valid})
+                """
+                cursor.execute(sql)
+                connection.commit()
+        finally:
+            connection.close()

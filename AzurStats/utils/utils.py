@@ -60,3 +60,19 @@ def copy_to_output_folder():
         logger.info(f'Empty folder/target, skip copying')
 
 
+def iter_folder(folder, ext=None):
+    """
+    Args:
+        folder (str):
+        ext (str): File extension
+
+    Yields:
+        str: Absolute path of files
+    """
+    for file in os.listdir(folder):
+        if ext is not None:
+            _, extension = os.path.splitext(file)
+            if extension == ext:
+                yield os.path.join(folder, file)
+        else:
+            yield os.path.join(folder, file)

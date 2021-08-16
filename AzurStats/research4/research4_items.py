@@ -81,16 +81,16 @@ class Research4Items(ImageClassification, GetItemsStatistics):
             raise ImageError(f'Too many drop screenshots: {count}, expects 1 to 3')
 
         image = images[0]
-        finish = get_research_finished(image)
-        if finish is None:
-            raise ImageError('No project finished, but get items')
-        series = get_research_series(image)[finish]
-
         if self.for_extraction:
             self.extract_template(images[1], folder=ASSETS_FOLDER)
             if count == 3:
                 self.extract_template(images[2], folder=ASSETS_FOLDER)
             return [[2, 0, None, None, None, None, None]]
+
+        finish = get_research_finished(image)
+        if finish is None:
+            raise ImageError('No project finished, but get items')
+        series = get_research_series(image)[finish]
 
         # names_ocr = get_research_name(image)[finish]
         backup = OCR_RESEARCH.buttons
@@ -174,29 +174,6 @@ class Research4Items(ImageClassification, GetItemsStatistics):
         else:
             raise ImageError('Stat image is not a get_items image')
 
-    def delete_temp_rows(self, valid):
-        """
-        Args:
-            valid (int): Valid column in database.
-                2 for Temp rows for template extraction
-                3 for Unclassified items (in auto increased numbers)
-        """
-        connection = pymysql.connect(**CONFIG['database'])
-        try:
-            with connection.cursor() as cursor:
-                sql = f"""
-                DELETE
-                FROM research4_items 
-                WHERE imgid IN (
-                    SELECT DISTINCT imgid 
-                    FROM (SELECT * FROM research4_items) AS a
-                    WHERE valid = {valid})
-                """
-                cursor.execute(sql)
-                connection.commit()
-        finally:
-            connection.close()
-
     def run(self):
         # Use this if most templates are named.
         # logger.info('delete_temp_rows')
@@ -206,7 +183,7 @@ class Research4Items(ImageClassification, GetItemsStatistics):
         self.for_extraction = True
         super().run()
         logger.info('delete_temp_rows')
-        self.delete_temp_rows(valid=2)
+        self.delete_temp_rows(table='research4_items', valid=2)
 
         logger.info('Extract drop data')
         self.for_extraction = False
