@@ -49,9 +49,6 @@ def predict_tag(image):
         return None
 
 
-ITEM_GROUP.predict_tag = predict_tag
-
-
 class Research4Items(ImageClassification, GetItemsStatistics):
     SQL_SOURCE = 'images'
     SQL_SOURCE_COLUMN = 'imgid, path, server'
@@ -64,6 +61,8 @@ class Research4Items(ImageClassification, GetItemsStatistics):
     def __init__(self, **kwarg):
         super().__init__(**kwarg)
         logger.info('Load template folder')
+        self.item_group_reset()
+        self.item_group.predict_tag = predict_tag
         self.load_template_folder(folder=ASSETS_FOLDER)
 
     def images_to_data(self, images):
@@ -162,15 +161,15 @@ class Research4Items(ImageClassification, GetItemsStatistics):
         Args:
             image: Pillow image, 1280x720.
         """
-        ITEM_GROUP.grids = None
+        self.item_group.grids = None
         if INFO_BAR_1.appear_on(image):
             raise ImageError('Stat image has info_bar')
         elif GET_ITEMS_1.match(image, offset=(5, 0)):
-            ITEM_GROUP.grids = ITEM_GRIDS_1_ODD if self._stats_get_items_is_odd(image) else ITEM_GRIDS_1_EVEN
+            self.item_group.grids = ITEM_GRIDS_1_ODD if self._stats_get_items_is_odd(image) else ITEM_GRIDS_1_EVEN
         elif GET_ITEMS_2.match(image, offset=(5, 0)):
-            ITEM_GROUP.grids = ITEM_GRIDS_2
+            self.item_group.grids = ITEM_GRIDS_2
         elif GET_ITEMS_3.match(image, offset=(5, 0)):
-            ITEM_GROUP.grids = ITEM_GRIDS_3
+            self.item_group.grids = ITEM_GRIDS_3
         else:
             raise ImageError('Stat image is not a get_items image')
 

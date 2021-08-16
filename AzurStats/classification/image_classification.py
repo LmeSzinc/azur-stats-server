@@ -229,3 +229,7 @@ class ImageClassification:
                 connection.commit()
         finally:
             connection.close()
+
+
+def run():
+    ImageClassification().run()

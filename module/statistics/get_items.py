@@ -4,7 +4,6 @@ from module.statistics.assets import GET_ITEMS_ODD
 from module.statistics.item import *
 from module.statistics.utils import *
 
-ITEM_GROUP = ItemGrid(None, {}, template_area=(40, 21, 89, 70), amount_area=(60, 71, 91, 92))
 ITEM_GRIDS_1_ODD = ButtonGrid(origin=(336, 298), delta=(128, 0), button_shape=(96, 96), grid_shape=(5, 1))
 ITEM_GRIDS_1_EVEN = ButtonGrid(origin=(400, 298), delta=(128, 0), button_shape=(96, 96), grid_shape=(4, 1))
 ITEM_GRIDS_2 = ButtonGrid(origin=(336, 227), delta=(128, 142), button_shape=(96, 96), grid_shape=(5, 2))
@@ -24,6 +23,11 @@ def merge_get_items(item_list_1, item_list_2):
 
 
 class GetItemsStatistics:
+    item_group = ItemGrid(None, {}, template_area=(40, 21, 89, 70), amount_area=(60, 71, 91, 92))
+
+    def item_group_reset(self):
+        self.item_group = ItemGrid(None, {}, template_area=(40, 21, 89, 70), amount_area=(60, 71, 91, 92))
+
     @staticmethod
     def _stats_get_items_is_odd(image):
         """
@@ -41,15 +45,15 @@ class GetItemsStatistics:
         Args:
             image: Pillow image, 1280x720.
         """
-        ITEM_GROUP.grids = None
+        self.item_group.grids = None
         if INFO_BAR_1.appear_on(image):
             raise ImageError('Stat image has info_bar')
         elif GET_ITEMS_1.match(image, offset=(5, 0)):
-            ITEM_GROUP.grids = ITEM_GRIDS_1_ODD if self._stats_get_items_is_odd(image) else ITEM_GRIDS_1_EVEN
+            self.item_group.grids = ITEM_GRIDS_1_ODD if self._stats_get_items_is_odd(image) else ITEM_GRIDS_1_EVEN
         elif GET_ITEMS_2.match(image, offset=(5, 0)):
-            ITEM_GROUP.grids = ITEM_GRIDS_2
+            self.item_group.grids = ITEM_GRIDS_2
         elif GET_ITEMS_3.match(image, offset=(5, 0)):
-            ITEM_GROUP.grids = ITEM_GRIDS_3
+            self.item_group.grids = ITEM_GRIDS_3
         else:
             raise ImageError('Stat image is not a get_items image')
 
@@ -63,18 +67,19 @@ class GetItemsStatistics:
         """
         self._stats_get_items_load(image)
 
-        if ITEM_GROUP.grids is None:
+        if self.item_group.grids is None:
             return []
         else:
-            ITEM_GROUP.predict(image, **kwargs)
-            return ITEM_GROUP.items
+            self.item_group.predict(image, **kwargs)
+            return self.item_group.items
 
     def load_template_folder(self, folder):
         """
         Args:
             folder (str): Template folder.
         """
-        ITEM_GROUP.load_template_folder(folder)
+        print(id(self.item_group))
+        self.item_group.load_template_folder(folder)
 
     def extract_template(self, image, folder):
         """
@@ -83,7 +88,7 @@ class GetItemsStatistics:
             folder: Folder to save new templates.
         """
         self._stats_get_items_load(image)
-        if ITEM_GROUP.grids is not None:
-            new = ITEM_GROUP.extract_template(image)
+        if self.item_group.grids is not None:
+            new = self.item_group.extract_template(image)
             for name, im in new.items():
                 im.save(os.path.join(folder, f'{name}.png'))

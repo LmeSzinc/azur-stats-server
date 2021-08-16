@@ -3,7 +3,17 @@ from AzurStats.commission.data import LIST_COMMISSION_DATA
 from module.logger import logger
 
 REGEX_ROMAN = re.compile(r'([ⅠⅡⅢⅣⅤⅥ])')
-REGEX_PUNCTUATION = re.compile(r'([“”\- ])')
+REGEX_PUNCTUATION = re.compile(r'([ \\\-\'\"“”\.、\(\)（）])')
+ERROR_TRANSLATE = {
+    '曰': '日',
+    'CORMBAT': 'COMBAT',
+    'ENERMY': 'ENEMY',
+    'RESOUIRCE': 'RESOURCE',
+    'ALIDING': 'AIDING',
+    'BIVWI': 'BIW',
+    'BIWL': 'BIW',
+    'BIVW': 'BIW',
+}
 
 
 def beautify_name(name):
@@ -18,8 +28,10 @@ def beautify_name(name):
 
 
 def to_detection_name(name):
-    name = name.replace('曰', '日')
-    return REGEX_PUNCTUATION.sub('', name).upper()
+    name = REGEX_PUNCTUATION.sub('', name).upper()
+    for before, after in ERROR_TRANSLATE.items():
+        name = name.replace(before, after)
+    return name
 
 
 def split_name(name):
