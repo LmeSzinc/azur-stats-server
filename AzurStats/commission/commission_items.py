@@ -134,7 +134,7 @@ class CommissionItems(ImageClassification, GetItemsStatistics):
             result = self.parse_exp_info(image)
             if result is not None:
                 if exp_info is not None:
-                    data += self.merge_parse_result(result, None)
+                    data += self.merge_parse_result(exp_info, None)
                 exp_info = result
                 continue
 
