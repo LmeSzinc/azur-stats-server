@@ -12,6 +12,7 @@ ERROR_TRANSLATE = {
     'ALIDING': 'AIDING',
     'BIVWI': 'BIW',
     'BIWL': 'BIW',
+    'BILW': 'BIW',
     'BIVW': 'BIW',
 }
 
