@@ -6,7 +6,7 @@ from module.base.utils import *
 from module.ocr.ocr import Ocr, OCR_MODEL
 from module.statistics.assets import COMMISSION_NAME
 from module.statistics.get_items import GetItemsStatistics, ITEM_GRIDS_1_EVEN, ITEM_GRIDS_1_ODD, \
-    ITEM_GRIDS_2, ITEM_GRIDS_3, INFO_BAR_1
+    ITEM_GRIDS_2, ITEM_GRIDS_3, INFO_BAR_1, ItemGrid
 
 ASSETS_FOLDER = r'./AzurStats/commission/assets'
 
@@ -53,7 +53,8 @@ class CommissionItems(ImageClassification, GetItemsStatistics):
     def __init__(self, **kwarg):
         super().__init__(**kwarg)
         logger.info('Load template folder')
-        self.item_group_reset()
+        # self.item_group_reset()
+        self.item_group = ItemGrid(None, {}, template_area=(40, 21, 89, 70), amount_area=(50, 71, 91, 92))
         self.load_template_folder(folder=ASSETS_FOLDER)
 
     def _stats_get_items_load(self, image):
@@ -97,6 +98,11 @@ class CommissionItems(ImageClassification, GetItemsStatistics):
             items = self.stats_get_items(image, name=True, amount=True)
         except ImageError:
             return None
+
+        for item in items:
+            if item.name in ['ShipNormal', 'ShipRare', 'ShipElite', 'ShipSuperrare']:
+                if item.amount > 10:
+                    item.amount = item.amount % 10
         # valid, item, amount
         return [[3 if item.name.isdigit() else 1, item.name, item.amount] for item in items]
 
