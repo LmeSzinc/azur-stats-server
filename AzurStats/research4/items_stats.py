@@ -188,6 +188,7 @@ class ItemStatsGenerator:
                  'bonus_rate, bonus_min, bonus_max, bonus_avg, average, hourly'
         self.column = column.replace(' ', '').split(',')
         self.blueprints = []
+        self.valid = 1
 
     def sql(self, item, project):
         return f"""
@@ -209,7 +210,7 @@ class ItemStatsGenerator:
         LEFT JOIN (
             SELECT rg3.{project}, COUNT(DISTINCT imgid) AS samples
             FROM research4_items AS sample LEFT JOIN research_group AS rg3 ON sample.project = rg3.project AND sample.series = rg3.series
-            WHERE sample.series = 4 AND valid = 1 AND tag IS NULL
+            WHERE sample.series = 4 AND valid = {self.valid} AND tag IS NULL
             GROUP BY rg3.{project}
         ) AS sample_mixin
         ON sample_mixin.{project} = rg1.{project}
@@ -222,11 +223,11 @@ class ItemStatsGenerator:
                 MAX(amount) AS bonus_max,
                 AVG(amount) AS bonus_avg
             FROM research4_items AS bonus LEFT JOIN items_group AS ig2 ON bonus.item = ig2.item LEFT JOIN research_group AS rg2 ON bonus.project = rg2.project AND bonus.series = rg2.series
-            WHERE bonus.series = 4 AND valid = 1 AND tag = 'bonus'
+            WHERE bonus.series = 4 AND valid = {self.valid} AND tag = 'bonus'
             GROUP BY ig2.{item}, rg2.{project}
         ) AS bonus_mixin
         ON bonus_mixin.{item} = ig1.{item} AND bonus_mixin.{project} = rg1.{project}
-        WHERE stats.series = 4 AND valid = 1 AND tag IS NULL AND ig1.{item} IS NOT NULL AND rg1.{project} IS NOT NULL
+        WHERE stats.series = 4 AND valid = {self.valid} AND tag IS NULL AND ig1.{item} IS NOT NULL AND rg1.{project} IS NOT NULL
         GROUP BY ig1.{item}, rg1.{project}
         ORDER BY ig1.{item} ASC, rg1.{project} ASC 
         ;
@@ -283,4 +284,14 @@ class ItemStatsGenerator:
         write_json(
             ig.gen_data(ig.pick_data(data, group1_list=['Currency', 'RetrofitT3', 'RetrofitT2', 'RetrofitT1'])),
             'research4_others'
+        )
+
+        logger.info('Generate research4 blueprint data before 20210819')
+        self.valid = 10
+        data = self.get_data()
+        logger.info('Splitting data')
+        write_json(
+            ig.gen_data(ig.pick_data(data, group1_list=['EquipmentUltrarare', 'EquipmentSuperrare', 'EquipmentElite',
+                                                        'EquipmentRare', 'EquipmentNormal'])),
+            'research4_equipments_20210819'
         )
