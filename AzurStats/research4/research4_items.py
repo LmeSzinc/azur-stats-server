@@ -113,7 +113,12 @@ class Research4Items(ImageClassification, GetItemsStatistics):
         data = []
         for item in items:
             valid = 3 if item.name.isdigit() else 1
-            if 'Blueprint' in item.name and item.amount > 20:
+            if item.tag and item.amount > 10:
+                # event, bonus, catchup are 1 to 3
+                amount = item.amount % 10
+                logger.info(f'Amount of {item.name}: {item.amount} is revised to {amount}')
+                item.amount = amount
+            if 'Blueprint' in item.name and (item.amount > 20 or (project.duration != '0.5' and item.amount > 10)):
                 # BlueprintHakuryuu and BlueprintMarcopolo may be detected as 4** and 7*
                 # Blueprints are about 10 at max
                 amount = int(str(item.amount)[1:])
