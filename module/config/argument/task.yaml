@@ -1,0 +1,278 @@
+# --------------------
+# Define argument group of tasks.
+# --------------------
+
+# ==================== Alas ====================
+
+Alas:
+  - Emulator
+  - Error
+  - Optimization
+  - DropRecord
+General:
+  - Retirement
+Restart:
+  - Scheduler
+
+# ==================== Farm ====================
+
+Main:
+  - Scheduler
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+Main2:
+  - Scheduler
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+Main3:
+  - Scheduler
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+GemsFarming:
+  - Scheduler
+  - GemsFarming
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - EnemyPriority
+
+# ==================== Event ====================
+
+EventGeneral:
+  - EventGeneral
+Event:
+  - Scheduler
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+Event2:
+  - Scheduler
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+EventA:
+  - Scheduler
+  - EventDaily
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+EventB:
+  - Scheduler
+  - EventDaily
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+EventC:
+  - Scheduler
+  - EventDaily
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+EventD:
+  - Scheduler
+  - EventDaily
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+EventSp:
+  - Scheduler
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+Raid:
+  - Scheduler
+  - Raid
+  - Campaign
+  - StopCondition
+  - Emotion
+RaidDaily:
+  - Scheduler
+  - RaidDaily
+  - Campaign
+  - StopCondition
+  - Emotion
+MaritimeEscort:
+  - Scheduler
+  - MaritimeEscort
+
+# ==================== Reward ====================
+
+Commission:
+  - Scheduler
+  - Commission
+Tactical:
+  - Scheduler
+  - Tactical
+  - ControlExpOverflow
+Research:
+  - Scheduler
+  - Research
+Dorm:
+  - Scheduler
+  - Dorm
+Meowfficer:
+  - Scheduler
+  - Meowfficer
+  - MeowfficerTrain
+Guild:
+  - Scheduler
+  - GuildLogistics
+  - GuildOperation
+Reward:
+  - Scheduler
+  - Reward
+
+# ==================== DailyReward ====================
+
+ShopFrequent:
+  - Scheduler
+  - GeneralShop
+ShopOnce:
+  - Scheduler
+  - GuildShop
+  - MedalShop2
+  - MeritShop
+  - CoreShop
+Shipyard:
+  - Scheduler
+  - Shipyard
+Gacha:
+  - Scheduler
+  - Gacha
+DataKey:
+  - Scheduler
+  - DataKey
+SupplyPack:
+  - Scheduler
+  - SupplyPack
+BattlePass:
+  - Scheduler
+  - BattlePass
+MetaReward:
+  - Scheduler
+  - MetaReward
+
+# ==================== DailyMission ====================
+
+Daily:
+  - Scheduler
+  - Daily
+Hard:
+  - Scheduler
+  - Hard
+Exercise:
+  - Scheduler
+  - Exercise
+Sos:
+  - Scheduler
+  - Sos
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+WarArchives:
+  - Scheduler
+  - Campaign
+  - StopCondition
+  - Fleet
+  - Submarine
+  - Emotion
+  - HpControl
+  - EnemyPriority
+
+# ==================== Opsi ====================
+
+OpsiGeneral:
+  - OpsiGeneral
+  - OpsiAshBeacon
+OpsiAshAssist:
+  - Scheduler
+  - OpsiAshAssist
+OpsiExplore:
+  - Scheduler
+  - OpsiExplore
+  - OpsiFleet
+OpsiShop:
+  - Scheduler
+  - OpsiShop
+OpsiDaily:
+  - Scheduler
+  - OpsiDaily
+  - OpsiFleet
+OpsiObscure:
+  - Scheduler
+  - OpsiObscure
+  - OpsiFleet
+OpsiAbyssal:
+  - Scheduler
+  - OpsiAbyssal
+  - OpsiFleetFilter
+OpsiStronghold:
+  - Scheduler
+  - OpsiStronghold
+  - OpsiFleetFilter
+OpsiMeowfficerFarming:
+  - Scheduler
+  - OpsiMeowfficerFarming
+  - OpsiFleet
+
+# ==================== Tool ====================
+
+Daemon:
+  - Daemon
+OpsiDaemon:
+  - OpsiDaemon
+Benchmark:
+  - Benchmark
+AzurLaneUncensored:
+  - AzurLaneUncensored
+GameManager:
+  - GameManager

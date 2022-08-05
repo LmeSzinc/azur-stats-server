@@ -1,7 +1,5 @@
 import time
 
-from PIL import Image
-
 from module.base.utils import *
 from module.config.config import AzurLaneConfig
 from module.logger import logger
@@ -49,7 +47,7 @@ class GlobeDetection:
         logger.info('Loading OS globe map')
 
         # Load GLOBE_MAP
-        image = np.array(Image.open(GLOBE_MAP))
+        image = load_image(GLOBE_MAP)
         image = self.find_peaks(image, para=self.config.OS_GLOBE_FIND_PEAKS_PARAMETERS)
         pad = self.config.OS_GLOBE_IMAGE_PAD
         image = np.pad(image, ((pad, pad), (pad, pad)), mode='constant', constant_values=0)
@@ -58,7 +56,7 @@ class GlobeDetection:
         self.globe = image
 
         # Load homography
-        backup = self.config.cover(
+        backup = self.config.temporary(
             HOMO_STORAGE=self.config.OS_GLOBE_HOMO_STORAGE, DETECTING_AREA=self.config.OS_GLOBE_DETECTING_AREA)
         self.homography.find_homography(*self.config.HOMO_STORAGE, overflow=False)
         self.homo_center = self.screen2globe([self.config.SCREEN_CENTER])[0].astype(int)
@@ -109,12 +107,11 @@ class GlobeDetection:
     def load(self, image):
         """
         Args:
-            image: Pillow image.
+            image (np.ndarray):
         """
         self.load_globe_map()
         start_time = time.time()
 
-        image = np.array(image)
         local = self.find_peaks(self.perspective_transform(image), para=self.config.OS_LOCAL_FIND_PEAKS_PARAMETERS)
         local = local.astype(np.uint8)
         local = cv2.resize(local, None, fx=self.config.OS_GLOBE_IMAGE_RESIZE, fy=self.config.OS_GLOBE_IMAGE_RESIZE)

@@ -1,6 +1,6 @@
+import module.config.server as server
 from module.base.button import ButtonGrid
 from module.base.utils import *
-import module.config.server as server
 from module.logger import logger
 from module.ocr.ocr import Digit, DigitCounter
 from module.os_handler.assets import *
@@ -27,6 +27,22 @@ ACTION_POINTS_COST = {
     4: 20,
     5: 30,
     6: 40,
+}
+ACTION_POINTS_COST_OBSCURE = {
+    1: 10,  # No obscure zones in CL1 actually
+    2: 10,
+    3: 20,
+    4: 20,
+    5: 40,
+    6: 40,
+}
+ACTION_POINTS_COST_ABYSSAL = {
+    1: 80,
+    2: 80,
+    3: 80,  # No abyssal zones under CL4 actually
+    4: 80,
+    5: 100,
+    6: 100,
 }
 ACTION_POINTS_BUY = {
     1: 4000,
@@ -92,18 +108,27 @@ class ActionPointHandler(UI):
         """
         Args:
             zone (Zone): Zone to enter.
-            pinned (str): Zone type. Available types: DANGEROUS, SAFE, OBSCURE, LOGGER, STRONGHOLD.
+            pinned (str): Zone type. Available types: DANGEROUS, SAFE, OBSCURE, ABYSSAL, STRONGHOLD.
 
         Returns:
             int: Action points that will cost.
         """
-        cost = ACTION_POINTS_COST[zone.hazard_level]
+        if pinned == 'DANGEROUS':
+            cost = ACTION_POINTS_COST[zone.hazard_level] * 2
+        elif pinned == 'SAFE':
+            cost = ACTION_POINTS_COST[zone.hazard_level]
+        elif pinned == 'OBSCURE':
+            cost = ACTION_POINTS_COST_OBSCURE[zone.hazard_level]
+        elif pinned == 'ABYSSAL':
+            cost = ACTION_POINTS_COST_ABYSSAL[zone.hazard_level]
+        elif pinned == 'STRONGHOLD':
+            cost = 200
+        else:
+            logger.warning(f'Unable to get AP cost from zone={zone}, pinned={pinned}, assume it costs 40.')
+            cost = 40
+
         if zone.is_port:
             cost = 0
-        if pinned == 'DANGEROUS':
-            cost *= 2
-        if pinned == 'STRONGHOLD':
-            cost = 200
 
         return cost
 
@@ -184,7 +209,7 @@ class ActionPointHandler(UI):
         """
         Args:
             zone (Zone): Zone to enter.
-            pinned (str): Zone type. Available types: DANGEROUS, SAFE, OBSCURE, LOGGER, STRONGHOLD.
+            pinned (str): Zone type. Available types: DANGEROUS, SAFE, OBSCURE, ABYSSAL, STRONGHOLD.
 
         Returns:
             bool: If handled.
@@ -203,31 +228,33 @@ class ActionPointHandler(UI):
         self.device.screenshot()
         self.action_point_update()
         cost = self.action_point_get_cost(zone, pinned)
+        buy_checked = False
         for _ in range(12):
-            # End
-            if self._action_point_total < self.config.OS_ACTION_POINT_PRESERVE:
-                if self.config.ENABLE_OS_ACTION_POINT_BUY:
-                    if self.action_point_buy(preserve=self.config.STOP_IF_OIL_LOWER_THAN):
-                        continue
-                logger.info(f'Reach the limit of action points, preserve={self.config.OS_ACTION_POINT_PRESERVE}')
-                self.action_point_quit()
-                raise ActionPointLimit
+            # Having enough action points
             if self._action_point_current >= cost:
                 logger.info('Having enough action points')
                 self.action_point_quit()
                 return True
 
-            # Get more action points
-            if self.config.ENABLE_OS_ACTION_POINT_BUY:
-                if self.action_point_buy(preserve=self.config.STOP_IF_OIL_LOWER_THAN):
+            # Buy action points
+            if self.config.OpsiGeneral_BuyActionPoint and not buy_checked:
+                if self.action_point_buy(preserve=self.config.OpsiGeneral_OilLimit):
                     continue
+                else:
+                    buy_checked = True
+
+            # Use action point boxes
             box = [index for index in [3, 2, 1] if self._action_point_box[index] > 0]
             if len(box):
-                self.action_point_set_button(box[0])
-                self.action_point_use()
-                continue
-
-            if sum(self._action_point_box[1:]) <= 0:
+                if self._action_point_total > self.config.OS_ACTION_POINT_PRESERVE:
+                    self.action_point_set_button(box[0])
+                    self.action_point_use()
+                    continue
+                else:
+                    logger.info(f'Reach the limit of action points, preserve={self.config.OS_ACTION_POINT_PRESERVE}')
+                    self.action_point_quit()
+                    raise ActionPointLimit
+            else:
                 logger.info('No more action point boxes')
                 self.action_point_quit()
                 raise ActionPointLimit

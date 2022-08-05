@@ -1,10 +1,10 @@
 import numpy as np
-from PIL import ImageStat
 from scipy import signal
 
 from module.base.base import ModuleBase
 from module.base.button import Button
-from module.base.utils import area_offset, color_similarity_2d
+from module.base.timer import Timer
+from module.base.utils import *
 from module.logger import logger
 from module.map.assets import *
 
@@ -14,14 +14,15 @@ class FleetOperator:
     FLEET_BAR_MARGIN_Y = 9
     FLEET_BAR_ACTIVE_STD = 45  # Active: 67, inactive: 12.
     FLEET_IN_USE_STD = 27  # In use 52, not in use (3, 6).
-    FLEET_PREPARE_OPERATION_SLEEP = (0.25, 0.35)
 
     def __init__(self, choose, bar, clear, in_use, main):
         """
         Args:
-            choose(Button):
-            bar(Button):
-            clear(Button):
+            choose (Button): Button to activate or deactivate dropdown menu.
+            bar (Button): Dropdown menu for fleet selection。
+            clear (Button): Button to clear current fleet.
+            in_use (Button): Button to detect if it's using current fleet.
+            main (ModuleBase): Alas module.
         """
         self._choose = choose
         self._bar = bar
@@ -35,24 +36,27 @@ class FleetOperator:
     def parse_fleet_bar(self, image):
         """
         Args:
-            image(PIL.Image.Image): Image of fleet choosing bar.
+            image (np.ndarray): Image of dropdown menu.
 
         Returns:
-            list: List of int. Chosen fleet range from 1 to 6.
+            list: List of int. Currently selected fleet ranges from 1 to 6.
         """
+        width, height = image_size(image)
         result = []
-        for index, y in enumerate(range(0, image.size[1], self.FLEET_BAR_SHAPE_Y + self.FLEET_BAR_MARGIN_Y)):
-            area = (0, y, image.size[0], y + self.FLEET_BAR_SHAPE_Y)
-            stat = ImageStat.Stat(image.crop(area))
-            if np.std(stat.mean, ddof=1) > self.FLEET_BAR_ACTIVE_STD:
+        for index, y in enumerate(range(0, height, self.FLEET_BAR_SHAPE_Y + self.FLEET_BAR_MARGIN_Y)):
+            area = (0, y, width, y + self.FLEET_BAR_SHAPE_Y)
+            mean = get_color(image, area)
+            if np.std(mean, ddof=1) > self.FLEET_BAR_ACTIVE_STD:
                 result.append(index + 1)
         logger.info('Current selected: %s' % str(result))
         return result
 
     def get_button(self, index):
         """
+        Convert fleet index to the Button object on dropdown menu.
+
         Args:
-            index(int): Fleet index, 1-6.
+            index (int): Fleet index, 1-6.
 
         Returns:
             Button: Button instance.
@@ -66,66 +70,142 @@ class FleetOperator:
         return Button(area=(), color=(), button=area, name='%s_INDEX_%s' % (str(self._bar), str(index)))
 
     def allow(self):
+        """
+        Returns:
+            bool: If current fleet is allow to be chosen.
+        """
         return self.main.appear(self._choose)
 
-    def clear(self):
+    def clear(self, skip_first_screenshot=True):
+        """
+        Clear chosen fleet.
+        """
+        main = self.main
+        click_timer = Timer(3, count=6)
         while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                main.device.screenshot()
+
+            # End
             if not self.in_use():
                 break
-            self.main.device.click(self._clear)
-            # Call sleep() to avoid double-clicking.
-            self.main.device.sleep(self.FLEET_PREPARE_OPERATION_SLEEP)
-            self.main.device.screenshot()
 
-    def open(self):
+            # Click
+            if click_timer.reached():
+                main.device.click(self._clear)
+                click_timer.reset()
+
+    def open(self, skip_first_screenshot=True):
+        """
+        Activate dropdown menu for fleet selection.
+        """
+        main = self.main
+        click_timer = Timer(3, count=6)
         while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                main.device.screenshot()
+
+            # End
             if self.bar_opened():
                 break
-            self.main.device.click(self._choose)
-            # The fleet bar won't open or close immediately after the click,
-            # so we need to sleep a while and wait for it.
-            # Call sleep() in close() and click() below for the same reason.
-            self.main.device.sleep(self.FLEET_PREPARE_OPERATION_SLEEP)
-            self.main.device.screenshot()
 
-    def close(self):
+            # Click
+            if click_timer.reached():
+                main.device.click(self._choose)
+                click_timer.reset()
+
+    def close(self, skip_first_screenshot=True):
+        """
+        Deactivate dropdown menu for fleet selection.
+        """
+        main = self.main
+        click_timer = Timer(3, count=6)
         while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                main.device.screenshot()
+
+            # End
             if not self.bar_opened():
                 break
-            self.main.device.click(self._choose)
-            self.main.device.sleep(self.FLEET_PREPARE_OPERATION_SLEEP)
-            self.main.device.screenshot()
 
-    def click(self, index):
+            # Click
+            if click_timer.reached():
+                main.device.click(self._choose)
+                click_timer.reset()
+
+    def click(self, index, skip_first_screenshot=True):
+        """
+        Choose a fleet on dropdown menu, and dropdown deactivated.
+
+        Args:
+            index (int): Fleet index, 1-6.
+            skip_first_screenshot (bool):
+        """
+        main = self.main
+        button = self.get_button(index)
+        click_timer = Timer(3, count=6)
         while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                main.device.screenshot()
+
             if not self.bar_opened():
+                # End
                 if self.in_use():
                     break
-                self.open()
-            self.main.device.click(self.get_button(index))
-            self.main.device.sleep(self.FLEET_PREPARE_OPERATION_SLEEP)
-            self.main.device.screenshot()
+                else:
+                    self.open()
+
+            # Click
+            if click_timer.reached():
+                main.device.click(button)
+                click_timer.reset()
 
     def selected(self):
-        data = self.parse_fleet_bar(self.main.device.image.crop(self._bar.area))
+        """
+        Returns:
+            list: List of int. Currently selected fleet ranges from 1 to 6.
+        """
+        data = self.parse_fleet_bar(self.main.image_crop(self._bar))
         return data
 
     def in_use(self):
+        """
+        Returns:
+            bool: If has selected to any fleet.
+        """
         # Handle the info bar of auto search info.
         # if area_cross_area(self._in_use.area, INFO_BAR_1.area):
         #     self.main.handle_info_bar()
 
         # Cropping FLEET_*_IN_USE to avoid detecting info_bar, also do the trick.
         # It also avoids wasting time on handling the info_bar.
-        image = np.array(self.main.device.image.crop(self._in_use.area).convert('L'))
+        image = rgb2gray(self.main.image_crop(self._in_use))
         return np.std(image.flatten(), ddof=1) > self.FLEET_IN_USE_STD
 
     def bar_opened(self):
+        """
+        Returns:
+            bool: If dropdown menu appears.
+        """
         # Check the brightness of the rightest column of the bar area.
-        luma = np.array(self.main.device.image.crop(self._bar.area).convert('L'))[:, -1]
+        luma = rgb2gray(self.main.image_crop(self._bar))[:, -1]
         return np.sum(luma > 127) / luma.size > 0.5
 
     def ensure_to_be(self, index):
+        """
+        Set to a specific fleet.
+
+        Args:
+            index (int): Fleet index, 1-6.
+        """
         self.open()
         if index in self.selected():
             self.close()
@@ -147,7 +227,7 @@ class FleetPreparation(ModuleBase):
             bool:
         """
         area = (208, 130, 226, 551)
-        image = color_similarity_2d(self.image_area(area), color=(249, 199, 0))
+        image = color_similarity_2d(self.image_crop(area), color=(249, 199, 0))
         height = np.max(image, axis=1)
         parameters = {'height': 180, 'distance': 5}
         peaks, _ = signal.find_peaks(height, **parameters)
@@ -161,7 +241,7 @@ class FleetPreparation(ModuleBase):
         Returns:
             bool: True if changed.
         """
-        logger.info(f'Using fleet: {[self.config.FLEET_1, self.config.FLEET_2, self.config.SUBMARINE]}')
+        logger.info(f'Using fleet: {[self.config.Fleet_Fleet1, self.config.Fleet_Fleet2, self.config.Submarine_Fleet]}')
         if self.map_fleet_checked:
             return False
 
@@ -179,8 +259,8 @@ class FleetPreparation(ModuleBase):
 
         # Submarine.
         if submarine.allow():
-            if self.config.SUBMARINE:
-                submarine.ensure_to_be(self.config.SUBMARINE)
+            if self.config.Submarine_Fleet:
+                submarine.ensure_to_be(self.config.Submarine_Fleet)
             else:
                 submarine.clear()
 
@@ -188,19 +268,24 @@ class FleetPreparation(ModuleBase):
         # if not fleet_2.allow():
         #     self.config.FLEET_2 = 0
 
-        # Not using fleet 2.
-        if not self.config.FLEET_2:
+        if self.config.Fleet_Fleet2:
+            # Using both fleets.
+            # Force to set it again.
+            # Fleets may reversed, because AL no longer treat the fleet with smaller index as first fleet
+            fleet_2.clear()
+            fleet_1.ensure_to_be(self.config.Fleet_Fleet1)
+            fleet_2.ensure_to_be(self.config.Fleet_Fleet2)
+        else:
+            # Not using fleet 2.
             if fleet_2.allow():
                 fleet_2.clear()
-            fleet_1.ensure_to_be(self.config.FLEET_1)
-            self.map_fleet_checked = True
-            return True
+            fleet_1.ensure_to_be(self.config.Fleet_Fleet1)
 
-        # Using both fleets.
-        # Force to set it again.
-        # Fleets may reversed, because AL no longer treat the fleet with smaller index as first fleet
-        fleet_2.clear()
-        fleet_1.ensure_to_be(self.config.FLEET_1)
-        fleet_2.ensure_to_be(self.config.FLEET_2)
-        self.map_fleet_checked = True
+        # Check if submarine is empty again.
+        if submarine.allow():
+            if self.config.Submarine_Fleet:
+                pass
+            else:
+                submarine.clear()
+
         return True

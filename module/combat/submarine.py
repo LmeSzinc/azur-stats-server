@@ -1,6 +1,6 @@
 from module.base.base import ModuleBase
-from module.combat.assets import *
 from module.base.timer import Timer
+from module.combat.assets import *
 from module.logger import logger
 
 
@@ -16,14 +16,14 @@ class SubmarineCall(ModuleBase):
         self.submarine_call_timer.reset()
         self.submarine_call_flag = False
 
-    def handle_submarine_call(self):
+    def handle_submarine_call(self, submarine='do_not_use'):
         """
         Returns:
-            bool: If call.
+            str: If call.
         """
         if self.submarine_call_flag:
             return False
-        if not self.config.SUBMARINE or self.config.SUBMARINE_MODE in ['do_not_use', 'hunt_only']:
+        if submarine in ['do_not_use', 'hunt_only']:
             self.submarine_call_flag = True
             return False
         if self.submarine_call_timer.reached():
@@ -39,11 +39,9 @@ class SubmarineCall(ModuleBase):
             self.submarine_call_flag = True
             return False
         elif self.submarine_call_click_timer.reached():
-            if self.appear_then_click(SUBMARINE_READY):
-                logger.info('Call submarine')
-                return True
-            else:
+            if not self.appear_then_click(SUBMARINE_READY):
                 logger.info('Incorrect submarine icon')
                 self.device.click(SUBMARINE_READY)
-                logger.info('Call submarine')
-                return True
+            logger.info('Call submarine')
+            self.submarine_call_click_timer.reset()
+            return True

@@ -2,7 +2,7 @@ import time
 import warnings
 
 import numpy as np
-from PIL import Image, ImageOps, ImageDraw
+from PIL import Image, ImageDraw, ImageOps
 from scipy import signal
 
 from module.base.utils import *
@@ -112,6 +112,10 @@ class Perspective:
             edge_v = edge_v.delete(inner_v, threshold=self.config.TRUST_EDGE_LINES_THRESHOLD)
         self.horizontal = horizontal
         self.vertical = vertical
+        if not self.horizontal:
+            raise MapDetectionError('No horizontal line detected')
+        if not self.vertical:
+            raise MapDetectionError('No vertical line detected')
 
         # Calculate perspective
         self.crossings = self.horizontal.cross(self.vertical)

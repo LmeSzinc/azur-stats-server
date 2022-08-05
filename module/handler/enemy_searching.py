@@ -1,11 +1,12 @@
+from module.base.resource import del_cached_property
 from module.base.timer import Timer
-from module.base.utils import red_overlay_transparency, get_color
+from module.base.utils import get_color, red_overlay_transparency
 from module.exception import CampaignEnd
 from module.handler.assets import *
 from module.handler.info_handler import InfoHandler
 from module.logger import logger
 from module.map.assets import *
-from module.ui.assets import EVENT_CHECK, SP_CHECK, CAMPAIGN_CHECK
+from module.ui.assets import CAMPAIGN_CHECK, EVENT_CHECK, SP_CHECK
 
 
 class EnemySearchingHandler(InfoHandler):
@@ -14,12 +15,15 @@ class EnemySearchingHandler(InfoHandler):
     in_stage_timer = Timer(0.5, count=2)
     stage_entrance = None
 
-    map_is_clear = False  # Will be override in fast_forward.py
+    map_is_100_percent_clear = False  # Will be override in fast_forward.py
 
     def enemy_searching_color_initial(self):
         MAP_ENEMY_SEARCHING.load_color(self.device.image)
 
     def enemy_searching_appear(self):
+        if not self.is_in_map():
+            return False
+
         return red_overlay_transparency(
             MAP_ENEMY_SEARCHING.color, get_color(self.device.image, MAP_ENEMY_SEARCHING.area)
         ) > self.MAP_ENEMY_SEARCHING_OVERLAY_TRANSPARENCY_THRESHOLD
@@ -31,7 +35,6 @@ class EnemySearchingHandler(InfoHandler):
         if self.is_in_stage():
             if self.in_stage_timer.reached():
                 logger.info('In stage.')
-                self.device.send_notification('Sortie finished', 'Map cleared')
                 self.ensure_no_info_bar(timeout=1.2)
                 raise CampaignEnd('In stage.')
             else:
@@ -49,9 +52,11 @@ class EnemySearchingHandler(InfoHandler):
 
         # campaign_extract_name_image in CampaignOcr.
         try:
-            if hasattr(self, 'campaign_extract_name_image') \
-                    and not len(self.campaign_extract_name_image(self.device.image)):
-                return False
+            if hasattr(self, 'campaign_extract_name_image'):
+                del_cached_property(self, '_stage_image')
+                del_cached_property(self, '_stage_image_gray')
+                if not len(self.campaign_extract_name_image(self.device.image)):
+                    return False
         except IndexError:
             return False
 
@@ -69,7 +74,22 @@ class EnemySearchingHandler(InfoHandler):
         """
         return False
 
-    def handle_in_map_with_enemy_searching(self):
+    def handle_auto_search_exit(self, drop=None):
+        """
+        A placeholder, will be override in AutoSearchHandler.
+        AutoSearchHandler inherits EnemySearchingHandler,
+        but handle_in_map_with_enemy_searching() requires handle_auto_search_exit() to handle unexpected situation.
+        """
+        return False
+
+    def handle_in_map_with_enemy_searching(self, drop=None):
+        """
+        Args:
+            drop (DropImage):
+
+        Returns:
+            bool: If handled.
+        """
         if not self.is_in_map():
             return False
 
@@ -84,14 +104,27 @@ class EnemySearchingHandler(InfoHandler):
             else:
                 timeout.reset()
 
+            # Stage might ends,
+            # although here expects an enemy searching animation.
             if self.handle_in_stage():
                 return True
+            if self.handle_auto_search_exit(drop=drop):
+                continue
+
+            # Popups
+            if self.handle_vote_popup():
+                timeout.limit = 10
+                timeout.reset()
+                continue
             if self.handle_story_skip():
                 self.ensure_no_story()
                 timeout.limit = 10
                 timeout.reset()
-
             if self.handle_guild_popup_cancel():
+                timeout.limit = 10
+                timeout.reset()
+                continue
+            if self.handle_urgent_commission(drop=drop):
                 timeout.limit = 10
                 timeout.reset()
                 continue
@@ -102,7 +135,7 @@ class EnemySearchingHandler(InfoHandler):
             else:
                 if appeared:
                     self.handle_enemy_flashing()
-                    self.device.sleep(1)
+                    self.device.sleep(0.3)
                     logger.info('Enemy searching appeared.')
                     break
                 self.enemy_searching_color_initial()
@@ -113,9 +146,44 @@ class EnemySearchingHandler(InfoHandler):
         self.device.screenshot()
         return True
 
-    def handle_in_map_no_enemy_searching(self):
+    def handle_in_map_no_enemy_searching(self, drop=None):
+        """
+        Args:
+            drop (DropImage):
+
+        Returns:
+            bool: If handled.
+        """
         if not self.is_in_map():
             return False
 
-        self.device.sleep((1, 1.2))
+        timeout = Timer(1, count=2).start()
+        while 1:
+            self.device.screenshot()
+
+            # End
+            if timeout.reached():
+                break
+
+            # Stage might ends,
+            # although here expects an enemy searching animation.
+            if self.handle_in_stage():
+                return True
+            if self.handle_auto_search_exit(drop=drop):
+                continue
+
+            # Popups
+            if self.handle_vote_popup():
+                timeout.reset()
+                continue
+            if self.handle_story_skip():
+                self.ensure_no_story()
+                timeout.reset()
+            if self.handle_guild_popup_cancel():
+                timeout.reset()
+                continue
+            if self.handle_urgent_commission(drop=drop):
+                timeout.reset()
+                continue
+
         return True

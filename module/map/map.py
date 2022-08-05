@@ -1,8 +1,14 @@
+import itertools
+import re
+
+from module.base.filter import Filter
 from module.exception import MapEnemyMoved
 from module.logger import logger
 from module.map.fleet import Fleet
-from module.map.map_grids import SelectedGrids, RoadGrids
+from module.map.map_grids import RoadGrids, SelectedGrids
 from module.map_detection.grid_info import GridInfo
+
+ENEMY_FILTER = Filter(regex=re.compile('^(.*?)$'), attr=('str',))
 
 
 class Map(Fleet):
@@ -12,11 +18,12 @@ class Map(Fleet):
             grid (GridInfo):
             expected (str):
         """
+        logger.info('targetEnemyScale:%s' % (self.config.EnemyPriority_EnemyScaleBalanceWeight))
         logger.info('Clear enemy: %s' % grid)
         expected = f'combat_{expected}' if expected else 'combat'
         self.show_fleet()
-        if self.config.ENABLE_EMOTION_REDUCE and self.config.ENABLE_MAP_FLEET_LOCK:
-            self.emotion.wait(fleet=self.fleet_current_index)
+        if self.config.Emotion_CalculateEmotion and self.config.Campaign_UseFleetLock:
+            self.emotion.wait(fleet_index=self.fleet_current_index)
         self.goto(grid, expected=expected)
 
         self.full_scan()
@@ -183,6 +190,14 @@ class Map(Fleet):
             bool: True if clear an enemy.
         """
         grids = self.map.select(is_enemy=True, is_boss=False)
+
+        target = self.config.EnemyPriority_EnemyScaleBalanceWeight
+        if target == 'S3_enemy_first':
+            kwargs['strongest'] = True
+        elif target == 'S1_enemy_first':
+            kwargs['weakest'] = True
+        elif self.config.MAP_CLEAR_ALL_THIS_TIME:
+            kwargs['strongest'] = True
         grids = self.select_grids(grids, **kwargs)
 
         if grids:
@@ -206,6 +221,13 @@ class Map(Fleet):
         for road in roads:
             grids = grids.add(road.roadblocks())
 
+        target = self.config.EnemyPriority_EnemyScaleBalanceWeight
+        if target == 'S3_enemy_first':
+            kwargs['strongest'] = True
+        elif target == 'S1_enemy_first':
+            kwargs['weakest'] = True
+        elif self.config.MAP_CLEAR_ALL_THIS_TIME:
+            kwargs['strongest'] = True
         grids = self.select_grids(grids, **kwargs)
 
         if grids:
@@ -229,6 +251,13 @@ class Map(Fleet):
         for road in roads:
             grids = grids.add(road.potential_roadblocks())
 
+        target = self.config.EnemyPriority_EnemyScaleBalanceWeight
+        if target == 'S3_enemy_first':
+            kwargs['strongest'] = True
+        elif target == 'S1_enemy_first':
+            kwargs['weakest'] = True
+        elif self.config.MAP_CLEAR_ALL_THIS_TIME:
+            kwargs['strongest'] = True
         grids = self.select_grids(grids, **kwargs)
 
         if grids:
@@ -300,6 +329,7 @@ class Map(Fleet):
             logger.info('May boss and is enemy: %s' % self.map.select(may_boss=True, is_enemy=True))
 
         if grids:
+            self.submarine_move_near_boss(grids[0])
             logger.hr('Clear BOSS')
             grids = grids.sort('weight', 'cost')
             logger.info('Grids: %s' % str(grids))
@@ -339,7 +369,7 @@ class Map(Fleet):
         """
         Method to step on all boss spawn point when boss not detected.
         """
-        grids = self.map.select(may_boss=True, is_accessible=True)
+        grids = self.map.select(may_boss=True, is_accessible=True).sort('weight', 'cost')
         logger.info('May boss: %s' % grids)
         battle_count = self.battle_count
 
@@ -354,13 +384,12 @@ class Map(Fleet):
             else:
                 logger.info('Boss guessing incorrect.')
 
-        grids = self.map.select(may_boss=True, is_accessible=False)
+        grids = self.map.select(may_boss=True, is_accessible=False).sort('weight', 'cost')
         logger.info('May boss: %s' % grids)
 
         for grid in grids:
             logger.hr('Clear potential BOSS roadblocks')
-            fleet = 2 if self.config.FLEET_BOSS == 2 and self.config.FLEET_2 else 1
-            roadblocks = self.brute_find_roadblocks(grid, fleet=fleet)
+            roadblocks = self.brute_find_roadblocks(grid, fleet=self.fleet_boss_index)
             roadblocks = roadblocks.sort('weight', 'cost')
             logger.info('Grids: %s' % str(roadblocks))
             self.fleet_1.clear_chosen_enemy(roadblocks[0])
@@ -376,8 +405,7 @@ class Map(Fleet):
         boss = self.map.select(is_boss=True)
         if boss:
             logger.info('Brute clear BOSS')
-            fleet = 2 if self.config.FLEET_BOSS == 2 and self.config.FLEET_2 else 1
-            grids = self.brute_find_roadblocks(boss[0], fleet=fleet)
+            grids = self.brute_find_roadblocks(boss[0], fleet=self.fleet_boss_index)
             if grids:
                 if self.brute_fleet_meet():
                     return True
@@ -400,7 +428,7 @@ class Map(Fleet):
         """
         Method to clear roadblocks between fleets, using brute-force to find roadblocks.
         """
-        if not self.config.FLEET_2 or not self.fleet_2_location:
+        if self.fleet_boss_index != 2 or not self.fleet_2_location:
             return False
         grids = self.brute_find_roadblocks(self.map[self.fleet_2_location], fleet=1)
         if grids:
@@ -417,18 +445,51 @@ class Map(Fleet):
         Returns:
             bool: True if clear an enemy.
         """
-        if not self.config.MAP_HAS_SIREN:
+        if not self.config.MAP_HAS_SIREN and not self.config.MAP_HAS_FORTRESS:
             return False
 
         if self.config.FLEET_2:
             kwargs['sort'] = ('weight', 'cost_2')
-        grids = self.map.select(is_siren=True)
+        grids = self.map.select(is_siren=True).add(self.map.select(is_fortress=True))
         grids = self.select_grids(grids, **kwargs)
 
         if grids:
             logger.hr('Clear siren')
             self.show_select_grids(grids, **kwargs)
-            self.clear_chosen_enemy(grids[0], expected='siren')
+            if grids[0].is_fortress:
+                expected = 'fortress'
+            else:
+                expected = 'siren'
+            self.clear_chosen_enemy(grids[0], expected=expected)
+            return True
+
+        return False
+
+    def clear_any_enemy(self, **kwargs):
+        """
+        Returns:
+            bool: True if clear an enemy.
+        """
+        grids = self.map.select(is_enemy=True, is_boss=False)
+
+        if self.config.MAP_HAS_SIREN:
+            grids = grids.add(self.map.select(is_siren=True))
+        if self.config.MAP_HAS_FORTRESS:
+            grids = grids.add(self.map.select(is_fortress=True))
+
+        grids = self.select_grids(grids, **kwargs)
+
+        if grids:
+            logger.hr('Clear enemy')
+            self.show_select_grids(grids, **kwargs)
+            grid = grids[0]
+            if grid.is_fortress:
+                expected = 'fortress'
+            elif grid.is_siren:
+                expected = 'siren'
+            else:
+                expected = ''
+            self.clear_chosen_enemy(grid, expected=expected)
             return True
 
         return False
@@ -445,7 +506,7 @@ class Map(Fleet):
         Returns:
             bool: if clear an enemy.
         """
-        if not self.config.FLEET_2:
+        if self.fleet_boss_index != 2:
             return False
         for grid in grids:
             if self.fleet_at(grid=grid, fleet=2):
@@ -471,7 +532,7 @@ class Map(Fleet):
         return clear
 
     def fleet_2_break_siren_caught(self):
-        if not self.config.FLEET_2:
+        if self.fleet_boss_index != 2:
             return False
         if not self.config.MAP_HAS_SIREN or not self.config.MAP_HAS_MOVABLE_ENEMY:
             return False
@@ -505,7 +566,7 @@ class Map(Fleet):
         Returns:
             bool: If pushed forward.
         """
-        if not self.config.FLEET_2:
+        if self.fleet_boss_index != 2:
             return False
 
         logger.info('Fleet_2 push forward')
@@ -539,7 +600,7 @@ class Map(Fleet):
         Returns:
             bool: If clear an enemy.
         """
-        if not self.config.FLEET_2:
+        if self.fleet_boss_index != 2:
             return False
 
         grids = self.brute_find_roadblocks(grid, fleet=2)
@@ -560,7 +621,7 @@ class Map(Fleet):
         Returns:
             bool: If clear an enemy.
         """
-        if not self.config.FLEET_2 or not self.config.MAP_HAS_MOVABLE_ENEMY:
+        if self.fleet_boss_index != 2 or not self.config.MAP_HAS_MOVABLE_ENEMY:
             return False
 
         for n in range(20):
@@ -580,4 +641,84 @@ class Map(Fleet):
                 continue
 
         logger.warning('fleet_2_protect no siren approaching')
+        return False
+
+    def clear_filter_enemy(self, string, preserve=0):
+        """
+        if EnemyPriority_EnemyScaleBalanceWeight != default_mode
+        Filter will be covered
+
+        Args:
+            string (str): Filter to select enemies, from easy to hard
+            preserve (int): Preserve several easiest enemies for battle without ammo.
+                When run out of ammo, use 0 to clear those preserved enemies.
+
+        Returns:
+            bool: If clear an enemy.
+        """
+        if self.config.EnemyPriority_EnemyScaleBalanceWeight == 'S3_enemy_first':
+            string = '3L > 3M > 3E > 3C > 2L > 2M > 2E > 2C > 1L > 1M > 1E > 1C'
+            preserve = 0
+        elif self.config.EnemyPriority_EnemyScaleBalanceWeight == 'S1_enemy_first':
+            string = '1L > 1M > 1E > 1C > 2L > 2M > 2E > 2C > 3L > 3M > 3E > 3C'
+
+        ENEMY_FILTER.load(string)
+        grids = self.map.select(is_enemy=True, is_accessible=True)
+        if not grids:
+            return False
+
+        grids = ENEMY_FILTER.apply(grids.sort('weight', 'cost').grids)
+        logger.info(f'Filter enemy: {grids}, preserve={preserve}')
+        if preserve:
+            grids = grids[preserve:]
+
+        if grids:
+            logger.hr('Clear filter enemy')
+            self.clear_chosen_enemy(grids[0])
+            return True
+
+        return False
+
+    def clear_bouncing_enemy(self):
+        """
+        Clear enemies which are bouncing in a fixed route.
+        This method will be disabled once it cleared an enemy, since there's only one bouncing enemy on the map.
+
+        Args:
+            route (tuple[GridInfo]):
+
+        Returns:
+            bool: If cleared an enemy.
+        """
+        if not self.config.MAP_HAS_BOUNCING_ENEMY:
+            return False
+
+        route = None
+        for a_route in self.map.bouncing_enemy_data:
+            if a_route.select(may_bouncing_enemy=True, is_accessible=True):
+                route = a_route
+                break
+        if route is None:
+            return False
+
+        logger.hr('Clear bouncing enemy')
+        logger.info(f'Clear bouncing enemy: {route}')
+        self.show_fleet()
+        prev = self.battle_count
+        for n, grid in enumerate(itertools.cycle(route)):
+            if self.config.Emotion_CalculateEmotion and self.config.Campaign_UseFleetLock:
+                self.emotion.wait(fleet_index=self.fleet_current_index)
+            self.goto(grid, expected='combat_nothing')
+
+            if self.battle_count > prev:
+                logger.info('Cleared an bouncing enemy')
+                route.select(may_bouncing_enemy=True).set(may_bouncing_enemy=False)
+                self.full_scan()
+                self.find_path_initial()
+                self.map.show_cost()
+                return True
+            if n >= 12:
+                logger.warning('Failed to clear bouncing enemy after 12 trial')
+                return False
+
         return False

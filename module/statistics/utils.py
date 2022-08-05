@@ -1,6 +1,9 @@
 import os
 
-from PIL import Image
+import cv2
+import numpy as np
+
+from module.base.utils import crop, image_size
 
 
 class ImageError(Exception):
@@ -29,12 +32,34 @@ def load_folder(folder):
     return out
 
 
-def load_image(file):
+def pack(img_list):
     """
+    Stack images vertically.
+
     Args:
-        file (str): Path to file.
+        img_list (list): List of image
 
     Returns:
-        Pillow image.
+        np.ndarray:
     """
-    return Image.open(file).convert('RGB')
+    image = cv2.vconcat(img_list)
+    return image
+
+
+def unpack(image):
+    """
+    Split images vertically.
+
+    Args:
+        image:
+
+    Returns:
+        list: List of np.ndarray.
+    """
+    size = image_size(image)
+    if size == (1280, 720):
+        return [image]
+    else:
+        if size[0] != 1280 or size[1] % 720 != 0:
+            raise ImageError(f'Unexpected image size: {size}')
+        return [crop(image, (0, n * 720, 1280, (n + 1) * 720)) for n in range(size[1] // 720)]

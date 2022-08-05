@@ -4,7 +4,12 @@ from module.base.timer import Timer
 from module.equipment.assets import *
 from module.logger import logger
 from module.ui.navbar import Navbar
+from module.ui.switch import Switch
 from module.ui.ui import UI
+
+equipping_filter = Switch('Equiping_filter')
+equipping_filter.add_status('on', check_button=EQUIPPING_ON)
+equipping_filter.add_status('off', check_button=EQUIPPING_OFF)
 
 SWIPE_DISTANCE = 250
 SWIPE_RANDOM_RANGE = (-40, -20, 40, 20)
@@ -12,6 +17,10 @@ SWIPE_RANDOM_RANGE = (-40, -20, 40, 20)
 
 class Equipment(UI):
     equipment_has_take_on = False
+
+    def equipping_set(self, enable=False):
+        if equipping_filter.set('on' if enable else 'off', main=self):
+            self.wait_until_stable(SWIPE_AREA)
 
     def _equip_view_swipe(self, distance, check_button=EQUIPMENT_OPEN):
         swipe_count = 0
@@ -23,9 +32,9 @@ class Equipment(UI):
         while 1:
             if not swipe_timer.started() or swipe_timer.reached():
                 swipe_timer.reset()
-                self.device.swipe(vector=(distance, 0), box=SWIPE_AREA.area, random_range=SWIPE_RANDOM_RANGE,
-                                  padding=0, duration=(0.1, 0.12), name='EQUIP_SWIPE')
-                self.wait_until_appear(check_button)
+                self.device.swipe_vector(vector=(distance, 0), box=SWIPE_AREA.area, random_range=SWIPE_RANDOM_RANGE,
+                                         padding=0, duration=(0.1, 0.12), name='EQUIP_SWIPE')
+                self.wait_until_appear(check_button, offset=(30, 30))
                 swipe_count += 1
 
             self.device.screenshot()
@@ -87,8 +96,8 @@ class Equipment(UI):
             origin=(21, 118), delta=(0, 94.5), button_shape=(60, 75), grid_shape=(1, 5), name='DETAIL_SIDE_NAVBAR')
 
         return Navbar(grids=equip_side_navbar,
-                      active_color=(247, 255, 173),
-                      inactive_color=(140, 162, 181))
+                      active_color=(247, 255, 173), active_threshold=221,
+                      inactive_color=(140, 162, 181), inactive_threshold=221)
 
     def equip_side_navbar_ensure(self, upper=None, bottom=None):
         """

@@ -1,7 +1,5 @@
 import operator
 
-import numpy as np
-
 
 class SelectedGrids:
     def __init__(self, grids):
@@ -84,6 +82,18 @@ class SelectedGrids:
 
         return SelectedGrids(result)
 
+    def filter(self, func):
+        """
+        Filter grids by a function.
+
+        Args:
+            func (callable): Function should receive an grid as argument, and return a bool.
+
+        Returns:
+            SelectedGrids:
+        """
+        return SelectedGrids([grid for grid in self if func(grid)])
+
     def set(self, **kwargs):
         """
         Set attribute to each grid.
@@ -95,6 +105,41 @@ class SelectedGrids:
             for key, value in kwargs.items():
                 grid.__setattr__(key, value)
 
+    def get(self, attr):
+        """
+        Get an attribute from each grid.
+
+        Args:
+            attr: Attribute name.
+
+        Returns:
+            list:
+        """
+        return [grid.__getattribute__(attr) for grid in self.grids]
+
+    def call(self, func, **kwargs):
+        """
+        Call a function in reach grid, and get results.
+
+        Args:
+            func (str): Function name to call.
+            **kwargs:
+
+        Returns:
+            list:
+        """
+        return [grid.__getattribute__(func)(**kwargs) for grid in self]
+
+    def first_or_none(self):
+        """
+        Returns:
+
+        """
+        if self:
+            return self.grids[0]
+        else:
+            return None
+
     def add(self, grids):
         """
         Args:
@@ -105,6 +150,23 @@ class SelectedGrids:
         """
         return SelectedGrids(list(set(self.grids + grids.grids)))
 
+    def add_by_eq(self, grids):
+        """
+        Another `add()` method, but de-duplicates with `__eq__` instead of `__hash__`.
+
+        Args:
+            grids(SelectedGrids):
+
+        Returns:
+            SelectedGrids:
+        """
+        new = []
+        for grid in self.grids + grids.grids:
+            if grid not in new:
+                new.append(grid)
+
+        return SelectedGrids(new)
+
     def intersect(self, grids):
         """
         Args:
@@ -114,6 +176,23 @@ class SelectedGrids:
             SelectedGrids:
         """
         return SelectedGrids(list(set(self.grids).intersection(set(grids.grids))))
+
+    def intersect_by_eq(self, grids):
+        """
+        Another `intersect()` method, but de-duplicates with `__eq__` instead of `__hash__`.
+
+        Args:
+            grids(SelectedGrids):
+
+        Returns:
+            SelectedGrids:
+        """
+        new = []
+        for grid in self.grids:
+            if grid in grids.grids:
+                new.append(grid)
+
+        return SelectedGrids(new)
 
     def delete(self, grids):
         """
@@ -134,6 +213,8 @@ class SelectedGrids:
         Returns:
             SelectedGrids:
         """
+        if not self:
+            return self
         if len(args):
             grids = sorted(self.grids, key=operator.attrgetter(*args))
             return SelectedGrids(grids)
@@ -148,8 +229,11 @@ class SelectedGrids:
         Returns:
             SelectedGrids:
         """
+        import numpy as np
+        if not self:
+            return self
         location = np.array(self.location)
-        diff = np.sum(np.abs(np.array(location) - camera), axis=1)
+        diff = np.sum(np.abs(location - camera), axis=1)
         # grids = [x for _, x in sorted(zip(diff, self.grids))]
         grids = tuple(np.array(self.grids)[np.argsort(diff)])
         return SelectedGrids(grids)
@@ -164,6 +248,9 @@ class SelectedGrids:
         Returns:
             SelectedGrids:
         """
+        import numpy as np
+        if not self:
+            return self
         vector = np.subtract(self.location, center)
         theta = np.arctan2(vector[:, 1], vector[:, 0]) / np.pi * 180
         vector = np.subtract(start, center)
@@ -209,9 +296,9 @@ class RoadGrids:
         """
         grids = []
         for block in self.grids:
-            if np.any([grid.is_fleet for grid in block]):
+            if any([grid.is_fleet for grid in block]):
                 continue
-            if np.any([grid.is_cleared for grid in block]):
+            if any([grid.is_cleared for grid in block]):
                 continue
             if block.count - block.select(is_enemy=True).count == 1:
                 grids += block.select(is_enemy=True).grids
@@ -224,9 +311,9 @@ class RoadGrids:
         """
         grids = []
         for block in self.grids:
-            if np.any([grid.is_fleet for grid in block]):
+            if any([grid.is_fleet for grid in block]):
                 continue
-            if np.any([grid.is_cleared for grid in block]):
+            if any([grid.is_cleared for grid in block]):
                 continue
             if block.select(is_enemy=True).count >= 1:
                 grids += block.select(is_enemy=True).grids

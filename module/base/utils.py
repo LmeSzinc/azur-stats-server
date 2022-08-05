@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from PIL import ImageStat
+from PIL import Image
 
 
 def random_normal_distribution_int(a, b, n=3):
@@ -10,7 +10,7 @@ def random_normal_distribution_int(a, b, n=3):
     Args:
         a (int): The minimum of the interval.
         b (int): The maximum of the interval.
-        n (int): The amount of numbers in simulation. Default to 5.
+        n (int): The amount of numbers in simulation. Default to 3.
 
     Returns:
         int
@@ -22,18 +22,18 @@ def random_normal_distribution_int(a, b, n=3):
         return b
 
 
-def random_rectangle_point(area):
+def random_rectangle_point(area, n=3):
     """Choose a random point in an area.
 
     Args:
         area: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
+        n (int): The amount of numbers in simulation. Default to 3.
 
     Returns:
-        int: x
-        int: y
+        tuple(int): (x, y)
     """
-    x = random_normal_distribution_int(area[0], area[2])
-    y = random_normal_distribution_int(area[1], area[3])
+    x = random_normal_distribution_int(area[0], area[2], n=n)
+    y = random_normal_distribution_int(area[1], area[3], n=n)
     return x, y
 
 
@@ -57,6 +57,65 @@ def random_rectangle_vector(vector, box, random_range=(0, 0, 0, 0), padding=15):
     start_point = center - half_vector
     end_point = start_point + vector
     return tuple(start_point), tuple(end_point)
+
+
+def random_rectangle_vector_opted(
+        vector, box, random_range=(0, 0, 0, 0), padding=15, whitelist_area=None, blacklist_area=None):
+    """
+    Place a vector in a box randomly.
+
+    When emulator/game stuck, it treats a swipe as a click, clicking at the end of swipe path.
+    To prevent this, random results need to be filtered.
+
+    Args:
+        vector: (x, y)
+        box: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
+        random_range (tuple): Add a random_range to vector. (x_min, y_min, x_max, y_max).
+        padding (int):
+        whitelist_area: (list[tuple[int]]):
+            A list of area that safe to click. Swipe path will end there.
+        blacklist_area: (list[tuple[int]]):
+            If none of the whitelist_area satisfies current vector, blacklist_area will be used.
+            Delete random path that ends in any blacklist_area.
+
+    Returns:
+        tuple(int), tuple(int): start_point, end_point.
+    """
+    vector = np.array(vector) + random_rectangle_point(random_range)
+    vector = np.round(vector).astype(np.int)
+    half_vector = np.round(vector / 2).astype(np.int)
+    box_pad = np.array(box) + np.append(np.abs(half_vector) + padding, -np.abs(half_vector) - padding)
+    box_pad = area_offset(box_pad, half_vector)
+    segment = int(np.linalg.norm(vector) // 70) + 1
+
+    def in_blacklist(end):
+        if not blacklist_area:
+            return False
+        for x in range(segment + 1):
+            point = - vector * x / segment + end
+            for area in blacklist_area:
+                if point_in_area(point, area, threshold=0):
+                    return True
+        return False
+
+    if whitelist_area:
+        for area in whitelist_area:
+            area = area_limit(area, box_pad)
+            if all([x > 0 for x in area_size(area)]):
+                end_point = random_rectangle_point(area)
+                for _ in range(10):
+                    if in_blacklist(end_point):
+                        continue
+                    return point_limit(end_point - vector, box), point_limit(end_point, box)
+
+    for _ in range(100):
+        end_point = random_rectangle_point(box_pad)
+        if in_blacklist(end_point):
+            continue
+        return point_limit(end_point - vector, box), point_limit(end_point, box)
+
+    end_point = random_rectangle_point(box_pad)
+    return point_limit(end_point - vector, box), point_limit(end_point, box)
 
 
 def random_line_segments(p1, p2, n, random_range=(0, 0, 0, 0)):
@@ -88,7 +147,8 @@ def ensure_time(second, n=3, precision=3):
     """
     if isinstance(second, tuple):
         multiply = 10 ** precision
-        return random_normal_distribution_int(second[0] * multiply, second[1] * multiply, n) / multiply
+        result = random_normal_distribution_int(second[0] * multiply, second[1] * multiply, n) / multiply
+        return round(result, precision)
     elif isinstance(second, str):
         if ',' in second:
             lower, upper = second.replace(' ', '').split(',')
@@ -104,12 +164,35 @@ def ensure_time(second, n=3, precision=3):
         return second
 
 
+def ensure_int(*args):
+    """
+    Convert all elements to int.
+    Return the same structure as nested objects.
+
+    Args:
+        *args:
+
+    Returns:
+        list:
+    """
+    def to_int(item):
+        try:
+            return int(item)
+        except TypeError:
+            result = [to_int(i) for i in item]
+            if len(result) == 1:
+                result = result[0]
+            return result
+
+    return to_int(args)
+
+
 def area_offset(area, offset):
     """
 
     Args:
-        area(tuple): (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
-        offset(tuple): (x, y).
+        area: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
+        offset: (x, y).
 
     Returns:
         tuple: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
@@ -121,8 +204,8 @@ def area_pad(area, pad=10):
     """
 
     Args:
-        area(tuple): (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
-        pad(int):
+        area: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
+        pad (int):
 
     Returns:
         tuple: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
@@ -130,18 +213,39 @@ def area_pad(area, pad=10):
     return tuple(np.array(area) + np.array([pad, pad, -pad, -pad]))
 
 
+def limit_in(x, lower, upper):
+    """
+    Limit x within range (lower, upper)
+
+    Args:
+        x:
+        lower:
+        upper:
+
+    Returns:
+        int, float:
+    """
+    return max(min(x, upper), lower)
+
+
 def area_limit(area1, area2):
     """
     Limit an area in another area.
 
     Args:
-        area1 (tuple): (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
-        area2 (tuple): (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
+        area1: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
+        area2: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
 
     Returns:
         tuple: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
     """
-    return (max(area1[0], area2[0]), max(area1[1], area2[1]), min(area1[2], area2[2]), min(area1[3], area2[3]))
+    x_lower, y_lower, x_upper, y_upper = area2
+    return (
+        limit_in(area1[0], x_lower, x_upper),
+        limit_in(area1[1], y_lower, y_upper),
+        limit_in(area1[2], x_lower, x_upper),
+        limit_in(area1[3], y_lower, y_upper),
+    )
 
 
 def area_size(area):
@@ -149,12 +253,15 @@ def area_size(area):
     Area size or shape.
 
     Args:
-        area (tuple): (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
+        area: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y).
 
     Returns:
         tuple: (x, y).
     """
-    return (area[2] - area[0], area[3] - area[1])
+    return (
+        max(area[2] - area[0], 0),
+        max(area[3] - area[1], 0)
+    )
 
 
 def point_limit(point, area):
@@ -168,7 +275,10 @@ def point_limit(point, area):
     Returns:
         tuple: (x, y).
     """
-    return (min(max(point[0], area[0]), area[2]), min(max(point[1], area[1]), area[3]))
+    return (
+        limit_in(point[0], area[0], area[2]),
+        limit_in(point[1], area[1], area[3])
+    )
 
 
 def point_in_area(point, area, threshold=5):
@@ -266,8 +376,44 @@ def location2node(location):
     return chr(location[0] + 64 + 1) + str(location[1] + 1)
 
 
+def load_image(file, area=None):
+    """
+    Load an image like pillow and drop alpha channel.
+
+    Args:
+        file (str):
+        area (tuple):
+
+    Returns:
+        np.ndarray:
+    """
+    image = Image.open(file)
+    if area is not None:
+        image = image.crop(area)
+    image = np.array(image)
+    channel = image.shape[2] if len(image.shape) > 2 else 1
+    if channel > 3:
+        image = image[:, :, :3].copy()
+    return image
+
+
+def save_image(image, file):
+    """
+    Save an image like pillow.
+
+    Args:
+        image (np.ndarray):
+        file (str):
+    """
+    # image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+    # cv2.imwrite(file, image)
+    Image.fromarray(image).save(file)
+
+
 def crop(image, area):
-    """Crop image like pillow, when using opencv / numpy
+    """
+    Crop image like pillow, when using opencv / numpy.
+    Provides a black background if cropping outside of image.
 
     Args:
         image (np.ndarray):
@@ -276,11 +422,52 @@ def crop(image, area):
     Returns:
         np.ndarray:
     """
-    x1, y1, x2, y2 = area
+    x1, y1, x2, y2 = map(int, map(round, area))
     h, w = image.shape[:2]
     border = np.maximum((0 - y1, y2 - h, 0 - x1, x2 - w), 0)
     x1, y1, x2, y2 = np.maximum((x1, y1, x2, y2), 0)
-    return cv2.copyMakeBorder(image[y1:y2, x1:x2], *border, borderType=cv2.BORDER_CONSTANT, value=(0, 0, 0))
+    image = image[y1:y2, x1:x2].copy()
+    if sum(border) > 0:
+        image = cv2.copyMakeBorder(image, *border, borderType=cv2.BORDER_CONSTANT, value=(0, 0, 0))
+    return image
+
+
+def resize(image, size):
+    """
+    Resize image like pillow image.resize(), but implement in opencv.
+    Pillow uses PIL.Image.NEAREST by default.
+
+    Args:
+        image (np.ndarray):
+        size: (x, y)
+
+    Returns:
+        np.ndarray:
+    """
+    return cv2.resize(image, size, interpolation=cv2.INTER_NEAREST)
+
+
+def image_channel(image):
+    """
+    Args:
+        image (np.ndarray):
+
+    Returns:
+        int: 0 for grayscale, 3 for RGB.
+    """
+    return image.shape[2] if len(image.shape) == 3 else 0
+
+
+def image_size(image):
+    """
+    Args:
+        image (np.ndarray):
+
+    Returns:
+        int, int: width, height
+    """
+    shape = image.shape
+    return shape[1], shape[0]
 
 
 def rgb2gray(image):
@@ -298,19 +485,52 @@ def rgb2gray(image):
     )
 
 
+def rgb2hsv(image):
+    """
+    Convert RGB color space to HSV color space.
+    HSV is Hue Saturation Value.
+
+    Args:
+        image (np.ndarray): Shape (height, width, channel)
+
+    Returns:
+        np.ndarray: Hue (0~360), Saturation (0~100), Value (0~100).
+    """
+    image = cv2.cvtColor(image, cv2.COLOR_RGB2HSV).astype(np.float)
+    image *= (360 / 180, 100 / 255, 100 / 255)
+    return image
+
+
 def get_color(image, area):
     """Calculate the average color of a particular area of the image.
 
     Args:
-        image (PIL.Image.Image): Screenshot.
+        image (np.ndarray): Screenshot.
         area (tuple): (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y)
 
     Returns:
         tuple: (r, g, b)
     """
-    temp = image.crop(area)
-    stat = ImageStat.Stat(temp)
-    return np.array(stat.mean)
+    temp = crop(image, area)
+    color = cv2.mean(temp)
+    return color[:3]
+
+
+def get_bbox(image):
+    """
+    A numpy implementation of the getbbox() in pillow.
+
+    Args:
+        image (np.ndarray): Screenshot.
+
+    Returns:
+        tuple: (upper_left_x, upper_left_y, bottom_right_x, bottom_right_y)
+    """
+    if image_channel(image) == 3:
+        image = np.max(image, axis=2)
+    x = np.where(np.max(image, axis=0) > 0)[0]
+    y = np.where(np.max(image, axis=1) > 0)[0]
+    return (x[0], y[0], x[-1] + 1, y[-1] + 1)
 
 
 def color_similarity(color1, color2):
@@ -349,14 +569,14 @@ def color_similar(color1, color2, threshold=10):
 def color_similar_1d(image, color, threshold=10):
     """
     Args:
-        image: 1D array.
+        image (np.ndarray): 1D array.
         color: (r, g, b)
         threshold(int): Default to 10.
 
     Returns:
         np.ndarray: bool
     """
-    diff = np.array(image).astype(int) - color
+    diff = image.astype(int) - color
     diff = np.max(np.maximum(diff, 0), axis=1) - np.min(np.minimum(diff, 0), axis=1)
     return diff <= threshold
 
@@ -370,7 +590,6 @@ def color_similarity_2d(image, color):
     Returns:
         np.ndarray: uint8
     """
-    image = np.array(image)
     r, g, b = cv2.split(cv2.subtract(image, (*color, 0)))
     positive = cv2.max(cv2.max(r, g), b)
     r, g, b = cv2.split(cv2.subtract((*color, 0), image))
@@ -389,7 +608,6 @@ def extract_letters(image, letter=(255, 255, 255), threshold=128):
     Returns:
         np.ndarray: Shape (height, width)
     """
-    image = np.array(image)
     r, g, b = cv2.split(cv2.subtract(image, (*letter, 0)))
     positive = cv2.max(cv2.max(r, g), b)
     r, g, b = cv2.split(cv2.subtract((*letter, 0), image))
@@ -408,7 +626,6 @@ def extract_white_letters(image, threshold=128):
     Returns:
         np.ndarray: Shape (height, width)
     """
-    image = np.array(image)
     r, g, b = cv2.split(cv2.subtract((255, 255, 255, 0), image))
     minimum = cv2.min(cv2.min(r, g), b)
     maximum = cv2.max(cv2.max(r, g), b)
@@ -435,6 +652,33 @@ def color_mapping(image, max_multiply=2):
     image[image > 255] = 255
     image[image < 0] = 0
     return image.astype(np.uint8)
+
+
+def image_left_strip(image, threshold, length):
+    """
+    In `DAILY:200/200` strip `DAILY:` and leave `200/200`
+
+    Args:
+        image (np.ndarray): (height, width)
+        threshold (int):
+            0-255
+            The first column with brightness lower than this
+            will be considered as left edge.
+        length (int):
+            Strip this length of image after the left edge
+
+    Returns:
+        np.ndarray:
+    """
+    brightness = np.mean(image, axis=0)
+    match = np.where(brightness < threshold)[0]
+
+    if len(match):
+        left = match[0] + length
+        total = image.shape[1]
+        if left < total:
+            image = image[:, left:]
+    return image
 
 
 def red_overlay_transparency(color1, color2, red=247):
@@ -464,7 +708,7 @@ def color_bar_percentage(image, area, prev_color, reverse=False, starter=0, thre
     Returns:
         float: 0 to 1.
     """
-    image = np.array(image.crop(area))
+    image = crop(image, area)
     image = image[:, ::-1, :] if reverse else image
     length = image.shape[1]
     prev_index = starter

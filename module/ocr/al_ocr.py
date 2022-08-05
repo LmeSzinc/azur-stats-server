@@ -2,17 +2,21 @@ import os
 
 import cv2
 import numpy as np
-from PIL import Image
 from cnocr import CnOcr
-from cnocr.cn_ocr import data_dir, read_charset, check_model_name, load_module, gen_network
+from cnocr.cn_ocr import (check_model_name, data_dir, gen_network, load_module,
+                          read_charset)
 from cnocr.fit.ctc_metrics import CtcMetrics
 from cnocr.hyperparams.cn_hyperparams import CnHyperparams as Hyperparams
+from PIL import Image
 
+from module.exception import RequestHumanTakeover
 from module.logger import logger
 
 
 class AlOcr(CnOcr):
-    prediction_threshold = 0.5
+    # 'cpu' or 'gpu'
+    # To use predict in gpu, the gpu version of mxnet must be installed.
+    CNOCR_CONTEXT = 'cpu'
 
     def __init__(
             self,
@@ -66,7 +70,7 @@ class AlOcr(CnOcr):
         # 传入''的话，也改成传入None
         self._net_prefix = None if name == '' else name
 
-        self._mod = self._get_module(context)
+        self._mod = self._get_module(AlOcr.CNOCR_CONTEXT)
 
     def ocr(self, img_fp):
         if not self._model_loaded:
@@ -117,7 +121,9 @@ class AlOcr(CnOcr):
         # Disable auto downloading cnocr models when model not found.
         # get_model_file(model_dir)
         logger.warning(f'Ocr model not prepared: {model_dir}')
-        exit(1)
+        logger.warning(f'Required files: {model_files}')
+        logger.critical('Please check if required files of pre-trained OCR model exist')
+        raise RequestHumanTakeover
 
     def _get_module(self, context):
         network, self._hp = gen_network(self._model_name, self._hp, self._net_prefix)
@@ -141,7 +147,7 @@ class AlOcr(CnOcr):
         """
         :param img: image array with type mx.nd.NDArray or np.ndarray,
         with shape [height, width] or [height, width, channel].
-        channel shoule be 1 (gray image) or 3 (color image).
+        channel should be 1 (gray image) or 3 (color image).
 
         :return: np.ndarray, with shape (1, height, width)
         """
@@ -161,7 +167,7 @@ class AlOcr(CnOcr):
         """
         class_ids = np.argmax(line_prob, axis=-1)
 
-        class_ids *= np.max(line_prob, axis=-1) > self.prediction_threshold  # Delete low confidence result
+        class_ids *= np.max(line_prob, axis=-1) > 0.5  # Delete low confidence result
 
         if img_width < max_img_width:
             comp_ratio = self._hp.seq_len_cmpr_ratio

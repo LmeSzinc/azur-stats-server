@@ -1,0 +1,568 @@
+# --------------------
+# Define arguments.
+# --------------------
+
+# ==================== Alas ====================
+
+Scheduler:
+  Enable: false
+  NextRun: 2020-01-01 00:00:00
+  Command: Alas
+  SuccessInterval:
+    value: 0
+    type: hide
+  FailureInterval:
+    value: 120
+    type: hide
+  ServerUpdate:
+    value: 00:00
+    type: hide
+Emulator:
+  Serial:
+    value: auto
+    valuetype: str
+  PackageName:
+    value: auto
+    option: [auto, ]
+  ServerName:
+    value: disabled
+    option: [disabled, ]
+  ScreenshotMethod:
+    value: ADB
+    option: [ADB, ADB_nc, uiautomator2, aScreenCap, aScreenCap_nc]
+  ControlMethod:
+    value: minitouch
+    option: [ADB, uiautomator2, minitouch, Hermit]
+  ScreenshotDedithering: false
+  AdbRestart: false
+Error:
+  HandleError: true
+  SaveError: true
+  ScreenshotLength: 1
+Optimization:
+  ScreenshotInterval: 0.3
+  CombatScreenshotInterval: 1.0
+  TaskHoardingDuration: 0
+  WhenTaskQueueEmpty:
+    value: goto_main
+    option: [stay_there, goto_main, close_game]
+DropRecord:
+  SaveFolder: ./screenshots
+  AzurStatsID: null
+  API:
+    value: default
+    option: [default, cn_gz_reverse_proxy, cn_sh_reverse_proxy]
+  ResearchRecord:
+    value: do_not
+    option: [do_not, save, upload, save_and_upload]
+  CommissionRecord:
+    value: do_not
+    option: [do_not, save, upload, save_and_upload]
+  CombatRecord:
+    value: do_not
+    option: [do_not, save]
+  OpsiRecord:
+    value: do_not
+    option: [do_not, save, upload, save_and_upload]
+  MeowfficerBuy:
+    value: do_not
+    option: [do_not, save]
+  MeowfficerTalent:
+    value: do_not
+    option: [do_not, save, upload, save_and_upload]
+Retirement:
+  Enable: true
+  RetireMode:
+    value: one_click_retire
+    option: [one_click_retire, enhance, old_retire]
+  RetireAmount:
+    value: retire_all
+    option: [retire_all, retire_10]
+  EnhanceFavourite: false
+  EnhanceFilter:
+  EnhanceCheckPerCategory: 2
+  OldRetireN: true
+  OldRetireR: true
+  OldRetireSR: false
+  OldRetireSSR: false
+
+# ==================== Farm ====================
+
+Campaign:
+  Name: 12-4
+  Event:
+    value: campaign_main
+    option: [campaign_main]
+  Mode:
+    value: normal
+    option: [normal, hard]
+  UseClearMode: true
+  UseFleetLock: true
+  UseAutoSearch: true
+  Use2xBook: false
+  AmbushEvade: true
+StopCondition:
+  RunCount: 0
+  OilLimit: 1000
+  MapAchievement:
+    value: non_stop
+    option: [non_stop, 100_percent_clear, map_3_stars, threat_safe, threat_safe_without_3_stars]
+  StageIncrease: false
+  GetNewShip: false
+  ReachLevel: 0
+Fleet:
+  Fleet1:
+    value: 1
+    option: [1, 2, 3, 4, 5, 6]
+  Fleet1Formation:
+    value: double_line
+    option: [line_ahead, double_line, diamond]
+  Fleet1Mode:
+    value: combat_auto
+    option: [combat_auto, combat_manual, stand_still_in_the_middle, hide_in_bottom_left]
+  Fleet1Step:
+    value: 3
+    option: [2, 3, 4, 5]
+  Fleet2:
+    value: 2
+    option: [0, 1, 2, 3, 4, 5, 6]
+  Fleet2Formation:
+    value: double_line
+    option: [line_ahead, double_line, diamond]
+  Fleet2Mode:
+    value: combat_auto
+    option: [combat_auto, combat_manual, stand_still_in_the_middle, hide_in_bottom_left]
+  Fleet2Step:
+    value: 2
+    option: [2, 3, 4, 5]
+  FleetOrder:
+    value: fleet1_mob_fleet2_boss
+    option: [fleet1_mob_fleet2_boss, fleet1_boss_fleet2_mob, fleet1_all_fleet2_standby, fleet1_standby_fleet2_all]
+Submarine:
+  Fleet:
+    value: 0
+    option: [0, 1, 2]
+  Mode:
+    value: do_not_use
+    option: [do_not_use, hunt_only, boss_only, every_combat]
+  AutoSearchMode:
+    value: sub_standby
+    option: [ sub_standby, sub_auto_call ]
+  DistanceToBoss:
+    value: '2_grid_to_boss'
+    option: [to_boss_position, 1_grid_to_boss, 2_grid_to_boss, use_open_ocean_support]
+Emotion:
+  CalculateEmotion: true
+  IgnoreLowEmotionWarn: false
+  Fleet1Value: 119
+  Fleet1Record:
+    value: 2020-01-01 00:00:00
+    type: disable
+  Fleet1Control:
+    value: prevent_yellow_face
+    option: [keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face]
+  Fleet1Recover:
+    value: not_in_dormitory
+    option: [not_in_dormitory, dormitory_floor_1, dormitory_floor_2]
+  Fleet1Oath: false
+  Fleet2Value: 119
+  Fleet2Record:
+    value: 2020-01-01 00:00:00
+    type: disable
+  Fleet2Control:
+    value: prevent_yellow_face
+    option: [keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face]
+  Fleet2Recover:
+    value: not_in_dormitory
+    option: [not_in_dormitory, dormitory_floor_1, dormitory_floor_2]
+  Fleet2Oath: false
+HpControl:
+  UseHpBalance: false
+  UseEmergencyRepair: false
+  UseLowHpRetreat: false
+  HpBalanceThreshold: 0.2
+  HpBalanceWeight: 1000, 1000, 1000
+  RepairUseSingleThreshold: 0.3
+  RepairUseMultiThreshold: 0.6
+  LowHpRetreatThreshold: 0.3
+EnemyPriority:
+  EnemyScaleBalanceWeight:
+    value: default_mode
+    option: [default_mode, S3_enemy_first, S1_enemy_first]
+C11AffinityFarming:
+  RunCount: 32
+C72MysteryFarming:
+  StepOnA3: true
+C122MediumLeveling:
+  LargeEnemyTolerance:
+    value: 1
+    option: [0, 1, 2, 10]
+C124LargeLeveling:
+  NonLargeEnterTolerance:
+    value: 1
+    option: [0, 1, 2]
+  NonLargeRetreatTolerance:
+    value: 1
+    option: [0, 1, 2, 10]
+  PickupAmmo:
+    value: 3
+    option: [3, 4, 5]
+GemsFarming:
+  FlagshipChange: true
+  FlagshipEquipChange: false
+  VanguardChange: false
+  VanguardEquipChange: false
+  LowEmotionRetreat: true
+  CommonCV:
+    value: any
+    option: [any, langley, bogue, ranger, hermes]
+
+# ==================== Event ====================
+
+EventGeneral:
+  PtLimit: 0
+  TimeLimit: 2020-01-01 00:00:00
+EventDaily:
+  StageFilter: |-
+    A1 > A2 > A3
+  LastStage: 0
+Raid:
+  Mode:
+    value: hard
+    option: [easy, normal, hard]
+  UseTicket: false
+RaidDaily:
+  StageFilter: |-
+    hard > normal > easy
+MaritimeEscort:
+  Enable: true
+
+# ==================== Reward ====================
+
+Commission:
+  DoMajorCommission: false
+  CommissionFilter: |-
+    DailyEvent
+    > Gem-8 > Gem-4 > Gem-2
+    > NightDrill-8 > NightDrill-7 > NightDrill-6
+    > ExtraDrill-0:20 > ExtraDrill-1 > ExtraDrill-2 > ExtraDrill-2:40 > ExtraDrill-3:20 > ExtraDrill-5:20
+    > Box-6 > Box-3 > Box-1
+    > DailyCube-0:30 > UrgentCube-1:30 > DailyCube-1:30 > UrgentCube-1:45 > UrgentCube-2:15 > UrgentCube-3
+    > Major
+    > DailyChip > DailyResource
+    > UrgentBook-2:30 > UrgentBook-2 > UrgentBook-1:20 > UrgentBook-1:40
+    > Daily-0:20 > Daily-0:30 > Daily-1:00 > Daily-1:30 > Daily-2:00
+    > NightOil > NightCube
+    > shortest
+Tactical:
+  TacticalFilter: |-
+    SameT4 > SameT3 > SameT2 > SameT1
+    > BlueT2 > YellowT2 > RedT2
+    > BlueT3 > YellowT3 > RedT3
+    > BlueT4 > YellowT4 > RedT4
+    > BlueT1 > YellowT1 > RedT1
+    > first
+ControlExpOverflow:
+  Enable: true
+  T4Allow: 100
+  T3Allow: 100
+  T2Allow: 200
+  T1Allow: 200
+Research:
+  UseCube:
+    value: only_05_hour
+    option: [always_use, only_05_hour, only_no_project, do_not_use]
+  UseCoin:
+    value: always_use
+    option: [always_use, only_05_hour, only_no_project, do_not_use]
+  UsePart:
+    value: always_use
+    option: [always_use, only_05_hour, only_no_project, do_not_use]
+  AllowDelay: true
+  PresetFilter:
+    value: series_5_blueprint_152
+    option:
+      - custom
+      - series_5_blueprint_152
+      - series_5_blueprint_only
+      - series_5_152_only
+      - series_4_blueprint_tenrai
+      - series_4_blueprint_only
+      - series_4_tenrai_only
+      - series_3_blueprint_234
+      - series_3_blueprint_only
+      - series_3_234_only
+      - series_2_than_3_457_234
+      - series_2_blueprint_457
+      - series_2_blueprint_only
+      - series_2_457_only
+  CustomFilter: |-
+    S5-DR0.5 > S5-PRY0.5 > S5-H0.5 > S5-Q0.5 > S5-DR2.5 > 0.5 > S5-G1.5
+    > S5-Q1 > S5-DR5 > S5-DR8 > S5-G4 > S5-PRY2.5 > 1 > S5-Q2 > reset
+    > S5-G2.5 > S5-PRY5 > S5-PRY8 > 1.5 > 2 > S5-Q4 > 2.5 > 3
+    > Q4 > G4 > 4 > 5 > S5-C6 > C6 > 6 > S5-C8 > 8
+    > S5-C12 > 12
+Dorm:
+  Collect: true
+  Feed: true
+  FeedFilter: 20000 > 10000 > 5000 > 3000 > 2000 > 1000
+Meowfficer:
+  BuyAmount: 1
+  FortChoreMeowfficer: true
+MeowfficerTrain:
+  Enable: false
+  Mode:
+    value: seamlessly
+    option: [seamlessly, once_a_day]
+  RetainTalentedGold: true
+  RetainTalentedPurple: true
+  EnhanceIndex: 1
+GuildLogistics:
+  Enable: true
+  SelectNewMission: false
+  ExchangeFilter: |-
+    PlateTorpedoT1 > PlateAntiAirT1 > PlatePlaneT1 > PlateGunT1 > PlateGeneralT1
+    > PlateTorpedoT2 > PlateAntiAirT2 > PlatePlaneT2 > PlateGunT2 > PlateGeneralT2
+    > PlateTorpedoT3 > PlateAntiAirT3 > PlatePlaneT3 > PlateGunT3 > PlateGeneralT3
+    > OxyCola > Coolant > Merit > Coin > Oil
+GuildOperation:
+  Enable: true
+  SelectNewOperation: false
+  NewOperationMaxDate: 15
+  JoinThreshold: 1
+  AttackBoss: true
+  BossFleetRecommend: false
+Reward:
+  CollectOil: true
+  CollectCoin: true
+  CollectExp: true
+  CollectMission: true
+  CollectWeeklyMission: true
+GeneralShop:
+  UseGems: false
+  Refresh: false
+  BuySkinBox: false
+  Filter: |-
+    BookRedT3 > BookYellowT3 > BookBlueT3 > BookRedT2
+    > Cube
+    > FoodT6 > FoodT5
+GuildShop:
+  Refresh: true
+  Filter: |-
+    PlateT4 > BookT3 > PR > CatT3 > Chip > BookT2 > Retrofit > FoodT6 > FoodT5 > CatT2 > BoxT4
+  BOX_T3:
+    value: ironblood
+    option: [eagle, royal, sakura, ironblood]
+  BOX_T4:
+    value: ironblood
+    option: [eagle, royal, sakura, ironblood]
+  BOOK_T2:
+    value: red
+    option: [red, blue, yellow]
+  BOOK_T3:
+    value: red
+    option: [red, blue, yellow]
+  RETROFIT_T2:
+    value: cl
+    option: [dd, cl, bb, cv]
+  RETROFIT_T3:
+    value: cl
+    option: [dd, cl, bb, cv]
+  PLATE_T2:
+    value: general
+    option: [general, gun, torpedo, antiair, plane]
+  PLATE_T3:
+    value: general
+    option: [general, gun, torpedo, antiair, plane]
+  PLATE_T4:
+    value: gun
+    option: [general, gun, torpedo, antiair, plane]
+  PR1:
+    value: neptune
+    option: [neptune, monarch, ibuki, izumo, roon, saintlouis]
+  PR2:
+    value: seattle
+    option: [seattle, georgia, kitakaze, gascogne]
+  PR3:
+    value: cheshire
+    option: [cheshire, mainz, odin, champagne]
+MedalShop2:
+  Filter: |-
+    DR > PR
+    > BookRedT3 > BookYellowT3 > BookBlueT3
+    > BookRedT2 > BookYellowT2 > BookBlueT2
+    > RetrofitT3
+    > FoodT6 > FoodT5
+    > PlateGeneralT3 > PlateWildT3
+  RETROFIT_T1:
+    value: cl
+    option: [dd, cl, bb, cv]
+  RETROFIT_T2:
+    value: cl
+    option: [dd, cl, bb, cv]
+  RETROFIT_T3:
+    value: cl
+    option: [dd, cl, bb, cv]
+  PLATE_T1:
+    value: general
+    option: [general, gun, torpedo, antiair, plane]
+  PLATE_T2:
+    value: general
+    option: [general, gun, torpedo, antiair, plane]
+  PLATE_T3:
+    value: general
+    option: [general, gun, torpedo, antiair, plane]
+MeritShop:
+  Refresh: false
+  Filter: |-
+    Cube
+CoreShop:
+  Filter: |-
+    Array
+Shipyard:
+  ResearchSeries: 1
+  ShipIndex: 0
+  BuyAmount: 2
+Gacha:
+  Pool:
+    value: light
+    option: [light, heavy, special, event, wishing_well]
+  Amount:
+    value: 1
+    option: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  UseTicket: true
+  UseDrill: false
+DataKey:
+  ForceGet: false
+SupplyPack:
+  WeeklyFreeSupplyPack: true
+BattlePass:
+  BattlePassReward: true
+MetaReward:
+  MetaReward: true
+
+# ==================== Daily ====================
+
+Daily:
+  UseDailySkip: true
+  EscortMission:
+    value: first
+    option: [skip, first, second, third]
+  EscortMissionFleet:
+    value: 5
+    option: [1, 2, 3, 4, 5, 6]
+  AdvanceMission:
+    value: first
+    option: [skip, first, second, third]
+  AdvanceMissionFleet:
+    value: 5
+    option: [1, 2, 3, 4, 5, 6]
+  FierceAssault:
+    value: first
+    option: [skip, first, second, third]
+  FierceAssaultFleet:
+    value: 5
+    option: [1, 2, 3, 4, 5, 6]
+  TacticalTraining:
+    value: second
+    option: [skip, first, second, third]
+  TacticalTrainingFleet:
+    value: 5
+    option: [1, 2, 3, 4, 5, 6]
+  SupplyLineDisruption:
+    value: second
+    option: [skip, first, second, third]
+  ModuleDevelopment:
+    value: first
+    option: [skip, first, second]
+  ModuleDevelopmentFleet:
+    value: 5
+    option: [1, 2, 3, 4, 5, 6]
+Hard:
+  HardStage: 11-4
+  HardFleet:
+    value: 1
+    option: [1, 2]
+Exercise:
+  OpponentChooseMode:
+    value: max_exp
+    option: [max_exp, easiest, leftmost, easiest_else_exp]
+  OpponentTrial: 1
+  ExercisePreserve: 0
+  LowHpThreshold: 0.4
+  LowHpConfirmWait: 0.1
+  OpponentRefreshValue: 0
+  OpponentRefreshRecord: 2020-01-01 00:00:00
+Sos:
+  Chapter:
+    value: 3
+    option: [3, 4, 5, 6, 7, 8, 9, 10]
+
+# ==================== Opsi ====================
+
+OpsiAshAssist:
+  Tier: 15
+OpsiGeneral:
+  UseLogger: true
+  BuyActionPoint: false
+  OilLimit: 1000
+  RepairThreshold: 0.4
+  DoRandomMapEvent: true
+  AkashiShopFilter: |-
+    ActionPoint > PurpleCoins
+OpsiAshBeacon:
+  AshAttack: true
+  EnsureFullyCollected: true
+  RequestAssist: true
+OpsiFleetFilter:
+  Filter: |-
+    Fleet-4 > CallSubmarine > Fleet-2 > Fleet-3 > Fleet-1
+OpsiFleet:
+  Fleet:
+    value: 1
+    option: [1, 2, 3, 4]
+  Submarine: false
+OpsiExplore:
+  SpecialRadar: false
+  ForceRun: false
+  LastZone: 0
+OpsiShop:
+  BuySupply: true
+OpsiDaily:
+  DoMission: true
+  UseTuningSample: true
+OpsiObscure:
+  ForceRun: false
+OpsiAbyssal:
+  ForceRun: false
+OpsiStronghold:
+  ForceRun: false
+OpsiMeowfficerFarming:
+  ActionPointPreserve: 500
+  HazardLevel:
+    value: 5
+    option: [3, 4, 5, 6, 10]
+  TargetZone:
+    value: 0
+
+# ==================== Tools ====================
+
+Daemon:
+  EnterMap: true
+OpsiDaemon:
+  RepairShip: true
+  SelectEnemy: true
+Benchmark:
+  AdbScreenshot: true
+  AdbncScreenshot: true
+  Uiautomator2Screenshot: true
+  AscreencapScreenshot: true
+  AscreencapncScreenshot: true
+  AdbClick: true
+  Uiautomator2Click: true
+  MinitouchClick: true
+  HermitClick: false
+AzurLaneUncensored:
+  Repository: https://gitee.com/LmeSzinc/AzurLaneUncensored
+GameManager:
+  AutoRestart: true

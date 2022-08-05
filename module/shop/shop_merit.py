@@ -1,22 +1,22 @@
-from module.base.button import ButtonGrid
 from module.base.decorator import cached_property
 from module.logger import logger
 from module.ocr.ocr import Digit
 from module.shop.assets import *
-from module.shop.base import ShopBase, ShopItemGrid
+from module.shop.base import ShopItemGrid
+from module.shop.clerk import ShopClerk
+from module.shop.ui import ShopUI
 
 OCR_SHOP_MERIT = Digit(SHOP_MERIT, letter=(239, 239, 239), name='OCR_SHOP_MERIT')
 
 
-class MeritShop(ShopBase):
-    _shop_merit = 0
-
-    def shop_merit_get_currency(self):
+class MeritShop(ShopClerk, ShopUI):
+    @cached_property
+    def shop_filter(self):
         """
-        Ocr shop merit currency
+        Returns:
+            str:
         """
-        self._shop_merit = OCR_SHOP_MERIT.ocr(self.device.image)
-        logger.info(f'Merit: {self._shop_merit}')
+        return self.config.MeritShop_Filter.strip()
 
     @cached_property
     def shop_merit_items(self):
@@ -30,14 +30,50 @@ class MeritShop(ShopBase):
         shop_merit_items.load_cost_template_folder('./assets/shop/cost')
         return shop_merit_items
 
-    def shop_merit_check_item(self, item):
+    def shop_items(self):
         """
-        Args:
-            item: Item to check
+        Shared alias for all shops
+        If there are server-lang
+        differences, reference
+        shop_guild/medal for @Config
+        example
 
         Returns:
-            bool:
+            ShopItemGrid:
         """
-        if item.price > self._shop_merit:
-            return False
-        return True
+        return self.shop_merit_items
+
+    def shop_currency(self):
+        """
+        Ocr shop merit currency
+        Then return merit count
+
+        Returns:
+            int: merit amount
+        """
+        self._currency = OCR_SHOP_MERIT.ocr(self.device.image)
+        logger.info(f'Merit: {self._currency}')
+        return self._currency
+
+    def run(self):
+        """
+        Run Merit Shop
+        """
+        # Base case; exit run if filter empty
+        if not self.shop_filter:
+            return
+
+        # When called, expected to be in
+        # correct Merit Shop interface
+        logger.hr('Merit Shop', level=1)
+
+        # Execute buy operations
+        # Refresh if enabled and available
+        refresh = self.config.MeritShop_Refresh
+        for _ in range(2):
+            success = self.shop_buy()
+            if not success:
+                break
+            if refresh and self.shop_refresh():
+                continue
+            break

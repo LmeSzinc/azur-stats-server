@@ -1,59 +1,59 @@
 import io
 import json
+import os
 import time
 
-import cv2
-import numpy as np
 import requests
-
-from module.config.config import AzurLaneConfig
-from module.logger import logger
-from module.statistics.utils import *
+from PIL import Image
 from requests.adapters import HTTPAdapter
 
+from module.base.utils import save_image
+from module.config.config import AzurLaneConfig
+from module.exception import ScriptError
+from module.logger import logger
+from module.statistics.utils import pack
 
 
-def pack(img_list):
-    """
-    Stack images vertically.
-
-    Args:
-        img_list (list): List of pillow image
-
-    Returns:
-        Pillow image
-    """
-    img_list = [np.array(i) for i in img_list]
-    image = cv2.vconcat(img_list)
-    image = Image.fromarray(image, mode='RGB')
-    return image
-
-
-class AzurStats:
-    API = 'https://azurstats.lyoko.io/api/upload/'
-    TIMEOUT = 20
-
-    def __init__(self, config):
+class DropImage:
+    def __init__(self, stat, genre, save, upload, info=''):
         """
         Args:
-            config (AzurLaneConfig):
+            stat (AzurStats):
+            genre:
+            save:
+            upload:
         """
-        self.config = config
+        self.stat = stat
+        self.genre = str(genre)
+        self.save = bool(save)
+        self.upload = bool(upload)
+        self.info = info
         self.images = []
 
     def add(self, image):
         """
         Args:
-            image: Pillow image.
-
-        Returns:
-            bool: If added.
+            image (np.ndarray):
         """
-        if self.config.ENABLE_AZURSTAT:
+        if self:
             self.images.append(image)
-            return True
-        else:
-            return False
+
+    def handle_add(self, main, before=None):
+        """
+        Handle wait before and after adding screenshot.
+
+        Args:
+            main (ModuleBase):
+            before (int, float, tuple): Sleep before adding.
+        """
+        if before is None:
+            before = main.config.WAIT_BEFORE_SAVING_SCREEN_SHOT
+
+        if self:
+            main.handle_info_bar()
+            main.device.sleep(before)
+            main.device.screenshot()
+            self.add(main.device.image)
 
     def clear(self):
         self.images = []
@@ -62,32 +62,65 @@ class AzurStats:
     def count(self):
         return len(self.images)
 
-    def _user_agent(self):
-        return f'Alas ({self.config.AZURSTAT_ID})'
+    def __bool__(self):
+        return self.save or self.upload
 
-    def _upload(self):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self:
+            self.stat.commit(images=self.images, genre=self.genre, save=self.save, upload=self.upload, info=self.info)
+
+
+class AzurStats:
+    TIMEOUT = 20
+
+    def __init__(self, config):
         """
+        Args:
+            config (AzurLaneConfig):
+        """
+        self.config = config
+
+    @property
+    def _api(self):
+        method = self.config.DropRecord_API
+        if method == 'default':
+            return 'https://azurstats.lyoko.io/api/upload/'
+        elif method == 'cn_gz_reverse_proxy':
+            return 'https://service-rjfzwz8i-1301182309.gz.apigw.tencentcs.com/api/upload'
+        elif method == 'cn_sh_reverse_proxy':
+            return 'https://service-nlvjetab-1301182309.sh.apigw.tencentcs.com/api/upload'
+        else:
+            logger.critical('Invalid upload API, please check your settings')
+            raise ScriptError('Invalid upload API')
+
+    @property
+    def _user_agent(self):
+        return f'Alas ({str(self.config.DropRecord_AzurStatsID)})'
+
+    def _upload(self, image, genre, filename):
+        """
+        Args:
+            image: Image to upload.
+            genre (str):
+            filename (str): 'xxx.png'
+
         Returns:
             bool: If success
         """
-        amount = len(self.images)
-        logger.info(f'Uploading screenshots to AzurStat, amount: {amount}')
-        if amount == 0:
-            # logger.warning(f'Image upload failed, no images to upload')
-            return False
-        image = pack(self.images)
         output = io.BytesIO()
-        image.save(output, format='png')
+        Image.fromarray(image, mode='RGB').save(output, format='png')
         output.seek(0)
 
-        now = int(time.time() * 1000)
-        data = {'file': (f'{now}.png', output, 'image/png')}
-        headers = {'user-agent': self._user_agent()}
+        data = {'file': (filename, output, 'image/png')}
+        headers = {'user-agent': self._user_agent}
         session = requests.Session()
         session.mount('http://', HTTPAdapter(max_retries=5))
         session.mount('https://', HTTPAdapter(max_retries=5))
         try:
-            resp = session.post(self.API, files=data, headers=headers, timeout=self.TIMEOUT)
+            resp = session.post(self._api, files=data, headers=headers, timeout=self.TIMEOUT)
         except Exception as e:
             logger.warning(f'Image upload failed, {e}')
             return False
@@ -107,14 +140,70 @@ class AzurStats:
                        f'status_code: {resp.status_code}, returns: {resp.text}')
         return False
 
-    def upload(self):
+    def _save(self, image, genre, filename):
         """
+        Args:
+            image: Image to save.
+            genre (str): Name of sub folder.
+            filename (str): 'xxx.png'
+
         Returns:
             bool: If success
         """
-        if not self.config.ENABLE_AZURSTAT:
+        try:
+            folder = os.path.join(str(self.config.DropRecord_SaveFolder), genre)
+            os.makedirs(folder, exist_ok=True)
+            file = os.path.join(folder, filename)
+            save_image(image, file)
+            logger.info(f'Image save success, file: {file}')
+            return True
+        except Exception as e:
+            logger.exception(e)
+
+        return False
+
+    def commit(self, images, genre, save=False, upload=False, info=''):
+        """
+        Args:
+            images (list): List of images in numpy array.
+            genre (str):
+            save (bool): If save image to local file system.
+            upload (bool): If upload image to Azur Stats.
+            info (str): Extra info append to filename.
+
+        Returns:
+            bool: If commit.
+        """
+        if len(images) == 0:
             return False
 
-        self._upload()
-        self.clear()
+        save, upload = bool(save), bool(upload)
+        logger.info(f'Drop record commit, genre={genre}, amount={len(images)}, save={save}, upload={upload}')
+        image = pack(images)
+        now = int(time.time() * 1000)
+
+        if info:
+            filename = f'{now}_{info}.png'
+        else:
+            filename = f'{now}.png'
+
+        if save:
+            self._save(image, genre=genre, filename=filename)
+        if upload:
+            self._upload(image, genre=genre, filename=filename)
+
         return True
+
+    def new(self, genre, method='do_not', info=''):
+        """
+        Args:
+            genre (str):
+            method (str): The method about save and upload image.
+            info (str): Extra info append to filename.
+
+        Returns:
+            DropImage:
+        """
+        save = 'save' in method
+        upload = 'upload' in method
+        return DropImage(stat=self, genre=genre, save=save, upload=upload, info=info)

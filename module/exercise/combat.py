@@ -2,7 +2,7 @@ from module.combat.combat import *
 from module.exercise.assets import *
 from module.exercise.equipment import ExerciseEquipment
 from module.exercise.hp_daemon import HpDaemon
-from module.exercise.opponent import OpponentChoose, OPPONENT
+from module.exercise.opponent import OPPONENT, OpponentChoose
 from module.ui.assets import EXERCISE_CHECK
 
 
@@ -15,15 +15,19 @@ class ExerciseCombat(HpDaemon, OpponentChoose, ExerciseEquipment):
         Returns:
             bool:
         """
-        return self.appear(PAUSE) and np.max(self.device.image.crop(PAUSE_DOUBLE_CHECK.area)) < 153
+        return self.appear(PAUSE) and np.max(self.image_crop(PAUSE_DOUBLE_CHECK)) < 153
 
-    def _combat_preparation(self):
+    def _combat_preparation(self, skip_first_screenshot=True):
         logger.info('Combat preparation')
         while 1:
-            self.device.screenshot()
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
             if self.appear(BATTLE_PREPARATION):
 
-                self.equipment_take_on()
+                # self.equipment_take_on()
                 pass
 
                 self.device.click(BATTLE_PREPARATION)
@@ -39,7 +43,7 @@ class ExerciseCombat(HpDaemon, OpponentChoose, ExerciseEquipment):
             bool: True if wins. False if quit.
         """
         logger.info('Combat execute')
-        self.low_hp_confirm_timer = Timer(self.config.LOW_HP_CONFIRM_WAIT, count=2).start()
+        self.low_hp_confirm_timer = Timer(self.config.Exercise_LowHpConfirmWait, count=2).start()
         show_hp_timer = Timer(5)
         success = True
         end = False
@@ -49,34 +53,35 @@ class ExerciseCombat(HpDaemon, OpponentChoose, ExerciseEquipment):
 
             if not self.is_combat_executing():
                 # Finish - S or D rank
-                if self.appear_then_click(BATTLE_STATUS_S):
+                if self.appear_then_click(BATTLE_STATUS_S, interval=1):
                     success = True
                     end = True
                     continue
-                if self.appear_then_click(BATTLE_STATUS_D):
+                if self.appear_then_click(BATTLE_STATUS_D, interval=1):
                     success = True
                     end = True
                     logger.info("Exercise LOST")
-                    self.device.send_notification('Exercises', 'Exercise LOST')
                     continue
-            if self.appear_then_click(GET_ITEMS_1):
+            if self.appear_then_click(GET_ITEMS_1, interval=1):
                 continue
-            if self.appear(EXP_INFO_S):
+            if self.appear(EXP_INFO_S, interval=1):
                 self.device.click(CLICK_SAFE_AREA)
                 continue
-            if self.appear(EXP_INFO_D):
+            if self.appear(EXP_INFO_D, interval=1):
                 self.device.click(CLICK_SAFE_AREA)
                 continue
             # Last D rank screen
-            if self.appear_then_click(OPTS_INFO_D, offset=(30, 30)):
+            if self.appear_then_click(OPTS_INFO_D, offset=(30, 30), interval=1):
+                success = True
+                end = True
+                logger.info("Exercise LOST")
                 continue
 
             # Quit
             if not end:
                 if self._at_low_hp(image=self.device.image):
                     logger.info('Exercise quit')
-                    if self.appear_then_click(PAUSE):
-                        self.device.sleep(0.3)
+                    if self.appear_then_click(PAUSE, interval=0.5):
                         continue
                 else:
                     if show_hp_timer.reached():
@@ -93,13 +98,15 @@ class ExerciseCombat(HpDaemon, OpponentChoose, ExerciseEquipment):
                 continue
 
             # End
-            if end and self._in_exercise() or self.appear(BATTLE_PREPARATION):
+            if self._in_exercise() or self.appear(BATTLE_PREPARATION, offset=(20, 20)):
                 logger.hr('Combat end')
+                if not end:
+                    logger.warning('Combat ended without end conditions detected')
                 break
 
         return success
 
-    def _choose_opponent(self, index):
+    def _choose_opponent(self, index, skip_first_screenshot=True):
         """
         Args:
             index (int): From left to right. 0 to 3.
@@ -109,7 +116,10 @@ class ExerciseCombat(HpDaemon, OpponentChoose, ExerciseEquipment):
         preparation_timer = Timer(5)
 
         while 1:
-            self.device.screenshot()
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
 
             if opponent_timer.reached() and self._in_exercise():
                 self.device.click(OPPONENT[index, 0])
@@ -127,7 +137,7 @@ class ExerciseCombat(HpDaemon, OpponentChoose, ExerciseEquipment):
 
     def _preparation_quit(self):
         logger.info('Preparation quit')
-        self.ui_back(check_button=self._in_exercise, appear_button=BATTLE_PREPARATION)
+        self.ui_back(check_button=self._in_exercise, appear_button=BATTLE_PREPARATION, skip_first_screenshot=True)
 
     def _combat(self, opponent):
         """
@@ -139,7 +149,12 @@ class ExerciseCombat(HpDaemon, OpponentChoose, ExerciseEquipment):
         """
         self._choose_opponent(opponent)
 
-        for n in range(1, self.config.OPPONENT_CHALLENGE_TRIAL + 1):
+        trial = self.config.Exercise_OpponentTrial
+        if not isinstance(trial, int) or trial < 1:
+            logger.warning(f'Invalid Exercise.OpponentTrial: {trial}, revise to 1')
+            self.config.Exercise_OpponentTrial = 1
+
+        for n in range(1, self.config.Exercise_OpponentTrial + 1):
             logger.hr('Try: %s' % n)
             self._combat_preparation()
             success = self._combat_execute()

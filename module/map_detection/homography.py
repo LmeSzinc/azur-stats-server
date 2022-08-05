@@ -1,7 +1,7 @@
 import time
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageOps
+from PIL import ImageDraw, ImageOps
 
 from module.base.utils import *
 from module.config.config import AzurLaneConfig
@@ -66,9 +66,19 @@ class Homography:
 
     @cached_property
     def ui_mask_homo_stroke(self):
-        image = cv2.warpPerspective(ASSETS.ui_mask, self.homo_data, self.homo_size)
+        if self.config.Scheduler_Command.startswith('Opsi'):
+            mask = ASSETS.ui_mask_os
+        else:
+            mask = ASSETS.ui_mask
+        image = cv2.warpPerspective(mask, self.homo_data, self.homo_size)
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
         image = cv2.erode(image, kernel).astype('uint8')
+        # Remove edges, perspective transform may produce aliasing
+        pad = 2
+        image[:pad, :] = 0
+        image[-pad:, :] = 0
+        image[:, :pad] = 0
+        image[:, -pad:] = 0
         return image
 
     def load(self, image):
@@ -103,7 +113,7 @@ class Homography:
             perspective_.load(image)
             self.load_homography(perspective=perspective_)
         elif file is not None:
-            image_ = np.array(Image.open(file).convert('RGB'))
+            image_ = load_image(file)
             perspective_ = Perspective(self.config)
             perspective_.load(image_)
             self.load_homography(perspective=perspective_)
@@ -146,13 +156,12 @@ class Homography:
     def detect(self, image):
         """
         Args:
-            image: Screenshot.
+            image (np.ndarray): Screenshot.
 
         Returns:
             bool: If success.
         """
         start_time = time.time()
-        image = np.array(image)
         self.image = image
 
         # Image initialization
@@ -162,7 +171,7 @@ class Homography:
         image_trans = cv2.warpPerspective(image, self.homo_data, self.homo_size)
 
         # Edge detection
-        image_edge = cv2.Canny(image_trans, 100, 150)
+        image_edge = cv2.Canny(image_trans, *self.config.HOMO_CANNY_THRESHOLD)
         image_edge = cv2.bitwise_and(image_edge, self.ui_mask_homo_stroke)
         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
         image_edge = cv2.morphologyEx(image_edge, cv2.MORPH_CLOSE, kernel)
@@ -182,9 +191,13 @@ class Homography:
         self.homo_loca %= self.config.HOMO_TILE
 
         # Detect map edges
-        image_edge = cv2.bitwise_and(cv2.dilate(image_edge, kernel),
-                                     cv2.inRange(image_trans, *self.config.HOMO_EDGE_COLOR_RANGE))
-        self.detect_edges(image_edge, hough_th=self.config.HOMO_EDGE_HOUGHLINES_THRESHOLD)
+        self.lower_edge, self.upper_edge, self.left_edge, self.right_edge = False, False, False, False
+        self._map_edge_count = (0, 0)
+        if self.config.HOMO_EDGE_DETECT:
+            image_edge = cv2.bitwise_and(cv2.dilate(image_edge, kernel),
+                                         cv2.inRange(image_trans, *self.config.HOMO_EDGE_COLOR_RANGE))
+            image_edge = cv2.bitwise_and(image_edge, self.ui_mask_homo_stroke)
+            self.detect_edges(image_edge, hough_th=self.config.HOMO_EDGE_HOUGHLINES_THRESHOLD)
 
         # Log
         time_cost = round(time.time() - start_time, 3)
@@ -289,12 +302,16 @@ class Homography:
             # Find rectangles
             contours, _ = cv2.findContours(image_closed, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
             rectangle = np.array([cv2.boundingRect(cv2.convexHull(cont).astype(np.float32)) for cont in contours])
-            # Filter out correct rectangles
-            rectangle = rectangle[(rectangle[:, 2] > 100) & (rectangle[:, 3] > 100)]
-            shape = rectangle[:, 2:]
-            diff = np.abs(shape - np.round(shape / self.config.HOMO_TILE) * self.config.HOMO_TILE)
-            rectangle = rectangle[np.all(diff < encourage, axis=1)]
-            location = np.append(location, rectangle[:, :2], axis=0) if len(location) else rectangle[:, :2]
+
+            try:
+                # Filter out correct rectangles
+                rectangle = rectangle[(rectangle[:, 2] > 100) & (rectangle[:, 3] > 100)]
+                shape = rectangle[:, 2:]
+                diff = np.abs(shape - np.round(shape / self.config.HOMO_TILE) * self.config.HOMO_TILE)
+                rectangle = rectangle[np.all(diff < encourage, axis=1)]
+                location = np.append(location, rectangle[:, :2], axis=0) if len(location) else rectangle[:, :2]
+            except IndexError:
+                location = []
 
         if len(location) > threshold:
             self.homo_loca = fit_points(location, mod=self.config.HOMO_TILE, encourage=encourage)

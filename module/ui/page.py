@@ -61,14 +61,16 @@ page_campaign_menu.link(button=CAMPAIGN_MENU_GOTO_DAILY, destination=page_daily)
 # Event
 page_event = Page(EVENT_CHECK)
 page_event.link(button=GOTO_MAIN, destination=page_main)
-# page_event.link(button=BACK_ARROW, destination=page_campaign)
+page_event.link(button=BACK_ARROW, destination=page_campaign)
 page_campaign_menu.link(button=CAMPAIGN_MENU_GOTO_EVENT, destination=page_event)
+page_campaign.link(button=CAMPAIGN_GOTO_EVENT, destination=page_event)
 
 # SP
 page_sp = Page(SP_CHECK)
 page_sp.link(button=GOTO_MAIN, destination=page_main)
-# page_sp.link(button=BACK_ARROW, destination=page_campaign)
+page_sp.link(button=BACK_ARROW, destination=page_campaign)
 page_campaign_menu.link(button=CAMPAIGN_MENU_GOTO_EVENT, destination=page_sp)
+page_campaign.link(button=CAMPAIGN_GOTO_EVENT, destination=page_sp)
 
 # Operation Siren
 page_os = Page(OS_CHECK)
@@ -110,6 +112,11 @@ page_tactical.link(button=GOTO_MAIN, destination=page_main)
 page_tactical.link(button=BACK_ARROW, destination=page_reward)
 page_reward.link(button=REWARD_GOTO_TACTICAL, destination=page_tactical)
 
+# Battle pass
+page_battle_pass = Page(BATTLE_PASS_CHECK)
+page_battle_pass.link(button=GOTO_MAIN, destination=page_main)
+page_reward.link(button=REWARD_GOTO_BATTLE_PASS, destination=page_battle_pass)
+
 # Event list
 page_event_list = Page(EVENT_LIST_CHECK)
 page_event_list.link(button=GOTO_MAIN, destination=page_main)
@@ -129,10 +136,15 @@ page_research.link(button=GOTO_MAIN, destination=page_main)
 page_shipyard = Page(SHIPYARD_CHECK)
 page_shipyard.link(button=GOTO_MAIN, destination=page_main)
 
+# Meta
+page_meta = Page(META_CHECK)
+page_meta.link(button=GOTO_MAIN, destination=page_main)
+
 # Research menu
 page_reshmenu = Page(RESHMENU_CHECK)
 page_reshmenu.link(button=RESHMENU_GOTO_RESEARCH, destination=page_research)
 page_reshmenu.link(button=RESHMENU_GOTO_SHIPYARD, destination=page_shipyard)
+page_reshmenu.link(button=RESHMENU_GOTO_META, destination=page_meta)
 page_reshmenu.link(button=GOTO_MAIN, destination=page_main)
 page_main.link(button=MAIN_GOTO_RESHMENU, destination=page_reshmenu)
 
@@ -150,7 +162,7 @@ page_dorm.link(button=DORM_GOTO_MAIN, destination=page_main)
 # Meowfficer
 page_meowfficer = Page(MEOWFFICER_CHECK)
 page_dormmenu.link(button=DORMMENU_GOTO_MEOWFFICER, destination=page_meowfficer)
-page_meowfficer.link(button=MEOWFFICER_GOTO_DORM, destination=page_main)
+page_meowfficer.link(button=MEOWFFICER_GOTO_DORMMENU, destination=page_main)
 
 # Academy
 page_academy = Page(ACADEMY_CHECK)
@@ -168,6 +180,11 @@ page_munitions = Page(MUNITIONS_CHECK)
 # page_shop.link(button=SHOP_GOTO_MUNITIONS, destination=page_munitions)
 page_academy.link(button=ACADEMY_GOTO_MUNITIONS, destination=page_munitions)
 page_munitions.link(button=GOTO_MAIN, destination=page_main)
+
+# Supply pack
+page_supply_pack = Page(SUPPLY_PACK_CHECK)
+page_shop.link(button=SHOP_GOTO_SUPPLY_PACK, destination=page_supply_pack)
+page_supply_pack.link(button=GOTO_MAIN, destination=page_main)
 
 # Build / Construct
 page_build = Page(BUILD_CHECK)

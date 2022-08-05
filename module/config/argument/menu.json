@@ -1,0 +1,72 @@
+{
+  "Task": {
+    "Alas": [
+      "Alas",
+      "General",
+      "Restart"
+    ],
+    "Farm": [
+      "Main",
+      "Main2",
+      "Main3",
+      "GemsFarming"
+    ],
+    "Event": [
+      "EventGeneral",
+      "Event",
+      "Event2",
+      "EventA",
+      "EventB",
+      "EventC",
+      "EventD",
+      "EventSp",
+      "Raid",
+      "RaidDaily",
+      "MaritimeEscort"
+    ],
+    "Reward": [
+      "Commission",
+      "Tactical",
+      "Research",
+      "Dorm",
+      "Meowfficer",
+      "Guild",
+      "Reward"
+    ],
+    "DailyReward": [
+      "ShopFrequent",
+      "ShopOnce",
+      "Shipyard",
+      "Gacha",
+      "DataKey",
+      "SupplyPack",
+      "BattlePass",
+      "MetaReward"
+    ],
+    "DailyMission": [
+      "Daily",
+      "Hard",
+      "Exercise",
+      "Sos",
+      "WarArchives"
+    ],
+    "Opsi": [
+      "OpsiGeneral",
+      "OpsiAshAssist",
+      "OpsiExplore",
+      "OpsiShop",
+      "OpsiDaily",
+      "OpsiObscure",
+      "OpsiAbyssal",
+      "OpsiStronghold",
+      "OpsiMeowfficerFarming"
+    ],
+    "Tool": [
+      "Daemon",
+      "OpsiDaemon",
+      "Benchmark",
+      "AzurLaneUncensored",
+      "GameManager"
+    ]
+  }
+}

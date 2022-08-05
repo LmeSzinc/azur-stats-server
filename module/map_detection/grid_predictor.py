@@ -1,5 +1,6 @@
 from module.base.utils import *
 from module.config.config import AzurLaneConfig
+from module.exception import ScriptError
 from module.logger import logger
 from module.map_detection.utils import *
 from module.map_detection.utils_assets import *
@@ -42,9 +43,29 @@ class GridPredictor:
         self.homo_invt = cv2.invert(self.homo_data)[1]
 
     def screen2grid(self, points):
+        """
+        Args:
+            points (np.ndarray): Coordinates from screen, [[x1, y1], [x2, y2], ...]
+
+        Returns:
+            np.ndarray: Coordinates from sea surface, [[x1, y1], [x2, y2], ...]
+                Coordinate zero point is the upper-left corner.
+            (0, 0) +------+
+                   |      |
+                   |      |
+                   +------+ (1, 1)
+        """
         return perspective_transform(points, self.homo_data) / self.config.HOMO_TILE
 
     def grid2screen(self, points):
+        """
+        Args:
+            points (np.ndarray): Coordinates from sea surface, [[x1, y1], [x2, y2], ...]
+                See Also screen2grid().
+
+        Returns:
+            np.ndarray: Coordinates from screen, [[x1, y1], [x2, y2], ...]
+        """
         return perspective_transform(np.multiply(points, self.config.HOMO_TILE), self.homo_invt)
 
     @cached_property
@@ -67,10 +88,14 @@ class GridPredictor:
             self.is_fleet = False
         else:
             self.is_fleet = self.predict_fleet()
-        self.is_mystery = self.predict_mystery()
+        if self.config.MAP_HAS_MYSTERY:
+            self.is_mystery = self.predict_mystery()
         self.is_current_fleet = self.predict_current_fleet()
         # self.is_caught_by_siren = self.predict_caught_by_siren()
 
+        if self.config.MAP_HAS_MISSILE_ATTACK:
+            if self.predict_missile_attack():
+                self.is_missile_attack = True
         if self.enemy_genre:
             self.is_enemy = True
         if self.enemy_scale:
@@ -146,7 +171,7 @@ class GridPredictor:
         red = color_similarity_2d(image, (255, 130, 132))
         yellow = color_similarity_2d(image, (255, 235, 156))
 
-        if TEMPLATE_ENEMY_L.match(red):
+        if TEMPLATE_ENEMY_L.match(red, similarity=0.75):
             scale = 3
         elif TEMPLATE_ENEMY_M.match(yellow):
             scale = 2
@@ -163,16 +188,20 @@ class GridPredictor:
         for name, template in self.template_enemy_genre.items():
             if template is None:
                 logger.warning(f'Enemy detection template not found: {name}')
-                exit(1)
+                logger.warning('Please create it with dev_tools/relative_record.py or dev_tools/relative_crop.py, '
+                               'then place it under ./assets/<server>/template')
+                raise ScriptError(f'Enemy detection template not found: {name}')
 
             short_name = name[6:] if name.startswith('Siren_') else name
             scaling = scaling_dic.get(short_name, 1)
-            if scaling not in image_dic:
-                shape = tuple(np.round(np.array((60, 60)) * scaling).astype(int))
-                image_dic[scaling] = rgb2gray(self.relative_crop((-0.5, -1, 0.5, 0), shape=shape))
+            scaling = (scaling,) if not isinstance(scaling, tuple) else scaling
+            for scale in scaling:
+                if scale not in image_dic:
+                    shape = tuple(np.round(np.array((60, 60)) * scale).astype(int))
+                    image_dic[scale] = rgb2gray(self.relative_crop((-0.5, -1, 0.5, 0), shape=shape))
 
-            if template.match(image_dic[scaling]):
-                return name
+                if template.match(image_dic[scale], similarity=self.config.MAP_ENEMY_GENRE_SIMILARITY):
+                    return name
 
         return None
 
@@ -190,6 +219,9 @@ class GridPredictor:
                 return True
 
         return False
+
+    def predict_missile_attack(self):
+        return self.relative_rgb_count(area=(-0.5, -1, 0.5, 0), color=(255, 255, 60), shape=(50, 50)) > 35
 
     def predict_fleet(self):
         image = self.relative_crop((-1, -2, -0.5, -1.5), shape=(50, 50))
@@ -251,6 +283,10 @@ class GridPredictor:
                 return True
 
         return False
+
+    def predict_submarine_move(self):
+        # Detect the orange arrow in submarine movement mode.
+        return self.relative_rgb_count((-0.5, -1, 0.5, 0), color=(231, 138, 49), shape=(60, 60)) > 200
 
     @cached_property
     def _image_similar_piece(self):

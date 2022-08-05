@@ -1,6 +1,4 @@
-from module.handler.assets import POPUP_CONFIRM
 from module.logger import logger
-from module.shipyard.assets import *
 from module.shipyard.ui import ShipyardUI
 from module.shop.shop_general import GeneralShop
 from module.ui.page import page_main, page_shipyard
@@ -44,9 +42,9 @@ class RewardShipyard(ShipyardUI, GeneralShop):
             if not len(cost):
                 cost = [1500]
 
-            if (total + cost[0]) > self._shop_gold_coins:
+            if (total + cost[0]) > self._currency:
                 if pay:
-                    self._shop_gold_coins -= total
+                    self._currency -= total
                 else:
                     logger.info(f'Can only buy up to {(i - start)} '
                                 f'of the {count} BPs')
@@ -54,7 +52,7 @@ class RewardShipyard(ShipyardUI, GeneralShop):
             total += cost[0]
 
         if pay:
-            self._shop_gold_coins -= total
+            self._currency -= total
         else:
             logger.info(f'Can buy all {count} BPs')
         return i + 1, count
@@ -86,7 +84,7 @@ class RewardShipyard(ShipyardUI, GeneralShop):
         start, count = self._shipyard_buy_calc(prev, count)
         while count > 0:
             if not self._shipyard_buy_enter() or \
-                    self._shipyard_appear_max():
+                    self._shipyard_cannot_strengthen():
                 break
 
             remain = self._shipyard_ensure_index(count)
@@ -110,7 +108,7 @@ class RewardShipyard(ShipyardUI, GeneralShop):
         count = self._shipyard_get_bp_count(index)
         while count > 0:
             if not self._shipyard_buy_enter() or \
-                    self._shipyard_appear_max():
+                    self._shipyard_cannot_strengthen():
                 break
 
             remain = self._shipyard_ensure_index(count)
@@ -142,12 +140,12 @@ class RewardShipyard(ShipyardUI, GeneralShop):
         # Retrieve information from page_main instead
         if not self.ui_page_appear(page_main):
             self.ui_goto_main()
-        self.shop_get_currency(key='general')
+        self.shop_currency()
 
         self.ui_ensure(page_shipyard)
-        if not self.shipyard_set_focus(series=series, index=index) or \
-            not self._shipyard_buy_enter() or \
-                self._shipyard_appear_max():
+        if not self.shipyard_set_focus(series=series, index=index) \
+                or not self._shipyard_buy_enter() \
+                or self._shipyard_cannot_strengthen():
             return True
 
         self._shipyard_use(index=index)
@@ -155,23 +153,17 @@ class RewardShipyard(ShipyardUI, GeneralShop):
 
         return True
 
-    def handle_shipyard(self):
+    def run(self):
         """
-        Handles shipyard operations
+        Pages:
+            in: Any page
+            out: page_shipyard
         """
-        # Daily Free/Discounted BPs refresh 4 hours after server
-        # has reset for new day
-        if self.config.record_executed_since(
-                option=('RewardRecord', 'shipyard'), since=(4,)):
-            return False
+        if self.config.Shipyard_BuyAmount <= 0:
+            self.config.Scheduler_Enable = False
+            self.config.task_stop()
 
-        if self.config.BUY_SHIPYARD_BP <= 0:
-            return False
-
-        if self.shipyard_run(series=self.config.SHIPYARD_SERIES,
-                             index=self.config.SHIPYARD_INDEX,
-                             count=self.config.BUY_SHIPYARD_BP):
-            self.config.record_save(option=('RewardRecord', 'shipyard'))
-            self.ui_goto_main()
-
-        return True
+        self.shipyard_run(series=self.config.Shipyard_ResearchSeries,
+                          index=self.config.Shipyard_ShipIndex,
+                          count=self.config.Shipyard_BuyAmount)
+        self.config.task_delay(server_update=True)

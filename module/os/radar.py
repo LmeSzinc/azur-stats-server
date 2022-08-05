@@ -1,9 +1,8 @@
-from PIL import Image
-
 from module.base.mask import Mask
 from module.base.utils import *
 from module.config.config import AzurLaneConfig
 from module.logger import logger
+from module.map.map_grids import SelectedGrids
 from module.map_detection.utils import fit_points
 
 MASK_RADAR = Mask('./assets/mask/MASK_OS_RADAR.png')
@@ -17,6 +16,7 @@ class RadarGrid:
     is_question = False  # White question mark '?'
     is_ally = False  # Ally cargo ship in daily mission, yellow '!' on radar
     is_akashi = False  # White question mark '?'
+    is_archive = False  # Purple archive
     is_port = False
 
     enemy_scale = 0
@@ -27,11 +27,12 @@ class RadarGrid:
     dic_encode = {
         'EN': 'is_enemy',
         'RE': 'is_resource',
+        'AR': 'is_archive',
         'EX': 'is_exclamation',
         'ME': 'is_meowfficer',
         'PO': 'is_port',
         'QU': 'is_question',
-        # 'FL': 'is_fleet',
+        'FL': 'is_fleet',
     }
 
     def __init__(self, location, image, center, config):
@@ -43,7 +44,7 @@ class RadarGrid:
             config (AzurLaneConfig):
         """
         self.location = location
-        self.image = image
+        self.image: np.ndarray = image
         self.center = center
         self.config = config
         self.is_fleet = np.sum(np.abs(location)) == 0
@@ -89,6 +90,7 @@ class RadarGrid:
         self.is_exclamation = self.predict_exclamation()
         self.is_port = self.predict_port()
         self.is_question = self.predict_question()
+        self.is_archive = self.predict_archive()
 
         if self.enemy_genre:
             self.is_enemy = True
@@ -114,7 +116,7 @@ class RadarGrid:
         Returns:
             bool:
         """
-        image = self.image.crop(area_offset(area, self.center))
+        image = crop(self.image, area_offset(area, self.center))
         mask = color_similarity_2d(image, color=color) > threshold
         return np.sum(mask) > count
 
@@ -138,6 +140,9 @@ class RadarGrid:
 
     def predict_question(self):
         return self.image_color_count(area=(0, -7, 6, 0), color=(255, 255, 255), threshold=235, count=10)
+
+    def predict_archive(self):
+        return self.image_color_count(area=(-3, -3, 3, 3), color=(173, 113, 255), threshold=235, count=10)
 
 
 class Radar:
@@ -195,11 +200,30 @@ class Radar:
         Returns:
 
         """
-        image = Image.fromarray(MASK_RADAR.apply(image))
+        image = MASK_RADAR.apply(image)
         for grid in self:
             grid.image = image
             grid.reset()
             grid.predict()
+
+    def select(self, **kwargs):
+        """
+        Args:
+            **kwargs: Attributes of Grid.
+
+        Returns:
+            SelectedGrids:
+        """
+        result = []
+        for grid in self:
+            flag = True
+            for k, v in kwargs.items():
+                if grid.__getattribute__(k) != v:
+                    flag = False
+            if flag:
+                result.append(grid)
+
+        return SelectedGrids(result)
 
     def predict_port_outside(self, image):
         """
@@ -211,7 +235,7 @@ class Radar:
                 Such as [57.70732954 50.89636818].
         """
         radius = (15, 82)
-        image = image.crop(area_offset((-radius[1], -radius[1], radius[1], radius[1]), self.center))
+        image = crop(image, area_offset((-radius[1], -radius[1], radius[1], radius[1]), self.center))
         # image.show()
         points = np.where(color_similarity_2d(image, color=(255, 255, 255)) > 250)
         points = np.array(points).T[:, ::-1] - (radius[1], radius[1])
@@ -288,3 +312,45 @@ class Radar:
                 return location
 
         return None
+
+    def predict_question(self, image):
+        """
+        Args:
+            image: Screenshot.
+
+        Returns:
+            tuple: Grid location of question mark on radar, or None if nothing found.
+        """
+        self.predict(image)
+        for location in [(0, 1), (-1, 0), (1, 0), (0, -1), (0, -2), (0, -3)]:
+            grid = self[location]
+            if grid.is_question and not grid.predict_port():
+                return location
+
+        return None
+
+    def nearest_object(self, camera_sight=(-4, -3, 3, 3)):
+        """
+        Args:
+            camera_sight:
+
+        Returns:
+            RadarGrid: Or None if no objects
+        """
+        objects = []
+        for grid in self:
+            if grid.is_port:
+                continue
+            if grid.is_enemy or grid.is_resource or grid.is_meowfficer \
+                    or grid.is_exclamation or grid.is_question or grid.is_archive:
+                objects.append(grid)
+        objects = SelectedGrids(objects).sort_by_camera_distance((0, 0))
+        if not objects:
+            return None
+
+        nearest = objects[0]
+        limited = point_limit(nearest.location, area=camera_sight)
+        if nearest.location == limited:
+            return nearest
+        else:
+            return self[limited]

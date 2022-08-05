@@ -20,6 +20,8 @@ class CampaignMap:
         self._land_based_data = []
         self._maze_data = []
         self.maze_round = 9
+        self._fortress_data = [(), ()]
+        self._bouncing_enemy_data = []
         self._spawn_data = []
         self._spawn_data_stack = []
         self._spawn_data_loop = []
@@ -27,6 +29,7 @@ class CampaignMap:
         self._camera_data = []
         self._camera_data_spawn_point = []
         self._map_covered = SelectedGrids([])
+        self._ignore_prediction = []
         self.in_map_swipe_preset_data = None
         self.poor_map_data = False
         self.camera_sight = (-3, -1, 3, 2)
@@ -189,12 +192,56 @@ class CampaignMap:
                 self.find_path_initial(grid, has_ambush=False)
                 grid.maze_nearby = self.select(cost=1).add(self.select(cost=2)).select(is_land=False)
 
-    def load_mechanism(self, land_based=False, maze=False):
-        logger.info(f'Load mechanism, land_base={land_based}, maze={maze}')
+    @property
+    def fortress_data(self):
+        return self._fortress_data
+
+    @fortress_data.setter
+    def fortress_data(self, data):
+        enemy, block = data
+        enemy = self.to_selected((enemy,) if not isinstance(enemy, (tuple, list)) else enemy)
+        block = self.to_selected((block,) if not isinstance(block, (tuple, list)) else block)
+        self._fortress_data = [enemy, block]
+
+    def _load_fortress_data(self, data):
+        """
+        Args:
+            data (list):  [fortress_enemy, fortress_block], they can should be str or a tuple/list of str.
+                Such as [('B5', 'E2', 'H5', 'E8'), 'G3'] or ['F5', 'G1']
+        """
+        self._fortress_data = data
+        enemy, block = data
+        enemy.set(is_fortress=True)
+        block.set(is_mechanism_block=True)
+
+    @property
+    def bouncing_enemy_data(self):
+        return self._bouncing_enemy_data
+
+    @bouncing_enemy_data.setter
+    def bouncing_enemy_data(self, data):
+        self._bouncing_enemy_data = [self.to_selected(route) for route in data]
+
+    def _load_bouncing_enemy_data(self, data):
+        """
+        Args:
+            data (list[SelectedGrids]): Grids that enemy is bouncing in.
+                [enemy_route, enemy_route, ...], Such as [(C2, C3, C4), ]
+        """
+        for route in data:
+            route.set(may_bouncing_enemy=True)
+
+    def load_mechanism(self, land_based=False, maze=False, fortress=False, bouncing_enemy=False):
+        logger.info(f'Load mechanism, land_base={land_based}, maze={maze}, fortress={fortress}, '
+                    f'bouncing_enemy={bouncing_enemy}')
         if land_based:
             self._load_land_base_data(self.land_based_data)
         if maze:
             self._load_maze_data(self.maze_data)
+        if fortress:
+            self._load_fortress_data(self._fortress_data)
+        if bouncing_enemy:
+            self._load_bouncing_enemy_data(self._bouncing_enemy_data)
 
     def grid_connection_initial(self, wall=False, portal=False):
         """
@@ -268,12 +315,14 @@ class CampaignMap:
             mode (str): Scan mode, such as 'normal', 'carrier', 'movable'
         """
         offset = np.array(camera) - np.array(grids.center_loca)
-        grids.show()
+        # grids.show()
 
         failed_count = 0
         for grid in grids.grids.values():
             loca = tuple(offset + grid.location)
             if loca in self.grids:
+                if self.ignore_prediction_match(globe=loca, local=grid):
+                    continue
                 if not copy.copy(self.grids[loca]).merge(grid, mode=mode):
                     logger.warning(f"Wrong Prediction. {self.grids[loca]} = '{grid.str}'")
                     failed_count += 1
@@ -282,6 +331,8 @@ class CampaignMap:
             for grid in grids.grids.values():
                 loca = tuple(offset + grid.location)
                 if loca in self.grids:
+                    if self.ignore_prediction_match(globe=loca, local=grid):
+                        continue
                     self.grids[loca].merge(grid, mode=mode)
             return True
         else:
@@ -405,6 +456,35 @@ class CampaignMap:
         """
         self._map_covered = SelectedGrids([self[node2location(node)] for node in nodes])
 
+    def ignore_prediction(self, globe, **local):
+        """
+        Args:
+            globe (GridInfo, tuple, str): Grid in globe map.
+            **local: Any properties in local grid.
+
+        Examples:
+            MAP.ignore_prediction(D5, enemy_scale=1, enemy_genre='Enemy')
+            will ignore `1E` enemy on D5.
+        """
+        globe = location_ensure(globe)
+        self._ignore_prediction.append((globe, local))
+
+    def ignore_prediction_match(self, globe, local):
+        """
+        Args:
+            globe (tuple):
+            local (GridInfo):
+
+        Returns:
+            bool: If matched a wrong prediction.
+        """
+        for wrong_globe, wrong_local in self._ignore_prediction:
+            if wrong_globe == globe:
+                if all([local.__getattribute__(k) == v for k, v in wrong_local.items()]):
+                    return True
+
+        return False
+
     @property
     def is_map_data_poor(self):
         if not self.select(may_enemy=True) or not self.select(may_boss=True) or not self.select(is_spawn_point=True):
@@ -428,11 +508,12 @@ class CampaignMap:
                  range(self.shape[0] + 1)])
             logger.info(text)
 
-    def find_path_initial(self, location, has_ambush=True):
+    def find_path_initial(self, location, has_ambush=True, has_enemy=True):
         """
         Args:
             location (tuple(int)): Grid location
             has_ambush (bool): MAP_HAS_AMBUSH
+            has_enemy (bool): False if only sea and land are considered
         """
         location = location_ensure(location)
         ambush_cost = 10 if has_ambush else 1
@@ -460,7 +541,7 @@ class CampaignMap:
                     elif cost == arr.cost:
                         if abs(arr.location[0] - grid.location[0]) == 1:
                             arr.connection = grid.location
-                    if arr.is_sea:
+                    if arr.is_sea or not has_enemy:
                         new.add(arr)
             if len(new) == len(visited):
                 break
@@ -556,7 +637,7 @@ class CampaignMap:
         for left, right in zip(res[:-1], res[1:]):
             for index in list(range(left, right, step))[1:]:
                 way_node = self[route[index]]
-                if way_node.is_fleet or way_node.is_portal:
+                if way_node.is_fleet or way_node.is_portal or way_node.is_flare:
                     logger.info(f'Path_node_avoid: {way_node}')
                     if (index > 1) and (index - 1 not in res):
                         inserted.append(index - 1)
@@ -630,6 +711,11 @@ class CampaignMap:
             for attr in ['enemy', 'mystery', 'siren', 'boss']:
                 if grid.__getattribute__('is_' + attr):
                     missing[attr] -= 1
+        missing['enemy'] += len(self.fortress_data[0]) - self.select(is_fortress=True).count
+        for route in self.bouncing_enemy_data:
+            if not route.select(may_bouncing_enemy=True):
+                # bouncing enemy cleared, re-add one enemy
+                missing['enemy'] += 1
 
         for upper in self.map_covered:
             if (upper.may_enemy or mode == 'movable') and not upper.is_enemy:

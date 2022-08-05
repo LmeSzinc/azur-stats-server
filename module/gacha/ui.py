@@ -1,15 +1,13 @@
-import numpy as np
 from module.base.button import ButtonGrid
 from module.base.decorator import cached_property
 from module.base.timer import Timer
-from module.base.utils import *
 from module.gacha.assets import *
 from module.logger import logger
 from module.ui.navbar import Navbar
 from module.ui.page import page_build
 from module.ui.ui import UI
 
-GACHA_LOAD_ENSURE_BUTTONS = [SHOP_MEDAL_CHECK, BUILD_SUBMIT_ORDERS, BUILD_FINISH_ORDERS]
+GACHA_LOAD_ENSURE_BUTTONS = [SHOP_MEDAL_CHECK, BUILD_SUBMIT_ORDERS, BUILD_SUBMIT_WW_ORDERS, BUILD_FINISH_ORDERS, BUILD_WW_CHECK]
 
 
 class GachaUI(UI):
@@ -25,7 +23,6 @@ class GachaUI(UI):
         Returns:
             bool: Whether expected assets loaded completely
         """
-        confirm_timer = Timer(1.5, count=3).start()
         ensure_timeout = Timer(3, count=6).start()
         while 1:
             if skip_first_screenshot:
@@ -36,11 +33,7 @@ class GachaUI(UI):
             # End
             results = [self.appear(button) for button in GACHA_LOAD_ENSURE_BUTTONS]
             if any(results):
-                if confirm_timer.reached():
-                    return True
-                ensure_timeout.reset()
-                continue
-            confirm_timer.reset()
+                return True
 
             # Exception
             if ensure_timeout.reached():
@@ -69,8 +62,8 @@ class GachaUI(UI):
             name='GACHA_SIDE_NAVBAR')
 
         return Navbar(grids=gacha_side_navbar,
-                      active_color=(247, 255, 173),
-                      inactive_color=(140, 162, 181))
+                      active_color=(247, 255, 173), active_threshold=221,
+                      inactive_color=(140, 162, 181), inactive_threshold=221)
 
     def gacha_side_navbar_ensure(self, upper=None, bottom=None):
         """
@@ -199,7 +192,7 @@ class GachaUI(UI):
                 logger.info('Construct event not available, default to light')
                 left = 1
                 right = None
-            if left >= 4:
+            if left == 4:
                 left = 3
 
         if gacha_bottom_navbar.set(self, left=left, right=right) \
@@ -209,3 +202,10 @@ class GachaUI(UI):
 
     def ui_goto_gacha(self):
         self.ui_ensure(page_build)
+
+
+if __name__ == '__main__':
+    self = GachaUI('alas')
+    self.image_file = r'C:\Users\LmeSzinc\Nox_share\ImageShare\Screenshots\Screenshot_20220224-182355.png'
+    res = self._gacha_side_navbar.get_info(main=self)
+    print(res)

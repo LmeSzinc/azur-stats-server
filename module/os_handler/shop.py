@@ -1,14 +1,13 @@
 from module.base.button import ButtonGrid
 from module.base.decorator import cached_property
-from module.base.utils import *
 from module.logger import logger
 from module.ocr.ocr import Digit
 from module.os_handler.assets import *
 from module.os_handler.map_event import MapEventHandler
-from module.statistics.item import ItemGrid, Item
+from module.statistics.item import Item, ItemGrid
 from module.ui.ui import UI
 
-OCR_SHOP_YELLOW_COINS = Digit(SHOP_YELLOW_COINS, letter=(239, 239, 239), name='OCR_SHOP_YELLOW_COINS')
+OCR_SHOP_YELLOW_COINS = Digit(SHOP_YELLOW_COINS, letter=(239, 239, 239), threshold=160, name='OCR_SHOP_YELLOW_COINS')
 OCR_SHOP_PURPLE_COINS = Digit(SHOP_PURPLE_COINS, letter=(255, 255, 255), name='OCR_SHOP_PURPLE_COINS')
 
 
@@ -75,9 +74,9 @@ class OSShopHandler(UI, MapEventHandler):
                 break
 
         try:
-            selection = self.config.OS_ASKSHI_SHOP_PRIORITY.replace(' ', '').split('>')
+            selection = self.config.OpsiGeneral_AkashiShopFilter.replace(' ', '').replace('\n', '').split('>')
         except Exception:
-            logger.warning(f'Invalid OS akashi buy filter string: {self.config.OS_ASKSHI_SHOP_PRIORITY}')
+            logger.warning(f'Invalid OS akashi buy filter string: {self.config.OpsiGeneral_AkashiShopFilter}')
             return None
 
         for select in selection:
@@ -134,15 +133,15 @@ class OSShopHandler(UI, MapEventHandler):
             else:
                 self.device.screenshot()
 
-            if self.appear(PORT_SUPPLY_CHECK, offset=(20, 20), interval=3):
-                self.device.click(button)
+            if self.handle_map_get_items(interval=1):
+                self.interval_reset(PORT_SUPPLY_CHECK)
+                success = True
                 continue
             if self.appear_then_click(SHOP_BUY_CONFIRM, offset=(20, 20), interval=3):
                 self.interval_reset(PORT_SUPPLY_CHECK)
                 continue
-            if self.handle_map_get_items(interval=1):
-                self.interval_reset(PORT_SUPPLY_CHECK)
-                success = True
+            if self.appear(PORT_SUPPLY_CHECK, offset=(20, 20), interval=5):
+                self.device.click(button)
                 continue
 
             # End
@@ -199,3 +198,9 @@ class OSShopHandler(UI, MapEventHandler):
                       additional=self.handle_story_skip, skip_first_screenshot=True)
         self.os_shop_buy(select_func=self.os_shop_get_item_to_buy_in_akashi)
         self.ui_back(appear_button=PORT_SUPPLY_CHECK, check_button=self.is_in_map, skip_first_screenshot=True)
+
+
+if __name__ == '__main__':
+    self = OSShopHandler('alas6')
+    self.image_file = r'C:\Users\LmeSzinc\Nox_share\ImageShare\Screenshots\Screenshot_20220516-013210.png'
+    self.os_shop_get_coins()

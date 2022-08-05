@@ -1,14 +1,15 @@
 import os
 import traceback
 
-from PIL import Image
+import imageio
+from PIL import ImageDraw
 
-import module.config.server as server
 from module.base.decorator import cached_property
+from module.base.resource import Resource
 from module.base.utils import *
 
 
-class Button:
+class Button(Resource):
     def __init__(self, area, color, button, file=None, name=None):
         """Initialize a Button instance.
 
@@ -27,21 +28,54 @@ class Button:
                 button=(1562, 908, 1864, 1003)
             )
         """
-        self.server = server.server
-        self.area = area[self.server] if isinstance(area, dict) else area
-        self.color = color[self.server] if isinstance(color, dict) else color
-        self._button = button[self.server] if isinstance(button, dict) else button
+        self.raw_area = area
+        self.raw_color = color
+        self.raw_button = button
+        self.raw_file = file
+        self.raw_name = name
+
         self._button_offset = None
         self._match_init = False
-        self.file = file[self.server] if isinstance(file, dict) else file
+        self._match_binary_init = False
         self.image = None
+        self.image_binary = None
+
         if self.file:
-            self.name = os.path.splitext(os.path.split(self.file)[1])[0]
-        elif name:
-            self.name = name
+            self.resource_add(key=self.file)
+
+    cached = ['area', 'color', '_button', 'file', 'name', 'is_gif']
+
+    @cached_property
+    def area(self):
+        return self.parse_property(self.raw_area)
+
+    @cached_property
+    def color(self):
+        return self.parse_property(self.raw_color)
+
+    @cached_property
+    def _button(self):
+        return self.parse_property(self.raw_button)
+
+    @cached_property
+    def file(self):
+        return self.parse_property(self.raw_file)
+
+    @cached_property
+    def name(self):
+        if self.raw_name:
+            return self.raw_name
+        elif self.file:
+            return os.path.splitext(os.path.split(self.file)[1])[0]
         else:
-            (filename, line_number, function_name, text) = traceback.extract_stack()[-2]
-            self.name = text[:text.find('=')].strip()
+            return 'BUTTON'
+
+    @cached_property
+    def is_gif(self):
+        if self.file:
+            return os.path.splitext(self.file)[1] == '.gif'
+        else:
+            return False
 
     def __str__(self):
         return self.name
@@ -68,7 +102,7 @@ class Button:
         """Check if the button appears on the image.
 
         Args:
-            image (PIL.Image.Image): Screenshot.
+            image (np.ndarray): Screenshot.
             threshold (int): Default to 10.
 
         Returns:
@@ -90,8 +124,9 @@ class Button:
         Returns:
             tuple: Color (r, g, b).
         """
-        self.color = get_color(image, self.area)
-        self.image = np.array(image.crop(self.area))
+        self.__dict__['color'] = get_color(image, self.area)
+        self.image = crop(image, self.area)
+        self.__dict__['is_gif'] = False
         return self.color
 
     def load_offset(self, button):
@@ -104,14 +139,48 @@ class Button:
         offset = np.subtract(button.button, button._button)[:2]
         self._button_offset = area_offset(self._button, offset=offset)
 
+    def clear_offset(self):
+        self._button_offset = None
+
     def ensure_template(self):
         """
         Load asset image.
         If needs to call self.match, call this first.
         """
         if not self._match_init:
-            self.image = np.array(Image.open(self.file).crop(self.area).convert('RGB'))
+            if self.is_gif:
+                self.image = []
+                for image in imageio.mimread(self.file):
+                    image = image[:, :, :3].copy() if len(image.shape) == 3 else image
+                    image = crop(image, self.area)
+                    self.image.append(image)
+            else:
+                self.image = load_image(self.file, self.area)
             self._match_init = True
+
+    def ensure_binary_template(self):
+        """
+        Load asset image.
+        If needs to call self.match, call this first.
+        """
+        if not self._match_binary_init:
+            if self.is_gif:
+                self.image_binary = []
+                for image in self.image:
+                    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+                    _, image_binary = cv2.threshold(image_gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+                    self.image_binary.append(image_binary)
+            else:
+                image_gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+                _, self.image_binary = cv2.threshold(image_gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+            self._match_binary_init = True
+
+    def resource_release(self):
+        super().resource_release()
+        self.image = None
+        self.image_binary = None
+        self._match_init = False
+        self._match_binary_init = False
 
     def match(self, image, offset=30, threshold=0.85):
         """Detects button by template matching. To Some button, its location may not be static.
@@ -127,21 +196,77 @@ class Button:
         self.ensure_template()
 
         if isinstance(offset, tuple):
-            offset = np.array((-offset[0], -offset[1], offset[0], offset[1]))
+            if len(offset) == 2:
+                offset = np.array((-offset[0], -offset[1], offset[0], offset[1]))
+            else:
+                offset = np.array(offset)
         else:
-            offset = np.array((0, -offset, 0, offset))
+            offset = np.array((-3, -offset, 3, offset))
+        image = crop(image, offset + self.area)
 
-        # offset = np.array((0, -offset, 0, offset))
-        # offset = np.array((-offset, -offset, offset, offset))
-        image = np.array(image.crop(offset + self.area))
-        res = cv2.matchTemplate(self.image, image, cv2.TM_CCOEFF_NORMED)
-        _, similarity, _, point = cv2.minMaxLoc(res)
+        if self.is_gif:
+            for template in self.image:
+                res = cv2.matchTemplate(template, image, cv2.TM_CCOEFF_NORMED)
+                _, similarity, _, point = cv2.minMaxLoc(res)
+                self._button_offset = area_offset(self._button, offset[:2] + np.array(point))
+                if similarity > threshold:
+                    return True
+            return False
+        else:
+            res = cv2.matchTemplate(self.image, image, cv2.TM_CCOEFF_NORMED)
+            _, similarity, _, point = cv2.minMaxLoc(res)
+            self._button_offset = area_offset(self._button, offset[:2] + np.array(point))
+            return similarity > threshold
 
-        self._button_offset = area_offset(self._button, offset[:2] + np.array(point))
+    def match_binary(self, image, offset=30, threshold=0.85):
+        """Detects button by template matching. To Some button, its location may not be static.
+           This method will apply template matching under binarization.
 
-        return similarity > threshold
+        Args:
+            image: Screenshot.
+            offset (int, tuple): Detection area offset.
+            threshold (float): 0-1. Similarity.
 
-    def match_appear_on(self, image, threshold=10):
+        Returns:
+            bool.
+        """
+        self.ensure_template()
+        self.ensure_binary_template()
+
+        if isinstance(offset, tuple):
+            if len(offset) == 2:
+                offset = np.array((-offset[0], -offset[1], offset[0], offset[1]))
+            else:
+                offset = np.array(offset)
+        else:
+            offset = np.array((-3, -offset, 3, offset))
+        image = crop(image, offset + self.area)
+
+        if self.is_gif:
+            for template in self.image_binary:
+                # graying
+                image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+                # binarization
+                _, image_binary = cv2.threshold(image_gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+                # template matching
+                res = cv2.matchTemplate(template, image_binary, cv2.TM_CCOEFF_NORMED)
+                _, similarity, _, point = cv2.minMaxLoc(res)
+                self._button_offset = area_offset(self._button, offset[:2] + np.array(point))
+                if similarity > threshold:
+                    return True
+            return False
+        else:
+            # graying
+            image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            # binarization
+            _, image_binary = cv2.threshold(image_gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+            # template matching
+            res = cv2.matchTemplate(self.image_binary, image_binary, cv2.TM_CCOEFF_NORMED)
+            _, similarity, _, point = cv2.minMaxLoc(res)
+            self._button_offset = area_offset(self._button, offset[:2] + np.array(point))
+            return similarity > threshold
+
+    def match_appear_on(self, image, threshold=30):
         """
         Args:
             image: Screenshot.
@@ -160,7 +285,7 @@ class Button:
 
         Args:
             area (tuple):
-            image: Pillow image. If provided, load color and image from it.
+            image (np.ndarray): Screenshot. If provided, load color and image from it.
             name (str):
 
         Returns:
@@ -181,7 +306,7 @@ class Button:
 
         Args:
             vector (tuple):
-            image: Pillow image. If provided, load color and image from it.
+            image (np.ndarray): Screenshot. If provided, load color and image from it.
             name (str):
 
         Returns:
@@ -253,3 +378,25 @@ class ButtonGrid:
         origin = self.origin + vector
         return ButtonGrid(
             origin=origin, delta=self.delta, button_shape=self.button_shape, grid_shape=self.grid_shape, name=name)
+
+    def gen_mask(self):
+        """
+        Generate a mask image to display this ButtonGrid object for debugging.
+
+        Returns:
+            PIL.Image.Image: Area in white, background in black.
+        """
+        image = Image.new("RGB", (1280, 720), (0, 0, 0))
+        draw = ImageDraw.Draw(image)
+        for button in self.buttons:
+            draw.rectangle((button.area[:2], button.button[2:]), fill=(255, 255, 255), outline=None)
+        return image
+
+    def show_mask(self):
+        self.gen_mask().show()
+
+    def save_mask(self):
+        """
+        Save mask to {name}.png
+        """
+        self.gen_mask().save(f'{self._name}.png')
