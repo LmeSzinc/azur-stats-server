@@ -19,16 +19,19 @@ def en_to_name(name):
 
 
 class EquipListItem(Item):
-    target_item = HtmlField(xpath_select='//*[@id="mw-content-text"]/div[1]/ul[1]')
+    target_item = HtmlField(xpath_select='//*[@id="mw-content-text"]/div/div/ul[1]')
     url = AttrField('href', xpath_select='./li/a', many=True)
 
 
 class EquipEntranceItem(Item):
-    target_item = HtmlField(xpath_select='//div[@title="Min Stats"]/table/tbody/tr/td[1]')
+    target_item = HtmlField(xpath_select='//*[@title="Min Stats"]//td[1]')
     url = AttrField('href', xpath_select='./a', many=True)
 
 
-JSON_DATA = {}
+os.chdir('../../')
+file = './AzurStats/equipment/data.json'
+with open(file, 'r', encoding='utf-8') as f:
+    JSON_DATA = json.load(f)
 
 
 class EquipItem(Item):
@@ -48,10 +51,11 @@ class WikiCrawler(Spider):
     # start_urls = ['https://azurlane.koumakan.jp/Triple_305mm_(SK_C/39_Prototype)']
 
     async def parse(self, response):
-        # await self.parse_equip(response)
         html = await response.text()
         async for item in EquipListItem.get_items(html=html):
             for url in item.url:
+                if 'List_of' not in url:
+                    continue
                 yield Request(self.site + url, callback=self.list_to_item)
 
     async def list_to_item(self, response):
@@ -59,6 +63,8 @@ class WikiCrawler(Spider):
         async for item in EquipEntranceItem.get_items(html=html):
             for url in item.url:
                 url = urllib.parse.unquote(url)
+                if '#' in url:
+                    url = url.split('#', 1)[0]
                 yield Request(self.site + url, callback=self.parse_equip)
 
     async def parse_equip(self, response):
@@ -68,11 +74,11 @@ class WikiCrawler(Spider):
                 name = en_to_name(item.en.split(':', 1)[1]) + '_' + item.tier
                 data = {
                     'name': name,
-                    'cn': item.cn.split(':', 1)[1] + item.tier,
-                    'en': item.en.split(':', 1)[1] + ' ' + item.tier,
+                    'cn': item.cn.split(':', 1)[1].strip() + item.tier,
+                    'en': item.en.split(':', 1)[1].strip() + ' ' + item.tier,
                     'rarity': item.rarity.replace(' ', '').capitalize(),
                     'tier': item.tier,
-                    'image': self.site + item.image,
+                    'image': item.image if item.image.startswith('http') else self.site + item.image,
                 }
                 # print(data)
                 JSON_DATA[name] = data
@@ -144,18 +150,16 @@ def insert_data():
         connection.close()
 
 
-file = './AzurStats/equipment/data.json'
 if __name__ == '__main__':
     # WikiCrawler.start()
     # with open(file, 'w', encoding='utf-8') as f:
     #     json.dump(JSON_DATA, f, indent=2, ensure_ascii=False)
 
-    os.chdir('../../')
     with open(file, 'r', encoding='utf-8') as f:
         JSON_DATA = json.load(f)
 
-    # download_images()
+    download_images()
 
     # translate_names()
 
-    insert_data()
+    # insert_data()

@@ -335,6 +335,14 @@
     "tier": "T3",
     "image": "https://azurlane.netojuu.com/images/thumb/1/14/35200.png/128px-35200.png"
   },
+  "610mm_Quintuple_Torpedo_Mount_Kai_T0": {
+    "name": "610mm_Quintuple_Torpedo_Mount_Kai_T0",
+    "cn": "五联装610mm鱼雷改T0",
+    "en": "610mm Quintuple Torpedo Mount Kai T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/thumb/0/05/35300.png/128px-35300.png"
+  },
   "610mm_Triple_Torpedo_Mount_Kai_T3": {
     "name": "610mm_Triple_Torpedo_Mount_Kai_T3",
     "cn": "三联装610mm鱼雷改T3",
@@ -390,6 +398,14 @@
     "rarity": "Rare",
     "tier": "T3",
     "image": "https://azurlane.netojuu.com/images/thumb/8/82/35000.png/128px-35000.png"
+  },
+  "6CRH_AP_Shell_T0": {
+    "name": "6CRH_AP_Shell_T0",
+    "cn": "6CRH穿甲弹T0",
+    "en": "6CRH AP Shell T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/b/bf/1060.png"
   },
   "76mm_AA_Gun_T1": {
     "name": "76mm_AA_Gun_T1",
@@ -879,6 +895,14 @@
     "tier": "T3",
     "image": "https://azurlane.netojuu.com/images/5/52/2900.png"
   },
+  "Battle_Tracto_Max_T0": {
+    "name": "Battle_Tracto_Max_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Battle Tracto Max T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/thumb/1/1d/89300.png/128px-89300.png"
+  },
   "Beaver_Squad_Tag_T0": {
     "name": "Beaver_Squad_Tag_T0",
     "cn": "小海狸中队队徽T0",
@@ -919,6 +943,22 @@
     "tier": "T3",
     "image": "https://azurlane.netojuu.com/images/thumb/b/be/29000.png/128px-29000.png"
   },
+  "Bréguet_BR_810_T0": {
+    "name": "Bréguet_BR_810_T0",
+    "cn": "BR.810T0",
+    "en": "Bréguet BR.810 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/6/6a/51240.png"
+  },
+  "Buster_Borr_T0": {
+    "name": "Buster_Borr_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Buster Borr T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/thumb/d/df/89340.png/128px-89340.png"
+  },
   "Celestial_Body_T0": {
     "name": "Celestial_Body_T0",
     "cn": "星云舞裙T0",
@@ -958,6 +998,14 @@
     "rarity": "Superrare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/a/a8/89200.png"
+  },
+  "Dynamic_Cannon_T0": {
+    "name": "Dynamic_Cannon_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Dynamic Cannon T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/thumb/3/3a/89380.png/128px-89380.png"
   },
   "Eagle_Union_Elite_Damage_Control_T0": {
     "name": "Eagle_Union_Elite_Damage_Control_T0",
@@ -1110,6 +1158,22 @@
     "rarity": "Superrare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/e/e7/17380.png"
+  },
+  "FBA_19_T2": {
+    "name": "FBA_19_T2",
+    "cn": "default_cn_nameT2",
+    "en": "FBA 19 T2",
+    "rarity": "Rare",
+    "tier": "T2",
+    "image": "https://azurlane.netojuu.com/images/e/e6/51160.png"
+  },
+  "FBA_19_T3": {
+    "name": "FBA_19_T3",
+    "cn": "default_cn_nameT3",
+    "en": "FBA 19 T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.netojuu.com/images/e/e6/51160.png"
   },
   "Fi_167_T0": {
     "name": "Fi_167_T0",
@@ -1335,6 +1399,14 @@
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/d/db/89080.png"
   },
+  "Goldburn_T0": {
+    "name": "Goldburn_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Goldburn T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/thumb/e/e9/89400.png/128px-89400.png"
+  },
   "Gourdou_Leseurre_GL_2_Fighter_T0": {
     "name": "Gourdou_Leseurre_GL_2_Fighter_T0",
     "cn": "GL.2舰载战斗机T0",
@@ -1342,6 +1414,14 @@
     "rarity": "Rare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/b/bb/50820.png"
+  },
+  "Gridman_Calibur_T0": {
+    "name": "Gridman_Calibur_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Gridman Calibur T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/thumb/3/34/89320.png/128px-89320.png"
   },
   "Gyroscope_T1": {
     "name": "Gyroscope_T1",
@@ -1502,6 +1582,14 @@
     "rarity": "Elite",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/6/6e/780.png"
+  },
+  "Intel_Report_Expedition_Log_T0": {
+    "name": "Intel_Report_Expedition_Log_T0",
+    "cn": "机密文件·日志残卷T0",
+    "en": "Intel Report - Expedition Log T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/e/e8/980.png"
   },
   "Intelligence_Chip_T0": {
     "name": "Intelligence_Chip_T0",
@@ -1823,6 +1911,30 @@
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/5/5e/47080.png"
   },
+  "Prototype_Quadruple_152mm_Main_Gun_Mount_T0": {
+    "name": "Prototype_Quadruple_152mm_Main_Gun_Mount_T0",
+    "cn": "试作型四联装152mm主炮T0",
+    "en": "Prototype Quadruple 152mm Main Gun Mount T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/3/37/22280.png"
+  },
+  "Prototype_Quadruple_30mm_AA_Gun_Mount_T0": {
+    "name": "Prototype_Quadruple_30mm_AA_Gun_Mount_T0",
+    "cn": "试作型四联装30mm机炮T0",
+    "en": "Prototype Quadruple 30mm AA Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/8/8d/46400.png"
+  },
+  "Prototype_Quadruple_330mm_Mle_1931_CB_Only_Main_Gun_Mount_T0": {
+    "name": "Prototype_Quadruple_330mm_Mle_1931_CB_Only_Main_Gun_Mount_T0",
+    "cn": "试作型四联装330mm主炮Mle1931（超巡用）T0",
+    "en": "Prototype Quadruple 330mm Mle 1931 (CB Only) Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/4/4a/50360.png"
+  },
   "Prototype_Quadruple_356mm_Mk_B_Main_Gun_Mount_T0": {
     "name": "Prototype_Quadruple_356mm_Mk_B_Main_Gun_Mount_T0",
     "cn": "试作型四联装356mm主炮MkBT0",
@@ -1838,6 +1950,14 @@
     "rarity": "Superrare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/f/f1/38300.png"
+  },
+  "Prototype_Su_2_T0": {
+    "name": "Prototype_Su_2_T0",
+    "cn": "试作舰载型Su-2T0",
+    "en": "Prototype Su-2 T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/0/08/85540.png"
   },
   "Prototype_Tenrai_T0": {
     "name": "Prototype_Tenrai_T0",
@@ -1862,6 +1982,14 @@
     "rarity": "Superrare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/5/5e/22260.png"
+  },
+  "Prototype_Triple_155mm_Kai_Naval_Gun_Mount_T0": {
+    "name": "Prototype_Triple_155mm_Kai_Naval_Gun_Mount_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Prototype Triple 155mm Kai Naval Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/7/73/32260.png"
   },
   "Prototype_Triple_203mm_AA_Gun_T0": {
     "name": "Prototype_Triple_203mm_AA_Gun_T0",
@@ -1951,6 +2079,22 @@
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/8/83/34180.png"
   },
+  "Prototype_Twin_130mm_Model_1936_Main_Gun_Mount_T0": {
+    "name": "Prototype_Twin_130mm_Model_1936_Main_Gun_Mount_T0",
+    "cn": "试作型双联装130mm主炮Model1936T0",
+    "en": "Prototype Twin 130mm Model 1936 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/1/14/56100.png"
+  },
+  "Prototype_Twin_150mm_SK_C_28_Main_Gun_Mount_T0": {
+    "name": "Prototype_Twin_150mm_SK_C_28_Main_Gun_Mount_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Prototype Twin 150mm SK C/28 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/b/b6/42080.png"
+  },
   "Prototype_Twin_234mm_Main_Gun_Mount_T0": {
     "name": "Prototype_Twin_234mm_Main_Gun_Mount_T0",
     "cn": "试作型双联装234mm主炮T0",
@@ -1958,6 +2102,14 @@
     "rarity": "Superrare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/a/a5/23100.png"
+  },
+  "Prototype_Twin_406mm_Mk4_Main_Gun_Mount_T0": {
+    "name": "Prototype_Twin_406mm_Mk4_Main_Gun_Mount_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Prototype Twin 406mm Mk4 Main Gun Mount T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/3/32/14520.png"
   },
   "Prototype_Twin_457mm_Mk_A_Main_Gun_Mount_T0": {
     "name": "Prototype_Twin_457mm_Mk_A_Main_Gun_Mount_T0",
@@ -1974,6 +2126,14 @@
     "rarity": "Superrare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/6/65/55160.png"
+  },
+  "Prototype_VIT_2_VK_107_T0": {
+    "name": "Prototype_VIT_2_VK_107_T0",
+    "cn": "试作型VIT-2 (VK-107)T0",
+    "en": "Prototype VIT-2 (VK-107) T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/3/3b/85560.png"
   },
   "Prototype_XF2A_4_Buffalo_T3": {
     "name": "Prototype_XF2A_4_Buffalo_T3",
@@ -2343,6 +2503,14 @@
     "tier": "T3",
     "image": "https://azurlane.netojuu.com/images/thumb/9/9f/1500.png/128px-1500.png"
   },
+  "SY_1_Missile_T0": {
+    "name": "SY_1_Missile_T0",
+    "cn": "上游-1导弹T0",
+    "en": "SY-1 Missile T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/7/77/56000.png"
+  },
   "Sacred_Lumière_T0": {
     "name": "Sacred_Lumière_T0",
     "cn": "活力之歌T0",
@@ -2454,6 +2622,14 @@
     "rarity": "Superrare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/4/4d/26660.png"
+  },
+  "Shining_Bracelet_T0": {
+    "name": "Shining_Bracelet_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Shining Bracelet T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/0/01/89280.png"
   },
   "Ship_Maintenance_Facility_T1": {
     "name": "Ship_Maintenance_Facility_T1",
@@ -3038,6 +3214,14 @@
     "rarity": "Superrare",
     "tier": "T3",
     "image": "https://azurlane.netojuu.com/images/f/fd/55100.png"
+  },
+  "Sky_Vitter_T0": {
+    "name": "Sky_Vitter_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Sky Vitter T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/thumb/7/75/89360.png/128px-89360.png"
   },
   "Small_Caliber_Naval_Gun_Parts_Cargo_T0": {
     "name": "Small_Caliber_Naval_Gun_Parts_Cargo_T0",
@@ -4435,22 +4619,46 @@
     "name": "Twin_203mm_Mle_1924_Main_Gun_Mount_T1",
     "cn": "双联装203mm主炮Mle1924T1",
     "en": "Twin 203mm Mle 1924 Main Gun Mount T1",
-    "rarity": "Rare",
+    "rarity": "Normal",
     "tier": "T1",
-    "image": "https://azurlane.netojuu.com/images/1/10/50860.png"
+    "image": "https://azurlane.netojuu.com/images/9/92/51100.png"
   },
   "Twin_203mm_Mle_1924_Main_Gun_Mount_T2": {
     "name": "Twin_203mm_Mle_1924_Main_Gun_Mount_T2",
     "cn": "双联装203mm主炮Mle1924T2",
     "en": "Twin 203mm Mle 1924 Main Gun Mount T2",
-    "rarity": "Elite",
+    "rarity": "Rare",
     "tier": "T2",
-    "image": "https://azurlane.netojuu.com/images/1/10/50860.png"
+    "image": "https://azurlane.netojuu.com/images/9/92/51100.png"
   },
   "Twin_203mm_Mle_1924_Main_Gun_Mount_T3": {
     "name": "Twin_203mm_Mle_1924_Main_Gun_Mount_T3",
     "cn": "双联装203mm主炮Mle1924T3",
     "en": "Twin 203mm Mle 1924 Main Gun Mount T3",
+    "rarity": "Elite",
+    "tier": "T3",
+    "image": "https://azurlane.netojuu.com/images/9/92/51100.png"
+  },
+  "Twin_203mm_Mle_1931_Main_Gun_Mount_T1": {
+    "name": "Twin_203mm_Mle_1931_Main_Gun_Mount_T1",
+    "cn": "双联装203mm主炮Mle1931T1",
+    "en": "Twin 203mm Mle 1931 Main Gun Mount T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.netojuu.com/images/1/10/50860.png"
+  },
+  "Twin_203mm_Mle_1931_Main_Gun_Mount_T2": {
+    "name": "Twin_203mm_Mle_1931_Main_Gun_Mount_T2",
+    "cn": "双联装203mm主炮Mle1931T2",
+    "en": "Twin 203mm Mle 1931 Main Gun Mount T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.netojuu.com/images/1/10/50860.png"
+  },
+  "Twin_203mm_Mle_1931_Main_Gun_Mount_T3": {
+    "name": "Twin_203mm_Mle_1931_Main_Gun_Mount_T3",
+    "cn": "双联装203mm主炮Mle1931T3",
+    "en": "Twin 203mm Mle 1931 Main Gun Mount T3",
     "rarity": "Superrare",
     "tier": "T3",
     "image": "https://azurlane.netojuu.com/images/1/10/50860.png"
@@ -4462,22 +4670,6 @@
     "rarity": "Rare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/d/dc/7340.png"
-  },
-  "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T2": {
-    "name": "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T2",
-    "cn": "双联装203mmSKC主炮T2",
-    "en": "Twin 203mm Mle 1924 Submarine Gun Mount T2",
-    "rarity": "Elite",
-    "tier": "T2",
-    "image": "https://azurlane.netojuu.com/images/thumb/2/2f/43000.png/128px-43000.png"
-  },
-  "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T3": {
-    "name": "Twin_203mm_Mle_1924_Submarine_Gun_Mount_T3",
-    "cn": "双联装203mmSKC主炮T3",
-    "en": "Twin 203mm Mle 1924 Submarine Gun Mount T3",
-    "rarity": "Superrare",
-    "tier": "T3",
-    "image": "https://azurlane.netojuu.com/images/thumb/2/2f/43000.png/128px-43000.png"
   },
   "Twin_203mm_Model_1924_Main_Gun_Mount_T1": {
     "name": "Twin_203mm_Model_1924_Main_Gun_Mount_T1",
@@ -4549,6 +4741,22 @@
     "en": "Twin 203mm (SK C/34) T1",
     "rarity": "Rare",
     "tier": "T1",
+    "image": "https://azurlane.netojuu.com/images/thumb/2/2f/43000.png/128px-43000.png"
+  },
+  "Twin_203mm_SK_C_34_T2": {
+    "name": "Twin_203mm_SK_C_34_T2",
+    "cn": "双联装203mmSKC主炮T2",
+    "en": "Twin 203mm (SK C/34) T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.netojuu.com/images/thumb/2/2f/43000.png/128px-43000.png"
+  },
+  "Twin_203mm_SK_C_34_T3": {
+    "name": "Twin_203mm_SK_C_34_T3",
+    "cn": "双联装203mmSKC主炮T3",
+    "en": "Twin 203mm (SK C/34) T3",
+    "rarity": "Superrare",
+    "tier": "T3",
     "image": "https://azurlane.netojuu.com/images/thumb/2/2f/43000.png/128px-43000.png"
   },
   "Twin_20mm_AA_Oerlikon_Design_T1": {
@@ -5103,6 +5311,14 @@
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/8/8d/2800.png"
   },
+  "Type_95_Kai_Pure_Oxygen_Submarine_Torpedo_T0": {
+    "name": "Type_95_Kai_Pure_Oxygen_Submarine_Torpedo_T0",
+    "cn": "default_cn_nameT0",
+    "en": "Type 95 Kai Pure Oxygen Submarine Torpedo T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/c/c0/35580.png"
+  },
   "Type_95_Submarine_Torpedo_T1": {
     "name": "Type_95_Submarine_Torpedo_T1",
     "cn": "潜艇用95式纯氧鱼雷T1",
@@ -5231,6 +5447,22 @@
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/5/53/860.png"
   },
+  "White_Hot_Verheerender_T0": {
+    "name": "White_Hot_Verheerender_T0",
+    "cn": "炽烈之歌T0",
+    "en": "White-Hot Verheerender T0",
+    "rarity": "Superrare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/d/d8/89140.png"
+  },
+  "World_Expo_Invitation_T0": {
+    "name": "World_Expo_Invitation_T0",
+    "cn": "撒丁的邀请函T0",
+    "en": "World Expo Invitation T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/9/9f/3600.png"
+  },
   "Wyvern_T0": {
     "name": "Wyvern_T0",
     "cn": "飞龙T0",
@@ -5254,5 +5486,45 @@
     "rarity": "Superrare",
     "tier": "T0",
     "image": "https://azurlane.netojuu.com/images/3/38/18220.png"
+  },
+  "Z_Flag_T0": {
+    "name": "Z_Flag_T0",
+    "cn": "Z旗T0",
+    "en": "Z Flag T0",
+    "rarity": "Ultrarare",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/thumb/d/d0/640.png/128px-640.png"
+  },
+  "default_en_name_T0": {
+    "name": "default_en_name_T0",
+    "cn": "破损的演讲稿T0",
+    "en": "default_en_name T0",
+    "rarity": "Elite",
+    "tier": "T0",
+    "image": "https://azurlane.netojuu.com/images/f/f9/3560.png"
+  },
+  "default_en_name_T1": {
+    "name": "default_en_name_T1",
+    "cn": "135mm連装砲Model1938T1",
+    "en": "default_en_name T1",
+    "rarity": "Rare",
+    "tier": "T1",
+    "image": "https://azurlane.netojuu.com/images/8/89/55920.png"
+  },
+  "default_en_name_T2": {
+    "name": "default_en_name_T2",
+    "cn": "135mm連装砲Model1938T2",
+    "en": "default_en_name T2",
+    "rarity": "Elite",
+    "tier": "T2",
+    "image": "https://azurlane.netojuu.com/images/8/89/55920.png"
+  },
+  "default_en_name_T3": {
+    "name": "default_en_name_T3",
+    "cn": "135mm連装砲Model1938T3",
+    "en": "default_en_name T3",
+    "rarity": "Superrare",
+    "tier": "T3",
+    "image": "https://azurlane.netojuu.com/images/8/89/55920.png"
   }
 }
