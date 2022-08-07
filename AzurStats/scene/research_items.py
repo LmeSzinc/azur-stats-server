@@ -86,7 +86,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         finished = get_research_finished(self.first)
         if finished is None:
             raise ImageError('No project finished, but get items')
-        project_list = list(self.parse_research_list(self.first))
+        project_list = list(self.parse_research_list_cached(self.first))
         project = project_list[finished]
 
         all_items = []
@@ -120,7 +120,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         finished = get_research_finished_s4(self.first)
         if finished is None:
             raise ImageError('No project finished, but get items')
-        project_list = list(self.parse_research_list(self.first))
+        project_list = list(self.parse_research_list_cached(self.first))
         project = project_list[finished]
 
         all_items = []

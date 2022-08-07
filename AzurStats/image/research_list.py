@@ -17,6 +17,8 @@ class DataResearchList:
 
 
 class ResearchList(ImageBase):
+    _cached_research_list = None
+
     def is_research_list(self, image):
         return bool(self.classify_server(RESEARCH_CHECK, image))
 
@@ -37,6 +39,25 @@ class ResearchList(ImageBase):
         else:
             for data in self._research_list_s4(image):
                 yield data
+
+    def parse_research_list_cached(self, image):
+        """
+        DataResearchList is used in both SceneResearchItems and SceneResearchProjects, so cache it
+
+        Args:
+            image:
+
+        Yields:
+            DataResearchList:
+        """
+        if ResearchList._cached_research_list is None:
+            ResearchList._cached_research_list = list(self.parse_research_list(image))
+        for data in ResearchList._cached_research_list:
+            yield data
+
+    def clear_cache(self):
+        super().clear_cache()
+        ResearchList._cached_research_list = None
 
     def is_s5_research_list(self, image):
         """

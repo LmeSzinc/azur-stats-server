@@ -48,7 +48,7 @@ class SceneResearchProjects(SceneBase, ResearchList, ResearchQueue):
             DataResearchProjects:
         """
         for image in self.images:
-            for data in self.parse_research_list(image):
+            for data in self.parse_research_list_cached(image):
                 yield DataResearchProjects(
                     imgid=self.imgid,
                     server=self.server,
@@ -67,7 +67,7 @@ class SceneResearchProjects(SceneBase, ResearchList, ResearchQueue):
         Yields:
             DataResearchProjects:
         """
-        for data in self.parse_research_list(self.first):
+        for data in self.parse_research_list_cached(self.first):
             yield DataResearchProjects(
                 imgid=self.imgid,
                 server=self.server,

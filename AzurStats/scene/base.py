@@ -39,10 +39,7 @@ class SceneBase(ImageBase):
             ImageError: If unable to read image file
         """
         self.file = file
-        del_cached_property(self, 'first')
-        del_cached_property(self, 'followings')
-        del_cached_property(self, 'imgid')
-        self.server = ''
+        self.clear_cache()
 
         if isinstance(file, str):
             self.images = unpack(load_image(file))
@@ -52,6 +49,12 @@ class SceneBase(ImageBase):
             self.images = unpack(file)
         else:
             raise ImageError(f'Unknown image file: {file}')
+
+    def clear_cache(self):
+        super().clear_cache()
+        del_cached_property(self, 'first')
+        del_cached_property(self, 'followings')
+        del_cached_property(self, 'imgid')
 
     def parse_scene(self):
         """

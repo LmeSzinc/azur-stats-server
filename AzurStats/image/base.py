@@ -47,6 +47,12 @@ class ImageBase:
             self.server = ''
         return ''
 
+    def clear_cache(self):
+        """
+        This method is called when loading a new image.
+        """
+        self.server = ''
+
     def image_color_count(self, image, button, color, threshold=221, count=50):
         """
         Args:
