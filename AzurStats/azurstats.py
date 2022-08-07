@@ -99,22 +99,7 @@ class AzurStats(SceneWrapper):
         self.all_data = []
         self.all_record = []
 
-        self.extract_assets()
         self.parse_scene()
-
-    def extract_assets(self):
-        """
-        Extract item templates from all scenes
-        """
-        logger.hr('Extract assets', level=2)
-        for file in self.files:
-            try:
-                super().load_file(file)
-                super().extract_assets()
-            except (ImageUnknown, ImageDiscarded, ImageError, FileNotFoundError):
-                pass
-            except Exception as e:
-                logger.error(f'Unexpected error on image {self.imgid}: {e}')
 
     def _add_record(self, data):
         if isinstance(data, Exception):
@@ -143,6 +128,7 @@ class AzurStats(SceneWrapper):
         for file in self.files:
             try:
                 super().load_file(file)
+                super().extract_assets()
                 data = list(super().parse_scene())
                 self._add_record(self.last_data)
                 self._add_data(data)
