@@ -33,6 +33,7 @@ class SceneWrapper(SceneBase):
         super().load_file(file)
         for scene in SceneWrapper.scenes:
             scene.load_file(self.images)
+            scene.__dict__['imgid'] = self.imgid
 
     def extract_assets(self):
         """
@@ -62,7 +63,7 @@ class SceneWrapper(SceneBase):
 
 
 @dataclass
-class DataParseRecord:
+class DataParseRecords:
     imgid: str
     server: str
     scene: str
@@ -89,6 +90,8 @@ class AzurStats(SceneWrapper):
                 files = [files]
         elif isinstance(files, np.ndarray):
             files = [files]
+        elif isinstance(files, list):
+            pass
         else:
             raise ImageError(f'Unknown image file: {files}')
         logger.info(f'AzurStats is now parsing {len(files)} images')
@@ -108,14 +111,14 @@ class AzurStats(SceneWrapper):
             try:
                 super().load_file(file)
                 super().extract_assets()
-            except (ImageUnknown, ImageDiscarded, ImageError):
+            except (ImageUnknown, ImageDiscarded, ImageError, FileNotFoundError):
                 pass
             except Exception as e:
                 logger.error(f'Unexpected error on image {self.imgid}: {e}')
 
     def _add_record(self, data):
         if isinstance(data, Exception):
-            data = DataParseRecord(
+            data = DataParseRecords(
                 imgid=self.imgid,
                 server=self.server,
                 scene=data.__class__.__name__,
@@ -123,7 +126,7 @@ class AzurStats(SceneWrapper):
                 error_msg=str(data)
             )
         else:
-            data = DataParseRecord(
+            data = DataParseRecords(
                 imgid=self.imgid,
                 server=self.server,
                 scene=remove_prefix(self.last_data.__class__.__name__, 'Data'),
@@ -143,27 +146,35 @@ class AzurStats(SceneWrapper):
                 data = list(super().parse_scene())
                 self._add_record(self.last_data)
                 self._add_data(data)
-            except (ImageUnknown, ImageDiscarded, ImageError) as e:
+            except (ImageUnknown, ImageDiscarded, ImageError, FileNotFoundError) as e:
                 self._add_record(e)
             except Exception as e:
                 self._add_record(ImageError(str(e)))
+
+    @cached_property
+    def all_data_type(self):
+        """
+        Returns:
+            list[str]: Such as ['DataParseRecords', 'DataResearchProjects', 'DataResearchItems']
+        """
+        return [attr for attr in dir(self) if attr.startswith('Data')]
 
     def _filter_data(self, data_class):
         return [data for data in self.all_data if isinstance(data, data_class)]
 
     @property
-    def DataParseRecord(self):
-        return self.all_data
+    def DataParseRecords(self):
+        return self.all_record
 
     @cached_property
-    def DataResearchProject(self):
-        from AzurStats.scene.research_projects import DataResearchProject
-        return self._filter_data(DataResearchProject)
+    def DataResearchProjects(self):
+        from AzurStats.scene.research_projects import DataResearchProjects
+        return self._filter_data(DataResearchProjects)
 
     @cached_property
-    def DataResearchItem(self):
-        from AzurStats.scene.research_items import DataResearchItem
-        return self._filter_data(DataResearchItem)
+    def DataResearchItems(self):
+        from AzurStats.scene.research_items import DataResearchItems
+        return self._filter_data(DataResearchItems)
 
 
 if __name__ == '__main__':
@@ -171,5 +182,5 @@ if __name__ == '__main__':
     Examples
     """
     az = AzurStats(r'./assets/test')
-    for d in az.DataResearchItem:
+    for d in az.DataResearchItems:
         print(d)

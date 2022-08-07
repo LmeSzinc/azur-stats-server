@@ -6,7 +6,8 @@ from AzurStats.scene.base import SceneBase
 
 
 @dataclass
-class DataResearchProject:
+class DataResearchProjects:
+    imgid: str
     server: str
     focus_series: int
     series: int
@@ -17,7 +18,7 @@ class SceneResearchProjects(SceneBase, ResearchList, ResearchQueue):
     def parse_scene(self):
         """
         Returns:
-            Iter[DataResearchItem]:
+            Iter[DataResearchItems]:
         """
         if not self.is_research_list(self.first):
             return []
@@ -44,11 +45,12 @@ class SceneResearchProjects(SceneBase, ResearchList, ResearchQueue):
         - Research list
 
         Yields:
-            DataResearchProject:
+            DataResearchProjects:
         """
         for image in self.images:
             for data in self.parse_research_list(image):
-                yield DataResearchProject(
+                yield DataResearchProjects(
+                    imgid=self.imgid,
                     server=self.server,
                     focus_series=data.focus_series,
                     series=data.series,
@@ -63,10 +65,11 @@ class SceneResearchProjects(SceneBase, ResearchList, ResearchQueue):
         - Get items
 
         Yields:
-            DataResearchProject:
+            DataResearchProjects:
         """
         for data in self.parse_research_list(self.first):
-            yield DataResearchProject(
+            yield DataResearchProjects(
+                imgid=self.imgid,
                 server=self.server,
                 focus_series=data.focus_series,
                 series=data.series,

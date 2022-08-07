@@ -1,7 +1,7 @@
 ### azur-stats-server
 /AzurStats/data
-AzurStats/config/*.toml
-!AzurStats/config/template.toml
+AzurStats/config/*.yaml
+!AzurStats/config/template.yaml
 
 
 ### AzurLaneAutoScript

@@ -10,7 +10,8 @@ from module.statistics.utils import ImageError
 
 
 @dataclass
-class DataResearchItem:
+class DataResearchItems:
+    imgid: str
     server: str
     series: int
     project: str
@@ -33,7 +34,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
     def parse_scene(self):
         """
         Returns:
-            Iter[DataResearchItem]:
+            Iter[DataResearchItems]:
         """
         if self.is_research_list(self.first) and self.drop_has_get_items(self.images):
             if self.is_s5_research_list(self.first):
@@ -80,7 +81,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         - Get items
 
         Yields:
-            DataResearchItem:
+            DataResearchItems:
         """
         finished = get_research_finished(self.first)
         if finished is None:
@@ -96,7 +97,8 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
             all_items = merge_get_items(all_items, list(items))
 
         for item in all_items:
-            yield DataResearchItem(
+            yield DataResearchItems(
+                imgid=self.imgid,
                 server=self.server,
                 series=project.series,
                 project=project.project,
@@ -113,7 +115,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         - Get items
 
         Yields:
-            DataResearchItem:
+            DataResearchItems:
         """
         finished = get_research_finished_s4(self.first)
         if finished is None:
@@ -129,7 +131,8 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
             all_items = merge_get_items(all_items, list(items))
 
         for item in all_items:
-            yield DataResearchItem(
+            yield DataResearchItems(
+                imgid=self.imgid,
                 server=self.server,
                 series=project.series,
                 project=project.project,
@@ -150,7 +153,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         - Get items
 
         Yields:
-            DataResearchItem:
+            DataResearchItems:
         """
         finished_list = list(self.research_queue_project(self.first))
         drop_items_list = list(self.parse_get_items_chain(self.followings))
@@ -160,7 +163,8 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
                              f'but has {len(drop_items_list)} get_items')
         for project, drop_items in zip(finished_list, drop_items_list):
             for item in drop_items:
-                yield DataResearchItem(
+                yield DataResearchItems(
+                    imgid=self.imgid,
                     server=self.server,
                     series=project.raw_series,
                     project=project.name,
