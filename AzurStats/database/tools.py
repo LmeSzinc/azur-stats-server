@@ -1,12 +1,21 @@
 import dataclasses
+import os
+import re
 
 import pymysql
 
 from AzurStats.database.base import AzurStatsDatabase
+from module.config.utils import iter_folder
 from module.logger import logger
 
 
 class DatabaseTools(AzurStatsDatabase):
+    ALL_TABLES = [
+        'parse_records',
+        'research_items',
+        'research_projects'
+    ]
+
     def chuck_execute(self, sql, seq, chunk_size=1000):
         """
         Args:
@@ -30,7 +39,7 @@ class DatabaseTools(AzurStatsDatabase):
         finally:
             connection.close()
 
-    def delete_record(self, table, condition):
+    def delete_record(self, table, condition, confirm=True):
         """
         Delete records from the given condition
 
@@ -55,15 +64,10 @@ class DatabaseTools(AzurStatsDatabase):
 
         records = self.query(sql, DataImaid).get('imgid')
         logger.info(f'Found {len(records)} records')
-        input('\nInput any key to confirm delete:\n')
+        if confirm:
+            input('\nInput any key to confirm delete:\n')
 
-        tables = ['parse_records', table]
-        if table == 'research_items':
-            tables.insert(1, 'research_projects')
-        if table == 'research_projects':
-            tables.insert(1, 'research_items')
-
-        for delete_table in tables:
+        for delete_table in self.ALL_TABLES:
             logger.info(f'Delete record from table: {delete_table}')
             sql = f"""
             DELETE FROM {delete_table}
@@ -71,7 +75,29 @@ class DatabaseTools(AzurStatsDatabase):
             """
             self.chuck_execute(sql, records)
 
-    def delete_unknown_templates(self, table):
+    def delete_unknown_templates(self, table, confirm=True):
+        # Show
+        sql = f"""
+                SELECT item, COUNT(DISTINCT(imgid)) as amount, imgid
+                FROM {table}
+                GROUP BY item
+                """
+
+        @dataclasses.dataclass
+        class DataItem:
+            item: str
+            amount: int
+            example: str
+
+            @property
+            def is_unknown(self):
+                return self.item.isdigit()
+
+        items = self.query(sql, DataItem).select(is_unknown=True)
+        for item in items:
+            print('\t'.join(map(str, dataclasses.astuple(item))))
+
+        # Query
         sql = f"""
         SELECT DISTINCT(item)
         FROM {table}
@@ -82,9 +108,21 @@ class DatabaseTools(AzurStatsDatabase):
             item: str
 
         items = self.query(sql, DataItem).get('item')
+        items = [item for item in items if item.isdigit()]
+        logger.info(f'Found {len(items)} items')
+
+        folder = f'./assets/stats/{table}'
+        regex = re.compile(r'/\d+.png$')
+        templates = [t for t in iter_folder(folder) if regex.search(t)]
+        logger.info(f'Found {len(templates)} templates')
+
+        # Execute
+        if confirm:
+            input('\nInput any key to confirm delete:\n')
+        for template in templates:
+            os.remove(template)
         for item in items:
-            if item.isdigit():
-                self.delete_record(table, condition=f'item = {item}')
+            self.delete_record(table, condition=f'item = {item}', confirm=False)
 
     def delete_redundant_research_projects(self, table='research_projects'):
         logger.info(f'Delete redundant research projects from table "{table}"')
@@ -106,13 +144,7 @@ class DatabaseTools(AzurStatsDatabase):
 
         input('\nInput any key to confirm delete:\n')
 
-        tables = ['parse_records', table]
-        if table == 'research_items':
-            tables.insert(1, 'research_projects')
-        if table == 'research_projects':
-            tables.insert(1, 'research_items')
-
-        for delete_table in tables:
+        for delete_table in self.ALL_TABLES:
             logger.info(f'Delete record from table: {delete_table}')
             sql = f"""
             DELETE FROM {delete_table}
@@ -123,4 +155,5 @@ class DatabaseTools(AzurStatsDatabase):
 
 if __name__ == '__main__':
     self = DatabaseTools()
-    self.delete_record('research_items', '`server` = "tw"')
+    self.delete_unknown_templates('research_items')
+    # self.delete_record('parse_records', 'scene = "ResearchInvalid"')
