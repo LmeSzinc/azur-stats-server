@@ -12,31 +12,42 @@ USE `azurstat_data`;
 -- Table: `azurstat_data.parse_records`
 CREATE TABLE IF NOT EXISTS `parse_records`
 (
-    `id`        int(11)    NOT NULL AUTO_INCREMENT,
-    `imgid`     char(16)   NOT NULL COMMENT '图片uid',
-    `server`    char(4)             DEFAULT NULL COMMENT '游戏服务器',
-    `scene`     varchar(32)         DEFAULT NULL COMMENT '掉落场景',
-    `error`     tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否出现错误',
-    `error_msg` varchar(255)        DEFAULT NULL COMMENT '错误信息',
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `id` (`id`),
-    UNIQUE KEY `imgid` (`imgid`)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+    `id`        INT(11)      NOT NULL AUTO_INCREMENT,
+    `imgid`     CHAR(16)     NOT NULL COMMENT '图片uid' COLLATE 'utf8_general_ci',
+    `server`    CHAR(4)      NULL     DEFAULT NULL COMMENT '游戏服务器' COLLATE 'utf8_general_ci',
+    `scene`     VARCHAR(32)  NULL     DEFAULT NULL COMMENT '掉落场景' COLLATE 'utf8_general_ci',
+    `error`     TINYINT(4)   NOT NULL DEFAULT '0' COMMENT '是否出现错误',
+    `error_msg` VARCHAR(255) NULL     DEFAULT NULL COMMENT '错误信息' COLLATE 'utf8_general_ci',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `id` (`id`) USING BTREE,
+    UNIQUE INDEX `imgid` (`imgid`) USING BTREE,
+    INDEX `scene` (`scene`, `imgid`) USING BTREE
+)
+    COLLATE = 'utf8_general_ci'
+    ENGINE = InnoDB
+;
 
 -- Table: `azurstat_data.research_projects`
 CREATE TABLE IF NOT EXISTS `research_projects`
 (
-    `id`           int(11)    NOT NULL AUTO_INCREMENT,
-    `imgid`        char(16)   NOT NULL COMMENT '图片uid',
-    `server`       char(4)             DEFAULT NULL COMMENT '游戏服务器',
-    `focus_series` tinyint(4) NOT NULL DEFAULT '0' COMMENT '科研倾向',
-    `series`       tinyint(4) NOT NULL DEFAULT '0' COMMENT '科研期数',
-    `project`      varchar(16)         DEFAULT NULL COMMENT '科研名称',
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `id` (`id`)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`imgid` CHAR(16) NOT NULL COMMENT '图片uid' COLLATE 'utf8_general_ci',
+	`server` CHAR(4) NULL DEFAULT NULL COMMENT '游戏服务器' COLLATE 'utf8_general_ci',
+	`series` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '科研期数',
+	`project` VARCHAR(16) NULL DEFAULT NULL COMMENT '科研名称' COLLATE 'utf8_general_ci',
+	`item` VARCHAR(255) NULL DEFAULT NULL COMMENT '物品名称' COLLATE 'utf8_general_ci',
+	`amount` INT(11) NULL DEFAULT NULL COMMENT '物品数量',
+	`tag` VARCHAR(16) NULL DEFAULT NULL COMMENT '额外信息，追赶或者BONUS等' COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`id`) USING BTREE,
+	UNIQUE INDEX `id` (`id`) USING BTREE,
+	INDEX `samples` (`series`, `project`, `imgid`) USING BTREE,
+	INDEX `stats` (`series`, `project`, `item`, `tag`, `imgid`, `amount`) USING BTREE,
+	INDEX `imgid` (`imgid`) USING BTREE,
+	INDEX `item` (`item`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
 
 -- Table: `azurstat_data.research_items`
 CREATE TABLE IF NOT EXISTS `research_items`

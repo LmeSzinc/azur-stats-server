@@ -7,9 +7,15 @@ import pymysql
 
 from AzurStats.azurstats import AzurStats
 from AzurStats.config.config import CONFIG
-from module.config.utils import deep_get
+from AzurStats.database.item_info import ItemInfo
+from AzurStats.database.output import ResultOutput
+from module.config.utils import deep_get, read_file, write_file
 from module.device.method.utils import remove_prefix
 from module.logger import logger
+from module.map.map_grids import SelectedGrids
+from module.ocr.ocr import Ocr
+
+Ocr.SHOW_LOG = False
 
 
 @dataclasses.dataclass
@@ -18,7 +24,7 @@ class DataImage:
     path: str
 
 
-class AzurStatsDatabase:
+class AzurStatsDatabase(ItemInfo, ResultOutput):
     # Numbers of images processed on each batch
     BATCH_SIZE = 100
 
@@ -61,29 +67,62 @@ class AzurStatsDatabase:
         finally:
             connection.close()
 
-    def select_batch_images(self) -> t.List[DataImage]:
+    def query(self, sql: str, data_class: dataclasses.dataclass) -> SelectedGrids:
         """
-        Get list a batch of images to process
-        """
-        sql = f"""
-        SELECT imgid, path
-        FROM azurstat.img_images a
-        WHERE (
-            SELECT COUNT(*)
-            FROM azurstat_data.parse_records b
-            WHERE a.imgid = b.imgid
-        ) = 0
-        ORDER BY id ASC
-        LIMIT {AzurStatsDatabase.BATCH_SIZE}
+        Args:
+            sql:
+            data_class:
+
+        Returns:
+            SelectedGrids[data_class()]
         """
         connection = pymysql.connect(**self.database_config)
         try:
             with connection.cursor() as cursor:
                 cursor.execute(sql)
                 rows = cursor.fetchall()
-                return [DataImage(*row) for row in rows]
+                return SelectedGrids([data_class(*row) for row in rows])
         finally:
             connection.close()
+
+    def select_batch_images(self) -> SelectedGrids(DataImage):
+        """
+        Get list a batch of images to process
+        """
+        sql = f"""
+        SELECT a.imgid, a.path
+        FROM azurstat.img_images a
+        LEFT JOIN azurstat_data.parse_records b ON a.imgid = b.imgid
+        WHERE ISNULL(b.imgid)
+        LIMIT {AzurStatsDatabase.BATCH_SIZE}
+        """
+        # sql = f"""
+        # SELECT imgid, path
+        # FROM azurstat.img_images a
+        # WHERE (
+        #     SELECT COUNT(*)
+        #     FROM azurstat_data.parse_records b
+        #     WHERE a.imgid = b.imgid
+        # ) = 0
+        # ORDER BY id ASC
+        # LIMIT {AzurStatsDatabase.BATCH_SIZE}
+        # """
+        return self.query(sql, DataImage)
+
+    def record_to_json(self, record: SelectedGrids, file: str = None) -> t.Dict:
+        out = {}
+        for index, data in enumerate(record):
+            out[index] = dataclasses.asdict(data)
+
+        if file is not None:
+            write_file(file, data=out)
+        return out
+
+    def record_from_json(self, record: [SelectedGrids, str], data_class: dataclasses.dataclass) -> SelectedGrids:
+        if isinstance(record, str):
+            record = read_file(record)
+        out = [data_class(**data) for data in record.values()]
+        return SelectedGrids(out)
 
     @staticmethod
     def _insert_data(data_list: t.List, cursor: pymysql.connections.Cursor):
@@ -140,7 +179,5 @@ class AzurStatsDatabase:
 
 
 if __name__ == '__main__':
-    # from module.ocr.al_ocr import AlOcr
-    # AlOcr.CNOCR_CONTEXT = 'gpu'
     self = AzurStatsDatabase()
     self.update()
