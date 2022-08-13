@@ -11,7 +11,12 @@ from module.base.decorator import cached_property
 from module.config.utils import iter_folder
 from module.device.method.utils import remove_prefix
 from module.logger import logger
-from module.statistics.utils import ImageUnknown, ImageDiscarded, ImageError
+from module.statistics.utils import ImageError
+
+
+class ImageUnknown(ImageError):
+    """ Image from a unknown drop scene, no such method to parse """
+    pass
 
 
 class SceneWrapper(SceneBase):
@@ -52,11 +57,13 @@ class SceneWrapper(SceneBase):
         """
         self.last_data = None
         for scene in SceneWrapper.scenes:
-            for data in scene.parse_scene():
+            try:
+                for data in scene.parse_scene():
+                    self.last_data = data
+                    yield data
+            finally:
                 if not self.server:
                     self.server = scene.server
-                self.last_data = data
-                yield data
 
         if self.last_data is None:
             raise ImageUnknown('Image unknown')
@@ -132,7 +139,7 @@ class AzurStats(SceneWrapper):
                 data = list(super().parse_scene())
                 self._add_record(self.last_data)
                 self._add_data(data)
-            except (ImageUnknown, ImageDiscarded, ImageError, FileNotFoundError) as e:
+            except (ImageError, FileNotFoundError) as e:
                 self._add_record(e)
             except Exception as e:
                 self._add_record(ImageError(str(e)))
@@ -168,5 +175,7 @@ if __name__ == '__main__':
     Examples
     """
     az = AzurStats(r'./assets/test')
+    for d in az.DataParseRecords:
+        print(d)
     for d in az.DataResearchItems:
         print(d)

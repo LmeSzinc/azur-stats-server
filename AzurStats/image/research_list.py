@@ -1,3 +1,4 @@
+import re
 from dataclasses import dataclass
 
 from AzurStats.image.base import ImageBase
@@ -5,8 +6,19 @@ from module.research.assets import HAS_RESEARCH_QUEUE
 from module.research.project import get_research_name, get_research_series, ResearchProject
 from module.research_s4.project import get_research_name as get_research_name_s4
 from module.research_s4.project import get_research_series as get_research_series_s4
-from module.statistics.utils import ImageError, ImageDiscarded
+from module.statistics.utils import ImageError
 from module.ui.assets import RESEARCH_CHECK
+
+REGEX_PROJECT_NAME = re.compile(r'[A-Z]-\d\d\d-[A-Z][A-Z]')
+
+
+class ResearchJpDiscarded(ImageError):
+    """ JP research has no names, discard this image """
+    pass
+
+
+class ResearchInvalid(ImageError):
+    pass
 
 
 @dataclass
@@ -31,7 +43,7 @@ class ResearchList(ImageBase):
             DataResearchList:
         """
         if self.server == 'jp':
-            raise ImageDiscarded('JP research list has no project names')
+            raise ResearchJpDiscarded('JP research list has no project names')
 
         if self.is_s5_research_list(image):
             for data in self._research_list_s5(image):
@@ -93,7 +105,11 @@ class ResearchList(ImageBase):
         # Check project valid
         for project in project_list:
             if not project.valid:
-                raise ImageError(f'Invalid research project: {project}')
+                raise ResearchInvalid(f'Invalid research project: {project}')
+            if not REGEX_PROJECT_NAME.match(project.name):
+                raise ResearchInvalid(f'Invalid research project name: {project}')
+            if project.series == 0:
+                raise ResearchInvalid(f'Invalid research project series: {project}')
 
         for series, project in zip(series_list, project_list):
             yield DataResearchList(
@@ -127,7 +143,11 @@ class ResearchList(ImageBase):
         # Check project valid
         for project in project_list:
             if not project.valid:
-                raise ImageError(f'Invalid research project: {project}')
+                raise ResearchInvalid(f'Invalid research project: {project}')
+            if not REGEX_PROJECT_NAME.match(project.name):
+                raise ResearchInvalid(f'Invalid research project name: {project}')
+            if project.series == 0:
+                raise ResearchInvalid(f'Invalid research project series: {project}')
 
         for series, project in zip(series_list, project_list):
             yield DataResearchList(

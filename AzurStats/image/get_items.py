@@ -18,6 +18,25 @@ ITEM_GRIDS_2 = ButtonGrid(origin=(336, 227), delta=(128, 142), button_shape=(96,
 ITEM_GRIDS_3 = ButtonGrid(origin=(336, 223), delta=(128, 149), button_shape=(96, 96), grid_shape=(5, 2))
 
 
+class GetItemsCoveredByInfoBar(ImageError):
+    pass
+
+
+class GetItemsInvalid(ImageError):
+    """ Trying to detect a non get_items image """
+    pass
+
+
+class ZeroAmountError(ImageError):
+    """ Item amount equal 0 """
+    pass
+
+
+class TooManyNewTemplate(ImageError):
+    """ New item templates >= 2 """
+    pass
+
+
 def merge_get_items(item_list_1, item_list_2):
     """
     Args:
@@ -44,6 +63,9 @@ def has_odd_items(image):
 
 class GetItems(ImageBase):
     ITEM_TEMPLATE_FOLDER = f'./assets/stats_basic'
+    # True when extracting templates for new scene
+    # False at normal run
+    ALLOW_TOO_MANY_NEW_TEMPLATE = False
 
     @cached_property
     def item_grid(self) -> ItemGrid:
@@ -77,6 +99,8 @@ class GetItems(ImageBase):
                 after = str(item)
                 if before != after:
                     logger.info(f'Item {before} is revised to {after}')
+                if item.amount == 0:
+                    raise ZeroAmountError(f'Invalid item amount: {item}')
                 yield item
 
     def extract_item_template(self, image, folder=None):
@@ -90,7 +114,10 @@ class GetItems(ImageBase):
             folder = self.ITEM_TEMPLATE_FOLDER
         self._get_items_load(image)
         if self.item_grid.grids is not None:
-            self.item_grid.extract_template(image, folder=folder)
+            new = self.item_grid.extract_template(image, folder=folder)
+            new = len(new.keys())
+            if not GetItems.ALLOW_TOO_MANY_NEW_TEMPLATE and new >= 2:
+                raise TooManyNewTemplate(f'Extracted {new} new templates')
 
     def revise_item(self, item):
         """
@@ -109,7 +136,7 @@ class GetItems(ImageBase):
         """
         self.item_grid.grids = None
         if INFO_BAR_1.appear_on(image):
-            raise ImageError('get_items image has info_bar')
+            raise GetItemsCoveredByInfoBar('get_items image has info_bar')
         elif self.classify_server(GET_ITEMS_1, image, offset=(5, 0)):
             self.item_grid.grids = ITEM_GRIDS_1_ODD if has_odd_items(image) else ITEM_GRIDS_1_EVEN
         elif self.classify_server(GET_ITEMS_2, image, offset=(5, 0)):
@@ -117,7 +144,7 @@ class GetItems(ImageBase):
         elif self.classify_server(GET_ITEMS_3, image, offset=(5, 0)):
             self.item_grid.grids = ITEM_GRIDS_3
         else:
-            raise ImageError('Stat image is not a get_items image')
+            raise GetItemsInvalid('Stat image is not a get_items image')
 
     def drop_has_get_items(self, images):
         """

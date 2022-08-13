@@ -1,12 +1,25 @@
+import re
 from dataclasses import dataclass
 
-from AzurStats.image.get_items import merge_get_items
-from AzurStats.image.research_list import ResearchList
+from AzurStats.image.get_items import GetItems, merge_get_items
+from AzurStats.image.research_list import ResearchList, DataResearchList
 from AzurStats.image.research_queue import ResearchQueue
 from AzurStats.scene.base import SceneBase
 from module.research.project import get_research_finished, ResearchProject
 from module.research_s4.project import get_research_finished as get_research_finished_s4
 from module.statistics.utils import ImageError
+
+REGEX_EQUIPMENT = re.compile(r'_T[01234]$')
+
+
+class ResearchItemsFromNowhere(ImageError):
+    """No project finished, but get items """
+    pass
+
+
+class ResearchQueueMismatch(ImageError):
+    """ Research queue has 1 finished projects but has 2 get_items """
+    pass
 
 
 @dataclass
@@ -20,8 +33,9 @@ class DataResearchItems:
     tag: str
 
 
-class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
-    ITEM_TEMPLATE_FOLDER = './assets/stats/research'
+class SceneResearchItems(SceneBase, ResearchList, ResearchQueue, GetItems):
+    ITEM_TEMPLATE_FOLDER = './assets/stats/research_items'
+    finished_project: DataResearchList
 
     def extract_assets(self):
         if not self.is_research_queue(self.first) and not self.is_research_list(self.first):
@@ -55,13 +69,20 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
             item.amount %= 10
         # BlueprintHakuryuu and BlueprintMarcopolo may be detected as 4** and 7*
         # Blueprints are about 10 at max
-        if 'Blueprint' in item.name:
+        if 'Blueprint' in item.name and item.tag is None:
+            project = ResearchProject(series=self.finished_project.series, name=self.finished_project.project)
             if item.amount > 20:
                 item.amount %= 10
-            # DR blueprints should < 10
-            lower_name = item.name.lower()
-            for dr_ship in ResearchProject.DR_SHIP:
-                if dr_ship in lower_name:
+            if project.ship_rarity == 'dr':
+                # DR blueprints should < 10
+                item.amount %= 10
+            else:
+                if project.genre == 'D' and project.duration == '0.5':
+                    # PRY0.5, blueprints 5~12
+                    if item.amount <= 2:
+                        item.amount += 10
+                else:
+                    # PRY other, blueprints 1~9
                     item.amount %= 10
         if item.name == 'SpecializedCores' and item.amount > 24:
             # 2 SpecializedCores per hour, so it's 24 at max
@@ -70,6 +91,9 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         # Prototype_Tenrai_T0 may detected as 441
         if 'Prototype' in item.name:
             item.amount %= 10
+        # CognitiveChips should >= 21
+        if item.name == 'CognitiveChips' and item.amount < 20:
+            item.amount *= 10
 
         return item
 
@@ -85,9 +109,10 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         """
         finished = get_research_finished(self.first)
         if finished is None:
-            raise ImageError('No project finished, but get items')
+            raise ResearchItemsFromNowhere('No project finished, but get items')
         project_list = list(self.parse_research_list_cached(self.first))
         project = project_list[finished]
+        self.finished_project = project
 
         all_items = []
         for image in self.followings:
@@ -119,9 +144,10 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         """
         finished = get_research_finished_s4(self.first)
         if finished is None:
-            raise ImageError('No project finished, but get items')
+            raise ResearchItemsFromNowhere('No project finished, but get items')
         project_list = list(self.parse_research_list_cached(self.first))
         project = project_list[finished]
+        self.finished_project = project
 
         all_items = []
         for image in self.followings:
@@ -155,13 +181,19 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue):
         Yields:
             DataResearchItems:
         """
-        finished_list = list(self.research_queue_project(self.first))
+        finished_list = list(self.parse_research_queue_project(self.first))
         drop_items_list = list(self.parse_get_items_chain(self.followings))
 
         if len(finished_list) != len(drop_items_list):
-            raise ImageError(f'Research queue has {len(finished_list)} finished projects '
-                             f'but has {len(drop_items_list)} get_items')
+            raise ResearchQueueMismatch(
+                f'Research queue has {len(finished_list)} finished projects '
+                f'but has {len(drop_items_list)} get_items')
         for project, drop_items in zip(finished_list, drop_items_list):
+            self.finished_project = DataResearchList(
+                focus_series=project.raw_series,
+                series=project.raw_series,
+                project=project.name
+            )
             for item in drop_items:
                 yield DataResearchItems(
                     imgid=self.imgid,

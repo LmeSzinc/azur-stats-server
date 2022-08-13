@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from AzurStats.image.get_items import GetItems
 from AzurStats.image.research_list import ResearchList
 from AzurStats.image.research_queue import ResearchQueue
 from AzurStats.scene.base import SceneBase
@@ -14,7 +15,7 @@ class DataResearchProjects:
     project: str
 
 
-class SceneResearchProjects(SceneBase, ResearchList, ResearchQueue):
+class SceneResearchProjects(SceneBase, ResearchList, ResearchQueue, GetItems):
     def parse_scene(self):
         """
         Returns:

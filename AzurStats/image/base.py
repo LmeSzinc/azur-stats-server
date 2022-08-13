@@ -5,6 +5,8 @@ import numpy as np
 from module.base.button import Button
 from module.base.utils import color_similarity_2d, crop
 from module.combat.assets import GET_ITEMS_1, GET_ITEMS_3, GET_ITEMS_3_CHECK
+from module.base.template import Template
+from module.exception import ScriptError
 
 # Key: Button object to cache
 # Value: dict
@@ -21,14 +23,16 @@ class ImageBase:
     # This value if set at the first time classify_server() called
     server: str = ''
 
-    def classify_server(self, button, image, offset=(20, 20)):
+    def classify_server(self, button, image, offset=(20, 20), scaling=1.0, threshold=0.85):
         """
         Get server name if a button appear on image
 
         Args:
-            button (Button):
+            button (Button, Template):
             image: Screenshot to detect, or None to use the `self.image`
-            offset:
+            offset: For Button
+            scaling: For Template
+            threshold:
 
         Returns:
             str: cn, en, jp, tw, or '' if button not appear
@@ -37,10 +41,18 @@ class ImageBase:
             CLASSIFY_CACHE[button] = button.split_server()
 
         for server, server_button in CLASSIFY_CACHE[button].items():
-            if server_button.match(image, offset=offset):
-                if not self.server:
-                    self.server = server
-                return server
+            if isinstance(server_button, Button):
+                if server_button.match(image, offset=offset, threshold=threshold):
+                    if not self.server:
+                        self.server = server
+                    return server
+            elif isinstance(server_button, Template):
+                if server_button.match(image, scaling=scaling, similarity=threshold):
+                    if not self.server:
+                        self.server = server
+                    return server
+            else:
+                raise ScriptError(f'classify_server() gets unknown button: {button}')
 
         # No match
         if not self.server:
@@ -80,11 +92,11 @@ class ImageBase:
         Returns:
             int: Rows of get items, 1 to 3, or 0 if it's not a get_items image
         """
-        if GET_ITEMS_3.match(image, offset=(5, 5)):
+        if self.classify_server(GET_ITEMS_3, image, offset=(5, 5)):
             if self.image_color_count(image, GET_ITEMS_3_CHECK, color=(255, 255, 255), threshold=221, count=100):
                 return 3
             else:
                 return 2
-        if GET_ITEMS_1.match(image, offset=(5, 5)):
+        if self.classify_server(GET_ITEMS_1, image, offset=(5, 5)):
             return 1
         return 0
