@@ -6,6 +6,7 @@ from AzurStats.config.config import CONFIG
 from AzurStats.database.base import AzurStatsDatabase
 from module.logger import logger
 
+
 def human_format(num):
     """
     Args:

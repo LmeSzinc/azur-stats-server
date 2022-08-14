@@ -9,3 +9,4 @@ def run():
     logger.hr('Overview', level=1)
     from AzurStats.stats.overview import Overview
     Overview().generate()
+    Overview().copy_to_output_folder()
