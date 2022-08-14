@@ -37,16 +37,18 @@ class TooManyNewTemplate(ImageError):
     pass
 
 
-def merge_get_items(item_list_1, item_list_2):
+def merge_get_items(item_list_1: t.Iterable[Item], item_list_2: t.Iterable[Item]):
     """
     Args:
-        item_list_1 (list[Item]):
-        item_list_2 (list[Item]):
+        item_list_1:
+        item_list_2:
 
-    Returns:
-        list[Item]:
+    Yields:
+        Item:
     """
-    return list(set(item_list_1 + item_list_2))
+    items = set(list(item_list_1) + list(item_list_2))
+    for item in items:
+        yield item
 
 
 def has_odd_items(image):
@@ -183,7 +185,7 @@ class GetItems(ImageBase):
                     # Second image, merge previous
                     page1 = self.parse_get_items(page1)
                     page2 = self.parse_get_items(image)
-                    yield iter(merge_get_items(list(page1), list(page2)))
+                    yield merge_get_items(page1, page2)
                 page1 = None
             elif count == 3:
                 # first image, add to cache

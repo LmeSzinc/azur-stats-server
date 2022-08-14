@@ -119,7 +119,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue, GetItems):
             if not self.is_get_items(image):
                 continue
             items = self.parse_get_items(image)
-            all_items = merge_get_items(all_items, list(items))
+            all_items = merge_get_items(all_items, items)
 
         for item in all_items:
             yield DataResearchItems(
@@ -154,7 +154,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue, GetItems):
             if not self.is_get_items(image):
                 continue
             items = self.parse_get_items(image)
-            all_items = merge_get_items(all_items, list(items))
+            all_items = merge_get_items(all_items, items)
 
         for item in all_items:
             yield DataResearchItems(
