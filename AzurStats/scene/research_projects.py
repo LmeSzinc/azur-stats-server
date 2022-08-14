@@ -49,7 +49,7 @@ class SceneResearchProjects(SceneBase, ResearchList, ResearchQueue, GetItems):
             DataResearchProjects:
         """
         for image in self.images:
-            for data in self.parse_research_list_cached(image):
+            for data in self.parse_research_list(image):
                 yield DataResearchProjects(
                     imgid=self.imgid,
                     server=self.server,
