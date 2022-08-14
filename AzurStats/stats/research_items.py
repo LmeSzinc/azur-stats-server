@@ -118,6 +118,10 @@ class DataResearchItemRow:
             return float(self.research_project.duration)
 
     @cached_property
+    def is_valid(self):
+        return not self.item.isdigit() and self.research_project.valid
+
+    @cached_property
     def drop_avg(self):
         return self.drop_total / self.samples
 
@@ -146,6 +150,11 @@ class DataResearchItemRow:
     @cached_property
     def hourly(self):
         return self.average / self.duration
+
+    @cached_property
+    def is_show(self):
+        # Not enough samples
+        return self.average > 0.001 and self.samples > 50
 
     @cached_property
     def output(self):
@@ -205,11 +214,6 @@ class StatsResearchItem(AzurStatsDatabase):
         """
         Left join BONUS
         """
-        def is_valid(r):
-            if r.item.isdigit() or not r.research_project.valid:
-                return False
-            return True
-
         # Convert DataResearchItemResult to DataResearchItemRow
         # And remove invalid rows
         data = SelectedGrids([DataResearchItemRow(
@@ -223,7 +227,7 @@ class StatsResearchItem(AzurStatsDatabase):
             row.drop_min,
             row.drop_max
         ) for row in self.raw_data])
-        data = data.filter(is_valid)
+        data = data.select(is_valid=True)
 
         # Join bonus
         base = data.select(tag=None)
@@ -457,7 +461,7 @@ class StatsResearchItem(AzurStatsDatabase):
     def generate(self):
         def convert(rs):
             rs = SelectedGrids(list(rs.values()))
-            rs = rs.sort('hourly')[::-1]
+            rs = rs.select(is_show=True).sort('hourly')[::-1]
             return [r.output for r in rs]
 
         for path, rows in deep_iter(self.drop_data_expanded, depth=2):
