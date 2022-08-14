@@ -2,11 +2,28 @@ from datetime import datetime
 
 import pymysql
 
-from AzurStats.utils.utils import *
+from AzurStats.config.config import CONFIG
+from AzurStats.database.base import AzurStatsDatabase
+from module.logger import logger
+
+def human_format(num):
+    """
+    Args:
+        num (int):
+
+    Returns:
+        str: Such as 3.95K.
+    """
+    num = float('{:.3g}'.format(num))
+    magnitude = 0
+    while abs(num) >= 1000:
+        magnitude += 1
+        num /= 1000.0
+    return '{:f}'.format(num).rstrip('0').rstrip('.') + ['', 'K', 'M', 'B', 'T'][magnitude]
 
 
 def get_data():
-    connection = pymysql.connect(**CONFIG['database'])
+    connection = pymysql.connect(**CONFIG['Database'])
     try:
         with connection.cursor() as cursor:
             SQL = """
@@ -56,6 +73,9 @@ def get_data():
         }
     }
 
-def run():
-    write_json(get_data(), 'overview')
-    copy_to_output_folder()
+
+class Overview(AzurStatsDatabase):
+    def generate(self):
+        data = get_data()
+        self.output(data, './overview.json')
+        logger.info('generate')
