@@ -81,6 +81,8 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue, GetItems):
                     # PRY0.5, blueprints 5~12
                     if item.amount <= 2:
                         item.amount += 10
+                    if item.amount >= 15:
+                        item.amount %= 10
                 else:
                     # PRY other, blueprints 1~9
                     item.amount %= 10
