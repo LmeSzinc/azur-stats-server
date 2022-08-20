@@ -11,25 +11,6 @@ from module.research.project import ResearchProject, ResearchProjectJp
 REGEX_PROJECT_FILTER = re.compile(r'-(\d.\d|\d\d?)$')
 
 
-@dataclass
-class DataResearchItemResult:
-    series: int
-    project: str
-    item: str
-    tag: str
-    samples: int
-    drop_count: int
-    drop_total: int
-    drop_min: int
-    drop_max: int
-
-    def __post_init__(self):
-        self.drop_count = int(self.drop_count)
-        self.drop_total = int(self.drop_total)
-        self.drop_min = int(self.drop_min)
-        self.drop_max = int(self.drop_max)
-
-
 def to_range(lower, upper, samples=1, count=1):
     if count / samples < 0.98:
         lower = 0
@@ -73,6 +54,34 @@ def equipment_to_image(name):
 
 
 @dataclass
+class DataResearchItemDrop:
+    series: int
+    project: str
+    item: str
+    tag: str
+    drop_count: int
+    drop_total: int
+    drop_min: int
+    drop_max: int
+
+    def __post_init__(self):
+        self.drop_count = int(self.drop_count)
+        self.drop_total = int(self.drop_total)
+        self.drop_min = int(self.drop_min)
+        self.drop_max = int(self.drop_max)
+
+
+@dataclass
+class DataResearchItemSample:
+    series: int
+    project: str
+    samples: int
+
+    def __post_init__(self):
+        self.samples = int(self.samples)
+
+
+@dataclass
 class DataResearchItemRow:
     series: int
     project: str
@@ -99,7 +108,11 @@ class DataResearchItemRow:
         self.bonus_min = merge_min(self.bonus_min, data.bonus_min)
         self.bonus_max = max(self.bonus_max, data.bonus_max)
 
-    def load_bonus(self, data: DataResearchItemResult):
+    def load_bonus(self, data):
+        """
+        Args:
+            data (DataResearchItemRow):
+        """
         self.bonus_count = data.drop_count
         self.bonus_total = data.drop_total
         self.bonus_min = data.drop_min
@@ -177,36 +190,36 @@ class DataResearchItemRow:
 
 class StatsResearchItem(AzurStatsDatabase):
     @cached_property
-    def raw_data(self) -> SelectedGrids(DataResearchItemResult):
-        """
-        Grouped results from database
-        """
-
+    def raw_drop_data(self) -> SelectedGrids(DataResearchItemDrop):
         sql = """
         SELECT
-            base.series,
-            base.project,
-            base.item,
-            base.tag,
-            sample.samples AS samples,
+            series,
+            project,
+            item,
+            tag,
             COUNT(distinct imgid) AS drop_count,
-            SUM(base.amount) AS drop_total,
-            MIN(base.amount) AS drop_min,
-            MAX(base.amount) AS drop_max
-        FROM research_items AS base
-        LEFT JOIN (
-            SELECT series, project, COUNT(DISTINCT imgid) AS samples
-            FROM research_items
-            GROUP BY series, project
-            ORDER BY series, project
-        ) AS sample
-        ON base.series = sample.series AND base.project = sample.project
+            SUM(amount) AS drop_total,
+            MIN(amount) AS drop_min,
+            MAX(amount) AS drop_max
+        FROM research_items
         WHERE ISNULL(tag) OR tag = "bonus"
         GROUP BY series, project, item, tag
         ORDER BY series, project, item, tag
         """
-        data = self.query(sql, DataResearchItemResult)
-        logger.info('raw_data')
+        data = self.query(sql, DataResearchItemDrop)
+        logger.info('raw_drop_data')
+        return data
+
+    @cached_property
+    def raw_sample_data(self) -> SelectedGrids(DataResearchItemSample):
+        sql = """
+        SELECT series, project, COUNT(DISTINCT imgid) AS samples
+        FROM research_items
+        GROUP BY series, project
+        ORDER BY series, project
+        """
+        data = self.query(sql, DataResearchItemSample)
+        logger.info('raw_sample_data')
         return data
 
     @cached_property
@@ -214,19 +227,28 @@ class StatsResearchItem(AzurStatsDatabase):
         """
         Left join BONUS
         """
-        # Convert DataResearchItemResult to DataResearchItemRow
-        # And remove invalid rows
+        self.raw_sample_data.create_index('series', 'project')
+
+        def drop_to_sample_amount(d: DataResearchItemDrop):
+            r = self.raw_sample_data.indexed_select(d.series, d.project).first_or_none()
+            if r is not None:
+                return r.samples
+            else:
+                return 0
+
+        # Convert to DataResearchItemRow
+        # Join samples and remove invalid rows
         data = SelectedGrids([DataResearchItemRow(
-            row.series,
-            row.project,
-            row.item,
-            row.tag,
-            row.samples,
-            row.drop_count,
-            row.drop_total,
-            row.drop_min,
-            row.drop_max
-        ) for row in self.raw_data])
+            drop.series,
+            drop.project,
+            drop.item,
+            drop.tag,
+            drop_to_sample_amount(drop),
+            drop.drop_count,
+            drop.drop_total,
+            drop.drop_min,
+            drop.drop_max
+        ) for drop in self.raw_drop_data])
         data = data.select(is_valid=True)
 
         # Join bonus
