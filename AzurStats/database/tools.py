@@ -11,9 +11,9 @@ from module.logger import logger
 
 class DatabaseTools(AzurStatsDatabase):
     ALL_TABLES = [
-        'parse_records',
         'research_items',
-        'research_projects'
+        'research_projects',
+        'parse_records',
     ]
 
     def chuck_execute(self, sql, seq, chunk_size=1000):

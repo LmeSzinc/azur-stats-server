@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass
 
 from AzurStats.image.base import ImageBase
-from module.research.assets import HAS_RESEARCH_QUEUE
+from module.research.assets import HAS_RESEARCH_QUEUE, FOCUS_SERIES
 from module.research.project import get_research_name, get_research_series, ResearchProject
 from module.research_s4.project import get_research_name as get_research_name_s4
 from module.research_s4.project import get_research_series as get_research_series_s4
@@ -80,6 +80,26 @@ class ResearchList(ImageBase):
         """
         return bool(self.classify_server(HAS_RESEARCH_QUEUE, image))
 
+    def _get_research_focus_series(self, image, series_list):
+        """
+        Args:
+            image: RESEARCH_CHECK
+            series_list (list[int]):
+
+        Returns:
+            int: 0 to 5
+        """
+        if not self.image_color_count(image, button=FOCUS_SERIES, color=(41, 50, 57), threshold=235, count=100):
+            # No facing any series
+            return 0
+        # Focused series should have projects >= 3
+        focus_series = 0
+        for series in series_list:
+            if series_list.count(series) >= 3:
+                focus_series = series
+                break
+        return focus_series
+
     def _research_list_s5(self, image):
         """
         Parse an image from PR5 or later (with research queue)
@@ -91,13 +111,7 @@ class ResearchList(ImageBase):
             DataResearchList:
         """
         series_list = get_research_series(image)
-
-        # Get focus series
-        focus_series = 0
-        for series in series_list:
-            if series_list.count(series) >= 3:
-                focus_series = series
-                break
+        focus_series = self._get_research_focus_series(image, series_list)
 
         name_list = get_research_name(image)
         project_list = [ResearchProject(name=name, series=series) for name, series in zip(name_list, series_list)]
@@ -129,13 +143,7 @@ class ResearchList(ImageBase):
             DataResearchList:
         """
         series_list = get_research_series_s4(image)
-
-        # Get focus series
-        focus_series = 0
-        for series in series_list:
-            if series_list.count(series) >= 3:
-                focus_series = series
-                break
+        focus_series = self._get_research_focus_series(image, series_list)
 
         name_list = get_research_name_s4(image)
         project_list = [ResearchProject(name=name, series=series) for name, series in zip(name_list, series_list)]
