@@ -5,6 +5,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from AzurStats.scene.base import SceneBase
+from AzurStats.scene.meowfficer_talent import SceneMeowfficerTalent
 from AzurStats.scene.research_items import SceneResearchItems
 from AzurStats.scene.research_projects import SceneResearchProjects
 from module.base.decorator import cached_property
@@ -23,6 +24,7 @@ class SceneWrapper(SceneBase):
     scenes: t.List[SceneBase] = [
         SceneResearchProjects(),
         SceneResearchItems(),
+        SceneMeowfficerTalent(),
     ]
     last_data = None
 
@@ -168,6 +170,11 @@ class AzurStats(SceneWrapper):
     def DataResearchItems(self):
         from AzurStats.scene.research_items import DataResearchItems
         return self._filter_data(DataResearchItems)
+
+    @cached_property
+    def DataMeowfficerTalents(self):
+        from AzurStats.scene.meowfficer_talent import DataMeowfficerTalents
+        return self._filter_data(DataMeowfficerTalents)
 
 
 if __name__ == '__main__':
