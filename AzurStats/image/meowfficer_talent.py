@@ -57,7 +57,8 @@ class MeowfficerTalent(ImageBase):
         talent = self._mewofficer_info_to_talent(info)
         return talent
 
-    def _mewofficer_info_to_talent(self, info: str) -> DataMeowfficerTalents:
+    @staticmethod
+    def _mewofficer_info_to_talent(info: str) -> DataMeowfficerTalents:
         """
         Args:
             info: Such as `铁血炮击提高12点、雷击提高14点、命中提高3点`
@@ -65,7 +66,6 @@ class MeowfficerTalent(ImageBase):
         Returns:
 
         """
-        info = REGEX_COMMA.sub('', info)
         for row, regex in DICT_MEOWFFICER_TALENT.items():
             if regex.search(info):
                 genre, level, name = row
@@ -77,7 +77,10 @@ class MeowfficerTalent(ImageBase):
 
         raise MeowfficerTalentInvalid(f'Unknown talent: {info}')
 
-    def _meowfficer_info_fix(self, info: str) -> str:
+    @staticmethod
+    def _meowfficer_info_fix(info: str) -> str:
+        info = REGEX_COMMA.sub('', info)
+
         # 战列战巡正航航战超巡机动提高l点
         # 战巡战列耐久提高70点炮击提高1l点
         info = info.replace('|', '1').replace('l', '1')
