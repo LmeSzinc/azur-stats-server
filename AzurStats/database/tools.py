@@ -14,6 +14,7 @@ class DatabaseTools(AzurStatsDatabase):
         'research_items',
         'research_projects',
         'parse_records',
+        'meowfficer_talents'
     ]
 
     def chuck_execute(self, sql, seq, chunk_size=1000):
@@ -56,6 +57,7 @@ class DatabaseTools(AzurStatsDatabase):
         sql = f"""
         SELECT imgid FROM {table}
         WHERE {condition}
+        GROUP BY imgid
         """
 
         @dataclasses.dataclass

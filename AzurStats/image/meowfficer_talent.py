@@ -52,6 +52,8 @@ class MeowfficerTalent(ImageBase):
             MeowfficerTalentInvalid:
         """
         info = OCR_MEOWFFICER_TALENT.ocr(image)
+        info = self._meowfficer_info_fix(info)
+
         talent = self._mewofficer_info_to_talent(info)
         return talent
 
@@ -74,3 +76,17 @@ class MeowfficerTalent(ImageBase):
                 )
 
         raise MeowfficerTalentInvalid(f'Unknown talent: {info}')
+
+    def _meowfficer_info_fix(self, info: str) -> str:
+        # 战列战巡正航航战超巡机动提高l点
+        # 战巡战列耐久提高70点炮击提高1l点
+        info = info.replace('|', '1').replace('l', '1')
+
+        # 重樱雷击提高1点航空提高8点机动提高2点
+        info = info.replace('重樱雷击提高1点', '重樱雷击提高11点')
+        # 白鹰防空提高1点航空提高1点装填提高4点
+        info = info.replace('白鹰防空提高1点', '白鹰防空提高11点')
+        # 主力命中提高点
+        info = info.replace('主力命中提高点', '主力命中提高1点')
+
+        return info

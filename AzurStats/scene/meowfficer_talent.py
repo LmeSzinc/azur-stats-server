@@ -23,6 +23,11 @@ class SceneMeowfficerTalent(SceneBase, MeowfficerDrop, MeowfficerTalent):
         """
         Returns:
             Iter[DataMeowfficerTalents]:
+
+        Raises:
+            MeowfficerNonCnDiscarded:
+            MeowfficerNameInvalid:
+            MeowfficerTalentInvalid:
         """
         if not self.is_meowfficer_drop(self.first):
             return []

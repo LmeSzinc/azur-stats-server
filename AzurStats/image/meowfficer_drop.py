@@ -50,28 +50,37 @@ class MeowfficerDrop(ImageBase):
             raise MeowfficerNonCnDiscarded('Meowfficer talent statistics support CN only')
 
         name = OCR_MEOWFFICER_NAME.ocr(image)
-        rarity = self._meow_name_to_rarity(name)
-        if rarity == 0:
+        meow = self._meow_name_to_drop(name)
+        if meow is None:
             raise MeowfficerNameInvalid(f'Invalid mewofficer name: {name}')
 
-        return DataMeowfficerDrops(
-            name=name,
-            rarity=rarity
-        )
+        return meow
 
-    def _meow_name_to_rarity(self, name: str) -> int:
+    def _meow_name_to_drop(self, name: str):
         """
         Args:
             name: Such as `毗沙丸`
 
         Returns:
-            int: Rarity 1 to 3
+            DataMeowfficerDrops:
         """
-        if REGEX_RARITY_1.search(name):
-            return 1
-        elif REGEX_RARITY_2.search(name):
-            return 2
-        elif REGEX_RARITY_3.search(name):
-            return 3
-        else:
-            return 0
+        res = REGEX_RARITY_1.search(name)
+        if res:
+            return DataMeowfficerDrops(
+                name=res.group(1),
+                rarity=1
+            )
+        res = REGEX_RARITY_2.search(name)
+        if res:
+            return DataMeowfficerDrops(
+                name=res.group(1),
+                rarity=2
+            )
+        res = REGEX_RARITY_3.search(name)
+        if res:
+            return DataMeowfficerDrops(
+                name=res.group(1),
+                rarity=3
+            )
+
+        return None
