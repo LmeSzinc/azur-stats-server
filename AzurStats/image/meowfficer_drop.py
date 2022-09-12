@@ -80,9 +80,20 @@ class MeowfficerDrop(ImageBase):
         name = name.replace('吡', '毗')
         # 林德嘧
         name = name.replace('嘧', '喵')
+        # 奥占喵
+        name = name.replace('占', '古')
         # 竹丸
         if name == '竹丸':
             name = '小竹丸'
+        # 伯克’d
+        if '伯克' in name:
+            name = '伯克喵'
+        # 伯克’d
+        if '伯克' in name:
+            name = '伯克喵'
+        # 品毗少丸, 毗沙丈丸, 毗沙士
+        if re.search(r'毗[沙少]|[沙少]丸', name):
+            name = '毗沙丸'
 
         return name
 

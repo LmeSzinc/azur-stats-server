@@ -85,6 +85,8 @@ class MeowfficerTalent(ImageBase):
         # 战巡战列耐久提高70点炮击提高1l点
         info = info.replace('|', '1').replace('l', '1')
 
+        # 驱逐轻巡霍击提高15点鱼雷暴击率提高3%
+        info = info.replace('霍击', '雷击')
         # 重樱雷击提高1点航空提高8点机动提高2点
         info = info.replace('重樱雷击提高1点', '重樱雷击提高11点')
         # 白鹰防空提高1点航空提高1点装填提高4点
