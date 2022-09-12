@@ -82,6 +82,8 @@ class MeowfficerDrop(ImageBase):
         name = name.replace('嘧', '喵')
         # 奥占喵
         name = name.replace('占', '古')
+        # 朝朝丸
+        name = name.replace('朝朝', '朝').replace('朝朝', '朝')
         # 竹丸
         if name == '竹丸':
             name = '小竹丸'

@@ -1,3 +1,4 @@
+import csv
 import dataclasses
 import os
 import typing as t
@@ -110,12 +111,35 @@ class AzurStatsDatabase(ItemInfo, ResultOutput):
         return self.query(sql, DataImage)
 
     def record_to_json(self, record: SelectedGrids, file: str = None) -> t.Dict:
+        """
+        Convert a SelectGrids object to json.
+        If `file`, write json into it.
+        """
         out = {}
         for index, data in enumerate(record):
             out[index] = dataclasses.asdict(data)
 
         if file is not None:
             write_file(file, data=out)
+            logger.info(f'Record wrote into {file}')
+        return out
+
+    def record_to_csv(self, record: SelectedGrids, file: str = None, encoding='utf-8') -> t.List[t.List[t.Any]]:
+        """
+        Convert a SelectGrids object to csv files.
+        If `file`, write csv into it.
+        """
+        out = []
+        if record:
+            out += [[column.name for column in dataclasses.fields(record[0])]]
+        out += [list(dataclasses.astuple(row)) for row in record]
+
+        if file is not None:
+            with open(file, 'w', newline='', encoding=encoding) as csv_file:
+                writer = csv.writer(csv_file)
+                writer.writerows(out)
+            logger.info(f'Record wrote into {file}')
+
         return out
 
     def record_from_json(self, record: [SelectedGrids, str], data_class: dataclasses.dataclass) -> SelectedGrids:
