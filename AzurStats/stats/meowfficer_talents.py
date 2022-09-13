@@ -33,7 +33,7 @@ class DataMeowfficerSamples:
 
 class StatsMeowfficerTalents(AzurStatsDatabase):
     @cached_property
-    def raw_drop_data(self) -> SelectedGrids(DataMeowfficerTalents):
+    def drop_data(self) -> SelectedGrids(DataMeowfficerTalents):
         sql = """
         SELECT
             `name`,
@@ -48,10 +48,7 @@ class StatsMeowfficerTalents(AzurStatsDatabase):
         """
         data = self.query(sql, data_class=DataMeowfficerTalents)
         logger.info('raw_drop_data')
-        return data
 
-    @cached_property
-    def raw_sample_data(self) -> SelectedGrids(DataMeowfficerSamples):
         sql = """
         SELECT
             `name`,
@@ -60,25 +57,11 @@ class StatsMeowfficerTalents(AzurStatsDatabase):
         GROUP BY `name`
         ORDER BY `name`
         """
-        data = self.query(sql, data_class=DataMeowfficerSamples)
+        sample = self.query(sql, data_class=DataMeowfficerSamples)
         logger.info('raw_drop_samples')
-        return data
 
-    @cached_property
-    def drop_data(self) -> SelectedGrids(DataMeowfficerTalents):
-        self.raw_sample_data.create_index('name')
-
-        def drop_to_sample_amount(d: DataMeowfficerTalents):
-            r = self.raw_sample_data.indexed_select(d.name).first_or_none()
-            if r is not None:
-                return r.samples
-            else:
-                return 0
-
-        for row in self.raw_drop_data:
-            row.samples = drop_to_sample_amount(row)
-
-        data = self.raw_drop_data.sort('rarity', 'name', 'talent_genre', 'talent_level')[::-1]
+        data = data.left_join(sample, on_attr=('name', ), set_attr=('samples', ), default=0)
+        data = data.sort('rarity', 'name', 'talent_genre', 'talent_level')[::-1]
         logger.info('drop_data')
         return data
 
