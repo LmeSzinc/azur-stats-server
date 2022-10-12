@@ -32,7 +32,10 @@ class SceneMeowfficerTalent(SceneBase, MeowfficerDrop, MeowfficerTalent):
         if not self.is_meowfficer_drop(self.first):
             return []
 
-        meow = self.parse_meowfficer_drop(self.first)
+        if len(self.followings):
+            meow = self.parse_meowfficer_drop(self.followings[0])
+        else:
+            meow = self.parse_meowfficer_drop(self.first)
         self.meowfficer_drop = meow
         for image in self.followings:
             talent = self.parse_meowfficer_talent(image)
