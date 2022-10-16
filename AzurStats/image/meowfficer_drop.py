@@ -6,12 +6,12 @@ import numpy as np
 from PIL import Image
 
 from AzurStats.scene.base import ImageBase
+from module.azur_stats.assets import MEOWFFICER_NAME, TEMPLATE_MEOWFFICER_NAME_CHECK
 from module.base.decorator import cached_property
 from module.base.utils import area_offset
 from module.base.utils import crop
 from module.meowfficer.assets import MEOWFFICER_GET_CHECK
 from module.ocr.ocr import Ocr
-from module.statistics.assets import MEOWFFICER_NAME, TEMPLATE_MEOWFFICER_NAME_CHECK
 from module.statistics.utils import ImageError
 
 OCR_MEOWFFICER_NAME = Ocr(MEOWFFICER_NAME, lang='cnocr', letter=(115, 85, 66), name='OCR_MEOWFFICER_NAME')

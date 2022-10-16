@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass
 
 from AzurStats.image.base import ImageBase
-from module.research.assets import HAS_RESEARCH_QUEUE, FOCUS_SERIES
+from module.azur_stats.assets import HAS_RESEARCH_QUEUE, FOCUS_SERIES
 from module.research.project import get_research_name, get_research_series, ResearchProject
 from module.research_s4.project import get_research_name as get_research_name_s4
 from module.research_s4.project import get_research_series as get_research_series_s4

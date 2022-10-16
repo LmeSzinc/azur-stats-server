@@ -5,10 +5,10 @@ import numpy as np
 
 from AzurStats.meowfficer_talent.talent_data import DICT_MEOWFFICER_TALENT
 from AzurStats.scene.base import ImageBase
+from module.azur_stats.assets import MEOWFFICER_TALENT_DETAIL
 from module.base.utils import rgb2gray
 from module.meowfficer.assets import MEOWFFICER_TALENT_CLOSE
 from module.ocr.ocr import Ocr
-from module.statistics.assets import MEOWFFICER_TALENT_DETAIL
 from module.statistics.utils import ImageError
 
 

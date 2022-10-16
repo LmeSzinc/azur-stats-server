@@ -1,10 +1,11 @@
 from AzurStats.image.base import ImageBase
 from AzurStats.image.research_list import REGEX_PROJECT_NAME, ResearchInvalid
 from AzurStats.image.research_list import ResearchJpDiscarded
+from module.azur_stats.assets import *
 from module.base.button import ButtonGrid
 from module.base.utils import crop, rgb2gray
 from module.ocr.ocr import Ocr
-from module.research.assets import *
+from module.research.assets import QUEUE_CHECK
 from module.research.project import get_research_series, get_research_name, ResearchProject
 from module.statistics.utils import ImageError
 
@@ -38,7 +39,7 @@ class ResearchQueue(ImageBase):
         scaling = 530 / 558
         for index, button in enumerate(STATUS_GRID.buttons):
             piece = rgb2gray(crop(image, button.area))
-            if not self.classify_server(TEMPLATE_FINISHED, piece, scaling=scaling):
+            if not self.classify_server(TEMPLATE_RESEARCH_FINISHED, piece, scaling=scaling):
                 if index > 0:
                     return index
                 else:
