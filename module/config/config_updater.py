@@ -7,6 +7,7 @@ from deploy.utils import DEPLOY_TEMPLATE, poor_yaml_read, poor_yaml_write
 from module.base.timer import timer
 from module.config.redirect_utils.shop_filter import bp_redirect
 from module.config.redirect_utils.utils import upload_redirect, api_redirect
+from module.config.redirect_utils.os_handler import action_point_redirect
 from module.config.server import to_server, to_package, VALID_PACKAGE, VALID_CHANNEL_PACKAGE, VALID_SERVER_LIST
 from module.config.utils import *
 
@@ -81,6 +82,7 @@ class ConfigGenerator:
                 value = {'value': value}
             arg['type'] = data_to_type(value, arg=path[1])
             if isinstance(value['value'], datetime):
+                arg['type'] = 'datetime'
                 arg['validate'] = 'datetime'
             # Manual definition has the highest priority
             arg.update(value)
@@ -174,17 +176,20 @@ class ConfigGenerator:
             if not check_override(p, v):
                 continue
             if isinstance(v, dict):
-                deep_default(v, keys='type', value='hide')
+                if deep_get(v, keys='type') in ['lock']:
+                    deep_default(v, keys='display', value="disabled")
+                else:
+                    deep_default(v, keys='display', value='hide')
                 for arg_k, arg_v in v.items():
                     deep_set(data, keys=p + [arg_k], value=arg_v)
             else:
                 deep_set(data, keys=p + ['value'], value=v)
-                deep_set(data, keys=p + ['type'], value='hide')
+                deep_set(data, keys=p + ['display'], value='hide')
         # Set command
         for task in self.task.keys():
             if deep_get(data, keys=f'{task}.Scheduler.Command'):
                 deep_set(data, keys=f'{task}.Scheduler.Command.value', value=task)
-                deep_set(data, keys=f'{task}.Scheduler.Command.type', value='hide')
+                deep_set(data, keys=f'{task}.Scheduler.Command.display', value='hide')
 
         return data
 
@@ -468,7 +473,8 @@ class ConfigUpdater:
          'Alas.DropRecord.MeowfficerTalent', upload_redirect),
         ('Alas.DropRecord.SaveCombat', 'Alas.DropRecord.CombatRecord', upload_redirect),
         ('Alas.DropRecord.SaveMeowfficer', 'Alas.DropRecord.MeowfficerBuy', upload_redirect),
-        ('Alas.Emulator.PackageName', 'Alas.DropRecord.API', api_redirect)
+        ('Alas.Emulator.PackageName', 'Alas.DropRecord.API', api_redirect),
+        ('OpsiGeneral.OpsiGeneral.BuyActionPoint', 'OpsiGeneral.OpsiGeneral.BuyActionPointLimit', action_point_redirect)
     ]
 
     @cached_property
@@ -589,15 +595,16 @@ class ConfigUpdater:
         return self.config_update(old, is_template=is_template)
 
     @staticmethod
-    def write_file(config_name, data):
+    def write_file(config_name, data, mod_name='alas'):
         """
         Write config file.
 
         Args:
             config_name (str): ./config/{file}.json
             data (dict):
+            mod_name (str):
         """
-        write_file(filepath_config(config_name), data)
+        write_file(filepath_config(config_name, mod_name), data)
 
     @timer
     def update_file(self, config_name, is_template=False):

@@ -10,13 +10,13 @@ Scheduler:
   Command: Alas
   SuccessInterval:
     value: 0
-    type: hide
+    display: hide
   FailureInterval:
     value: 120
-    type: hide
+    display: hide
   ServerUpdate:
     value: 00:00
-    type: hide
+    display: hide
 Emulator:
   Serial:
     value: auto
@@ -35,9 +35,18 @@ Emulator:
     option: [ADB, uiautomator2, minitouch, Hermit]
   ScreenshotDedithering: false
   AdbRestart: false
+RestartEmulator:
+  Enable: False
+  EmulatorType:
+    value: auto
+    option: [auto, nox_player, bluestacks_5, mumu_player]
 Error:
   HandleError: true
   SaveError: true
+  OnePushConfig:
+    type: textarea
+    mode: yaml
+    value: 'provider: null'
   ScreenshotLength: 1
 Optimization:
   ScreenshotInterval: 0.3
@@ -157,7 +166,7 @@ Emotion:
   Fleet1Value: 119
   Fleet1Record:
     value: 2020-01-01 00:00:00
-    type: disable
+    display: disabled
   Fleet1Control:
     value: prevent_yellow_face
     option: [keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face]
@@ -168,7 +177,7 @@ Emotion:
   Fleet2Value: 119
   Fleet2Record:
     value: 2020-01-01 00:00:00
-    type: disable
+    display: disabled
   Fleet2Control:
     value: prevent_yellow_face
     option: [keep_exp_bonus, prevent_green_face, prevent_yellow_face, prevent_red_face]
@@ -216,12 +225,19 @@ GemsFarming:
   CommonCV:
     value: any
     option: [any, langley, bogue, ranger, hermes]
+  CommissionLimit: true
 
 # ==================== Event ====================
 
 EventGeneral:
   PtLimit: 0
   TimeLimit: 2020-01-01 00:00:00
+TaskBalancer:
+  Enable: false
+  CoinLimit: 10000
+  TaskCall:
+    value: Main
+    option: [Main, Main2, Main3]
 EventDaily:
   StageFilter: |-
     A1 > A2 > A3
@@ -262,12 +278,18 @@ Tactical:
     > BlueT4 > YellowT4 > RedT4
     > BlueT1 > YellowT1 > RedT1
     > first
+  RapidTrainingSlot:
+    value: do_not_use
+    option: [do_not_use, slot_1, slot_2, slot_3, slot_4]
 ControlExpOverflow:
   Enable: true
   T4Allow: 100
   T3Allow: 100
   T2Allow: 200
   T1Allow: 200
+AddNewStudent:
+  Enable: false
+  Favorite: true
 Research:
   UseCube:
     value: only_05_hour
@@ -504,7 +526,9 @@ OpsiAshAssist:
   Tier: 15
 OpsiGeneral:
   UseLogger: true
-  BuyActionPoint: false
+  BuyActionPointLimit:
+    value: 0
+    option: [0, 1, 2, 3, 4, 5]
   OilLimit: 1000
   RepairThreshold: 0.4
   DoRandomMapEvent: true
@@ -512,8 +536,11 @@ OpsiGeneral:
     ActionPoint > PurpleCoins
 OpsiAshBeacon:
   AshAttack: true
-  EnsureFullyCollected: true
+  OneHitMode: true
   RequestAssist: true
+  EnsureFullyCollected: true
+OpsiDossierBeacon:
+  Enable: true
 OpsiFleetFilter:
   Filter: |-
     Fleet-4 > CallSubmarine > Fleet-2 > Fleet-3 > Fleet-1

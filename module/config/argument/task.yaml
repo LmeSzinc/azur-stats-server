@@ -6,6 +6,7 @@
 
 Alas:
   - Emulator
+  - RestartEmulator
   - Error
   - Optimization
   - DropRecord
@@ -57,6 +58,7 @@ GemsFarming:
 
 EventGeneral:
   - EventGeneral
+  - TaskBalancer
 Event:
   - Scheduler
   - Campaign
@@ -149,6 +151,7 @@ Tactical:
   - Scheduler
   - Tactical
   - ControlExpOverflow
+  - AddNewStudent
 Research:
   - Scheduler
   - Research
@@ -232,7 +235,10 @@ WarArchives:
 
 OpsiGeneral:
   - OpsiGeneral
+OpsiAshBeacon:
+  - Scheduler
   - OpsiAshBeacon
+  - OpsiDossierBeacon
 OpsiAshAssist:
   - Scheduler
   - OpsiAshAssist

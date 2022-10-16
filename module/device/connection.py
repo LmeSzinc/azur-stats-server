@@ -11,15 +11,15 @@ import uiautomator2 as u2
 from adbutils import AdbClient, AdbDevice, AdbTimeout, ForwardItem, ReverseItem
 from adbutils.errors import AdbError
 
-from module.base.decorator import Config, cached_property
+from module.base.decorator import Config, cached_property, del_cached_property
 from module.base.utils import ensure_time
 from module.config.server import set_server
 from module.device.connection_attr import ConnectionAttr
 from module.device.method.utils import (RETRY_DELAY, RETRY_TRIES, remove_shell_warning,
                                         handle_adb_error, PackageNotInstalled,
-                                        recv_all, del_cached_property, possible_reasons,
+                                        recv_all, possible_reasons,
                                         random_port, get_serial_pair)
-from module.exception import RequestHumanTakeover
+from module.exception import RequestHumanTakeover, EmulatorNotRunningError
 from module.logger import logger
 from module.map.map_grids import SelectedGrids
 
@@ -80,7 +80,8 @@ class Connection(ConnectionAttr):
             config (AzurLaneConfig, str): Name of the user config under ./config
         """
         super().__init__(config)
-        self.detect_device()
+        if not self.is_over_http:
+            self.detect_device()
 
         # Connect
         self.adb_connect(self.serial)
@@ -110,6 +111,7 @@ class Connection(ConnectionAttr):
         """
         cmd = list(map(str, cmd))
         cmd = [self.adb_binary, '-s', self.serial] + cmd
+        logger.info(f'Execute: {cmd}')
 
         # Use shell=True to disable console window when using GUI.
         # Although, there's still a window when you stop running in GUI, which cause by gooey.
@@ -224,7 +226,12 @@ class Connection(ConnectionAttr):
             return host, port, host, self.config.REVERSE_SERVER_PORT
         # For emulators, listen on current host
         if self.is_emulator or self.is_over_http:
-            host = socket.gethostbyname(socket.gethostname())
+            try:
+                host = socket.gethostbyname(socket.gethostname())
+            except socket.gaierror as e:
+                logger.error(e)
+                logger.error(f'Unknown host name: {socket.gethostname()}')
+                host = '127.0.0.1'
             if platform.system() == 'Linux' and host == '127.0.1.1':
                 host = '127.0.0.1'
             logger.info(f'Connecting to local emulator, using host {host}')
@@ -292,7 +299,7 @@ class Connection(ConnectionAttr):
             raise AdbTimeout('reverse server accept timeout')
 
         # Server receive data
-        data = recv_all(conn, chunk_size=chunk_size)
+        data = recv_all(conn, chunk_size=chunk_size, recv_interval=0.001)
 
         # Server close connection
         conn.close()
@@ -432,9 +439,9 @@ class Connection(ConnectionAttr):
                 elif '(10061)' in msg:
                     # cannot connect to 127.0.0.1:55555:
                     # No connection could be made because the target machine actively refused it. (10061)
-                    logger.error(msg)
-                    possible_reasons('No such device exists, please set a correct serial')
-                    raise RequestHumanTakeover
+                    logger.info(msg)
+                    logger.warning('No such device exists, please restart the emulator or set a correct serial')
+                    raise EmulatorNotRunningError
             logger.warning(f'Failed to connect {serial} after 3 trial, assume connected')
             self.detect_device()
             return False

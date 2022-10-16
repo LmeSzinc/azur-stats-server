@@ -5,6 +5,7 @@ from module.base.button import ButtonGrid
 from module.base.decorator import cached_property
 from module.base.filter import Filter
 from module.base.timer import Timer
+from module.combat.assets import GET_ITEMS_1, GET_SHIP
 from module.exception import ScriptError
 from module.logger import logger
 from module.shop.assets import *
@@ -19,11 +20,12 @@ FILTER_REGEX = re.compile(
     '|seattle|georgia|kitakaze|azuma|friedrich'
     '|gascogne|champagne|cheshire|drake|mainz|odin'
     '|anchorage|hakuryu|agir|august|marcopolo'
+    '|plymouth|rupprecht|harbin|chkalov|brest'
     '|red|blue|yellow'
     '|general|gun|torpedo|antiair|plane|wild'
     '|dd|cl|bb|cv)?'
 
-    '(s[1-4]|t[1-6])?$',
+    '(s[1-5]|t[1-6])?$',
     flags=re.IGNORECASE)
 FILTER_ATTR = ('group', 'sub_genre', 'tier')
 FILTER = Filter(FILTER_REGEX, FILTER_ATTR)
@@ -160,6 +162,23 @@ class ShopBase(ModuleBase):
             logger.info('No shop items found')
             return []
 
+    def shop_obstruct_handle(self):
+        """
+        Remove obstructions in shop view if any
+
+        Returns:
+            bool:
+        """
+        # Handle shop obstructions
+        if self.appear(GET_SHIP, interval=1):
+            self.device.click(SHOP_CLICK_SAFE_AREA)
+            return True
+        if self.appear(GET_ITEMS_1, interval=1):
+            self.device.click(SHOP_CLICK_SAFE_AREA)
+            return True
+
+        return False
+
     def shop_get_items(self, skip_first_screenshot=True):
         """
         Args:
@@ -184,6 +203,10 @@ class ShopBase(ModuleBase):
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
+
+            if self.shop_obstruct_handle():
+                timeout.reset()
+                continue
 
             shop_items.predict(
                 self.device.image,

@@ -5,9 +5,11 @@ from module.equipment.assets import *
 from module.equipment.equipment_change import EquipmentChange
 from module.equipment.fleet_equipment import OCR_FLEET_INDEX
 from module.exception import CampaignEnd
+from module.logger import logger
 from module.map.assets import FLEET_PREPARATION, MAP_PREPARATION
 from module.ocr.ocr import Digit
-from module.retire.dock import *
+from module.retire.assets import DOCK_CHECK, TEMPLATE_BOGUE, TEMPLATE_HERMES, TEMPLATE_LANGLEY, TEMPLATE_RANGER
+from module.retire.dock import Dock, CARD_GRIDS, CARD_EMOTION_GRIDS, CARD_LEVEL_GRIDS
 from module.ui.page import page_fleet
 
 SIM_VALUE = 0.95
@@ -60,7 +62,7 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
         """
         Enter GEMS_FLEET_1 page
         """
-        self.ui_goto(page_fleet)
+        self.ui_ensure(page_fleet)
         self.ui_ensure_index(self.config.Fleet_Fleet1, letter=OCR_FLEET_INDEX,
                              next_button=FLEET_NEXT, prev_button=FLEET_PREV, skip_first_screenshot=True)
 
@@ -72,6 +74,9 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
         """
         Change flagship and flagship's equipment
         If config.GemsFarming_CommonCV == 'any', only change auxiliary equipment
+
+        Returns:
+            bool: True if flagship changed.
         """
 
         if self.config.GemsFarming_CommonCV == 'any':
@@ -84,10 +89,11 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
             self._ship_detail_enter(FLEET_ENTER_FLAGSHIP)
             self.record_equipment(index_list=index_list)
             self._equip_take_off_one()
+            self.ui_back(page_fleet.check_button)
 
         self._fleet_detail_enter()
 
-        self.flagship_change_execute()
+        success = self.flagship_change_execute()
 
         if self.config.GemsFarming_FlagshipEquipChange:
             logger.info('Record flagship equipment.')
@@ -95,10 +101,16 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
             self._equip_take_off_one()
 
             self.equipment_take_on(index_list=index_list)
+            self.ui_back(page_fleet.check_button)
+
+        return success
 
     def vanguard_change(self):
         """
         Change vanguard and vanguard's equipment
+
+        Returns:
+            bool: True if vanguard changed
         """
         logger.hr('CHANGING VANGUARD.')
         if self.config.GemsFarming_VanguardEquipChange:
@@ -106,10 +118,11 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
             self._ship_detail_enter(FLEET_ENTER)
             self.record_equipment()
             self._equip_take_off_one()
+            self.ui_back(page_fleet.check_button)
 
         self._fleet_detail_enter()
 
-        self.vanguard_change_execute()
+        success = self.vanguard_change_execute()
 
         if self.config.GemsFarming_VanguardEquipChange:
             logger.info('Equip vanguard equipment.')
@@ -117,6 +130,9 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
             self._equip_take_off_one()
 
             self.equipment_take_on()
+            self.ui_back(page_fleet.check_button)
+        
+        return success
 
     def _ship_change_confirm(self, button):
 
@@ -134,6 +150,7 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
 
         level_grids = CARD_LEVEL_GRIDS
         card_grids = CARD_GRIDS
+        emotion_grids = CARD_EMOTION_GRIDS
         logger.hr('FINDING FLAGSHIP')
 
         if self.config.GemsFarming_CommonCV == 'any':
@@ -144,31 +161,47 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
             level_ocr = LevelOcr(level_grids.buttons,
                                  name='DOCK_LEVEL_OCR', threshold=64)
             list_level = level_ocr.ocr(self.device.image)
-            for button, level in list(zip(card_grids.buttons, list_level))[::-1]:
-                if level == 1:
+            emotion_ocr = Digit(emotion_grids.buttons,
+                                name='DOCK_EMOTION_OCR', threshold=176)
+            list_emotion = emotion_ocr.ocr(self.device.image)
+
+            for button, level, emotion in list(zip(card_grids.buttons, list_level, list_emotion))[::-1]:
+                if 0 < level <= 31 and emotion >= 10:
                     return button
 
             return None
         else:
-            template = globals()[
-                f'TEMPLATE_{self.config.GemsFarming_CommonCV.upper()}']
+            template = {
+                'BOGUE': TEMPLATE_BOGUE,
+                'HERMES': TEMPLATE_HERMES,
+                'LANGLEY': TEMPLATE_LANGLEY,
+                'RANGER': TEMPLATE_RANGER
+            }[f'{self.config.GemsFarming_CommonCV.upper()}']
 
             self.dock_sort_method_dsc_set()
 
-            ocr = LevelOcr(level_grids.buttons, name='DOCK_LEVEL_OCR')
-            list_level = ocr.ocr(self.device.image)
+            level_ocr = LevelOcr(level_grids.buttons, name='DOCK_LEVEL_OCR')
+            list_level = level_ocr.ocr(self.device.image)
+            emotion_ocr = Digit(emotion_grids.buttons,
+                                name='DOCK_EMOTION_OCR', threshold=176)
+            list_emotion = emotion_ocr.ocr(self.device.image)
 
-            for button, level in zip(card_grids.buttons, list_level):
-                if level == 1 and template.match(self.image_crop(button), similarity=SIM_VALUE):
+            for button, level, emotion in zip(card_grids.buttons, list_level, list_emotion):
+                if (0 < level <= 31
+                        and emotion >= 10
+                        and template.match(self.image_crop(button), similarity=SIM_VALUE)):
                     return button
 
             logger.info('No specific CV was found, try reversed order.')
             self.dock_sort_method_dsc_set(False)
 
-            list_level = ocr.ocr(self.device.image)
+            list_level = level_ocr.ocr(self.device.image)
+            list_emotion = emotion_ocr.ocr(self.device.image)
 
-            for button, level in zip(card_grids.buttons, list_level):
-                if level == 1 and template.match(self.image_crop(button), similarity=SIM_VALUE):
+            for button, level, emotion in zip(card_grids.buttons, list_level, list_emotion):
+                if (0 < level <= 31
+                        and emotion >= 10
+                        and template.match(self.image_crop(button), similarity=SIM_VALUE)):
                     return button
 
             return None
@@ -198,11 +231,16 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
         #     if level == 100 and emotion == 150:
         #         return button
         if self.config.SERVER in ['cn']:
-            button, _, _ = max(filter(lambda a: a[1] == 100, button_list), key=lambda a: a[2])
+            max_level = 100
+        else:
+            max_level = 70
+
+        button_list = list(filter(lambda a: a[1] == max_level and a[2] >= 10, button_list))
+        if button_list:
+            button, _, _ = max(button_list, key=lambda a: a[2])
             return button
         else:
-            button, _, _ = max(filter(lambda a: a[1] == 70, button_list), key=lambda a: a[2])
-            return button
+            return None
 
     def flagship_change_execute(self):
         """
@@ -288,6 +326,7 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
 
         while 1:
             self._trigger_lv32 = False
+            is_limit = self.config.StopCondition_RunCount
 
             try:
                 super().run(name=name, folder=folder, total=total)
@@ -303,6 +342,12 @@ class GemsFarming(CampaignRun, Dock, EquipmentChange):
 
                 if self.config.GemsFarming_LowEmotionRetreat:
                     self.vanguard_change()
+                    
+                if is_limit and self.config.StopCondition_RunCount <= 0:
+                    logger.hr('Triggered stop condition: Run count')
+                    self.config.StopCondition_RunCount = 0
+                    self.config.Scheduler_Enable = False
+                    break
 
                 self._trigger_lv32 = False
                 self._trigger_emotion = False
