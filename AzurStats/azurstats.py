@@ -5,6 +5,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from AzurStats.scene.base import SceneBase
+from AzurStats.scene.commission_items import SceneCommissionItems
 from AzurStats.scene.meowfficer_talent import SceneMeowfficerTalent
 from AzurStats.scene.research_items import SceneResearchItems
 from AzurStats.scene.research_projects import SceneResearchProjects
@@ -22,6 +23,7 @@ class ImageUnknown(ImageError):
 
 class SceneWrapper(SceneBase):
     scenes: t.List[SceneBase] = [
+        SceneCommissionItems(),
         SceneResearchProjects(),
         SceneResearchItems(),
         SceneMeowfficerTalent(),
@@ -160,6 +162,11 @@ class AzurStats(SceneWrapper):
     @property
     def DataParseRecords(self):
         return self.all_record
+
+    @cached_property
+    def DataCommissionItems(self):
+        from AzurStats.scene.commission_items import DataCommissionItems
+        return self._filter_data(DataCommissionItems)
 
     @cached_property
     def DataResearchProjects(self):

@@ -81,10 +81,13 @@ class GetItems(ImageBase):
     def is_get_items(self, image):
         return bool(self.classify_server(GET_ITEMS_1, image)) or bool(self.classify_server(GET_ITEMS_2, image))
 
-    def parse_get_items(self, image) -> t.Iterator[Item]:
+    def parse_get_items(self, image, name=True, amount=True, tag=True) -> t.Iterator[Item]:
         """
         Args:
             image (np.ndarray):
+            name (bool):
+            amount (bool):
+            tag (bool):
 
         Yields:
             Item:
@@ -94,7 +97,7 @@ class GetItems(ImageBase):
         if self.item_grid.grids is None:
             return
         else:
-            self.item_grid.predict(image, name=True, amount=True, tag=True)
+            self.item_grid.predict(image, name=name, amount=amount, tag=tag)
             for item in self.item_grid.items:
                 before = str(item)
                 item = self.revise_item(item)

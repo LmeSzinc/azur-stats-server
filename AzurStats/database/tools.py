@@ -14,7 +14,8 @@ class DatabaseTools(AzurStatsDatabase):
         'research_items',
         'research_projects',
         'parse_records',
-        'meowfficer_talents'
+        'meowfficer_talents',
+        'commission_items',
     ]
 
     def chuck_execute(self, sql, seq, chunk_size=1000):
@@ -153,6 +154,11 @@ class DatabaseTools(AzurStatsDatabase):
             WHERE imgid = %s
             """
             self.chuck_execute(sql, records)
+
+    def delete_scene_image_unknown(self):
+        DatabaseTools.ALL_TABLES, backup = ['parse_records'], DatabaseTools.ALL_TABLES
+        self.delete_record('parse_records', 'scene = "ImageUnknown"')
+        DatabaseTools.ALL_TABLES = backup
 
 
 if __name__ == '__main__':

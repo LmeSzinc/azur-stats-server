@@ -3,7 +3,7 @@ from AzurStats.commission.data import LIST_COMMISSION_DATA
 from module.logger import logger
 
 REGEX_ROMAN = re.compile(r'([ⅠⅡⅢⅣⅤⅥ])')
-REGEX_PUNCTUATION = re.compile(r'([ \\\-\'\"“”\.、\(\)（）])')
+REGEX_PUNCTUATION = re.compile(r'[ \\\-\'\"“”\.、\(\)（）]')
 ERROR_TRANSLATE = {
     '曰': '日',
     'CORMBAT': 'COMBAT',
