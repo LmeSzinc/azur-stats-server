@@ -65,6 +65,10 @@ class ItemInfo:
         for tier in [1, 2, 3]:
             for ship in ['Destroyer', 'Cruiser', 'Battleship', 'Carrier']:
                 data[f'Retrofit{ship}T{tier}'] = f'RetrofitT{tier}'
+            for color in ['Red', 'Blue', 'Yellow']:
+                data[f'Book{color}T{tier}'] = f'BookT{tier}'
+            for plate in ['AntiAir', 'General', 'Gun', 'Plane', 'Torpedo']:
+                data[f'Plate{plate}T{tier}'] = f'PlateT{tier}'
         return data
 
     def ItemName_to_ItemGenre(self, item: str) -> str:

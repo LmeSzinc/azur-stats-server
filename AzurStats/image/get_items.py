@@ -98,7 +98,8 @@ class GetItems(ImageBase):
             return
         else:
             self.item_grid.predict(image, name=name, amount=amount, tag=tag)
-            for item in self.item_grid.items:
+            items = self.before_revise_items(self.item_grid.items)
+            for item in items:
                 before = str(item)
                 item = self.revise_item(item)
                 after = str(item)
@@ -124,14 +125,10 @@ class GetItems(ImageBase):
             if not GetItems.ALLOW_TOO_MANY_NEW_TEMPLATE and new >= 2:
                 raise TooManyNewTemplate(f'Extracted {new} new templates')
 
-    def revise_item(self, item):
-        """
-        Args:
-            item (Item):
+    def before_revise_items(self, items: t.List[Item]) -> t.List[Item]:
+        return items
 
-        Returns:
-            Item:
-        """
+    def revise_item(self, item: Item) -> Item:
         return item
 
     def _get_items_load(self, image):

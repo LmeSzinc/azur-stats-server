@@ -20,9 +20,16 @@ class SuffixOcr(Ocr):
 
         return image
 
+    def after_process(self, result):
+        result = super().after_process(result)
+        result = result.replace('1', 'I').replace('J', 'I')
+        return result
+
 
 OCR_SUFFIX = SuffixOcr(
-    COMMISSION_NAME, lang='azur_lane', letter=(255, 255, 255), threshold=128, alphabet='IV', name='OCR_SUFFIX')
+    COMMISSION_NAME, lang='azur_lane', letter=(255, 255, 255), threshold=128, alphabet='IV1J', name='OCR_SUFFIX')
+OCR_SUFFIX_JP = SuffixOcr(
+    COMMISSION_NAME, lang='azur_lane', letter=(255, 255, 255), threshold=128, alphabet='IV1', name='OCR_SUFFIX')
 OCR_NAME_MULTI = {
     'cn': Ocr(COMMISSION_NAME, lang='cnocr', letter=(255, 255, 255), threshold=128),
     'en': Ocr(COMMISSION_NAME, lang='cnocr', letter=(255, 255, 255), threshold=128),
@@ -133,5 +140,8 @@ class CommissionStatus(ImageBase):
 
         """
         name = OCR_NAME_MULTI[self.server].ocr(image)
-        suffix = OCR_SUFFIX.ocr(image)
+        if self.server == 'jp':
+            suffix = OCR_SUFFIX_JP.ocr(image)
+        else:
+            suffix = OCR_SUFFIX.ocr(image)
         return self._commission_name_convert(name, suffix)

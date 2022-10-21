@@ -129,10 +129,23 @@ class AzurStatsDatabase(ItemInfo, ResultOutput):
         Convert a SelectGrids object to csv files.
         If `file`, write csv into it.
         """
+
+        def to_fields(row):
+            if isinstance(row, dict):
+                return list(row.keys())
+            else:
+                return [column.name for column in dataclasses.fields(row)]
+
+        def to_value(row):
+            if isinstance(row, dict):
+                return list(row.values())
+            else:
+                return list(dataclasses.astuple(row))
+
         out = []
         if record:
-            out += [[column.name for column in dataclasses.fields(record[0])]]
-        out += [list(dataclasses.astuple(row)) for row in record]
+            out += [to_fields(record[0])]
+        out += [to_value(r) for r in record]
 
         if file is not None:
             with open(file, 'w', newline='', encoding=encoding) as csv_file:
