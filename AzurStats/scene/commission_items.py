@@ -168,7 +168,7 @@ class SceneCommissionItems(SceneBase, CommissionStatus, GetItems):
         def raise_limit(lower, higher):
             if not (higher >= item.amount >= lower):
                 raise CommissionItemAmountInvalid(
-                    f'{item.name} from {self.finished_commission} should be {lower}~{higher} but get {item.amount}'
+                    f'"{item.name}" from "{self.finished_commission.comm}" should be {lower}~{higher} but get {item.amount}'
                 )
 
         comm = self.finished_commission.comm
