@@ -26,10 +26,23 @@ class SuffixOcr(Ocr):
         return result
 
 
+class SuffixOcrEn(SuffixOcr):
+    def pre_process(self, image):
+        image = super().pre_process(image)
+
+        left = np.where(np.min(image[5:-5, :], axis=0) < 85)[0]
+        if len(left):
+            image = image[:, left[-1] - 12:]
+
+        return image
+
+
 OCR_SUFFIX = SuffixOcr(
     COMMISSION_NAME, lang='azur_lane', letter=(255, 255, 255), threshold=128, alphabet='IV1J', name='OCR_SUFFIX')
 OCR_SUFFIX_JP = SuffixOcr(
-    COMMISSION_NAME, lang='azur_lane', letter=(255, 255, 255), threshold=128, alphabet='IV1', name='OCR_SUFFIX')
+    COMMISSION_NAME, lang='azur_lane', letter=(255, 255, 255), threshold=128, alphabet='IV1', name='OCR_SUFFIX_JP')
+OCR_SUFFIX_EN = SuffixOcrEn(
+    COMMISSION_NAME, lang='azur_lane', letter=(255, 255, 255), threshold=128, alphabet='IV1', name='OCR_SUFFIX_EN')
 OCR_NAME_MULTI = {
     'cn': Ocr(COMMISSION_NAME, lang='cnocr', letter=(255, 255, 255), threshold=128),
     'en': Ocr(COMMISSION_NAME, lang='cnocr', letter=(255, 255, 255), threshold=128),
@@ -142,6 +155,8 @@ class CommissionStatus(ImageBase):
         name = OCR_NAME_MULTI[self.server].ocr(image)
         if self.server == 'jp':
             suffix = OCR_SUFFIX_JP.ocr(image)
+        elif self.server == 'en':
+            suffix = OCR_SUFFIX_EN.ocr(image)
         else:
             suffix = OCR_SUFFIX.ocr(image)
         return self._commission_name_convert(name, suffix)

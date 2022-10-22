@@ -257,7 +257,7 @@ class SceneCommissionItems(SceneBase, CommissionStatus, GetItems):
         if item.name == 'Cubes' and item.amount > 10:
             item.amount %= 10
 
-        if item.name == 'Coins':
+        if item.name == 'Coins' or item.name == 'Oil':
             if comm == 'Awakening Tactical Research Ⅰ':
                 raise_limit(50, 80)
             if comm == 'Awakening Tactical Research Ⅱ':
@@ -275,6 +275,35 @@ class SceneCommissionItems(SceneBase, CommissionStatus, GetItems):
                 raise_limit(70, 100)
             if comm == 'Daily Resource Extraction Ⅵ':
                 raise_limit(140, 220)
+        if item.name == 'Coins':
+            # Major commissions
+            if comm in [
+                'Cargo Transport Ⅲ',
+                'Defense Exercise Ⅲ',
+                'Research Mission Ⅲ',
+                'Self Training Ⅲ',
+                'Tactical Class Ⅲ',
+                'Tool Prep Ⅲ',
+            ]:
+                raise_limit(4500, 6000)
+            # 20~40, 40~85, 70~190
+            if comm == 'Forest Protection Commission Ⅱ':
+                raise_limit(40, 85)
+            if comm == 'Vein Protection Commission Ⅱ':
+                raise_limit(40, 85)
+            if comm == 'Forest Protection Commission Ⅲ':
+                raise_limit(70, 190)
+            if comm == 'Vein Protection Commission Ⅲ':
+                raise_limit(70, 190)
+            # extra_book
+            # Too many samples larger than limit, not determined
+            # if comm == 'Small Merchant Escort':
+            #     raise_limit(210, 350)
+            # if comm == 'Medium Merchant Escort':
+            #     raise_limit(260, 450)
+            if comm == 'Large Merchant Escort':
+                raise_limit(350, 660)
+            # Launch Ceremony
             if comm == 'Small Launch Ceremony':
                 raise_limit(420, 540)
             if comm == 'Fleet Launch Ceremony':
@@ -282,9 +311,31 @@ class SceneCommissionItems(SceneBase, CommissionStatus, GetItems):
             if comm == 'Alliance Launch Ceremony':
                 raise_limit(1760, 2000)
         if item.name == 'Oil':
-            if comm == 'Awakening Tactical Research Ⅰ':
-                raise_limit(50, 80)
-            if comm == 'Awakening Tactical Research Ⅱ':
-                raise_limit(100, 170)
+            # Oil extraction
+            if comm == 'Small-scale Oil Extraction Ⅰ':
+                raise_limit(15, 30)
+            if comm == 'Small-scale Oil Extraction Ⅱ':
+                raise_limit(20, 40)
+            if comm == 'Small-scale Oil Extraction Ⅲ':
+                raise_limit(25, 50)
+            if comm == 'Mid-scale Oil Extraction Ⅰ':
+                raise_limit(80, 140)
+            if comm == 'Mid-scale Oil Extraction Ⅱ':
+                raise_limit(100, 180)
+            if comm == 'Mid-scale Oil Extraction Ⅲ':
+                raise_limit(120, 220)
+            if comm == 'Large-scale Oil Extraction Ⅰ':
+                raise_limit(150, 300)
+            if comm == 'Large-scale Oil Extraction Ⅱ':
+                raise_limit(200, 400)
+            if comm == 'Large-scale Oil Extraction Ⅲ':
+                raise_limit(250, 500)
+            # extra_drill
+            if comm == 'Coastal Defense Patrol':
+                raise_limit(12, 28)
+            if comm == 'Buoy Inspection':
+                raise_limit(15, 35)
+            if comm == 'Frontier Defense Patrol':
+                raise_limit(25, 55)
 
         return item

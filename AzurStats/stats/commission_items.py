@@ -138,9 +138,21 @@ class DataCommissionItemRow:
 
     @cached_property
     def drop_rate(self):
+        # return (self.done_count + self.perfect_count) / self.samples
+        # 0~2
         if self.comm == 'Short-range Sailing Training' and self.item == 'CognitiveChips':
-            # return (self.done_count + self.perfect_count) / self.samples
             return 2 / 3
+        if self.item == 'DecorCoins':
+            # 0~1
+            if self.comm == 'Forest Protection Commission Ⅰ':
+                return 1 / 2
+            if self.comm == 'Vein Protection Commission Ⅰ':
+                return 1 / 2
+            if self.comm == 'Small-scale Oil Extraction Ⅰ':
+                return 1 / 2
+            # 0~2
+            if self.comm == 'Small-scale Oil Extraction Ⅱ':
+                return 2 / 3
         return 1
 
     @cached_property
@@ -220,7 +232,7 @@ class DataCommissionItemRow:
             过期时间=self.expiration,
             物品名称=self.item,
             样本数=self.samples,
-            大成功概率=self.perfect_rate,
+            大成功概率=self.perfect_rate if self.perfect_rate < 1 else '',
             掉落范围=f'{self.min}~{self.max}',
             单次掉落=self.avg,
             时均掉落=self.hourly
@@ -285,14 +297,24 @@ class StatsResearchItem(AzurStatsDatabase):
                 deep_set(data, keys=path, value=filter_row)
             filter_row.load_drop(r)
 
+        def is_daily_bonus_item(item):
+            if item in ['Cubes', 'Drills']:
+                return True
+            if item.startswith('Book') or item.startswith('Retrofit') or item.startswith('Box'):
+                return True
+            return False
+
         # Backup samples count
         samples_done = {}
         samples_perfect = {}
+        daily_bonus = {}
         for row in self.drop_data:
             if row.status == 1:
                 samples_perfect[row.comm] = max(samples_perfect.get(row.comm, 0), row.samples)
             elif row.status == 0:
                 samples_done[row.comm] = max(samples_done.get(row.comm, 0), row.samples)
+            if row.status == 1 and is_daily_bonus_item(row.item):
+                daily_bonus[row.comm] = daily_bonus.get(row.comm, 0) + row.drop_count
 
         # Create new objects and its structure.
         for row in self.drop_data:
@@ -303,7 +325,7 @@ class StatsResearchItem(AzurStatsDatabase):
 
         # Recover samples count
         for path, row in deep_iter(data, depth=2):
-            _, comm = path
+            item, comm = path
             row.done_samples = samples_done.get(comm, 0)
             row.perfect_samples = samples_perfect.get(comm, 0)
 
@@ -312,6 +334,10 @@ class StatsResearchItem(AzurStatsDatabase):
                 _ = row.drop_rate
                 genre_row = deep_get(data, keys=[item_genre, comm])
                 row.drop_rate = (row.done_count + row.perfect_count) / (genre_row.done_count + genre_row.perfect_count)
+            if comm.startswith('Awakening Tactical Research') or comm.startswith('Daily Resource Extraction'):
+                if is_daily_bonus_item(item):
+                    _ = row.drop_rate
+                    row.drop_rate = row.perfect_count / daily_bonus[row.comm]
 
         return data
 
@@ -319,7 +345,10 @@ class StatsResearchItem(AzurStatsDatabase):
 if __name__ == '__main__':
     self = StatsResearchItem()
     # self.record_to_json(self.drop_data, './commission_items.json')
-    # self.record_to_csv(self.drop_result.sort('genre', 'duration', 'comm'), 'commission_items.csv', encoding='gbk')
+
+    # out = SelectedGrids([v for _, v in deep_iter(self.drop_result, depth=2)])
+    # self.record_to_csv(out.sort('genre', 'duration', 'comm'), 'commission_items.csv', encoding='gbk')
+
     out = SelectedGrids([v for _, v in deep_iter(self.drop_result, depth=2)])
     out = out.select(is_show=True).sort('genre', 'duration', 'comm')
     self.record_to_csv(SelectedGrids(out.get('output_cn')), 'commission_items.csv', encoding='gbk')
