@@ -99,7 +99,7 @@ class SceneResearchItems(SceneBase, ResearchList, ResearchQueue, GetItems):
         if item.name == 'High_Performance_Hydraulic_Steering_Gear_T0':
             # 111 -> 1
             item.amount %= 10
-        if item.amount == 'Rammer_T3':
+        if item.name == 'Rammer_T3':
             # 41 -> 1
             item.amount %= 10
 
