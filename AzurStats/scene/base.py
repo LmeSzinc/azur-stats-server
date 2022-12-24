@@ -54,6 +54,7 @@ class SceneBase(ImageBase):
         super().clear_cache()
         del_cached_property(self, 'first')
         del_cached_property(self, 'followings')
+        del_cached_property(self, 'last')
         del_cached_property(self, 'imgid')
 
     def parse_scene(self):
@@ -83,6 +84,13 @@ class SceneBase(ImageBase):
         The second screenshots and the behind
         """
         return self.images[1:]
+
+    @cached_property
+    def last(self) -> np.ndarray:
+        """
+        The last screenshot of a drop record
+        """
+        return self.images[-1]
 
     @cached_property
     def imgid(self) -> str:

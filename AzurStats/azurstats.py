@@ -9,6 +9,7 @@ from AzurStats.scene.commission_items import SceneCommissionItems
 from AzurStats.scene.meowfficer_talent import SceneMeowfficerTalent
 from AzurStats.scene.research_items import SceneResearchItems
 from AzurStats.scene.research_projects import SceneResearchProjects
+from AzurStats.scene.operation_siren import SceneOperationSiren
 from module.base.decorator import cached_property
 from module.config.utils import iter_folder
 from module.device.method.utils import remove_prefix
@@ -40,7 +41,7 @@ class SceneWrapper(SceneBase):
         """
         self.last_data = None
         super().load_file(file)
-        for scene in SceneWrapper.scenes:
+        for scene in self.__class__.scenes:
             scene.load_file(self.images)
             scene.__dict__['imgid'] = self.imgid
 
@@ -48,7 +49,7 @@ class SceneWrapper(SceneBase):
         """
         Extract item templates from all scenes
         """
-        for scene in SceneWrapper.scenes:
+        for scene in self.__class__.scenes:
             scene.extract_assets()
 
     def parse_scene(self):
@@ -60,7 +61,7 @@ class SceneWrapper(SceneBase):
             ImageUnknown: If no scene matched this image
         """
         self.last_data = None
-        for scene in SceneWrapper.scenes:
+        for scene in self.__class__.scenes:
             try:
                 for data in scene.parse_scene():
                     self.last_data = data
@@ -182,6 +183,17 @@ class AzurStats(SceneWrapper):
     def DataMeowfficerTalents(self):
         from AzurStats.scene.meowfficer_talent import DataMeowfficerTalents
         return self._filter_data(DataMeowfficerTalents)
+
+
+class AzurStatsOpsi(AzurStats):
+    scenes = [
+        SceneOperationSiren(),
+    ]
+
+    @cached_property
+    def DataOpsiItems(self):
+        from AzurStats.scene.operation_siren import DataOpsiItems
+        return self._filter_data(DataOpsiItems)
 
 
 if __name__ == '__main__':
