@@ -10,6 +10,7 @@ from AzurStats.scene.meowfficer_talent import SceneMeowfficerTalent
 from AzurStats.scene.research_items import SceneResearchItems
 from AzurStats.scene.research_projects import SceneResearchProjects
 from AzurStats.scene.operation_siren import SceneOperationSiren
+from AzurStats.scene.battle_items import SceneBattleItems
 from module.base.decorator import cached_property
 from module.config.utils import iter_folder
 from module.device.method.utils import remove_prefix
@@ -194,6 +195,17 @@ class AzurStatsOpsi(AzurStats):
     def DataOpsiItems(self):
         from AzurStats.scene.operation_siren import DataOpsiItems
         return self._filter_data(DataOpsiItems)
+
+
+class AzurStatsBattle(AzurStats):
+    scenes = [
+        SceneBattleItems(),
+    ]
+
+    @cached_property
+    def DataBattleItems(self):
+        from AzurStats.scene.battle_items import DataBattleItems
+        return self._filter_data(DataBattleItems)
 
 
 if __name__ == '__main__':
